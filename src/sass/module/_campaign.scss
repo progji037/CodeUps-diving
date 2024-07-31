@@ -38,7 +38,7 @@
     position: absolute;
     right: rem(-130);
     transform: translateX(-50%);
-    top: rem(21);
+    top: rem(22);
     display: inline-block;
     width: rem(270);
   }
@@ -301,7 +301,7 @@
   text-align: center;
 
   @include mq("md") {
-    margin-top: rem(76);
+    margin-top: rem(70);
     // padding-top: rem(76);
   }
 }

@@ -1,12 +1,12 @@
 @use "global" as *;
 
-.colorbox{
+.mask-slide {
     position: relative;
     // width: 80%;
     // margin: 30px auto 30px;
 }
 
-.color{
+.mask {
     position: absolute;
     top: 0;
     right: 0;
@@ -16,7 +16,7 @@
     background-color: #408F95;
 }
 
-.colorbox img{
+.mask-slide img {
     display: block;
     width: 100%;
 }

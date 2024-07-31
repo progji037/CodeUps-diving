@@ -1,0 +1,34 @@
+@use "global" as *;
+
+.card {}
+
+.card__figure img {
+  aspect-ratio: 301/201;
+  object-fit: cover;
+}
+
+.card__header {
+  margin-top: rem(24);
+}
+
+
+.card__date {
+  font-size: rem(12);
+  line-height: calc(18 / 12);
+  font-family: $second-font-family;
+}
+
+.card__heading {
+  line-height: calc(24 / 16);
+  font-weight: 600;
+  padding-bottom: rem(4);
+  border-bottom: solid 1px $green-blue;
+}
+
+.card__body {
+  margin-top: rem(15);
+}
+
+.card__text {
+  font-weight: 500;
+}
