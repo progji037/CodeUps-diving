@@ -34,8 +34,15 @@
   <!-- JavaScript -->
   <!-- jquery -->
   <script defer src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+  <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script> -->
+  <!-- <script src="https://code.jquery.com/jquery-3.6.0.js"></script> -->
   <script defer src="//cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
   <script defer src="//cdnjs.cloudflare.com/ajax/libs/jquery.inview/1.0.0/jquery.inview.min.js"></script>
+
+  <!-- <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"
+    ></script> -->
   <script defer src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
   <script defer src="./assets/js/script.js"></script>
 </head>
@@ -198,15 +205,15 @@
       <div class="low-mv__contents">
         <div class="low-mv__image">
           <picture>
-            <source srcset="/assets/images/common/campaign-mv-pc.jpg" media="(min-width: 768px)" />
+            <source srcset="/assets/images/common/page-aboutus-img-pc.jpg" media="(min-width: 768px)" />
             <!-- 幅768px以上なら表示 -->
-            <source srcset="/assets/images/common/campaign-mv-sp.jpg" media="(max-width: 767px)" />
+            <source srcset="/assets/images/common/page-aboutus-img-sp.jpg" media="(max-width: 767px)" />
             <!-- 幅767px以下なら表示 -->
-            <img src="./assets/images/common/campaign-mv-sp.jpg" alt="" />
+            <img src="./assets/images/common/page-aboutus-img-sp.jpg" alt="" />
           </picture>
         </div>
         <div class="low-mv__title ">
-          <h1 class="low-mv__main-title">Campaign</h1>
+          <h1 class="low-mv__main-title">About us</h1>
         </div>
       </div>
     </section>
@@ -222,226 +229,67 @@
             <div class="breadcrumb__page-arrow">
               <img src="./assets/images/common/breadcrumb-arrow.png" alt="">
             </div>
-            <div class="breadcrumb__page-text">キャンペーン</div>
+            <div class="breadcrumb__page-text">私たちについて</div>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- キャンペーン -->
-    <section class="page-campaign">
-      <div class="campaign-low">
-        <div class="campaign-low__inner inner">
-          <!-- tab -->
-          <div class="campaign-low__tab">
-            <div class="tab-links">
-              <ul class="tab-links__lists">
-                <li class="tab-link__list"><a href="#">ALL</a></li>
-                <li class="tab-link__list"><a href="#">ライセンス講習</a></li>
-                <li class="tab-link__list"><a href="#">ファンダイビング</a></li>
-                <li class="tab-link__list"><a href="#">体験ダイビング</a></li>
-              </ul>
-            </div>
+    <section class="about-low page-about">
+      <div class="about-low__inner inner">
+        <div class="about-low__body">
+          <div class="about-low__main">
+            <picture>
+              <source srcset="./assets/images/common/ocean2-pc.jpg" media="(min-width: 768px)" />
+              <!-- 幅768px以上なら表示 -->
+              <source srcset="./assets/images/common/ocean2-sp.jpg" media="(max-width: 767px)" />
+              <!-- 幅767px以下なら表示 -->
+              <img src="./assets/images/common/ocean2-sp.jpg" alt="" />
+            </picture>
           </div>
-          <!-- campaign-card -->
-          <div class="campaign-card__wrap--low">
+          <div class="about-low__sub">
+            <img src="./assets/images/common/ocean1-pc.jpg" alt="">
+          </div>
+          <div class="about-low__content-title">Dive into <br />the Ocean</div>
+          <div class="about-low__text">
+            <p>
+              ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。<br />
+            </p>
+            <p>
+              ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- /.about -->
 
-              <!-- 1 -->
-              <div class="campaign-card">
-                <div class="campaign-card__image">
-                  <img src="assets/images/common/campaign1-sp.jpg" alt="" />
-                </div>
-                <div class="campaign-card__textbox">
-                  <div class="campaign-card__header">
-                    <div class="campaign-card__tag">ライセンス講習</div>
-                    <div class="campaign-card__head">ライセンス取得</div>
-                  </div>
-                  <div class="campaign-card__body">
-                    <div class="campaign-card__title">
-                      <p>全部コミコミ(お一人様)</p>
-                    </div>
-                    <div class="campaign-card__price">
-                      <div class="campaign-card__markdown">¥56,000</div>
-                      <div class="campaign-card__reduced-price">
-                        ¥46,000
-                      </div>
-                    </div>
-                    <div class="campaign-card__detail">
-                      <div class="campaign-card__text">
-                        <p>ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。</p>
-                        <p>
-                          ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキスト
-                        </p>
-                      </div>
-                      <div class="campaign-card__visit">
-                        <div class="campaign-card__period">
-                          <span>2023/6/1-9/30</span>
-                          <p>ご予約・お問い合わせはコチラ</p>
-                        </div>
-                        <div class="campaign__link--low">
-                          <a class="button" href="">
-                            Contact us
-                            <span class="arrow"></span>
-                          </a>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <!-- 2-->
-              <div class="campaign-card">
-                <div class="campaign-card__image">
-                  <img src="assets/images/common/campaign2-sp.jpg" alt="" />
-                </div>
-                <div class="campaign-card__textbox">
-                  <div class="campaign-card__header">
-                    <div class="campaign-card__tag">体験ダイビング</div>
-                    <div class="campaign-card__head">
-                      貸切体験ダイビング
-                    </div>
-                  </div>
-                  <div class="campaign-card__body">
-                    <div class="campaign-card__title">
-                      <p>全部コミコミ(お一人様)</p>
-                    </div>
-                    <div class="campaign-card__price">
-                      <div class="campaign-card__markdown">¥24,000</div>
-                      <div class="campaign-card__reduced-price">
-                        ¥18,000
-                      </div>
-                    </div>
-                    <div class="campaign-card__detail">
-                      <div class="campaign-card__text">
-                        <p>ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。</p>
-                        <p>
-                          ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキスト
-                        </p>
-                      </div>
-                      <div class="campaign-card__visit">
-                        <div class="campaign-card__period">
-                          <span>2023/6/1-9/30</span>
-                          <p>ご予約・お問い合わせはコチラ</p>
-                        </div>
-                        <div class="campaign__link--low">
-                          <a class="button" href="">
-                            Contact us
-                            <span class="arrow"></span>
-                          </a>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <!-- 3  -->
-              <div class="campaign__card">
-                <div class="campaign-card">
-                  <div class="campaign-card__image">
-                    <img src="assets/images/common/campaign3-sp.jpg" alt="" />
-                  </div>
-                  <div class="campaign-card__textbox">
-                    <div class="campaign-card__header">
-                      <div class="campaign-card__tag">体験ダイビング</div>
-                      <div class="campaign-card__head">ナイトダイビング</div>
-                    </div>
-                    <div class="campaign-card__body">
-                      <div class="campaign-card__title">
-                        <p>全部コミコミ(お一人様)</p>
-                      </div>
-                      <div class="campaign-card__price">
-                        <div class="campaign-card__markdown">¥10,000</div>
-                        <div class="campaign-card__reduced-price">¥8,000</div>
-                      </div>
-                      <div class="campaign-card__detail">
-                        <div class="campaign-card__text">
-                          <p>ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。</p>
-                          <p>
-                            ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキスト
-                          </p>
-                        </div>
-                        <div class="campaign-card__visit">
-                          <div class="campaign-card__period">
-                            <span>2023/6/1-9/30</span>
-                            <p>ご予約・お問い合わせはコチラ</p>
-                          </div>
-                          <div class="campaign__link--low">
-                            <a class="button" href="">
-                              Contact us
-                              <span class="arrow"></span>
-                            </a>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <!-- 4 -->
-              <div class="campaign-card">
-                <div class="campaign-card__image">
-                  <img src="assets/images/common/campaign4-sp.jpg" alt="" />
-                </div>
-                <div class="campaign-card__textbox">
-                  <div class="campaign-card__header">
-                    <div class="campaign-card__tag">ファンダイビング</div>
-                    <div class="campaign-card__head">
-                      貸切ファンダイビング
-                    </div>
-                  </div>
-                  <div class="campaign-card__body">
-                    <div class="campaign-card__title">
-                      <p>全部コミコミ(お一人様)</p>
-                    </div>
-                    <div class="campaign-card__price">
-                      <div class="campaign-card__markdown">¥20,000</div>
-                      <div class="campaign-card__reduced-price">
-                        ¥16,000
-                      </div>
-                    </div>
-                    <div class="campaign-card__detail">
-                      <div class="campaign-card__text">
-                        <p>ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。</p>
-                        <p>
-                          ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキスト
-                        </p>
-                      </div>
-                      <div class="campaign-card__visit">
-                        <div class="campaign-card__period">
-                          <span>2023/6/1-9/30</span>
-                          <p>ご予約・お問い合わせはコチラ</p>
-                        </div>
-                        <div class="campaign__link--low">
-                          <a class="button" href="">
-                            Contact us
-                            <span class="arrow"></span>
-                          </a>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
+    <section class="gallery">
+      <div class="page-galley">
+        <div class="galley__inner inner">
+          <div class="galley__title section-title">
+            <div class="section-title__main">Gallery</div>
+            <h2 class="section-title__sub">フォト</h2>
           </div>
-          <div class="campaign-card__page">
-            <div class="pagination">
-              <div class="pagination__list pagination__list--left"><a href="#"></a></div>
-              <ul class="pagination__lists">
-                <li class="pagination__list"><a href="#">1</a></li>
-                <li class="pagination__list"><a href="#">2</a></li>
-                <li class="pagination__list"><a href="#">3</a></li>
-                <li class="pagination__list"><a href="#">4</a></li>
-                <li class="pagination__list pagination__list--pc"><a href="#">5</a></li>
-                <li class="pagination__list pagination__list--pc"><a href="#">6</a></li>
-              </ul>
-              <div class="pagination__list pagination__list--right"><a href="#"></a></div>
-            </div>
+          <div class="galley__box gallery-photos ">
+            <div class="gallery-photo__image gallery-photo__image--1"><img src="./assets/images/common/gallery1.jpg"
+                alt=""></div>
+            <div class="gallery-photo__image gallery-photo__image--2"><img src="./assets/images/common/gallery2.jpg"
+                alt=""></div>
+            <div class="gallery-photo__image gallery-photo__image--3"><img src="./assets/images/common/gallery3.jpg"
+                alt=""></div>
+            <div class="gallery-photo__image gallery-photo__image--4"><img src="./assets/images/common/gallery4.jpg"
+                alt=""></div>
+            <div class="gallery-photo__image gallery-photo__image--5"><img src="./assets/images/common/gallery5.jpg"
+                alt=""></div>
+            <div class="gallery-photo__image gallery-photo__image--6"><img src="./assets/images/common/gallery6.jpg"
+                alt=""></div>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="contact page-contact">
+    <section class="contact top-contact">
       <div class="contact__wrapper">
         <div class="contact__inner inner">
           <div class="contact__infobox">

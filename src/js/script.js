@@ -100,7 +100,7 @@ $(function () {
 var box = $(".mask-slide"),
   speed = 700;
 
-//.colorboxの付いた全ての要素に対して下記の処理を行う
+//.maskの付いた全ての要素に対して下記の処理を行う
 box.each(function () {
   $(this).append('<div class="mask"></div>');
   var mask = $(this).find($(".mask")),
@@ -154,4 +154,46 @@ $(document).ready(function () {
       $targetElement.fadeOut();
     }, 3000); // フェードアウトアニメーションの時間と同じにする
   }, delay);
+});
+
+/* .archive-pulldown
+-------------------------------------------------------------*/
+
+$(document).ready(function () {
+  $(".blog-low__archive-item").hide();
+
+  $(".blog-low__archive-head").click(function (e) {
+    e.preventDefault();
+
+    var $this = $(this);
+    var $item = $this.next(".blog-low__archive-item");
+
+    // クリック時に即座にクラスをトグル
+    $this.toggleClass("is-open");
+
+    // スライドトグルアニメーション
+    $item.slideToggle(300); // 300ミリ秒でアニメーション
+  });
+});
+
+/* .page-info タブ切り替え
+-------------------------------------------------------------*/
+$(document).ready(function () {
+  $(".info-low__tab-list").click(function (e) {
+    e.preventDefault();
+    var tabId = $(this).data("tab");
+
+    // すべてのタブコンテンツをフェードアウト
+    $(".info-low__contents.active").fadeOut(300, function() {
+      // フェードアウト完了後、active クラスを削除
+      $(this).removeClass("active");
+
+      // クリックされたタブに対応するコンテンツを表示してフェードイン
+      $("#" + tabId).addClass("active").fadeIn(300);
+    });
+
+    // クリックされたボタンにアクティブクラスを追加し、他のボタンから削除する
+    $(".info-low__tab-list").removeClass("active");
+    $(this).addClass("active");
+  });
 });

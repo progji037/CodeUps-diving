@@ -34,8 +34,15 @@
   <!-- JavaScript -->
   <!-- jquery -->
   <script defer src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+  <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script> -->
+  <!-- <script src="https://code.jquery.com/jquery-3.6.0.js"></script> -->
   <script defer src="//cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
   <script defer src="//cdnjs.cloudflare.com/ajax/libs/jquery.inview/1.0.0/jquery.inview.min.js"></script>
+
+  <!-- <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"
+    ></script> -->
   <script defer src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
   <script defer src="./assets/js/script.js"></script>
 </head>
@@ -192,21 +199,23 @@
   </header>
   <!-- drawer-menu -->
 
+
+
   <main>
-    <!-- 下層ページのメインビュー -->
-    <section class="low-mv">
+     <!-- 下層ページのメインビュー -->
+     <section class="low-mv">
       <div class="low-mv__contents">
         <div class="low-mv__image">
           <picture>
-            <source srcset="/assets/images/common/campaign-mv-pc.jpg" media="(min-width: 768px)" />
+            <source srcset="/assets/images/common/page-price-mv-pc.jpg" media="(min-width: 768px)" />
             <!-- 幅768px以上なら表示 -->
-            <source srcset="/assets/images/common/campaign-mv-sp.jpg" media="(max-width: 767px)" />
+            <source srcset="/assets/images/common/page-price-mv-sp.jpg" media="(max-width: 767px)" />
             <!-- 幅767px以下なら表示 -->
-            <img src="./assets/images/common/campaign-mv-sp.jpg" alt="" />
+            <img src="./assets/images/common/page-price-mv-sp.jpg" alt="" />
           </picture>
         </div>
         <div class="low-mv__title ">
-          <h1 class="low-mv__main-title">Campaign</h1>
+          <h1 class="low-mv__main-title">Blog</h1>
         </div>
       </div>
     </section>
@@ -222,226 +231,93 @@
             <div class="breadcrumb__page-arrow">
               <img src="./assets/images/common/breadcrumb-arrow.png" alt="">
             </div>
-            <div class="breadcrumb__page-text">キャンペーン</div>
+            <div class="breadcrumb__page-text">私たちについて</div>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- キャンペーン -->
-    <section class="page-campaign">
-      <div class="campaign-low">
-        <div class="campaign-low__inner inner">
-          <!-- tab -->
-          <div class="campaign-low__tab">
-            <div class="tab-links">
-              <ul class="tab-links__lists">
-                <li class="tab-link__list"><a href="#">ALL</a></li>
-                <li class="tab-link__list"><a href="#">ライセンス講習</a></li>
-                <li class="tab-link__list"><a href="#">ファンダイビング</a></li>
-                <li class="tab-link__list"><a href="#">体験ダイビング</a></li>
-              </ul>
+    
+    <section class="price top-price">
+      <div class="price__inner inner">
+        <div class="price__header section-title">
+          <div class="section-title__main">Price</div>
+          <h2 class="section-title__sub">料金一覧</h2>
+        </div>
+        <div class="price__content">
+          <div class="price__image">
+            <div class="mask-slide">
+              <picture>
+                <source srcset="./assets/images/common/price-pc.jpg" media="(min-width: 768px)" />
+                <!-- 幅768px以上なら表示 -->
+                <source srcset="./assets/images/common/price-ocean3-sp.jpg" media="(max-width: 767px)" />
+                <!-- 幅767px以下なら表示 -->
+                <img src="./assets/images/common/price-ocean3-sp.jpg" alt="" />
+              </picture>
             </div>
           </div>
-          <!-- campaign-card -->
-          <div class="campaign-card__wrap--low">
-
-              <!-- 1 -->
-              <div class="campaign-card">
-                <div class="campaign-card__image">
-                  <img src="assets/images/common/campaign1-sp.jpg" alt="" />
-                </div>
-                <div class="campaign-card__textbox">
-                  <div class="campaign-card__header">
-                    <div class="campaign-card__tag">ライセンス講習</div>
-                    <div class="campaign-card__head">ライセンス取得</div>
-                  </div>
-                  <div class="campaign-card__body">
-                    <div class="campaign-card__title">
-                      <p>全部コミコミ(お一人様)</p>
-                    </div>
-                    <div class="campaign-card__price">
-                      <div class="campaign-card__markdown">¥56,000</div>
-                      <div class="campaign-card__reduced-price">
-                        ¥46,000
-                      </div>
-                    </div>
-                    <div class="campaign-card__detail">
-                      <div class="campaign-card__text">
-                        <p>ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。</p>
-                        <p>
-                          ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキスト
-                        </p>
-                      </div>
-                      <div class="campaign-card__visit">
-                        <div class="campaign-card__period">
-                          <span>2023/6/1-9/30</span>
-                          <p>ご予約・お問い合わせはコチラ</p>
-                        </div>
-                        <div class="campaign__link--low">
-                          <a class="button" href="">
-                            Contact us
-                            <span class="arrow"></span>
-                          </a>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <!-- 2-->
-              <div class="campaign-card">
-                <div class="campaign-card__image">
-                  <img src="assets/images/common/campaign2-sp.jpg" alt="" />
-                </div>
-                <div class="campaign-card__textbox">
-                  <div class="campaign-card__header">
-                    <div class="campaign-card__tag">体験ダイビング</div>
-                    <div class="campaign-card__head">
-                      貸切体験ダイビング
-                    </div>
-                  </div>
-                  <div class="campaign-card__body">
-                    <div class="campaign-card__title">
-                      <p>全部コミコミ(お一人様)</p>
-                    </div>
-                    <div class="campaign-card__price">
-                      <div class="campaign-card__markdown">¥24,000</div>
-                      <div class="campaign-card__reduced-price">
-                        ¥18,000
-                      </div>
-                    </div>
-                    <div class="campaign-card__detail">
-                      <div class="campaign-card__text">
-                        <p>ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。</p>
-                        <p>
-                          ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキスト
-                        </p>
-                      </div>
-                      <div class="campaign-card__visit">
-                        <div class="campaign-card__period">
-                          <span>2023/6/1-9/30</span>
-                          <p>ご予約・お問い合わせはコチラ</p>
-                        </div>
-                        <div class="campaign__link--low">
-                          <a class="button" href="">
-                            Contact us
-                            <span class="arrow"></span>
-                          </a>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <!-- 3  -->
-              <div class="campaign__card">
-                <div class="campaign-card">
-                  <div class="campaign-card__image">
-                    <img src="assets/images/common/campaign3-sp.jpg" alt="" />
-                  </div>
-                  <div class="campaign-card__textbox">
-                    <div class="campaign-card__header">
-                      <div class="campaign-card__tag">体験ダイビング</div>
-                      <div class="campaign-card__head">ナイトダイビング</div>
-                    </div>
-                    <div class="campaign-card__body">
-                      <div class="campaign-card__title">
-                        <p>全部コミコミ(お一人様)</p>
-                      </div>
-                      <div class="campaign-card__price">
-                        <div class="campaign-card__markdown">¥10,000</div>
-                        <div class="campaign-card__reduced-price">¥8,000</div>
-                      </div>
-                      <div class="campaign-card__detail">
-                        <div class="campaign-card__text">
-                          <p>ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。</p>
-                          <p>
-                            ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキスト
-                          </p>
-                        </div>
-                        <div class="campaign-card__visit">
-                          <div class="campaign-card__period">
-                            <span>2023/6/1-9/30</span>
-                            <p>ご予約・お問い合わせはコチラ</p>
-                          </div>
-                          <div class="campaign__link--low">
-                            <a class="button" href="">
-                              Contact us
-                              <span class="arrow"></span>
-                            </a>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <!-- 4 -->
-              <div class="campaign-card">
-                <div class="campaign-card__image">
-                  <img src="assets/images/common/campaign4-sp.jpg" alt="" />
-                </div>
-                <div class="campaign-card__textbox">
-                  <div class="campaign-card__header">
-                    <div class="campaign-card__tag">ファンダイビング</div>
-                    <div class="campaign-card__head">
-                      貸切ファンダイビング
-                    </div>
-                  </div>
-                  <div class="campaign-card__body">
-                    <div class="campaign-card__title">
-                      <p>全部コミコミ(お一人様)</p>
-                    </div>
-                    <div class="campaign-card__price">
-                      <div class="campaign-card__markdown">¥20,000</div>
-                      <div class="campaign-card__reduced-price">
-                        ¥16,000
-                      </div>
-                    </div>
-                    <div class="campaign-card__detail">
-                      <div class="campaign-card__text">
-                        <p>ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。</p>
-                        <p>
-                          ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキスト
-                        </p>
-                      </div>
-                      <div class="campaign-card__visit">
-                        <div class="campaign-card__period">
-                          <span>2023/6/1-9/30</span>
-                          <p>ご予約・お問い合わせはコチラ</p>
-                        </div>
-                        <div class="campaign__link--low">
-                          <a class="button" href="">
-                            Contact us
-                            <span class="arrow"></span>
-                          </a>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-          </div>
-          <div class="campaign-card__page">
-            <div class="pagination">
-              <div class="pagination__list pagination__list--left"><a href="#"></a></div>
-              <ul class="pagination__lists">
-                <li class="pagination__list"><a href="#">1</a></li>
-                <li class="pagination__list"><a href="#">2</a></li>
-                <li class="pagination__list"><a href="#">3</a></li>
-                <li class="pagination__list"><a href="#">4</a></li>
-                <li class="pagination__list pagination__list--pc"><a href="#">5</a></li>
-                <li class="pagination__list pagination__list--pc"><a href="#">6</a></li>
-              </ul>
-              <div class="pagination__list pagination__list--right"><a href="#"></a></div>
+          <!-- pictureタグ必要？ -->
+          <div class="price__lists">
+            <!-- flexとflex wrapをつかう　w%85・15指定 -->
+            <div class="price__list">
+              <div class="price__list-title">ライセンス講習</div>
+              <dl class="price__costs">
+                <dt>オープンウォーターダイバーコース</dt>
+                <dd>¥50,000</dd>
+                <dt>アドバンスドオープンウォーターコース</dt>
+                <dd>¥60,000</dd>
+                <dt>レスキュー＋EFRコース</dt>
+                <dd>¥70,000</dd>
+              </dl>
+            </div>
+            <div class="price__list">
+              <div class="price__list-title">体験ダイビング</div>
+              <dl class="price__costs">
+                <dt>ビーチ体験ダイビング(半日)</dt>
+                <dd>¥7,000</dd>
+                <dt>ビーチ体験ダイビング(1日)</dt>
+                <dd>¥14,000</dd>
+                <dt>ボート体験ダイビング(半日)</dt>
+                <dd>¥10,000</dd>
+                <dt>ボート体験ダイビング(1日)</dt>
+                <dd>¥18,000</dd>
+              </dl>
+            </div>
+            <div class="price__list">
+              <div class="price__list-title">ファンダイビング</div>
+              <dl class="price__costs">
+                <dt>ビーチダイビング(2ダイブ)</dt>
+                <dd>¥14,000</dd>
+                <dt>ボートダイビング(2ダイブ)</dt>
+                <dd>¥18,000</dd>
+                <dt>スペシャルダイビング(2ダイブ)</dt>
+                <dd>¥24,000</dd>
+                <dt>ナイトダイビング(1ダイブ)</dt>
+                <dd>¥10,000</dd>
+              </dl>
+            </div>
+            <div class="price__list">
+              <div class="price__list-title">スペシャルダイビング</div>
+              <dl class="price__costs">
+                <dt>貸切ダイビング(2ダイブ)</dt>
+                <dd>¥24,000</dd>
+                <dt>1日ダイビング(3ダイブ)</dt>
+                <dd>¥32,000</dd>
+              </dl>
             </div>
           </div>
         </div>
+        <div class="price__link">
+          <a class="button" href="">
+            View more
+            <span class="arrow"></span>
+          </a>
+        </div>
       </div>
     </section>
+    <!-- /.price -->
 
-    <section class="contact page-contact">
+    <section class="contact top-contact">
       <div class="contact__wrapper">
         <div class="contact__inner inner">
           <div class="contact__infobox">

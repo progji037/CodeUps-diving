@@ -29,6 +29,33 @@
   margin-top: rem(15);
 }
 
+.card__lists {
+  margin-top: rem(24);
+
+  @include mq('md') {
+    margin-top: rem(40);
+  }
+}
+
+.card__list a {
+  display: flex;
+  align-items: center;
+  gap: rem(9);
+}
+
+
+
+.card__list img {
+  width: rem(18);
+  height: rem(18);
+}
+
 .card__text {
   font-weight: 500;
+  margin-top: rem(24);
+
+  @include mq('md') {
+    margin-top: rem(40);
+
+  }
 }

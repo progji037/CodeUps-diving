@@ -1,5 +1,9 @@
 @use "global" as *;
 
+.section-title{
+  text-align: center;
+}
+
 .section-title__main {
   font-weight: normal;
   font-family: $second-font-family;
@@ -49,4 +53,3 @@
     color: #fff;
   }
 }
-
