@@ -197,3 +197,12 @@ $(document).ready(function () {
     $(this).addClass("active");
   });
 });
+
+/* .page-faq アコーディオン
+-------------------------------------------------------------*/
+$(document).ready(function() {
+  $('.low-faq-box__question').click(function() {
+    $(this).toggleClass('active');
+    $(this).next('.low-faq-box__answer').slideToggle().toggleClass('active');
+  });
+});

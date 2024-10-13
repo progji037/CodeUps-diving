@@ -1,0 +1,120 @@
+@use "global" as *;
+
+.low-price-list {}
+
+
+.low-price-list__inner {}
+
+.low-price-list__wrap {
+  display: flex;
+  flex-direction: column;
+  gap: rem(40);
+
+  @include mq(md) {
+    gap: rem(80);
+  }
+}
+
+
+.low-price-list__items {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+
+  @include mq(md) {
+    flex-direction: row;
+  }
+}
+
+.low-price-list__head {
+  display: flex;
+  background-color: #408F95;
+  justify-content: center;
+  align-items: center;
+  padding-block: rem(8);
+  gap: rem(7);
+
+
+  @include mq(md) {
+    flex-direction: column-reverse;
+    max-width: rem(200);
+    width: 100%;
+  }
+
+}
+
+.low-price-list__head-image {}
+
+.low-price-list__head-title {
+  font-size: rem(16);
+  font-weight: bold;
+  color: white;
+}
+
+.low-price-list__head-image img {
+  aspect-ratio: 22.88/20.42;
+  width: rem(22.88);
+  object-fit: cover;
+
+  @include mq(md) {
+    aspect-ratio: 64/54.5;
+    width: rem(64);
+  }
+}
+
+.low-price-list__menu {
+  @include mq(md) {}
+
+
+}
+
+.low-price-list__costs {
+  border-left: solid 1px #408F95;
+  display: flex;
+  flex-wrap: wrap;
+  max-width: rem(345);
+
+  @include mq(md) {
+    max-width: rem(500);
+    border-top: solid 1px #408F95;
+  }
+}
+
+.low-price-list__costs dt,
+.low-price-list__costs dd {
+  height: rem(62);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.low-price-list__costs dt {
+  border-right: solid 1px #408F95;
+  border-bottom: solid 1px #408F95;
+  width: 69.5%;
+  // max-width: 238px;
+  // width: 100%;
+  justify-content: center;
+  text-align: center;
+
+  @include mq(md) {
+    width: 71%;
+    justify-content: left;
+    padding-left: rem(16);
+  }
+}
+
+.low-price-list__costs dd {
+  border-right: solid 1px #408F95;
+  border-bottom: solid 1px #408F95;
+  width: 30.5%;
+  // max-width: 105px;
+  // width: 100%;
+  justify-content: right;
+  padding-right: 16px;
+
+  @include mq(md) {
+    width: 29%;
+  }
+}

@@ -10,11 +10,11 @@
     width: rem(120);
     height: rem(55);
     position: absolute;
-    top: rem(56);
-    left: calc(50% - min(45%, 38.7em));
+    left: calc(50% - min(45.9%, 38.7em));
+    top: rem(57);
     background-image: url(/assets/images/common/_キンギョハナダイ-右向き-sp.png);
     background-size: cover;
-    z-index: 2;
+    z-index: -1;
 
     @include mq('md') {
         content: "";
@@ -26,7 +26,6 @@
         left: calc(50% - min(48%, 38.7em));
         background-image: url(/assets/images/common/_キンギョハナダイ-右向き-pc.png);
         background-size: cover;
-        z-index: -1;
     }
 }
 
