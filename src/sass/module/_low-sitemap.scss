@@ -1,0 +1,13 @@
+@use "global" as *;
+
+.sitemap {
+  color: #0D2936;
+}
+
+.sitemap__inner{
+  margin-inline: auto;
+  @include mq('md') {
+    max-width: rem(1090);
+
+  }
+}

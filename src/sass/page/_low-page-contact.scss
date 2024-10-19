@@ -1,0 +1,14 @@
+@use "global" as *;
+
+.low-page-contact {
+  margin-top: rem(106);
+  @include mq("md") {
+    margin-top: rem(140);
+  }
+}
+
+.low-page-contact.low-page-contact--far {
+  @include mq("md") {
+    margin-top: rem(117);
+  }
+}
