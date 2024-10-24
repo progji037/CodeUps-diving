@@ -1,0 +1,8 @@
+@use "global" as *;
+
+.page-low-footer {
+  margin-top: rem(97);
+  @include mq("md") {
+    margin-top: rem(152);
+  }
+}

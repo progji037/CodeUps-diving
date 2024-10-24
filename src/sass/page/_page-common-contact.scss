@@ -1,0 +1,27 @@
+@use "global" as *;
+
+.page-common-contact {
+  margin-top: rem(108);
+  @include mq("md") {
+    margin-top: rem(140);
+  }
+}
+
+.page-common-contact--low {
+  margin-top: rem(105);
+  @include mq("md") {
+    margin-top: rem(140);
+  }
+}
+
+.page-common-contact.page-common-contact--far {
+  @include mq("md") {
+    margin-top: rem(117);
+  }
+}
+
+.page-common-contact.page-common-contact--about{
+  @include mq('md') {
+  margin-top: rem(127);
+  }
+}

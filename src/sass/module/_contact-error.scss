@@ -1,0 +1,16 @@
+@use "global" as *;
+
+.contact-error{
+}
+
+.contact-error__inner {
+
+    background-image: url(/assets/images/common/404-whale.svg);
+    background-color: $green-blue;
+}
+
+.contact-error__title {}
+
+.contact-error__text {}
+
+.contact-error__link {}

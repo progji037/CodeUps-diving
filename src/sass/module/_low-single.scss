@@ -1,0 +1,88 @@
+@use "global" as *;
+
+
+
+.low-single {}
+
+.low-single__wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: rem(80);
+
+    @include mq('md') {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+}
+
+.low-single__main {
+    @include mq('md') {
+        width: 72.5%;
+    }
+}
+
+.low-single__head-date{
+    font-size: rem(14);
+}
+
+.low-single__head-title {
+    margin-top: rem(8);
+    border-bottom: solid 1px $green-blue;
+    padding-bottom: rem(3);
+    @include mq('md') {
+        font-size: rem(32);
+
+    }
+}
+
+.low-single__contents{
+    margin-top: rem(24);
+}
+
+
+.low-single__contents img,
+.low-single__contents p,
+.low-single__contents ul {
+    margin-top: rem(24);
+}
+
+
+.low-single__contents ul {
+    display: flex;
+    flex-direction: column;
+    gap: rem(4);
+
+}
+
+.low-single__contents li {
+    position: relative;
+    line-height: calc(24/16);
+    padding-left: rem(27);
+}
+
+.low-single__contents li::before {
+    content: "";
+    position: absolute;
+    display: inline-block;
+    top: rem(5);
+    left: 0;
+    width: rem(18);
+    height: rem(18);
+    background-image: url(/assets/images/common/_ヒトデ-blogdetail-sp.png);
+    background-position: center;
+    background-size: cover;
+}
+
+.low-single__pagination {
+    margin-top: rem(40);
+    padding-inline: 0;
+
+    @include mq('md') {}
+}
+
+
+.low-single__sidebar {
+    @include mq('md') {
+        width: 27.5%;
+    }
+}

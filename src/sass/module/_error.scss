@@ -2,6 +2,7 @@
 
 .error {
     background-color: $green-blue;
+    box-shadow: 0px 1px 0px 0px $green-blue; //add
 }
 
 .error__container {
@@ -10,7 +11,7 @@
     margin-top: rem(60);
 
     @include mq('md') {
-        margin-top: rem(130);
+        margin-top: rem(133);
 
     }
 }
@@ -27,7 +28,7 @@
     display: inline-block;
     width: rem(345);
     height: rem(345);
-    top: 50%;
+    top: 36%;
     left: 50%;
     transform: translate(-50%, -50%);
     background-image: url(/assets/images/common/CodeUps-404-whale.svg);
@@ -37,9 +38,8 @@
         width: rem(698);
         height: rem(698);
         background-size: contain;
-
-
-
+        top: 48%;
+        left: calc(50% - min(48%, 11.7em));
     }
 
 }
@@ -63,14 +63,16 @@
 
 .error__text {
     margin-top: rem(2);
+
     @include mq('md') {
-        margin-top: rem(44);
+        margin-top: rem(41);
 
     }
 }
 
 .error__link {
     margin-top: rem(40);
+
     @include mq('md') {
         margin-top: rem(80);
 

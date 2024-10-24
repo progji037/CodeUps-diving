@@ -3,9 +3,9 @@
 .button{
   font-family: $second-font-family;
   display: inline-block;
-  padding-left: rem(40);
-  padding-right: rem(85);
-  padding-block: rem(17);
+  padding-left: rem(38);
+  padding-right: rem(88);
+  padding-block: rem(19);
   background-color: $green-blue;
   border: solid 1px $green-blue;
   line-height: 1;
@@ -88,7 +88,7 @@
   border-bottom: 1px solid #ffffff;
   transform: skew(45deg);
   top: rem(6);
-  left: rem(12);
+  left: rem(5);
 }
 
 /* .hover

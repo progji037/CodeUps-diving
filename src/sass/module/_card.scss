@@ -2,9 +2,23 @@
 
 .card {}
 
+
 .card__figure img {
   aspect-ratio: 301/201;
   object-fit: cover;
+  transition: all 0.3s;
+}
+
+.card__figure{
+}
+
+.card__figure--hover{
+  overflow: hidden;
+
+}
+
+.card__figure--hover:hover img{
+  transform: scale(1.1);/* 拡大 */
 }
 
 .card__header {
@@ -52,10 +66,5 @@
 
 .card__text {
   font-weight: 500;
-  margin-top: rem(24);
-
-  @include mq('md') {
-    margin-top: rem(40);
-
-  }
+  margin-top: rem(16);
 }

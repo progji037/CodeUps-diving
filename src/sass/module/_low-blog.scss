@@ -1,0 +1,40 @@
+@use "global" as *;
+
+
+
+.low-blog {
+}
+
+.low-blog__wrapper {
+    // margin-top: rem(80);
+    padding-inline: rem(6);
+    display: flex;
+    flex-direction: column;
+    gap: rem(80);
+    @include mq('md') {
+        flex-direction: row;
+        padding-inline: 0;
+        justify-content: space-between;
+    }
+}
+
+.low-blog__main{
+    @include mq('md') {
+        width: 72.5%;
+    }
+}
+
+.low-blog__pagination{
+    margin-top: rem(80);
+    padding-inline: 0;
+    @include mq('md') {
+
+    }
+}
+
+.low-blog__sidebar{
+    @include mq('md') {
+        width: 28.5%;
+    }
+
+}

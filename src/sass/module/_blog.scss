@@ -26,6 +26,7 @@
   }
 }
 
+
 .blog__inner::before {
   display: none;
 
@@ -38,7 +39,7 @@
     top: rem(25);
     width: rem(437);
     height: rem(201);
-    left: calc(50% - min(48%, 39rem));
+    left: calc(50% - min(48%, 38.7rem));
   }
 }
 
@@ -55,9 +56,11 @@
 }
 
 .blog__cards {
-  margin-top: rem(24);
+  margin-top: rem(27);
+  padding-inline: rem(6);
   @include mq('md') {
     margin-top: rem(80);
+    padding-inline: 0;
   }
 }
 

@@ -1,7 +1,6 @@
 @use "global" as *;
 
-.tab-links {
-}
+.tab-links {}
 
 .tab-links__lists {
     display: grid;
@@ -29,15 +28,22 @@
     padding: rem(5) rem(22);
     font-size: rem(14);
     transition: all 0.3s;
+    background-color: $white;
+}
+
+.tab-link__list a.is-active {
+    color: #fff;
+    background-color: $green-blue;
+
 }
 
 
 
-.tab-link__list:hover a{
+.tab-link__list:hover a {
     color: #fff;
     background-color: $green-blue;
 }
 
-.tab-link__list--info{
+.tab-link__list--info {
     padding: rem(10) rem(16);
 }

@@ -1,0 +1,17 @@
+<body>
+  <main>
+    <section class="about">
+      <p>ここにABOUTテキストが入ります。</p>
+    </section>
+    <div class="btn">
+      <a class="btn__link js-modal-open" href="">ハリネズミ</a>
+    </div>
+    <div class="modal js-modal">
+      <div class="modal__overlay js-modal-close"></div>
+      <div class="modal__content">
+        <img src="画像のパス" />
+        <p><a class="js-modal-close" href="">閉じる</a></p>
+      </div>
+    </div>
+  </main>
+</body>

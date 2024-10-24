@@ -42,15 +42,15 @@
     color: $green-blue;
     font-family: $second-font-family;
     color: #ffff;
-    top: rem(25);
-    left: rem(20);
+    top: rem(24);
+    left: rem(24);
 
 
     @include mq("md") {
         font-size: rem(80);
         line-height: calc(100 / 80);
-        top: rem(170);
-        left: rem(200);
+        top: rem(197);
+        left: rem(203);
     }
 }
 
@@ -60,8 +60,8 @@
         margin-top: 0;
         position: absolute;
         max-width: rem(400);
-        top: rem(200);
-        right: rem(60);
+        top: rem(226);
+        right: rem(36);
         color: #ffff;
     }
 }

@@ -1,0 +1,17 @@
+@use "global" as *;
+
+.page-footer {
+  margin-top: rem(105);
+  @include mq("md") {
+    margin-top: rem(118);
+  }
+}
+
+.page-footer.page-footer--error{
+  margin-top: 0;
+  padding-top: rem(85);
+  @include mq('md') {
+    padding-top: rem(225);
+
+  }
+}

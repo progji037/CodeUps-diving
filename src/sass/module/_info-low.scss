@@ -35,7 +35,7 @@
 	}
 }
 
-.info-low__tab-list.active img {
+.info-low__tab-list.is-active img {
   filter: brightness(0) invert(100%);
 }
 
@@ -60,7 +60,7 @@
 
 	}
 }
-.info-low__tab-list.active a {
+.info-low__tab-list.is-active a {
   color: #fff;
   background-color: $green-blue;
 }
@@ -80,7 +80,7 @@
 
 }
 
-.info-low__contents.active{
+.info-low__contents.is-active{
 	display: flex;
 	flex-direction: column;
 

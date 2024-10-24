@@ -80,13 +80,13 @@
   line-height: 1;
   color: $green-blue;
   font-family: $second-font-family;
-  position: absolute;
-  color: #ffff;
-  top: rem(25);
-  left: rem(20);
+  // position: absolute;
+  // top: rem(25);
+  // left: rem(20);
 
 
   @include mq("md") {
+    color: #ffff;
     font-size: rem(80);
     // margin-top: rem(16);
     line-height: calc(100 / 80);
@@ -95,8 +95,12 @@
 }
 
 .about__textbox {
-  // margin-top: rem(16);
+  margin-top: rem(16);
   line-height: calc(24 / 16);
+  @include mq('md') {
+    margin-top: 0;
+
+  }
 }
 
 .about__text {
