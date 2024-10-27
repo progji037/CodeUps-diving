@@ -40,13 +40,6 @@
 }
 
 
-
-
-
-
-
-
-
 .voice__inner {}
 
 .voice__header {
@@ -59,7 +52,7 @@
   @include mq("md") {
     // display: flex;
     // justify-content: center;
-    margin-top: rem(30);
+    margin-top: rem(42);
 
   }
 }
@@ -68,7 +61,9 @@
   @include mq('md') {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: rem(40);
+    // gap: rem(40);
+    row-gap: rem(80);
+    column-gap: rem(40);
   }
 }
 
@@ -95,7 +90,7 @@
 
 .voice-card__header {
   display: flex;
-  gap: rem(13);
+  gap: rem(4);
   justify-content: center;
 
   @include mq("md") {
@@ -200,5 +195,9 @@
 }
 
 .voice-low__pagination{
-  margin-top: rem(40);
+  margin-top: rem(80);
+  @include mq('md') {
+    margin-top: rem(70);
+
+  }
 }

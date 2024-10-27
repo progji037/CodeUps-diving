@@ -98,7 +98,7 @@
   margin-top: rem(16);
   line-height: calc(24 / 16);
   @include mq('md') {
-    margin-top: 0;
+    margin-top: rem(2);
 
   }
 }
@@ -114,7 +114,7 @@
 }
 
 .about__link {
-  margin-top: rem(50);
+  margin-top: rem(25);
   text-align: center;
   // margin-right: rem(13);
   // padding-right: rem(13);

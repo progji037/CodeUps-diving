@@ -103,6 +103,8 @@
 
   @include mq("md") {
     font-size: rem(16);
+  padding-bottom: rem(1);
+
   }
 }
 
@@ -172,12 +174,10 @@
 
 .campaign__link {
   margin-top: rem(35);
-  // padding-top: rem(35);
   text-align: center;
 
   @include mq("md") {
-    margin-top: rem(70);
-    // padding-top: rem(76);
+    margin-top: rem(74);
   }
 }
 

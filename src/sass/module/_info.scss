@@ -2,7 +2,7 @@
 
 .info {
   padding-top: rem(79);
-  padding-bottom: rem(85);
+  padding-bottom: rem(77);
   background-color: #ddf0f1;
   @include mq("md") {
     padding-top: rem(100);
@@ -37,7 +37,7 @@
     // justify-content: space-between;
     // align-items: center;
     margin-top: rem(40);
-    gap: rem(44);
+    gap: rem(46);
   }
 }
 
@@ -67,7 +67,7 @@
   // padding-top: rem(25);
 
   @include mq("md") {
-    margin-top: rem(53);
+    margin-top: rem(57);
     width: 50%;
     // padding-left: rem(46);
     // margin-left: rem(48);
@@ -86,8 +86,7 @@
 
   @include mq("md") {
     font-size: rem(24);
-    line-height: 1.6;
-    // padding-bottom: rem(7);
+    padding-bottom: rem(2);
   }
 }
 

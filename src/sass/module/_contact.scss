@@ -10,8 +10,8 @@
   position: absolute;
   width: rem(109);
   height: rem(50);
-  top: rem(-24);
-  right: calc(50% - min(48%, 31rem));
+  top: rem(-25);
+  right: calc(50% - min(46%, 31rem));
   /* min関数を使用 */
   background-image: url(/assets/images/common/_contact-sp-キンギョハナダイ.png);
   background-size: cover;
@@ -212,7 +212,7 @@
 }
 
 .contact__link {
-  margin-top: rem(38);
+  margin-top: rem(37);
   color: #ffffff;
 
   // margin-right: rem(2);

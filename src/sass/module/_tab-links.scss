@@ -11,6 +11,7 @@
     @include mq('md') {
         display: flex;
         gap: rem(32);
+        flex-wrap: wrap;
     }
 
 

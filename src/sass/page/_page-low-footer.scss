@@ -6,3 +6,10 @@
     margin-top: rem(152);
   }
 }
+
+.page-low-footer--voice{
+  @include mq('md') {
+    margin-top: rem(158);
+
+  }
+}

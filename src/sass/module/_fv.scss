@@ -32,7 +32,7 @@
   // width: rem(248);
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -57%);
   text-align: center;
   z-index: 19;
   color: #408f95;
@@ -41,7 +41,7 @@
   @include mq("md") {
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -54%);
     opacity: 0;
   }
 }
