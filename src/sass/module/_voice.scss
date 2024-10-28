@@ -32,7 +32,7 @@
     width: rem(71);
     height: rem(162);
     position: absolute;
-    bottom: rem(-72);
+    bottom: rem(-65);
     right: calc(50% - min(48.5%, 33.7rem));
     background-image: url(/assets/images/common/_voice-イバラタツ.png);
     background-size: cover;
@@ -52,7 +52,7 @@
   @include mq("md") {
     // display: flex;
     // justify-content: center;
-    margin-top: rem(42);
+    margin-top: rem(30);
 
   }
 }

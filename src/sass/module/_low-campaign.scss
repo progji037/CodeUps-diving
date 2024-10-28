@@ -23,5 +23,10 @@
 
 
 .low-campaign-card__pagination {
-    margin-top: rem(80);
+    margin-top: rem(78);
+
+    @include mq('md') {
+        margin-top: rem(83);
+
+    }
 }

@@ -160,24 +160,18 @@ $(document).ready(function () {
 });
 
 /* .loading fadeout
--------------------------------------------------------------*/ // script.js
-
-$(document).ready(function () {
-  // フェードアウトさせる要素を取得
-  var $targetElement = $(".js-fv-loading");
-
-  // 指定の秒数（ミリ秒）後にフェードアウトさせる
-  var delay = 3000; // 3000ミリ秒（3秒）
-
-  setTimeout(function () {
-    $targetElement.addClass("fade-out");
-
-    // フェードアウト後に非表示にする
+-------------------------------------------------------------*/
+if (window.location.pathname === '/index.html') {
+  $(document).ready(function () {
+    var $targetElement = $(".js-fv-loading");
+    $("body").css({ height: "100%", overflow: "hidden" });
     setTimeout(function () {
+      $("body").css({ height: "", overflow: "" });
       $targetElement.fadeOut();
-    }, 3000); // フェードアウトアニメーションの時間と同じにする
-  }, delay);
-});
+    }, 3000);
+  });
+}
+
 
 /* .archive-pulldown
 -------------------------------------------------------------*/

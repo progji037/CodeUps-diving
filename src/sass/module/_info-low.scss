@@ -11,16 +11,13 @@
 .info-low__tab-list {
 	text-align: center;
 	transition: 0.3s;
+	box-shadow: 6px 6px 4px -5px #787878;
 
 	@include mq('md') {
 		width: rem(300);
 		height: rem(90);
 	}
 
-}
-
-.info-low__tab-list:hover {
-	box-shadow: 6px 6px 4px -5px #787878;
 }
 
 
@@ -41,13 +38,14 @@
 
 .info-low__tab-list a {
 	display: inline-block;
-	padding: rem(14) rem(19);
+	padding: rem(10) rem(19);
 	font-size: rem(14);
 	height: inherit;
 	background-color: #DDF0F1;
 	color: $green-blue;
 	font-feature-settings: "palt";
-	line-height: 1;
+	line-height: 1.45;
+	letter-spacing: 0.01em;
 	transition: all 0.3s;
 
 	@include mq('md') {
@@ -74,7 +72,9 @@
 .info-low__contents {
   display: none;
   margin-top: rem(16);
-  padding: rem(16);
+  padding-top: rem(16);
+  padding-inline: rem(24);
+  padding-bottom: rem(24);
   border: solid 1px #408F95;
 //   transition: all 0.3s;
 
@@ -100,7 +100,7 @@
 .info-low__contents-title {
   font-size: rem(24);
   font-weight: 700;
-  padding-bottom: rem(8);
+  padding-bottom: rem(2);
   border-bottom: solid 1px #408F95;
 }
 

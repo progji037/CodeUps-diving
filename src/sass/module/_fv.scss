@@ -36,7 +36,7 @@
   text-align: center;
   z-index: 19;
   color: #408f95;
-  animation: fadeInOut 2.8s forwards;
+  animation: fadeInOut 3s forwards;
 
   @include mq("md") {
     top: 50%;
@@ -49,17 +49,17 @@
 @keyframes fadeInOut {
 
   0%,
-  10% {
+  20% {
     opacity: 0;
   }
 
   20%,
-  40% {
+  60% {
     opacity: 1;
   }
 
-  50%,
-  70% {
+  60%,
+  80% {
     opacity: 0;
   }
 
@@ -102,53 +102,58 @@
 /* .loading
 -------------------------------------------------------------*/
 .fv__slide-wrapper {
-  animation: delayFade 4.0s forwards;
+  // animation: delayFade 3.7s forwards;
+  // display: none;
 }
 
-@keyframes delayFade {
+// .fv__slide-wrapper.active{
+//   display: block;
+// }
 
-  0%,
-  90% {
-    opacity: 0;
-  }
 
-  100% {
-    opacity: 1;
-  }
-}
+
+// @keyframes delayFade {
+
+//   0%,
+//   99% {
+//     display: none;
+//   }
+
+//   99%,
+//   100% {
+//     display: block;
+//   }
+// }
 
 .fv-loading {
   // position: absolute;
-  position: relative;
+  // position: relative;
+  position: fixed;
+  width: 100%;
   height: 100vh;
   overflow: hidden;
   /* 追加 */
-  background-color: transparent;
+  background-color: $white;
   animation: out 3s forwards;
   z-index: 18;
 }
 
-@keyframes out {
+// @keyframes out {
 
-  0%,
-  80% {
-    opacity: 1;
-    background-color: transparent; // 初期の背景色
-  }
+//   0%,
+//   80% {
+//     opacity: 1;
+//     background-color: transparent; // 初期の背景色
+//   }
 
-  90%,
-  100% {
-    display: none;
-    background-color: transparent;
-  }
-}
+//   90%,
+//   100% {
+//     display: none;
+//     background-color: transparent;
+//   }
+// }
 
 
-@keyframes fadeBackground {
-  0% {}
-
-  100% {}
-}
 
 // .fv-loading__body {
 //   margin: 0;
@@ -254,11 +259,11 @@
 //   transition: opacity 0.5s ease-out;
 // }
 
-.fade-out {
-  // opacity: 0;
-  display: none;
-}
+// .fade-out {
+//   // opacity: 0;
+//   display: none;
+// }
 
-.transparent-background {
-  background-color: transparent;
-}
+// .transparent-background {
+//   background-color: transparent;
+// }

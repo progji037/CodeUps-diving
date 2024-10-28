@@ -16,17 +16,20 @@
   .gallery-modal__content {
     display: block;
     margin: auto;
-    aspect-ratio: 500/300;
-    width: 100%;
-    height: auto;
+    // aspect-ratio: 500/300;
+    width: 95%;
+    height: 95%;
     object-fit: contain;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    filter: blur(none);
+    // filter: blur(none);
 
     @include mq('md'){
+      width: 80%;
+      height: 80%;
+      // max-width: rem(920);
 
 
     }
