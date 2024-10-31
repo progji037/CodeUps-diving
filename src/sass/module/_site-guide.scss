@@ -159,10 +159,10 @@
 .site-guide__wrapper.site-guide__wrapper--black {
   color: black;
   // justify-content: space-between;
-  // gap: rem(30);
+  gap: rem(30);
 
   @include mq('md') {
-    gap: rem(150);
+    gap: rem(142);
 
   }
 }
@@ -170,8 +170,8 @@
 .site-guide__group.site-guide__group--map {
 
   @include mq('md') {
-    gap: rem(150);
-
+    gap: rem(147);
+    margin-left: rem(7);
   }
 }
 

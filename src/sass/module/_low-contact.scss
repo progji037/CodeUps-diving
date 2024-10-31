@@ -7,7 +7,6 @@
 
     @include mq('md') {
         padding-inline: 0;
-        margin-left: rem(283);
         max-width: rem(700);
 
 
@@ -88,6 +87,7 @@
     text-indent: 0.25em;
     padding-block: 4px;
     line-height: 1;
+    font-weight: $normal;
     // margin-top: 3px;
 }
 
@@ -107,7 +107,7 @@ input[type="tel"],
 input[type="email"] {
     border: solid 1px $green-blue;
     padding-top: rem(8);
-    padding-bottom: rem(9);
+    padding-bottom: rem(8);
     padding-left: rem(22);
     width: 100%;
     line-height: 1.35;
@@ -306,7 +306,7 @@ input[type="checkbox"]:checked::before {
 
 .low-contact__send {
     text-align: center;
-    margin-top: rem(24);
+    margin-top: rem(23);
     @include mq('md') {
         margin-top: rem(40);
 

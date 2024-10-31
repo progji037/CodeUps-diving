@@ -43,7 +43,7 @@ const fv__swiper = new Swiper(".js-fv-swiper", {
   speed: 3000,
   autoplay: {
     // 自動再生
-    delay: 3000, // 2.5秒後に次のスライド
+    delay: 3000, // 3秒後に次のスライド
   },
 });
 
@@ -159,16 +159,17 @@ $(document).ready(function () {
   $(rightSlides[currentIndex]).addClass("active");
 });
 
-/* .loading fadeout
+/* .loading scroll lock
 -------------------------------------------------------------*/
 if (window.location.pathname === '/index.html') {
   $(document).ready(function () {
-    var $targetElement = $(".js-fv-loading");
-    $("body").css({ height: "100%", overflow: "hidden" });
+    // bodyとhtmlのスクロール制御
+    $("html, body").css({ height: "100%", overflow: "hidden" });
+
+    // ローディングアニメーションの完了後にスクロール解除
     setTimeout(function () {
-      $("body").css({ height: "", overflow: "" });
-      $targetElement.fadeOut();
-    }, 3000);
+      $("html, body").css({ height: "", overflow: "" });
+    }, 3000); // 適切なタイミングに合わせて調整
   });
 }
 

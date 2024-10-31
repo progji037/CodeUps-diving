@@ -46,6 +46,17 @@
   text-align: center;
 }
 
+.voice-cards {
+  @include mq('md') {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    // gap: rem(40);
+    row-gap: rem(80);
+    column-gap: rem(40);
+  }
+}
+
+
 .voice__cards {
   margin-top: rem(44);
 
@@ -57,14 +68,8 @@
   }
 }
 
-.voice-cards {
-  @include mq('md') {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    // gap: rem(40);
-    row-gap: rem(80);
-    column-gap: rem(40);
-  }
+.voice__cards--low{
+  margin-top: rem(40);
 }
 
 .voice-cards__item {
@@ -197,7 +202,7 @@
 .voice-low__pagination{
   margin-top: rem(80);
   @include mq('md') {
-    margin-top: rem(70);
+    margin-top: rem(72);
 
   }
 }

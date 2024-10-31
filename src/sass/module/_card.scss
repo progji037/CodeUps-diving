@@ -25,6 +25,14 @@
   margin-top: rem(24);
 }
 
+.card__header--low{
+  margin-top: rem(23);
+  @include mq('md') {
+    margin-top: rem(24);
+
+  }
+}
+
 
 .card__date {
   font-size: rem(12);

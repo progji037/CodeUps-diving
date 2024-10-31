@@ -20,8 +20,9 @@
   opacity: 0.5;
 }
 
-.cards__item--none a:hover{
+.cards__item--low a:hover {
   opacity: 1;
+
 
 }
 
@@ -46,6 +47,14 @@
 
   @include mq('md') {
     margin-top: rem(40);
+  }
+}
+
+.cards__item--low {
+  @include mq('md') {
+    padding-right: rem(17);
+
+
   }
 }
 

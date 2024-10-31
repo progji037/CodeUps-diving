@@ -13,3 +13,25 @@
 
   }
 }
+
+.page-low-footer--success{
+  margin-top: rem(144);
+  @include mq('md') {
+    margin-top: rem(120);
+
+  }
+}
+
+.page-low-footer.page-low-footer--error{
+  margin-top: 0;
+  @include mq('md') {
+
+  }
+}
+
+.page-low-footer--contact{
+  margin-top: rem(138);
+  @include mq('md') {
+
+  }
+}

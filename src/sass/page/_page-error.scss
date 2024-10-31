@@ -2,8 +2,10 @@
 
 .page-error {
     padding-top: rem(80);
+    padding-bottom: rem(37);
 
     @include mq('md') {
         padding-top: rem(90);
+        padding-bottom: rem(143);
     }
 }

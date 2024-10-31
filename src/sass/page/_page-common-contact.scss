@@ -2,6 +2,7 @@
 
 .page-common-contact {
   margin-top: rem(105);
+
   @include mq("md") {
     margin-top: rem(140);
   }
@@ -9,6 +10,7 @@
 
 .page-common-contact--low {
   margin-top: rem(105);
+
   @include mq("md") {
     margin-top: rem(140);
   }
@@ -20,14 +22,51 @@
   }
 }
 
-.page-common-contact--about{
+.page-common-contact--about {
   @include mq('md') {
-  margin-top: rem(127);
+    margin-top: rem(127);
   }
 }
 
-.page-common-contact--campaign{
+.page-common-contact--campaign {
   @include mq('md') {
-  margin-top: rem(138);
+    margin-top: rem(138);
+  }
+}
+
+.page-common-contact--info {
+  @include mq('md') {
+    margin-top: rem(140);
+
+  }
+}
+.page-common-contact--faq {
+  margin-top: rem(106);
+
+  @include mq("md") {
+    margin-top: rem(140);
+  }
+}
+
+.page-common-contact--price,
+.page-common-contact--sitemap {
+  margin-top: rem(79);
+
+  @include mq("md") {
+    margin-top: rem(136);
+  }
+}
+
+.page-common-contact--sitemap{
+  margin-top: rem(103);
+}
+
+.page-common-contact--privacy,
+.page-common-contact--terms {
+  margin-top: rem(105);
+
+  @include mq('md') {
+    margin-top: rem(139);
+
   }
 }

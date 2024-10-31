@@ -26,8 +26,8 @@
 
 	@include mq('md') {
 		display: inline-block;
-		width: rem(60);
-		height: rem(60);
+		width: rem(64);
+		height: rem(64);
 		transition: 0.3s;
 	}
 }
@@ -54,7 +54,8 @@
 		gap: rem(8);
 		padding-top: rem(13);
 		padding-bottom: rem(14);
-		padding-inline: rem(18);
+		padding-left: rem(30);
+		padding-right: rem(18);
 
 	}
 }
@@ -66,6 +67,7 @@
 .info-low__tab-list p {
 	@include mq('md') {
 		font-size: rem(24);
+		letter-spacing: 0.055em;
 	}
 }
 
@@ -77,6 +79,11 @@
   padding-bottom: rem(24);
   border: solid 1px #408F95;
 //   transition: all 0.3s;
+@include mq('md') {
+	margin-top: rem(24);
+	padding-bottom: rem(22);
+
+}
 
 }
 

@@ -12,12 +12,13 @@
     @include mq('md') {
         flex-direction: row;
         justify-content: space-between;
+        gap: 0;
     }
 }
 
 .low-single__main {
     @include mq('md') {
-        width: 72.5%;
+        width: 64.8%;  //add
     }
 }
 
@@ -31,19 +32,36 @@
     padding-bottom: rem(3);
     @include mq('md') {
         font-size: rem(32);
+        line-height: 1.45;  //add
+        padding-bottom: 0;  //add
 
     }
 }
 
 .low-single__contents{
     margin-top: rem(24);
+    @include mq('md'){  //add
+        margin-top: rem(39);  //add
+
+    }
 }
 
+.low-single__contents img{
+    @include mq('md'){
+        aspect-ratio: 700/468;
+        width: 100%;
+
+    }
+}
 
 .low-single__contents img,
 .low-single__contents p,
 .low-single__contents ul {
     margin-top: rem(24);
+    @include mq('md'){
+        margin-top: rem(40);
+
+    }
 }
 
 
@@ -77,12 +95,15 @@
     margin-top: rem(40);
     padding-inline: 0;
 
-    @include mq('md') {}
+    @include mq('md') {
+        margin-top: rem(80);
+    }
 }
 
 
 .low-single__sidebar {
     @include mq('md') {
-        width: 27.5%;
+        width: 27.3%;
+        margin-top: rem(3);
     }
 }

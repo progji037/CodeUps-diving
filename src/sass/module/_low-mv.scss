@@ -62,3 +62,8 @@
 .low-mv__main-title--capitalize span{
     text-transform: none;//add
 }
+
+.low-mv__main-title--uppercase span{
+    text-transform: capitalize;
+
+}

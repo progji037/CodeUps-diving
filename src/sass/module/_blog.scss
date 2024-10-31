@@ -101,3 +101,12 @@
     margin-top: rem(80);
   }
 }
+
+.blog__link--sidebar{
+  margin-top: rem(42);  //add
+  @include mq('md') {
+    margin-top: rem(41);
+
+  }
+
+}
