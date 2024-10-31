@@ -170,7 +170,8 @@
 .site-guide__group.site-guide__group--map {
 
   @include mq('md') {
-    gap: rem(147);
+    gap: 0;
+    justify-content: space-between;
     margin-left: rem(7);
   }
 }

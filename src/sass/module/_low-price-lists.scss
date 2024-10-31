@@ -70,7 +70,7 @@
     border-left: solid 1px #408F95;
     display: flex;
     flex-wrap: wrap;
-    max-width: rem(345);
+    // max-width: rem(345);
 
     @include mq(md) {
         max-width: rem(500);

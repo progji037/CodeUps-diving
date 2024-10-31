@@ -12,6 +12,10 @@
 	text-align: center;
 	transition: 0.3s;
 	box-shadow: 6px 6px 4px -5px #787878;
+	background-color: #DDF0F1;
+	width: 100%;
+	color: $green-blue;
+
 
 	@include mq('md') {
 		width: rem(300);
@@ -33,16 +37,15 @@
 }
 
 .info-low__tab-list.is-active img {
-  filter: brightness(0) invert(100%);
+	filter: brightness(0) invert(100%);
 }
 
 .info-low__tab-list a {
 	display: inline-block;
-	padding: rem(10) rem(19);
+	padding: rem(10) rem(18);
 	font-size: rem(14);
 	height: inherit;
-	background-color: #DDF0F1;
-	color: $green-blue;
+	width: 100%;
 	font-feature-settings: "palt";
 	line-height: 1.45;
 	letter-spacing: 0.01em;
@@ -59,9 +62,10 @@
 
 	}
 }
-.info-low__tab-list.is-active a {
-  color: #fff;
-  background-color: $green-blue;
+
+.info-low__tab-list.is-active {
+	color: #fff;
+	background-color: $green-blue;
 }
 
 .info-low__tab-list p {
@@ -72,62 +76,63 @@
 }
 
 .info-low__contents {
-  display: none;
-  margin-top: rem(16);
-  padding-top: rem(16);
-  padding-inline: rem(24);
-  padding-bottom: rem(24);
-  border: solid 1px #408F95;
-//   transition: all 0.3s;
-@include mq('md') {
-	margin-top: rem(24);
-	padding-bottom: rem(22);
+	display: none;
+	margin-top: rem(16);
+	padding-top: rem(16);
+	padding-inline: rem(24);
+	padding-bottom: rem(24);
+	border: solid 1px #408F95;
+
+	//   transition: all 0.3s;
+	@include mq('md') {
+		margin-top: rem(24);
+		padding-bottom: rem(22);
+
+	}
 
 }
 
-}
-
-.info-low__contents.is-active{
+.info-low__contents.is-active {
 	display: flex;
 	flex-direction: column;
 
 	@include mq('md') {
-	flex-direction: row;
-    align-items: center;
-    gap: rem(48);
-  }
+		flex-direction: row;
+		align-items: center;
+		gap: rem(48);
+	}
 }
 
-.info-low__contents-box{
-  @include mq('md') {
-    max-width: rem(492);
-  }
+.info-low__contents-box {
+	@include mq('md') {
+		max-width: rem(492);
+	}
 }
 
 .info-low__contents-title {
-  font-size: rem(24);
-  font-weight: 700;
-  padding-bottom: rem(2);
-  border-bottom: solid 1px #408F95;
+	font-size: rem(24);
+	font-weight: 700;
+	padding-bottom: rem(2);
+	border-bottom: solid 1px #408F95;
 }
 
 .info-low__contents-text {
-  line-height: calc(24/16);
-  margin-top: rem(8);
+	line-height: calc(24/16);
+	margin-top: rem(8);
 }
 
-.info-low__contents-image{
-  margin-top: rem(8);
+.info-low__contents-image {
+	margin-top: rem(8);
 }
 
 
 .info-low__contents-image img {
-  aspect-ratio: 297/189;
-  object-fit: cover;
+	aspect-ratio: 297/189;
+	object-fit: cover;
 
-  @include mq('md') {
-    aspect-ratio: 492/313;
+	@include mq('md') {
+		aspect-ratio: 492/313;
 
 
-  }
+	}
 }

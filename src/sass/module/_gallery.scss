@@ -20,17 +20,12 @@
         /* min関数を使用 */
         background-image: url(/assets/images/common/_contact-pc-キンギョハナダイ.png);
         background-size: cover;
-        // right: calc(50% - min(44.6%, 42rem));
-        // top: -77px;
     }
 }
 
 .galley__title {
     text-align: center;
 
-    @include mq('md') {
-        // position: relative;
-    }
 }
 
 
