@@ -8,6 +8,7 @@
   margin-inline: auto;
   @include mq('md') {
     max-width: rem(1090);
+    padding-inline: rem(10);
 
   }
 }
