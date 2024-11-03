@@ -43,7 +43,8 @@
     font-family: $second-font-family;
     color: #ffff;
     top: rem(24);
-    left: rem(24);
+    // left: rem(24);
+    left: 18.8%;
 
 
     @include mq("md") {
