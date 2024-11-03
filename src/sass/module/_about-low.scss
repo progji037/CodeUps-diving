@@ -43,15 +43,15 @@
     font-family: $second-font-family;
     color: #ffff;
     top: rem(24);
-    // left: rem(24);
-    left: 18.8%;
+    left: rem(24);
 
 
     @include mq("md") {
         font-size: rem(80);
         line-height: calc(100 / 80);
         top: rem(200);
-        left: rem(203);
+        left: 50%;
+        transform: translateX(-84%);
     }
 }
 
