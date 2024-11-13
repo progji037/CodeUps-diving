@@ -1,0 +1,52 @@
+@use "global" as *;
+
+.info-section-link {
+	display: inline-block;
+	padding: rem(10) rem(18);
+	font-size: rem(14);
+	height: inherit;
+	width: 100%;
+	font-feature-settings: "palt";
+	line-height: 1.45;
+	letter-spacing: 0.01em;
+	transition: all 0.3s;
+
+	@include mq('md') {
+		display: flex;
+		align-items: center;
+		gap: rem(8);
+		padding-top: rem(13);
+		padding-bottom: rem(14);
+		padding-left: rem(30);
+		padding-right: rem(18);
+
+	}
+}
+
+.info-section-link p{
+	@include mq('md') {
+		font-size: rem(24);
+		letter-spacing: 0.055em;
+	}
+}
+
+.info-section-link img {
+	display: none;
+
+	@include mq('md') {
+		display: inline-block;
+		width: rem(64);
+		height: rem(64);
+		transition: 0.3s;
+	}
+}
+
+.info-section-link.is-active img {
+	filter: brightness(0) invert(100%);
+}
+
+.info-section-link.is-active {
+	color: #fff;
+	background-color: $green-blue;
+}
+

@@ -1,0 +1,26 @@
+@use "global" as *;
+
+.info-section-tab {
+	display: flex;
+	justify-content: space-between;
+	gap: rem(20);
+
+}
+
+
+.info-section-tab__list {
+	text-align: center;
+	transition: 0.3s;
+	box-shadow: 6px 6px 4px -5px #787878;
+	background-color: #DDF0F1;
+	width: 100%;
+	color: $green-blue;
+
+
+	@include mq('md') {
+		width: rem(300);
+		height: rem(90);
+	}
+
+}
+

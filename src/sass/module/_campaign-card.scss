@@ -119,6 +119,7 @@
   text-align: center;
   margin-top: rem(1);
   padding-bottom: rem(7);
+  font-weight: $bold;
   @include mq('md') {
     font-size: rem(16);
     padding-bottom: rem(11);

@@ -1,0 +1,23 @@
+@use "global" as *;
+
+.article-card {
+    display: flex; //add
+    flex-direction: column; //add
+    gap: rem(24); //add
+}
+
+.article-card__item {
+    display: flex;
+    gap: rem(16);
+    padding: rem(16);
+    box-shadow: 2px 2px 10px rgba(#000000, 0.25);
+}
+
+.article-card__item img {
+    aspect-ratio: 121/90;
+    object-fit: cover;
+    max-width: rem(121);
+
+}
+
+.article-card__meta {}

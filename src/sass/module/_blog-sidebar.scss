@@ -1,0 +1,25 @@
+@use "global" as *;
+
+
+.blog-sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: rem(80);
+}
+
+.blog-sidebar__inner {
+    padding-inline: rem(25);
+
+    @include mq('md') {
+        padding-inline: 0;
+
+    }
+}
+
+.blog-sidebar__article {}
+
+.blog-sidebar__review {}
+
+.blog-sidebar__campaign {}
+
+.blog-sidebar__archive {}

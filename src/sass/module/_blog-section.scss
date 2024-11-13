@@ -1,0 +1,103 @@
+@use "global" as *;
+
+
+
+.blog-section {
+    position: relative;
+}
+
+.blog-section::before{
+    content: "";
+    display: block;
+    width: rem(120);
+    height: rem(55);
+    position: absolute;
+    left: calc(50% - min(45.9%, 38.7em));
+    top: rem(-24);
+    background-image: url(/assets/images/common/_キンギョハナダイ-右向き-sp.png);
+    background-size: cover;
+    z-index: -1;
+
+    @include mq('md') {
+        content: "";
+        display: block;
+        width: rem(301);
+        height: rem(138);
+        position: absolute;
+        top: rem(-71);
+        left: calc(50% - min(48%, 38.7em));
+        background-image: url(/assets/images/common/_キンギョハナダイ-右向き-pc.png);
+        background-size: cover;
+    }
+}
+
+
+.blog-section__wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: rem(80);
+
+    @include mq('md') {
+        flex-direction: row;
+        padding-inline: 0;
+        justify-content: space-between;
+        gap: 0;
+    }
+}
+
+.blog-section__wrapper--blog {
+    @include mq('md') {
+        gap: rem(80);
+
+    }
+}
+
+.blog-section__main {
+    @include mq('md') {
+        width: 72.5%;
+    }
+}
+
+.blog-section__main--blog {
+
+    @include mq('md') {
+        width: 70%;
+    }
+}
+
+.blog-section__main-inner {
+    padding-inline: rem(6);
+
+    @include mq('md') {
+        padding-inline: 0;
+
+
+    }
+
+
+}
+
+.blog-section__pagination {
+    margin-top: rem(80);
+    padding-inline: 0;
+}
+
+.blog-section__pagination--pc {
+    @include mq('md') {
+        margin-top: rem(77);
+    }
+}
+
+.blog-section__sidebar {
+    @include mq('md') {
+        width: 28.5%;
+    }
+
+}
+
+.blog-section__sidebar--blog {
+    @include mq('md') {
+        width: 29%;
+
+    }
+}

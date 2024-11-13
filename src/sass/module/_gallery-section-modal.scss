@@ -1,0 +1,52 @@
+@use "global" as *;
+
+/* モーダルの背景 */
+.gallery-section-modal {
+    display: none;
+    position: fixed;
+    z-index: 21;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(32, 32, 32, 0.8); /* 薄暗いグレー */
+  }
+
+  /* モーダル内の画像 */
+  .gallery-section-modal__content {
+    display: block;
+    margin: auto;
+    // aspect-ratio: 500/300;
+    width: 92%;
+    height: 92%;
+    object-fit: contain;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    // filter: blur(none);
+
+    @include mq('md'){
+      width: 80%;
+      height: 80%;
+      // max-width: rem(920);
+
+
+    }
+  }
+
+  /* 閉じるボタン */
+  .gallery-section-modal__close {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    color: white;
+    font-size: 35px;
+    font-weight: bold;
+    cursor: pointer;
+    @include mq('md') {
+      top: rem(25);
+      right: rem(180);
+
+    }
+  }

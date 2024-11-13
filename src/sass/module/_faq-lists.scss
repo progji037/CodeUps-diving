@@ -1,0 +1,16 @@
+@use "global" as *;
+
+
+.faq-lists {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: rem(40);
+}
+
+.faq-lists__item{
+    width: 100%;
+    @include mq('md') {
+        max-width: rem(750);
+    }
+}

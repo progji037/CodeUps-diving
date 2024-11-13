@@ -1,0 +1,17 @@
+@use "global" as *;
+
+
+.sidebar-campaign {}
+
+.sidebar-campaign__head {
+    margin-top: rem(24);
+
+}
+
+.sidebar-campaign__cards {}
+.sidebar-campaign__card {}
+
+.sidebar-campaign__link{
+    margin-top: rem(40);
+    text-align: center;
+}

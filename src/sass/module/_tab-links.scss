@@ -17,11 +17,11 @@
 
 }
 
-.tab-link__list {
+.tab-links__list {
     text-align: center;
 }
 
-.tab-link__list a {
+.tab-links__list a {
     display: inline-block;
     width: rem(162);
     color: $green-blue;
@@ -32,7 +32,7 @@
     background-color: $white;
 }
 
-.tab-link__list a.is-active {
+.tab-links__list a.is-active {
     color: #fff;
     background-color: $green-blue;
 
@@ -40,11 +40,11 @@
 
 
 
-.tab-link__list:hover a {
+.tab-links__list:hover a {
     color: #fff;
     background-color: $green-blue;
 }
 
-.tab-link__list--info {
+.tab-links__list--info {
     padding: rem(10) rem(16);
 }

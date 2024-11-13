@@ -73,12 +73,12 @@ const campaign__swiper = new Swiper(".js-top-swiper", {
 });
 
 
-/* .low-tab-list
+/* .tab-list
 -------------------------------------------------------------*/
 $(document).ready(function () {
-  $('.tab-link__list a').click(function (e) {
+  $('.tab-links__list a').click(function (e) {
     e.preventDefault();
-    $('.tab-link__list a').removeClass('is-active');
+    $('.tab-links__list a').removeClass('is-active');
     $(this).addClass('is-active');
   });
 });
@@ -178,13 +178,13 @@ if (window.location.pathname === '/index.html') {
 -------------------------------------------------------------*/
 
 $(document).ready(function () {
-  $(".js-low-blog-side__archive-item").hide();
+  $(".js-date-lists__months").hide();
 
-  $(".js-low-blog-side__archive-head").click(function (e) {
+  $(".js-date-lists__year").click(function (e) {
     e.preventDefault();
 
     var $this = $(this);
-    var $item = $this.next(".js-low-blog-side__archive-item");
+    var $item = $this.next(".js-date-lists__months");
 
     // クリック時に即座にクラスをトグル
     $this.toggleClass("is-open");
@@ -197,26 +197,35 @@ $(document).ready(function () {
 /* .page-info タブ切り替え
 -------------------------------------------------------------*/
 $(document).ready(function () {
-  // タブをクリックした時の処理
-  $('.info-low__tab-list').on('click', function (e) {
-    e.preventDefault(); // リンクのデフォルト動作を無効化
+  $('.js-info-section-link').on('click', function (e) {
+    e.preventDefault();
 
-    var index = $(this).index(); // クリックされたタブのインデックス番号を取得
+    // アニメーション中は処理を行わない
+    if($('.js-info-section-article__contents').is(':animated')) {
+      return;
+    }
 
-    // 現在表示されているコンテンツを0.3秒でフェードアウト
-    $('.info-low__contents.is-active').stop(true, true).fadeOut(300, function () {
-      $(this).removeClass('is-active'); // フェードアウト後にアクティブクラスを削除
+    // クリックされたリンクの親li要素のインデックスを取得
+    const index = $(this).closest('.info-section-tab__list').index();
 
-      // フェードアウトが完了した後、クリックされたタブに対応するコンテンツをフェードイン
-      $('.info-low__contents').eq(index)
-        .css({ 'display': 'flex', 'opacity': 0 }) // 最初にdisplay: flex と透明度0を適用
-        .stop(true, true) // 以前のアニメーションを停止
-        .animate({ 'opacity': 1 }, 300) // 0.3秒かけて透明度を上げる（フェードイン）
-        .addClass('is-active'); // アクティブクラスを追加
+    // コンテンツの切り替え
+    const $activeContent = $('.js-info-section-article__contents.is-active');
+    const $nextContent = $('.js-info-section-article__contents').eq(index);
+
+    // 現在のコンテンツをフェードアウト
+    $activeContent.fadeOut(300, function() {
+      $(this).removeClass('is-active');
+
+      // 次のコンテンツをフェードイン
+      $nextContent
+        .css('display', 'flex')
+        .addClass('is-active')
+        .hide()
+        .fadeIn(300);
     });
 
-    // すべてのタブからアクティブクラスを削除し、クリックされたタブにアクティブクラスを追加
-    $('.info-low__tab-list').removeClass('is-active');
+    // タブのアクティブ状態を更新
+    $('.js-info-section-link').removeClass('is-active');
     $(this).addClass('is-active');
   });
 });
@@ -225,9 +234,9 @@ $(document).ready(function () {
 /* .page-faq アコーディオン
 -------------------------------------------------------------*/
 $(document).ready(function () {
-  $('.low-faq-box__question').click(function () {
+  $('.js-faq-list__question').click(function () {
     $(this).toggleClass('active');
-    $(this).next('.low-faq-box__answer').slideToggle(300, function () {
+    $(this).next('.js-faq-list__answer').slideToggle(300, function () {
       $(this).toggleClass('active');
     });
   });
@@ -235,13 +244,15 @@ $(document).ready(function () {
 
 /* .モーダル
 -------------------------------------------------------------*/
-$('.js-gallery-photo__image img').click(function () {
+$('.js-gallery-section-grid__image img').click(function () {
   var imgSrc = $(this).attr('src');  // クリックした画像のsrcを取得
-  $('.js-gallery-modal__content').attr('src', imgSrc);  // モーダルの画像にクリックした画像を表示
-  $('.js-gallery-modal').fadeIn();  // モーダルを表示
+  $('.js-gallery-section-modal__content').attr('src', imgSrc);  // モーダルの画像にクリックした画像を表示
+  $('.gallery-section-modal').fadeIn();  // モーダルを表示
+  $('body').css('overflow-y', 'hidden');  // 本文の縦スクロールを無効
 });
 
 // モーダルを閉じる処理
-$('.js-gallery-modal__close, .js-gallery-modal').click(function () {
-  $('.js-gallery-modal').fadeOut();  // モーダルを非表示
+$('.js-gallery-section-modal__close, .js-gallery-section-modal').click(function () {
+  $('.js-gallery-section-modal').fadeOut();  // モーダルを非表示
+  $('body').css('overflow-y', 'visible');  // 本文の縦スクロールを有効
 });

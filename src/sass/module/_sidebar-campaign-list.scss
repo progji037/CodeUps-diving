@@ -1,0 +1,16 @@
+@use "global" as *;
+
+
+.sidebar-campaign-lists {
+    display: flex;
+    flex-direction: column;
+    gap: rem(40);
+}
+
+.sidebar-campaign__head,
+.sidebar-campaign__cards  {
+    margin-top: rem(24);
+
+}
+
+.sidebar-campaign__card {}

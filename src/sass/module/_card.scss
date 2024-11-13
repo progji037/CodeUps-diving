@@ -1,6 +1,13 @@
 @use "global" as *;
 
-.card {}
+.card {
+  display: inline-block;
+  padding-top: rem(16);
+  padding-right: rem(16);
+  padding-left: rem(16);
+  padding-bottom: rem(24);
+
+}
 
 
 .card__figure img {

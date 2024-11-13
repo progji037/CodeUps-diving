@@ -1,0 +1,64 @@
+@use "global" as *;
+
+.date-lists {
+    font-size: rem(24);
+    color: $green-blue;
+    // padding-left: rem(31);
+    position: relative;
+
+}
+
+.date-lists__year {
+    font-size: rem(24);
+    color: $green-blue;
+    padding-left: rem(31);
+    position: relative;
+
+}
+
+.date-lists__year::before{
+    content: "";
+    position: absolute;
+    clip-path: polygon(0 0, 0 100%, 100% 50%);
+    background-color: $green-blue;
+    display: inline-block;
+    width: rem(16);
+    height: rem(20);
+    top: rem(9);
+    left: rem(5);
+    transition: all 0.3s;
+}
+
+.date-lists__year.is-open::before{
+    transform: rotate(90deg);
+}
+
+
+.date-lists__months {
+    display: flex;
+    flex-direction: column;
+    gap: rem(4);
+    margin-top: rem(2);
+    margin-left: rem(30);
+
+}
+
+
+.date-lists__month {
+
+    padding-left: rem(24);
+    position: relative;
+}
+
+.date-lists__month::before{
+    content: "";
+    position: absolute;
+    clip-path: polygon(0 0, 0 100%, 100% 50%);
+    background-color: $green-blue;
+    display: inline-block;
+    width: rem(16);
+    height: rem(20);
+    top: rem(9);
+    left: 0;
+    transition: all 0.3s;
+}

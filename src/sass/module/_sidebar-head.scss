@@ -1,0 +1,50 @@
+@use "global" as *;
+
+
+.sidebar-head {
+    position: relative;
+}
+
+.sidebar-head ::before {
+    content: "";
+    position: absolute;
+    width: rem(8);
+    height: rem(50);
+    background-color: $green-blue;
+    top: 0;
+    left: 0;
+}
+
+.sidebar-head__title {
+    display: flex;
+    align-items: center;
+    gap: rem(8);
+    margin-left: rem(25);
+    padding-top: rem(1);
+
+    @include mq('md') {
+        margin-left: rem(24);
+    }
+}
+
+.sidebar-head__title img {
+    width: rem(49);
+    height: rem(49);
+
+    @include mq('md') {
+        width: rem(50);
+        height: rem(50);
+
+
+    }
+}
+
+.sidebar-head__text {
+    font-size: rem(24);
+    margin-top: rem(4);
+
+    @include mq('md') {
+        margin-top: rem(3);
+
+    }
+}

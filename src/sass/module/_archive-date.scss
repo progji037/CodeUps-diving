@@ -1,0 +1,8 @@
+@use "global" as *;
+
+.archive-date__lists {
+    display: flex;
+    flex-direction: column;
+    gap: rem(4);
+
+}
