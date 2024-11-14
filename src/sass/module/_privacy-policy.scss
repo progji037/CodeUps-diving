@@ -1,7 +1,32 @@
 @use "global" as *;
 
 .privacy-policy {
+    position: relative;
+}
 
+.privacy-policy::before {
+    content: "";
+    display: block;
+    width: rem(120);
+    height: rem(55);
+    position: absolute;
+    left: calc(50% - min(45.9%, 38.7em));
+    top: rem(-22);
+    background-image: url(/assets/images/common/_キンギョハナダイ-右向き-sp.png);
+    background-size: cover;
+    z-index: -1;
+
+    @include mq('md') {
+        content: "";
+        display: block;
+        width: rem(301);
+        height: rem(138);
+        position: absolute;
+        top: rem(-72);
+        left: calc(50% - min(48%, 38.7em));
+        background-image: url(/assets/images/common/_キンギョハナダイ-右向き-pc.png);
+        background-size: cover;
+    }
 }
 
 .privacy-policy__inner {
@@ -14,6 +39,7 @@
 
 .privacy-policy__content {
     line-height: 2;
+
     @include mq('md') {
         max-width: rem(800);
         width: 100%;
@@ -25,6 +51,7 @@
 
 .privacy-policy__title {
     font-size: rem(24);
+
     @include mq('md') {
         font-size: rem(32);
 
@@ -32,7 +59,7 @@
 
 }
 
-.privacy-policy__text{
+.privacy-policy__text {
     margin-top: rem(33);
     // letter-spacing: 0.025em;
 
@@ -43,7 +70,7 @@
     }
 }
 
-.privacy-policy__text ol li{
+.privacy-policy__text ol li {
     list-style-type: decimal;
     list-style-position: inside;
     padding-left: 1.4em;

@@ -4,6 +4,7 @@
   padding-top: rem(79);
   padding-bottom: rem(77);
   background-color: #ddf0f1;
+
   @include mq("md") {
     padding-top: rem(100);
     padding-bottom: rem(75);
@@ -27,10 +28,40 @@
 
 .information__header {
   text-align: center;
-  @include mq("md") {
+
+  @include mq("md") {}
+}
+
+.information__contents {
+  display: flex;
+  flex-direction: column;
+  gap: rem(24);
+  margin-top: rem(24);
+
+  @include mq('md') {
+    flex-direction: row;
+    gap: rem(48);
+    align-items: center;
   }
 }
 
-.information__contents{
-  display: flex;
+.information__head {
+  font-weight: $bold;
+  font-size: rem(20);
+  padding-bottom: rem(3);
+  border-bottom: solid 1px $green-blue;
+
+  @include mq('md') {
+    font-size: rem(24);
+
+  }
+}
+
+.information__text{
+  margin-top: rem(8);
+}
+
+.information__link{
+  text-align: center;
+  margin-top: rem(40);
 }
