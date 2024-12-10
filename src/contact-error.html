@@ -120,13 +120,13 @@
                     <a href="campaign.html">キャンペーン</a>
                   </li>
                   <li class="site-guide__group-list">
-                    <a href="information.html">ライセンス取得</a>
+                    <a href="information.html?data-tab=license">ライセンス取得</a>
                   </li>
                   <li class="site-guide__group-list">
-                    <a href="information.html">貸切体験ダイビング</a>
+                    <a href="information.html?data-tab=trial">貸切体験ダイビング</a>
                   </li>
                   <li class="site-guide__group-list">
-                    <a href="information.html">ナイトダイビング</a>
+                    <a href="information.html?data-tab=fun">ナイトダイビング</a>
                   </li>
                   <li class="site-guide__group-list site-guide__list--space">
                     <a href="about.html">私たちについて</a>
@@ -140,13 +140,13 @@
                     <a href="information.html">ダイビング情報</a>
                   </li>
                   <li class="site-guide__group-list">
-                    <a href="information.html">ライセンス講習</a>
+                    <a href="information.html?data-tab=license">ライセンス講習</a>
                   </li>
                   <li class="site-guide__group-list">
-                    <a href="information.html">体験ダイビング</a>
+                    <a href="information.html?data-tab=trial">体験ダイビング</a>
                   </li>
                   <li class="site-guide__group-list">
-                    <a href="information.html">ファンダイビング</a>
+                    <a href="information.html?data-tab=fun">ファンダイビング</a>
                   </li>
                   <li class="site-guide__group-list site-guide__list--space">
                     <a href="blog.html">ブログ</a>
@@ -165,13 +165,13 @@
                     <a href="price.html">料金一覧</a>
                   </li>
                   <li class="site-guide__group-list">
-                    <a href="information.html">ライセンス講習</a>
+                    <a href="information.html?data-tab=license">ライセンス講習</a>
                   </li>
                   <li class="site-guide__group-list">
-                    <a href="information.html">体験ダイビング</a>
+                    <a href="information.html?data-tab=trial">体験ダイビング</a>
                   </li>
                   <li class="site-guide__group-list">
-                    <a href="information.html">ファンダイビング</a>
+                    <a href="information.html?data-tab=fun">ファンダイビング</a>
                   </li>
                 </ul>
               </div>
@@ -204,9 +204,9 @@
 
   <main>
     <!-- 下層ページのメインビュー -->
-    <section class="low-mv">
-      <div class="low-mv__contents">
-        <div class="low-mv__image">
+    <section class="main-view">
+      <div class="main-view__contents">
+        <div class="main-view__image">
           <picture>
             <source srcset="/assets/images/common/page-contact-pcx2.jpg" media="(min-width: 768px)" />
             <!-- 幅768px以上なら表示 -->
@@ -215,14 +215,14 @@
             <img src="./assets/images/common/page-contact-spx2.jpg" alt="" />
           </picture>
         </div>
-        <div class="low-mv__title ">
-          <h1 class="low-mv__main-title low-mv__main-title--capitalize">contact</h1>
+        <div class="main-view__title ">
+          <h1 class="main-view__main-title main-view__main-title--capitalize">contact</h1>
         </div>
       </div>
     </section>
 
     <!-- パンくずリスト -->
-    <div class="breadcrumb">
+    <div class="breadcrumb page-breadcrumb">
       <div class="breadcrumb__inner inner">
         <div class="breadcrumb__page">
           <a class="breadcrumb__page-link" href="index.html">
@@ -239,73 +239,79 @@
     </div>
 
 
-    <section class="low-contact page-low-contact">
-      <div class="low-contact__inner inner">
+    <section class="contact-section page-low-contact">
+      <div class="contact-section__inner inner">
         <form action="/submit" method="POST">
-            <!-- お名前 -->
-            <div class="low-contact__form-group">
-              <label for="name">お名前 <span>必須</span></label>
-              <input type="text" id="name" name="name" placeholder="例: 沖縄 太郎" required>
+          <!-- お名前 -->
+          <div class="contact-section__form-group">
+            <label for="name">お名前 <span>必須</span></label>
+            <input type="text" id="name" name="name" placeholder="例: 沖縄 太郎" required>
+          </div>
+          <!-- メールアドレス -->
+          <div class="contact-section__form-group">
+            <label for="email">メールアドレス<span>必須</span></label>
+            <input type="email" id="email" name="email" placeholder="例: aaa000@gmail.com" required>
+          </div>
+          <!-- 電話番号 -->
+          <div class="contact-section__form-group">
+            <label for="phone">電話番号<span>必須</span></label>
+            <input type="tel" id="phone" name="phone" placeholder="例: 000-0000-0000" required>
+          </div>
+          <!-- お問い合わせ項目 -->
+          <div class="contact-section__form-group">
+            <label>お問い合わせ項目<span>必須</span></label>
+            <ul class="contact-section__form-check">
+              <li class="contact-section__check-item">
+                <input type="checkbox" id="diving" name="inquiry_item" value="diving" checked>
+                <label for="diving">
+                  ダイビング講習について
+                </label>
+              </li>
+              <li class="contact-section__check-item">
+                <input type="checkbox" id="fan" name="inquiry_item" value="fan">
+                <label for="fan">
+                  ファンダイビングについて
+                </label>
+              </li>
+              <li class="contact-section__check-item">
+                <input type="checkbox" id="experience" name="inquiry_item" value="experience">
+                <label for="experience">
+                  体験ダイビングについて
+                </label>
+              </li>
+            </ul>
+          </div>
+          <!-- キャンペーン -->
+          <div class="contact-section__form-group">
+            <label for="campaign">キャンペーン</label>
+            <div class="contact-section__form-pulldown">
+              <select id="campaign" name="campaign">
+                <option value="" disabled selected>キャンペーン内容を選択</option>
+                <option value="campaign1">キャンペーン1</option>
+                <option value="campaign2">キャンペーン2</option>
+                <option value="campaign3">キャンペーン3</option>
+              </select>
             </div>
-            <!-- メールアドレス -->
-            <div class="low-contact__form-group">
-              <label for="email">メールアドレス<span>必須</span></label>
-              <input type="email" id="email" name="email" placeholder="例: aaa000@gmail.com" required>
-            </div>
-            <!-- 電話番号 -->
-            <div class="low-contact__form-group">
-              <label for="phone">電話番号<span>必須</span></label>
-              <input type="tel" id="phone" name="phone" placeholder="例: 000-0000-0000" required>
-            </div>
-            <!-- お問い合わせ項目 -->
-            <div class="low-contact__form-group low-contact__form-group--left">
-              <label>お問い合わせ項目<span>必須</span></label>
-              <ul class="low-contact__form-check">
-                <li>
-                  <input type="checkbox" id="diving" name="inquiry_item" value="diving" checked>
-                  <label for="diving">ダイビング講習について</label>
-                </li>
-                <li>
-                  <input type="checkbox" id="fan" name="inquiry_item" value="fan">
-                  <label for="fan">ファンダイビングについて</label>
-                </li>
-                <li>
-                  <input type="checkbox" id="experience" name="inquiry_item" value="experience">
-                  <label for="experience">体験ダイビングについて</label>
-                </li>
-              </ul>
-            </div>
-            <!-- キャンペーン -->
-            <div class="low-contact__form-group">
-              <label for="campaign">キャンペーン</label>
-              <div class="low-contact__form-pulldown">
-                <select id="campaign" name="campaign">
-                  <option value="" disabled selected>キャンペーン内容を選択</option>
-                  <option value="campaign1">キャンペーン1</option>
-                  <option value="campaign2">キャンペーン2</option>
-                  <option value="campaign3">キャンペーン3</option>
-                </select>
-              </div>
-            </div>
-            <!-- お問い合わせ内容 -->
-            <div class="low-contact__form-group">
-              <label for="message">お問い合わせ内容 <span>必須</span></label>
-              <textarea id="message" name="message" rows="5" placeholder="お問い合わせ内容を入力してください" required></textarea>
-            </div>
+          </div>
+          <!-- お問い合わせ内容 -->
+          <div class="contact-section__form-group">
+            <label for="message">お問い合わせ内容 <span>必須</span></label>
+            <textarea class="contact-section__form-text" id="message" name="message" rows="5" placeholder="お問い合わせ内容を入力してください" required></textarea>
+          </div>
 
-            <!-- privacy policy -->
-            <div class="low-contact__accept">
-              <input type="checkbox" id="accept" name="privacy_policy" value="accepted" required>
-              <label for="experience">個人情報の取り扱いについて同意のうえ<br class="u-mobile"/>送信します</label>
-            </div>
-            <!-- 送信ボタン -->
-            <div class="low-contact__send">
-              <button type="submit" class="button button--send">
-                  send
-                  <span class="arrow"></span>
-              </button>
-            </div>
-            <!--  -->
+          <!-- privacy policy -->
+          <div class="contact-section__accept">
+            <input type="checkbox" id="accept" name="privacy_policy" value="accepted" required>
+            <label for="accept">個人情報の取り扱いについて同意のうえ<br class="u-mobile" />送信します</label>
+          </div>
+          <!-- 送信ボタン -->
+          <div class="contact-section__send">
+            <button type="submit" class="button button--send">
+              send
+              <span class="arrow"></span>
+            </button>
+          </div>
+          <!--  -->
         </form>
       </div>
     </section>
@@ -340,13 +346,13 @@
                     <a href="campaign.html">キャンペーン</a>
                   </li>
                   <li class="site-guide__group-list">
-                    <a href="information.html">ライセンス取得</a>
+                    <a href="information.html?data-tab=license">ライセンス取得</a>
                   </li>
                   <li class="site-guide__group-list">
-                    <a href="information.html">貸切体験ダイビング</a>
+                    <a href="information.html?data-tab=trial">貸切体験ダイビング</a>
                   </li>
                   <li class="site-guide__group-list">
-                    <a href="information.html">ナイトダイビング</a>
+                    <a href="information.html?data-tab=fun">ナイトダイビング</a>
                   </li>
                   <li class="site-guide__group-list site-guide__list--space">
                     <a href="about.html">私たちについて</a>
@@ -360,13 +366,13 @@
                     <a href="information.html">ダイビング情報</a>
                   </li>
                   <li class="site-guide__group-list">
-                    <a href="information.html">ライセンス講習</a>
+                    <a href="information.html?data-tab=license">ライセンス講習</a>
                   </li>
                   <li class="site-guide__group-list">
-                    <a href="information.html">体験ダイビング</a>
+                    <a href="information.html?data-tab=trial">体験ダイビング</a>
                   </li>
                   <li class="site-guide__group-list">
-                    <a href="information.html">ファンダイビング</a>
+                    <a href="information.html?data-tab=fun">ファンダイビング</a>
                   </li>
                   <li class="site-guide__group-list site-guide__list--space">
                     <a href="blog.html">ブログ</a>
@@ -385,13 +391,13 @@
                     <a href="price.html">料金一覧</a>
                   </li>
                   <li class="site-guide__group-list">
-                    <a href="information.html">ライセンス講習</a>
+                    <a href="information.html?data-tab=license">ライセンス講習</a>
                   </li>
                   <li class="site-guide__group-list">
-                    <a href="information.html">体験ダイビング</a>
+                    <a href="information.html?data-tab=trial">体験ダイビング</a>
                   </li>
                   <li class="site-guide__group-list">
-                    <a href="information.html">ファンダイビング</a>
+                    <a href="information.html?data-tab=fun">ファンダイビング</a>
                   </li>
                 </ul>
               </div>

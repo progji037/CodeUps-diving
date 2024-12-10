@@ -10,7 +10,4 @@
 
 .faq-lists__item{
     width: 100%;
-    @include mq('md') {
-        max-width: rem(750);
-    }
 }

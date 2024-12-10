@@ -21,3 +21,12 @@
 }
 
 .article-card__meta {}
+
+.article-card__meta time {
+    font-size: rem(12);
+    font-family: $second-font-family;
+
+    @include mq('md') {
+        font-size: rem(14);
+    }
+}

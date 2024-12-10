@@ -18,9 +18,9 @@
 
     @include mq(md) {
         flex-direction: column-reverse;
-        max-width: rem(200);
-        width: 100%;
+        width: 28.601%;
         gap: rem(13);
+        padding-block: rem(40);
     }
 
 }
@@ -46,18 +46,17 @@
 
 .price-list__menu {
     @include mq(md) {
-
-        // max-width: rem(500);
+        width: calc(100% - 28.601%);
     }
 
 
 }
 
+
 .price-list__costs {
     border-left: solid 1px #408F95;
     display: flex;
     flex-wrap: wrap;
-    // max-width: rem(345);
 
     @include mq(md) {
         border-top: solid 1px #408F95;
@@ -66,31 +65,25 @@
 
 .price-list__costs dt,
 .price-list__costs dd {
-    height: rem(62);
+    padding-block: rem(5);
     display: flex;
     flex-direction: row;
     align-items: center;
-
-    @include mq('md') {
-        height: rem(59);
-
-    }
+    min-height: rem(60);
 }
 
 .price-list__costs dt {
     border-right: solid 1px #408F95;
     border-bottom: solid 1px #408F95;
     width: 69.5%;
-    // max-width: 238px;
-    // width: 100%;
     justify-content: center;
     text-align: center;
 
     @include mq(md) {
-        // width: 71%;
         width: 68%;
         justify-content: left;
         padding-left: rem(16);
+        padding-right: rem(16);
     }
 }
 
@@ -98,13 +91,10 @@
     border-right: solid 1px #408F95;
     border-bottom: solid 1px #408F95;
     width: 30.5%;
-    // max-width: 105px;
-    // width: 100%;
     justify-content: right;
     padding-right: 16px;
 
     @include mq(md) {
         width: 32%;
-        // width: 29%;
     }
 }

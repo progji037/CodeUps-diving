@@ -6,50 +6,34 @@
     position: relative;
 }
 
-.blog-detail::before{
+.blog-detail::before {
     content: "";
-	display: block;
-	width: rem(120);
-	height: rem(55);
-	position: absolute;
-	left: calc(50% - min(45.9%, 38.7em));
-	top: rem(-22);
-	background-image: url(/assets/images/common/_キンギョハナダイ-右向き-sp.png);
-	background-size: cover;
-	z-index: -1;
-
-	@include mq('md') {
-		content: "";
-		display: block;
-		width: rem(301);
-		height: rem(138);
-		position: absolute;
-		top: rem(-72);
-		left: calc(50% - min(48%, 38.7em));
-		background-image: url(/assets/images/common/_キンギョハナダイ-右向き-pc.png);
-		background-size: cover;
-	}
-}
-
-.blog-detail__wrapper {
-    display: flex;
-    flex-direction: column;
-    gap: rem(80);
+    display: block;
+    width: rem(120);
+    height: rem(55);
+    position: absolute;
+    left: calc(50% - min(45.9%, 38.7em));
+    top: rem(-22);
+    background-image: url(/assets/images/common/_キンギョハナダイ-右向き-sp.png);
+    background-size: cover;
+    z-index: -1;
 
     @include mq('md') {
-        flex-direction: row;
-        justify-content: space-between;
-        gap: 0;
+        content: "";
+        display: block;
+        width: rem(301);
+        height: rem(138);
+        position: absolute;
+        top: rem(-72);
+        left: calc(50% - min(48%, 38.7em));
+        background-image: url(/assets/images/common/_キンギョハナダイ-右向き-pc.png);
+        background-size: cover;
     }
 }
 
-.blog-detail__main {
-    @include mq('md') {
-        width: 64.8%;  //add
-    }
-}
 
-.blog-detail__head-date{
+
+.blog-detail__head-date {
     font-size: rem(14);
 }
 
@@ -57,35 +41,41 @@
     margin-top: rem(8);
     border-bottom: solid 1px $green-blue;
     padding-bottom: rem(3);
+
     @include mq('md') {
         font-size: rem(32);
-        line-height: 1.45;  //add
-        padding-bottom: 0;  //add
+        line-height: 1.45;
+        padding-bottom: 0;
 
     }
 }
 
-.blog-detail__contents{
+.blog-detail__image {
     margin-top: rem(24);
-    @include mq('md'){  //add
-        margin-top: rem(39);  //add
+
+    @include mq('md') {
+        margin-top: rem(40);
+    }
+}
+
+.blog-detail__contents {
+    margin-top: rem(24);
+
+    @include mq('md') {
+        margin-top: rem(39);
 
     }
 }
 
-.blog-detail__contents img{
-    @include mq('md'){
-        aspect-ratio: 700/468;
-        width: 100%;
-
-    }
+.blog-detail__contents img {
 }
 
 .blog-detail__contents img,
 .blog-detail__contents p,
 .blog-detail__contents ul {
     margin-top: rem(24);
-    @include mq('md'){
+
+    @include mq('md') {
         margin-top: rem(40);
 
     }
@@ -124,13 +114,5 @@
 
     @include mq('md') {
         margin-top: rem(80);
-    }
-}
-
-
-.blog-detail__sidebar {
-    @include mq('md') {
-        width: 27.3%;
-        margin-top: rem(3);
     }
 }

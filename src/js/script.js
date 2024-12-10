@@ -75,13 +75,13 @@ const campaign__swiper = new Swiper(".js-top-swiper", {
 
 /* .tab-list
 -------------------------------------------------------------*/
-$(document).ready(function () {
-  $('.tab-links__list a').click(function (e) {
-    e.preventDefault();
-    $('.tab-links__list a').removeClass('is-active');
-    $(this).addClass('is-active');
-  });
-});
+// $(document).ready(function () {
+//   $('.tab-links__list a').click(function (e) {
+//     e.preventDefault();
+//     $('.tab-links__list a').removeClass('is-active');
+//     $(this).addClass('is-active');
+//   });
+// });
 
 /* .pagenation
 -------------------------------------------------------------*/
@@ -92,6 +92,8 @@ $(document).ready(function () {
     $(this).addClass('is-active');
   });
 });
+// wordpress化の時に見直す。
+// jsでなくwordpress化できりかえできるようにするってこと？
 
 /* .top-scroll
 -------------------------------------------------------------*/
@@ -196,39 +198,72 @@ $(document).ready(function () {
 
 /* .page-info タブ切り替え
 -------------------------------------------------------------*/
-$(document).ready(function () {
-  $('.js-info-section-link').on('click', function (e) {
-    e.preventDefault();
+// $(document).ready(function () {
+  $(document).ready(function () {
+    // クエリパラメータからtabの値を取得
+    const urlParams = new URLSearchParams(window.location.search);
+    const tabParam = urlParams.get('data-tab');
 
-    // アニメーション中は処理を行わない
-    if($('.js-info-section-article__contents').is(':animated')) {
-      return;
+    // 初期化: クエリパラメータがある場合は該当タブをアクティブにする
+    if (tabParam) {
+      const targetTab = $(`.js-info-section-link[data-tab="${tabParam}"]`);
+      const targetContent = $(`.js-info-section-article__contents[data-tab="${tabParam}"]`);
+
+      if (targetTab.length && targetContent.length) {
+        // すべてのタブとコンテンツをリセット
+        $('.js-info-section-link').removeClass('is-active');
+        $('.js-info-section-article__contents').hide();
+
+        // 該当タブとコンテンツをアクティブにする
+        targetTab.addClass('is-active');
+        targetContent.fadeIn(400); // フェードイン
+      } else {
+        setDefaultTab(); // 存在しない場合はデフォルトタブを設定
+      }
+    } else {
+      setDefaultTab(); // クエリパラメータがない場合もデフォルトタブを設定
     }
 
-    // クリックされたリンクの親li要素のインデックスを取得
-    const index = $(this).closest('.info-section-tab__list').index();
+    // タブクリック時の処理
+    $('.js-info-section-link').click(function (e) {
+      e.preventDefault(); // デフォルトのリンク挙動を防ぐ
 
-    // コンテンツの切り替え
-    const $activeContent = $('.js-info-section-article__contents.is-active');
-    const $nextContent = $('.js-info-section-article__contents').eq(index);
+      // data-tabの値を取得
+      const tabValue = $(this).data('tab');
 
-    // 現在のコンテンツをフェードアウト
-    $activeContent.fadeOut(300, function() {
-      $(this).removeClass('is-active');
+      // URLのクエリパラメータを更新
+      const newUrl = `${window.location.pathname}?data-tab=${tabValue}`;
+      window.history.pushState(null, '', newUrl);
 
-      // 次のコンテンツをフェードイン
-      $nextContent
-        .css('display', 'flex')
-        .addClass('is-active')
-        .hide()
-        .fadeIn(300);
+      // すべてのタブとコンテンツをリセット
+      $('.js-info-section-link').removeClass('is-active');
+      $('.js-info-section-article__contents').hide();
+
+      // クリックされたタブと対応するコンテンツをアクティブにする
+      $(this).addClass('is-active');
+      $(`.js-info-section-article__contents[data-tab="${tabValue}"]`).fadeIn(400); // フェードイン
     });
 
-    // タブのアクティブ状態を更新
-    $('.js-info-section-link').removeClass('is-active');
-    $(this).addClass('is-active');
+    // デフォルトタブを設定する関数
+    function setDefaultTab() {
+      // すべてリセットしてからデフォルトを設定
+      $('.js-info-section-link').removeClass('is-active');
+      $('.js-info-section-article__contents').hide();
+
+      const firstTab = $('.js-info-section-link').first();
+      const firstContent = $('.js-info-section-article__contents').first();
+
+      firstTab.addClass('is-active');
+      firstContent.fadeIn(400); // フェードイン
+    }
   });
-});
+
+
+
+
+
+
+
 
 
 /* .page-faq アコーディオン

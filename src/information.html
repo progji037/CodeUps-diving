@@ -47,6 +47,8 @@
   <script defer src="./assets/js/script.js"></script>
 </head>
 
+
+
 <body>
   <header class="header">
     <div class="header__inner">
@@ -120,13 +122,13 @@
                     <a href="campaign.html">キャンペーン</a>
                   </li>
                   <li class="site-guide__group-list">
-                    <a href="information.html">ライセンス取得</a>
+                    <a href="information.html?data-tab=license">ライセンス取得</a>
                   </li>
                   <li class="site-guide__group-list">
-                    <a href="information.html">貸切体験ダイビング</a>
+                    <a href="information.html?data-tab=trial">貸切体験ダイビング</a>
                   </li>
                   <li class="site-guide__group-list">
-                    <a href="information.html">ナイトダイビング</a>
+                    <a href="information.html?data-tab=fun">ナイトダイビング</a>
                   </li>
                   <li class="site-guide__group-list site-guide__list--space">
                     <a href="about.html">私たちについて</a>
@@ -140,13 +142,13 @@
                     <a href="information.html">ダイビング情報</a>
                   </li>
                   <li class="site-guide__group-list">
-                    <a href="information.html">ライセンス講習</a>
+                    <a href="information.html?data-tab=license">ライセンス講習</a>
                   </li>
                   <li class="site-guide__group-list">
-                    <a href="information.html">体験ダイビング</a>
+                    <a href="information.html?data-tab=trial">体験ダイビング</a>
                   </li>
                   <li class="site-guide__group-list">
-                    <a href="information.html">ファンダイビング</a>
+                    <a href="information.html?data-tab=fun">ファンダイビング</a>
                   </li>
                   <li class="site-guide__group-list site-guide__list--space">
                     <a href="blog.html">ブログ</a>
@@ -165,13 +167,13 @@
                     <a href="price.html">料金一覧</a>
                   </li>
                   <li class="site-guide__group-list">
-                    <a href="information.html">ライセンス講習</a>
+                    <a href="information.html?data-tab=license">ライセンス講習</a>
                   </li>
                   <li class="site-guide__group-list">
-                    <a href="information.html">体験ダイビング</a>
+                    <a href="information.html?data-tab=trial">体験ダイビング</a>
                   </li>
                   <li class="site-guide__group-list">
-                    <a href="information.html">ファンダイビング</a>
+                    <a href="information.html?data-tab=fun">ファンダイビング</a>
                   </li>
                 </ul>
               </div>
@@ -241,86 +243,89 @@
     <section class="info-section page-info">
       <div class="info-section__inner inner">
         <!--  -->
-        <div class="info-section__tab">
-          <ul class="info-section-tab">
-            <li class="info-section-tab__list">
-              <a href="#" class="info-section-link js-info-section-link  is-active">
-                <img src="./assets/images/common/info-low-icon1.png" alt="">
-                <p>ライセンス<br class="u-mobile" />講習</p>
-              </a>
-            </li>
-            <li class="info-section-tab__list">
-              <a href="#" class="info-section-link js-info-section-link">
-                <img src="./assets/images/common/info-low-icon2.png" alt="">
-                <p>ファン<br class="u-mobile" />ダイビング</p>
-              </a>
-            </li>
-            <li class="info-section-tab__list">
-              <a href="#" class="info-section-link js-info-section-link">
-                <img src="./assets/images/common/info-low-icon3.png" alt="">
-                <p>体験<br class="u-mobile" />ダイビング</p>
-              </a>
-            </li>
-          </ul>
-        </div>
-        <!--  -->
-        <div class="info-section__article">
-          <div class="info-section-article">
-            <div class="info-section-article__contents js-info-section-article__contents is-active">
-              <div class="info-section-article__contents-box">
-                <h2 class="info-section-article__contents-title">ライセンス講習</h2>
-                <p class="info-section-article__contents-text">
-                  泳げない人も、ちょっと水が苦手な人も、ダイビングを「安全に」楽しんでいただけるよう、スタッフがサポートいたします！スキューバダイビングを楽しむためには最低限の知識とスキルが要求されます。知識やスキルと言ってもそんなに難しい事ではなく、安全に楽しむ事を目的としたものです。プロダイバーの指導のもと知識とスキルを習得しCカードを取得して、ダイバーになろう！
-                </p>
+        <div class="info-section-container js-info-section-container">
+          <div class="info-section__tab js-info-section__tab">
+            <ul class="info-section-tab">
+              <li class="info-section-tab__list">
+                <a href="#" class="info-section-link js-info-section-link" data-tab="license">
+                  <img src="./assets/images/common/info-low-icon1.png" alt="">
+                  <p>ライセンス<br class="u-mobile" />講習</p>
+                </a>
+              </li>
+              <li class="info-section-tab__list">
+                <a href="#" class="info-section-link js-info-section-link" data-tab="fun">
+                  <img src="./assets/images/common/info-low-icon2.png" alt="">
+                  <p>ファン<br class="u-mobile" />ダイビング</p>
+                </a>
+              </li>
+              <li class="info-section-tab__list">
+                <a href="#" class="info-section-link js-info-section-link" data-tab="trial">
+                  <img src="./assets/images/common/info-low-icon3.png" alt="">
+                  <p>体験<br class="u-mobile" />ダイビング</p>
+                </a>
+              </li>
+            </ul>
+          </div>
+          <!--  -->
+          <div class="info-section__article">
+            <div class="info-section-article">
+              <div class="info-section-article__contents js-info-section-article__contents" data-tab="license">
+                <div class="info-section-article__contents-box">
+                  <h2 class="info-section-article__contents-title">ライセンス講習</h2>
+                  <p class="info-section-article__contents-text">
+                    泳げない人も、ちょっと水が苦手な人も、ダイビングを「安全に」楽しんでいただけるよう、スタッフがサポートいたします！スキューバダイビングを楽しむためには最低限の知識とスキルが要求されます。知識やスキルと言ってもそんなに難しい事ではなく、安全に楽しむ事を目的としたものです。プロダイバーの指導のもと知識とスキルを習得しCカードを取得して、ダイバーになろう！
+                  </p>
+                </div>
+                <div class="info-section-article__contents-image">
+                  <picture>
+                    <source srcset="./assets/images/common/info-license1-pc.jpg" media="(min-width: 768px)" />
+                    <!-- 幅768px以上なら表示 -->
+                    <source srcset="./assets/images/common/info-license1-sp.jpg" media="(max-width: 767px)" />
+                    <!-- 幅767px以下なら表示 -->
+                    <img src="./assets/images/common/info-license1-sp.jpg" alt="" />
+                  </picture>
+                </div>
               </div>
-              <div class="info-section-article__contents-image">
-                <picture>
-                  <source srcset="./assets/images/common/info-license1-pc.jpg" media="(min-width: 768px)" />
-                  <!-- 幅768px以上なら表示 -->
-                  <source srcset="./assets/images/common/info-license1-sp.jpg" media="(max-width: 767px)" />
-                  <!-- 幅767px以下なら表示 -->
-                  <img src="./assets/images/common/info-license1-sp.jpg" alt="" />
-                </picture>
+              <div class="info-section-article__contents js-info-section-article__contents" data-tab="fun">
+                <div class="info-section-article__contents-box">
+                  <h2 class="info-section-article__contents-title">ファンダイビング</h2>
+                  <p class="info-section-article__contents-text">
+                    ブランクダイバー、ライセンスを取り立ての方も安心！沖縄本島を代表する「青の洞窟」（真栄田岬）やケラマ諸島などメジャーなポイントはモチロンのこと、最北端「辺戸岬」や最南端の「大渡海岸」等もご用意！
+                  </p>
+                </div>
+                <div class="info-section-article__contents-image">
+                  <picture>
+                    <source srcset="./assets/images/common/info-license2-pc.jpg" media="(min-width: 768px)" />
+                    <!-- 幅768px以上なら表示 -->
+                    <source srcset="./assets/images/common/info-license2-sp.jpg" media="(max-width: 767px)" />
+                    <!-- 幅767px以下なら表示 -->
+                    <img src="./assets/images/common/info-license2-sp.jpg" alt="" />
+                  </picture>
+                </div>
               </div>
-            </div>
-            <div class="info-section-article__contents js-info-section-article__contents">
-              <div class="info-section-article__contents-box">
-                <h2 class="info-section-article__contents-title">ファンダイビング</h2>
-                <p class="info-section-article__contents-text">
-                  ブランクダイバー、ライセンスを取り立ての方も安心！沖縄本島を代表する「青の洞窟」（真栄田岬）やケラマ諸島などメジャーなポイントはモチロンのこと、最北端「辺戸岬」や最南端の「大渡海岸」等もご用意！
-                </p>
-              </div>
-              <div class="info-section-article__contents-image">
-                <picture>
-                  <source srcset="./assets/images/common/info-license2-pc.jpg" media="(min-width: 768px)" />
-                  <!-- 幅768px以上なら表示 -->
-                  <source srcset="./assets/images/common/info-license2-sp.jpg" media="(max-width: 767px)" />
-                  <!-- 幅767px以下なら表示 -->
-                  <img src="./assets/images/common/info-license2-sp.jpg" alt="" />
-                </picture>
-              </div>
-            </div>
-            <div class="info-section-article__contents js-info-section-article__contents">
-              <div class="info-section-article__contents-box">
-                <h2 class="info-section-article__contents-title">ライセンス講習</h2>
-                <p class="info-section-article__contents-text">
-                  ブランクダイバー、ライセンスを取り立ての方も安心！沖縄本島を代表する「青の洞窟」（真栄田岬）やケラマ諸島などメジャーなポイントはモチロンのこと、最北端「辺戸岬」や最南端の「大渡海岸」等もご用意！
-                </p>
-              </div>
-              <div class="info-section-article__contents-image">
-                <picture>
-                  <source srcset="./assets/images/common/info-license3-pc.jpg" media="(min-width: 768px)" />
-                  <!-- 幅768px以上なら表示 -->
-                  <source srcset="./assets/images/common/info-license3-sp.jpg" media="(max-width: 767px)" />
-                  <!-- 幅767px以下なら表示 -->
-                  <img src="./assets/images/common/info-license3-sp.jpg" alt="" />
-                </picture>
+              <div class="info-section-article__contents js-info-section-article__contents" data-tab="trial">
+                <div class="info-section-article__contents-box">
+                  <h2 class="info-section-article__contents-title">ライセンス講習</h2>
+                  <p class="info-section-article__contents-text">
+                    ブランクダイバー、ライセンスを取り立ての方も安心！沖縄本島を代表する「青の洞窟」（真栄田岬）やケラマ諸島などメジャーなポイントはモチロンのこと、最北端「辺戸岬」や最南端の「大渡海岸」等もご用意！
+                  </p>
+                </div>
+                <div class="info-section-article__contents-image">
+                  <picture>
+                    <source srcset="./assets/images/common/info-license3-pc.jpg" media="(min-width: 768px)" />
+                    <!-- 幅768px以上なら表示 -->
+                    <source srcset="./assets/images/common/info-license3-sp.jpg" media="(max-width: 767px)" />
+                    <!-- 幅767px以下なら表示 -->
+                    <img src="./assets/images/common/info-license3-sp.jpg" alt="" />
+                  </picture>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
     </section>
+
 
     <section class="contact page-common-contact page-common-contact--info">
       <div class="contact__wrapper">
@@ -398,13 +403,13 @@
                     <a href="campaign.html">キャンペーン</a>
                   </li>
                   <li class="site-guide__group-list">
-                    <a href="information.html">ライセンス取得</a>
+                    <a href="information.html?data-tab=license">ライセンス取得</a>
                   </li>
                   <li class="site-guide__group-list">
-                    <a href="information.html">貸切体験ダイビング</a>
+                    <a href="information.html?data-tab=trial">貸切体験ダイビング</a>
                   </li>
                   <li class="site-guide__group-list">
-                    <a href="information.html">ナイトダイビング</a>
+                    <a href="information.html?data-tab=fun">ナイトダイビング</a>
                   </li>
                   <li class="site-guide__group-list site-guide__list--space">
                     <a href="about.html">私たちについて</a>
@@ -418,13 +423,13 @@
                     <a href="information.html">ダイビング情報</a>
                   </li>
                   <li class="site-guide__group-list">
-                    <a href="information.html">ライセンス講習</a>
+                    <a href="information.html?data-tab=license">ライセンス講習</a>
                   </li>
                   <li class="site-guide__group-list">
-                    <a href="information.html">体験ダイビング</a>
+                    <a href="information.html?data-tab=trial">体験ダイビング</a>
                   </li>
                   <li class="site-guide__group-list">
-                    <a href="information.html">ファンダイビング</a>
+                    <a href="information.html?data-tab=fun">ファンダイビング</a>
                   </li>
                   <li class="site-guide__group-list site-guide__list--space">
                     <a href="blog.html">ブログ</a>
@@ -443,13 +448,13 @@
                     <a href="price.html">料金一覧</a>
                   </li>
                   <li class="site-guide__group-list">
-                    <a href="information.html">ライセンス講習</a>
+                    <a href="information.html?data-tab=license">ライセンス講習</a>
                   </li>
                   <li class="site-guide__group-list">
-                    <a href="information.html">体験ダイビング</a>
+                    <a href="information.html?data-tab=trial">体験ダイビング</a>
                   </li>
                   <li class="site-guide__group-list">
-                    <a href="information.html">ファンダイビング</a>
+                    <a href="information.html?data-tab=fun">ファンダイビング</a>
                   </li>
                 </ul>
               </div>

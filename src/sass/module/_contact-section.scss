@@ -12,7 +12,7 @@
 	position: absolute;
 	left: calc(50% - min(45.9%, 38.7em));
 	top: rem(-22);
-	background-image: url(/assets/images/common/_キンギョハナダイ-右向き-sp.png);
+	background-image: url(../images/common/_キンギョハナダイ-右向き-sp.png);
 	background-size: cover;
 	z-index: -1;
 
@@ -24,18 +24,16 @@
 		position: absolute;
 		top: rem(-72);
 		left: calc(50% - min(48%, 38.7em));
-		background-image: url(/assets/images/common/_キンギョハナダイ-右向き-pc.png);
+		background-image: url(../images/common/_キンギョハナダイ-右向き-pc.png);
 		background-size: cover;
 	}
 }
 
-.contact-section__inner {
-    padding-inline: rem(15);
+.contact-section__inner.inner {
+    max-width: rem(530);
 
     @include mq('md') {
-        padding-inline: 0;
-        margin-inline: auto;
-        max-width: rem(700);
+        max-width: rem(750);
 
 
 
@@ -122,12 +120,13 @@
 
 .contact-section__form-group input,
 .contact-section__form-pulldown,
-textarea {
+.contact-section__form-text {
     @include mq('md') {
-        max-width: rem(480);
-
+        width: 68.57%;
     }
 }
+
+
 
 
 
@@ -137,18 +136,20 @@ input[type="email"] {
     border: solid 1px $green-blue;
     padding-top: rem(8);
     padding-bottom: rem(8);
-    padding-left: rem(22);
+    padding-inline: rem(14);
+
     width: 100%;
     line-height: 1.35;
-    // margin-top: rem(16);
 }
 
-textarea {
+.contact-section__form-text{
+    padding-inline: rem(14);
+    padding-top: rem(8);
     display: inline-block;
     border: solid 1px $green-blue;
-    width: 100%;
     margin-top: rem(20);
     height: rem(200);
+    width: 100%;
 
     @include mq('md') {
         margin-top: 0;
@@ -206,26 +207,37 @@ input[type="tel"] {
 
     @include mq('md') {
         margin-top: rem(3);
+        width: 68.57%;
 
     }
 }
 
-.contact-section__form-check label {
-    font-weight: normal;
+.contact-section__check-item input{
+    @include mq('md') {
+        width: rem(14);
+
+    }
 }
 
-.contact-section__form-check li {
+.contact-section__check-item label {
+    font-weight: normal;
+    @include mq('md') {
+        width: 90%;
+    }
+}
+
+.contact-section__check-item {
     display: flex;
     align-items: center;
     gap: rem(5);
 }
+
 
 input[type="checkbox"] {
     display: inline-block;
     width: rem(14);
     height: rem(14);
     border: solid 1px $green-blue;
-    // appearance: none;
     position: relative;
     cursor: pointer;
     margin-left: 0;
@@ -268,8 +280,14 @@ input[type="checkbox"]:checked::before {
 .contact-section__form-pulldown select {
     padding-top: rem(10);
     padding-bottom: rem(9);
-    padding-left: rem(8);
+    padding-inline: rem(8);
     font-size: rem(12);
+    width: 100%;
+    cursor: pointer;
+    background-image: url(../images/common/contact-pulldown.png);
+    background-repeat: no-repeat;
+    background-position: right rem(11) center;
+    background-size: rem(12);
 
     @include mq('md') {
         padding-top: rem(7);
@@ -278,26 +296,12 @@ input[type="checkbox"]:checked::before {
     }
 }
 
-.contact-section__form-pulldown::after {
-    content: "";
-    display: inline-block;
-    width: rem(12);
-    height: rem(12);
-    border-style: solid;
-    border-width: 10.4px 6px 0 6px;
-    border-color: #408F95 transparent transparent transparent;
-    position: absolute;
-    top: 50%;
-    right: rem(7);
-    transform: translateY(-50%);
-}
 
 .contact-section__accept {
     margin-top: rem(40);
     font-size: rem(14);
     display: flex;
     position: relative;
-    // align-items: flex-start;
     justify-content: center;
     gap: rem(7);
 
@@ -309,7 +313,7 @@ input[type="checkbox"]:checked::before {
 }
 
 .contact-section__accept label {
-    pointer-events: none;
+    // pointer-events: none;
     @include mq('md') {
 
     }

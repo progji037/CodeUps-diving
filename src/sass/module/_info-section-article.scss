@@ -2,31 +2,22 @@
 
 
 .info-section-article__contents {
-	display: none;
-
+	display: flex;
+	flex-direction: column;
 	padding-top: rem(16);
 	padding-inline: rem(24);
 	padding-bottom: rem(24);
 	border: solid 1px #408F95;
 
 	@include mq('md') {
-
-		padding-bottom: rem(22);
-
-	}
-
-}
-
-.info-section-article__contents.is-active {
-	display: flex;
-	flex-direction: column;
-
-	@include mq('md') {
-		flex-direction: row;
-		align-items: center;
 		gap: rem(48);
+		align-items: center;
+		padding-bottom: rem(22);
+		flex-direction: row;
 	}
+
 }
+
 
 .info-section-article__contents-box {
 	@include mq('md') {

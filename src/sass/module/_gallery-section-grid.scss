@@ -4,87 +4,43 @@
     display: flex;
     flex-direction: column;
     gap: rem(7);
+
     @include mq('md') {
         display: grid;
         grid-template-columns: repeat(11, 1fr);
-        grid-template-rows: repeat(12, 1fr);
-        gap: 8px;
+        grid-auto-flow: dense;
+        gap: rem(8);
     }
 }
 
-.gallery-section-grid__image--1 {
+.gallery-section-grid__image:nth-of-type(6n+1),
+.gallery-section-grid__image:nth-of-type(6n+6) {
     @include mq('md') {
-        grid-column: span 5 / span 5;
-        grid-row: span 6 / span 6;
+        grid-column: span 5;
+        grid-row: span 2;
     }
-
 }
 
-.gallery-section-grid__image--2 {
+.gallery-section-grid__image {
     @include mq('md') {
-        grid-column: span 6 / span 6;
-        grid-row: span 3 / span 3;
-        grid-column-start: 6;
+        grid-column: span 6;
+        grid-row: span 1;
     }
 }
 
-.gallery-section-grid__image--3 {
-    @include mq('md') {
-        grid-column: span 6 / span 6;
-        grid-row: span 3 / span 3;
-        grid-column-start: 6;
-        grid-row-start: 4;
-    }
-}
-
-.gallery-section-grid__image--4 {
-    @include mq('md') {
-        grid-column: span 6 / span 6;
-        grid-row: span 3 / span 3;
-        grid-row-start: 7;
-    }
-}
-
-.gallery-section-grid__image--5 {
-    @include mq('md') {
-        grid-column: span 6 / span 6;
-        grid-row: span 3 / span 3;
-        grid-column-start: 1;
-        grid-row-start: 10;
-    }
-}
-
-.gallery-section-grid__image--6 {
-    @include mq('md') {
-        grid-column: span 5 / span 5;
-        grid-row: span 6 / span 6;
-        grid-column-start: 7;
-        grid-row-start: 7;
-    }
-}
-
-
-.gallery-section-grid__image--1 img,
-.gallery-section-grid__image--6 img {
-
+.gallery-section-grid__image:nth-of-type(6n+1) img,
+.gallery-section-grid__image:nth-of-type(6n+6) img {
     @include mq('md') {
         aspect-ratio: 492/746;
         object-fit: cover;
     }
 }
 
-.gallery-section-grid__image--2 img,
-.gallery-section-grid__image--3 img,
-.gallery-section-grid__image--4 img,
-.gallery-section-grid__image--5 img {
+.gallery-section-grid__image img {
     @include mq('md') {
         aspect-ratio: 580/369;
         object-fit: cover;
-    }
-}
-
-.gallery-section-grid__image img {
-    @include mq('md') {
         height: 100%;
+        width: 100%;
     }
 }

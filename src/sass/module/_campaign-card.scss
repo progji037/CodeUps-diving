@@ -30,7 +30,7 @@
   }
 }
 
-.campaign-card__image--low img {
+.campaign-card__image--blog img {
   aspect-ratio: 294 / 188;
   object-fit: cover;
 
@@ -60,7 +60,7 @@
   }
 }
 
-.campaign-card__textbox--low{
+.campaign-card__textbox--blog{
   @include mq('md') {
     padding-top: rem(10);
     padding-bottom: rem(19);
@@ -115,7 +115,7 @@
   }
 }
 
-.campaign-card__head--low {
+.campaign-card__head--blog {
   text-align: center;
   margin-top: rem(1);
   padding-bottom: rem(7);
@@ -144,7 +144,7 @@
   }
 }
 
-.campaign-card__title--low{
+.campaign-card__title--blog{
   @include mq('md') {
     margin-top: rem(8);
     font-size: rem(14);
@@ -165,7 +165,7 @@
   }
 }
 
-.campaign-card__price--low{
+.campaign-card__price--blog{
   @include mq('md') {
     gap: rem(18);
     margin-top: rem(8);
@@ -186,10 +186,9 @@
   }
 }
 
-.campaign-card__markdown--low{
+.campaign-card__markdown--blog{
   @include mq('md') {
     font-size: rem(20);
-
   }
 }
 
@@ -206,10 +205,9 @@
   }
 }
 
-.campaign-card__reduced-price--low{
+.campaign-card__reduced-price--blog{
   @include mq('md') {
     font-size: rem(32);
-
   }
 }
 
@@ -222,7 +220,15 @@
   }
 }
 
-/* .low-campaign
+.campaign__link.campaign__link--top{
+  @include mq('md') {
+    margin-top: rem(73);
+    padding-bottom: rem(5);
+
+  }
+}
+
+/* .blog-campaign
 -------------------------------------------------------------*/
 
 .campaign-card__detail {
@@ -265,7 +271,7 @@
   }
 }
 
-.campaign__link--low {
+.campaign__link--blog {
   @include mq('md') {
     margin-top: rem(14);
 
