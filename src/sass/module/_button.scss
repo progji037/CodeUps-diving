@@ -1,32 +1,34 @@
 @use "global" as *;
 
-.button{
+.button {
   font-family: $second-font-family;
   display: inline-block;
   padding-left: rem(38);
   padding-right: rem(88);
   padding-block: rem(19);
-  background-color: $green-blue;
   border: solid 1px $green-blue;
   line-height: 1;
   color: #ffffff;
   margin-right: rem(3);
   position: relative;
   transition: all 0.3s;
-  z-index: 2;
   font-size: rem(14);
   margin-bottom: rem(6);
+  z-index: 2;
   cursor: pointer;
+  background-color: $green-blue;
+  // box-shadow: 0 0 0 1px $green-blue;
 }
 
-.button.button--send{
+.button.button--send {
   padding-left: rem(55);
   padding-right: rem(112);
   padding-top: rem(21);
   padding-bottom: rem(19);
 
 }
-.button.button--send::after{
+
+.button.button--send::after {
   content: "";
   display: inline-block;
   position: absolute;
@@ -41,7 +43,7 @@
 }
 
 
-.button::before{
+.button::before {
   content: "";
   position: absolute;
   display: block;
@@ -56,7 +58,7 @@
   z-index: -1;
 }
 
-.button::after{
+.button::after {
   content: "";
   display: inline-block;
   position: absolute;
@@ -67,20 +69,21 @@
   margin-top: 0;
   margin-left: rem(2);
   box-shadow: 0 0 0 1px $green-blue;
+  // border: solid 1px $green-blue;
   z-index: -2;
 }
 
-.button span{
+.button span {
   font-family: $second-font-family;
 }
 
-.arrow{
+.arrow {
   line-height: 1;
   position: relative;
 }
 
 /* 右向き */
-.arrow::after{
+.arrow::after {
   content: "";
   position: absolute;
   width: rem(40);
@@ -93,29 +96,29 @@
 }
 
 /* 右向き */
-.arrow--contact::after{
+.arrow--contact::after {
   left: rem(13);
   top: rem(5);
 }
 
 /* .hover
 -------------------------------------------------------------*/
-.button:hover{
+.button:hover {
   color: $green-blue;
 }
 
-.button:hover::before{
+.button:hover::before {
   transform: scale(1, 1);
 }
 
-.button:hover .arrow::after{
+.button:hover .arrow::after {
   border-right: 1px solid $green-blue;
   border-bottom: 1px solid $green-blue;
 }
 
 /* button--white
 -------------------------------------------------------------*/
-.button--white{
+.button--white {
   padding-left: rem(40);
   padding-right: rem(95);
   padding-block: rem(20);
@@ -124,11 +127,11 @@
   position: relative;
 }
 
-.button--white::before{
+.button--white::before {
   background-color: $green-blue;
 }
 
-.button.button--white::after{
+.button.button--white::after {
   content: "";
   display: inline-block;
   position: absolute;
@@ -143,13 +146,13 @@
   z-index: -2;
 }
 
-.arrow--white{
+.arrow--white {
   line-height: 1;
   position: relative;
 }
 
 /* 右向き */
-.arrow--white::after{
+.arrow--white::after {
   content: "";
   position: absolute;
   width: rem(40);
@@ -161,18 +164,18 @@
   left: rem(12);
 }
 
-.button--white:hover{
+.button--white:hover {
   color: $white;
   background-color: $green-blue;
   border: solid 1px $white;
 
 }
 
-.button--white:hover::before{
+.button--white:hover::before {
   transform: scale(1, 1);
 }
 
-.button--white:hover .arrow--white::after{
+.button--white:hover .arrow--white::after {
   border-right: 1px solid $white;
   border-bottom: 1px solid $white;
 }

@@ -9,6 +9,7 @@
         display: grid;
         grid-template-columns: repeat(11, 1fr);
         grid-auto-flow: dense;
+        grid-auto-rows: 1fr;
         gap: rem(8);
     }
 }
