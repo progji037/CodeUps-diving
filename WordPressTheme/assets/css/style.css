@@ -1,0 +1,4625 @@
+body {
+	color: #0D2936;
+	font-family: "Noto Sans JP", sans-serif;
+}
+
+.u-desktop {
+	display: none;
+}
+
+/* リキッドレイアウト対応 */
+
+html {
+	font-size: 16px;
+}
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+/* Remove default padding */
+
+ul,
+ol {
+	padding: 0;
+}
+
+/* Remove default margin */
+
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+ul,
+ol,
+figure,
+blockquote,
+dl,
+dd {
+	margin: 0;
+}
+
+/* Set core root defaults */
+
+html {
+	scroll-behavior: smooth;
+}
+
+/* Set core body defaults */
+
+body {
+	line-height: 1.5;
+	min-height: 100vh;
+	text-rendering: optimizeLegibility;
+}
+
+/* Remove list styles on ul, ol elements with a class attribute */
+
+ul,
+ol {
+	list-style: none;
+}
+
+/* A elements that don't have a class get default styles */
+
+a:not([class]) {
+	-webkit-text-decoration-skip: ink;
+	text-decoration-skip-ink: auto;
+}
+
+/* Make images easier to work with */
+
+img {
+	display: block;
+	max-width: 100%;
+	width: 100%;
+}
+
+/* Natural flow and rhythm in articles by default */
+
+article > * + * {
+	margin-top: 1em;
+}
+
+/* Inherit fonts for inputs and buttons */
+
+input,
+button,
+textarea,
+select {
+	font: inherit;
+}
+
+/* Blur images when they have no alt attribute */
+
+/* フォームリセット */
+
+input,
+button,
+select,
+textarea {
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+	background: transparent;
+	border: none;
+	border-radius: 0;
+	font: inherit;
+	outline: none;
+}
+
+textarea {
+	resize: vertical;
+}
+
+input[type=checkbox],
+input[type=radio] {
+	display: none;
+}
+
+input[type=submit],
+input[type=button],
+label,
+button,
+select {
+	cursor: pointer;
+}
+
+select::-ms-expand {
+	display: none;
+}
+
+/* ホバー */
+
+a {
+	-webkit-text-decoration: none;
+	color: inherit;
+	text-decoration: none;
+	transition: opacity 0.3s;
+}
+
+.page-about {
+	margin-top: 3.25rem;
+}
+
+.page-blog-detail {
+	margin-top: 3rem;
+}
+
+.page-blog {
+	margin-top: 3.25rem;
+}
+
+.page-breadcrumb {
+	margin-top: 0.5rem;
+}
+
+.page-campaign {
+	margin-top: 3.1875rem;
+}
+
+.page-common-contact {
+	margin-top: 6.5625rem;
+}
+
+.page-common-contact--low {
+	margin-top: 6.5625rem;
+}
+
+.page-common-contact--faq {
+	margin-top: 6.625rem;
+}
+
+.page-common-contact--price,
+.page-common-contact--sitemap {
+	margin-top: 4.9375rem;
+}
+
+.page-common-contact--sitemap {
+	margin-top: 6.4375rem;
+}
+
+.page-common-contact--privacy,
+.page-common-contact--terms {
+	margin-top: 6.5625rem;
+}
+
+.page-contact-error {
+	margin-top: 3.25rem;
+}
+
+.page-contact-success {
+	margin-top: 3.0625rem;
+}
+
+.page-contact {
+	margin-top: 5rem;
+}
+
+.page-error {
+	padding-bottom: 2.3125rem;
+	padding-top: 5rem;
+}
+
+.page-faq {
+	margin-top: 3.0625rem;
+}
+
+.page-footer {
+	margin-top: 6.5625rem;
+}
+
+.page-footer.page-footer--error {
+	margin-top: 0;
+	padding-top: 5.3125rem;
+}
+
+.page-galley {
+	margin-top: 2.25rem;
+}
+
+.page-info {
+	margin-top: 7.5rem;
+}
+
+.page-low-contact {
+	margin-top: 3.3125rem;
+}
+
+.page-low-footer {
+	margin-top: 6.0625rem;
+}
+
+.page-low-footer--success {
+	margin-top: 9rem;
+}
+
+.page-low-footer.page-low-footer--error {
+	margin-top: 0;
+}
+
+.page-low-footer--contact {
+	margin-top: 8.625rem;
+}
+
+.page-price {
+	margin-top: 3.25rem;
+}
+
+.page-privacy-policy {
+	margin-top: 2.875rem;
+}
+
+.page-sitemap {
+	margin-top: 1.75rem;
+}
+
+.page-terms {
+	margin-top: 2.875rem;
+}
+
+.page-voice {
+	margin-top: 3.1875rem;
+}
+
+.top-about {
+	margin-top: 4.9375rem;
+}
+
+.top-blog {
+	margin-top: 5rem;
+}
+
+.top-campaign {
+	margin-top: 2.5rem;
+}
+
+.top-contact {
+	margin-top: 5rem;
+}
+
+.top-footer {
+	margin-top: 6.125rem;
+}
+
+.top-info {
+	margin-top: 4.3125rem;
+}
+
+.top-price {
+	margin-top: 4.8125rem;
+}
+
+.top-voice {
+	margin-top: 4.875rem;
+}
+
+.about-section {
+	position: relative;
+}
+
+.about-section::before {
+	background-image: url(/assets/images/common/_キンギョハナダイ-右向き-sp.png);
+	background-size: cover;
+	content: "";
+	display: block;
+	height: 3.4375rem;
+	left: calc(50% - min(45.9%, 38.7em));
+	position: absolute;
+	top: -1.5rem;
+	width: 7.5rem;
+	z-index: -1;
+}
+
+.about-section__body {
+	position: relative;
+}
+
+.about-section__main img {
+	-o-object-fit: cover;
+	aspect-ratio: 345/228;
+	object-fit: cover;
+}
+
+.about-section__sub {
+	display: none;
+}
+
+.about-section__content-title {
+	color: #408F95;
+	color: white;
+	font-family: "Gotu", sans-serif;
+	font-size: 2.5rem;
+	left: 1.5rem;
+	line-height: 1;
+	position: absolute;
+	top: 1.5rem;
+}
+
+.about-section__text {
+	margin-top: 2.5rem;
+}
+
+/* .
+-------------------------------------------------------------*/
+
+.about::after {
+	display: none;
+}
+
+.about__title {
+	text-align: center;
+}
+
+.about__body {
+	margin-top: 1.5rem;
+	position: relative;
+}
+
+.about__main {
+	margin-left: auto;
+	padding-top: 1.875rem;
+	width: 81.4492753623%;
+}
+
+.about__sub {
+	height: auto;
+	left: 0;
+	position: absolute;
+	top: 0.1875rem;
+	width: 37.1014492754%;
+}
+
+.about__contentsbox {
+	margin-top: 2.5rem;
+}
+
+.about__content-title {
+	color: #408F95;
+	font-family: "Gotu", sans-serif;
+	font-size: 2.5rem;
+	line-height: 1;
+}
+
+.about__textbox {
+	line-height: 1.5;
+	margin-top: 1rem;
+}
+
+.about__text {
+	font-weight: 400;
+}
+
+.about__link {
+	margin-top: 1.5625rem;
+	text-align: center;
+}
+
+.about__decoration {
+	display: none;
+}
+
+.archive-date__lists {
+	display: flex;
+	flex-direction: column;
+	gap: 0.25rem;
+}
+
+.article-card {
+	display: flex;
+	flex-direction: column;
+	gap: 1.5rem;
+}
+
+.article-card__item {
+	box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.25);
+	display: flex;
+	gap: 1rem;
+	padding: 1rem;
+}
+
+.article-card__item img {
+	-o-object-fit: cover;
+	aspect-ratio: 121/90;
+	max-width: 7.5625rem;
+	object-fit: cover;
+}
+
+.article-card__meta time {
+	font-family: "Gotu", sans-serif;
+	font-size: 0.75rem;
+}
+
+.article-cards__item {
+	margin-top: 1.5rem;
+}
+
+.blog-detail {
+	position: relative;
+}
+
+.blog-detail::before {
+	background-image: url(/assets/images/common/_キンギョハナダイ-右向き-sp.png);
+	background-size: cover;
+	content: "";
+	display: block;
+	height: 3.4375rem;
+	left: calc(50% - min(45.9%, 38.7em));
+	position: absolute;
+	top: -1.375rem;
+	width: 7.5rem;
+	z-index: -1;
+}
+
+.blog-detail__head-date {
+	font-size: 0.875rem;
+}
+
+.blog-detail__head-title {
+	border-bottom: solid 1px #408F95;
+	margin-top: 0.5rem;
+	padding-bottom: 0.1875rem;
+}
+
+.blog-detail__image {
+	margin-top: 1.5rem;
+}
+
+.blog-detail__contents {
+	margin-top: 1.5rem;
+}
+
+.blog-detail__contents > * {
+	margin-top: 1.5rem;
+}
+
+.blog-detail__contents ul {
+	display: flex;
+	flex-direction: column;
+	gap: 0.25rem;
+}
+
+.blog-detail__contents li {
+	line-height: 1.5;
+	padding-left: 1.6875rem;
+	position: relative;
+}
+
+.blog-detail__contents li::before {
+	background-image: url(/assets/images/common/_ヒトデ-blogdetail-sp.png);
+	background-position: center;
+	background-size: cover;
+	content: "";
+	display: inline-block;
+	height: 1.125rem;
+	left: 0;
+	position: absolute;
+	top: 0.3125rem;
+	width: 1.125rem;
+}
+
+.blog-detail__pagination {
+	margin-top: 2.5rem;
+	padding-left: 0;
+	padding-right: 0;
+}
+
+.blog-section {
+	position: relative;
+}
+
+.blog-section::before {
+	background-image: url(/assets/images/common/_キンギョハナダイ-右向き-sp.png);
+	background-size: cover;
+	content: "";
+	display: block;
+	height: 3.4375rem;
+	left: calc(50% - min(45.9%, 38.7em));
+	position: absolute;
+	top: -1.5rem;
+	width: 7.5rem;
+	z-index: -1;
+}
+
+.blog-section__wrapper {
+	display: flex;
+	flex-direction: column;
+	gap: 5rem;
+}
+
+.blog-section__container {
+	padding-left: 0.375rem;
+	padding-right: 0.375rem;
+}
+
+.blog-section__pagination {
+	margin-top: 5rem;
+	padding-left: 0;
+	padding-right: 0;
+}
+
+.blog-sidebar {
+	display: flex;
+	flex-direction: column;
+	gap: 5rem;
+}
+
+.blog-sidebar__inner {
+	padding-left: 1.5625rem;
+	padding-right: 1.5625rem;
+}
+
+.blog::after {
+	display: none;
+}
+
+.blog__inner::before {
+	display: none;
+}
+
+.blog__header {
+	text-align: center;
+}
+
+.blog__cards {
+	margin-top: 1.6875rem;
+	padding-left: 0.375rem;
+	padding-right: 0.375rem;
+}
+
+.blog__title {
+	font-family: "Gotu", sans-serif;
+	font-size: 2rem;
+	font-weight: normal;
+	font-weight: 300;
+	line-height: 1.25;
+}
+
+.blog__title::first-letter {
+	color: #408F95;
+}
+
+.blog__link {
+	margin-top: 2.375rem;
+	text-align: center;
+}
+
+.blog__link--sidebar {
+	margin-top: 2.625rem;
+}
+
+.breadcrumb {
+	position: relative;
+}
+
+.breadcrumb__page-detail {
+	align-items: center;
+	display: flex;
+	gap: 0.5rem;
+}
+
+.breadcrumb__page-arrow img {
+	background-size: cover;
+	height: 0.5rem;
+	width: 0.25rem;
+}
+
+.breadcrumb--white {
+	color: #fff;
+}
+
+.breadcrumb__page {
+	align-items: center;
+	display: flex;
+	font-size: 0.875rem;
+	gap: 0.5rem;
+	list-style: none;
+}
+
+.button {
+	background-color: #408F95;
+	border: solid 1px #408F95;
+	color: #ffffff;
+	cursor: pointer;
+	display: inline-block;
+	font-family: "Gotu", sans-serif;
+	font-size: 0.875rem;
+	line-height: 1;
+	margin-bottom: 0.375rem;
+	margin-right: 0.1875rem;
+	padding-bottom: 1.1875rem;
+	padding-left: 2.375rem;
+	padding-right: 5.5rem;
+	padding-top: 1.1875rem;
+	position: relative;
+	transition: all 0.3s;
+	z-index: 2;
+}
+
+.button.button--send {
+	padding-bottom: 1.1875rem;
+	padding-left: 3.4375rem;
+	padding-right: 7rem;
+	padding-top: 1.3125rem;
+}
+
+.button.button--send::after {
+	box-shadow: 0 0 0 1px #408F95;
+	content: "";
+	display: inline-block;
+	height: 3.4375rem;
+	left: 0;
+	margin-left: 0.25rem;
+	margin-top: 0.25rem;
+	position: absolute;
+	top: 0;
+	width: 12.625rem;
+	z-index: -2;
+}
+
+.button::before {
+	background-color: #ffffff;
+	content: "";
+	display: block;
+	height: 100%;
+	left: 0;
+	position: absolute;
+	top: 0;
+	transform: scale(0, 1);
+	transform-origin: left top;
+	transition: all 0.3s;
+	width: 100%;
+	z-index: -1;
+}
+
+.button::after {
+	box-shadow: 0 0 0 1px #408F95;
+	content: "";
+	display: inline-block;
+	height: 3.3125rem;
+	left: 0;
+	margin-left: 0.125rem;
+	margin-top: 0;
+	position: absolute;
+	top: 0.1875rem;
+	width: 12.625rem;
+	z-index: -2;
+}
+
+.button span {
+	font-family: "Gotu", sans-serif;
+}
+
+.arrow {
+	line-height: 1;
+	position: relative;
+}
+
+/* 右向き */
+
+.arrow::after {
+	border-bottom: 1px solid #ffffff;
+	border-right: 1px solid #ffffff;
+	content: "";
+	height: 7px;
+	left: 0.3125rem;
+	position: absolute;
+	top: 0.375rem;
+	transform: skew(45deg);
+	width: 2.5rem;
+}
+
+/* 右向き */
+
+.arrow--contact::after {
+	left: 0.8125rem;
+	top: 0.3125rem;
+}
+
+/* .hover
+-------------------------------------------------------------*/
+
+.button:hover {
+	color: #408F95;
+}
+
+.button:hover::before {
+	transform: scale(1, 1);
+}
+
+.button:hover .arrow::after {
+	border-bottom: 1px solid #408F95;
+	border-right: 1px solid #408F95;
+}
+
+/* button--white
+-------------------------------------------------------------*/
+
+.button--white {
+	background-color: #fff;
+	color: #408F95;
+	padding-bottom: 1.25rem;
+	padding-left: 2.5rem;
+	padding-right: 5.9375rem;
+	padding-top: 1.25rem;
+	position: relative;
+}
+
+.button--white::before {
+	background-color: #408F95;
+}
+
+.button.button--white::after {
+	box-shadow: 0 0 0 1px #fff;
+	content: "";
+	display: inline-block;
+	height: 3.4375rem;
+	left: 0;
+	margin-left: 0.25rem;
+	margin-top: 0.25rem;
+	position: absolute;
+	top: 0;
+	width: 12.5rem;
+	z-index: -2;
+}
+
+.arrow--white {
+	line-height: 1;
+	position: relative;
+}
+
+/* 右向き */
+
+.arrow--white::after {
+	border-bottom: 1px solid #408F95;
+	border-right: 1px solid #408F95;
+	content: "";
+	height: 7px;
+	left: 0.75rem;
+	position: absolute;
+	top: 0.375rem;
+	transform: skew(45deg);
+	width: 2.5rem;
+}
+
+.button--white:hover {
+	background-color: #408F95;
+	border: solid 1px #fff;
+	color: #fff;
+}
+
+.button--white:hover::before {
+	transform: scale(1, 1);
+}
+
+.button--white:hover .arrow--white::after {
+	border-bottom: 1px solid #fff;
+	border-right: 1px solid #fff;
+}
+
+.campaign-card {
+	box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.25);
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+	margin-bottom: 0.25rem;
+}
+
+.campaign-card__image {
+	flex-shrink: 0;
+}
+
+.campaign-card__image img {
+	-o-object-fit: cover;
+	aspect-ratio: 280/188;
+	object-fit: cover;
+}
+
+.campaign-card__image--blog img {
+	-o-object-fit: cover;
+	aspect-ratio: 294/188;
+	object-fit: cover;
+}
+
+.campaign-card__textbox {
+	display: flex;
+	flex: 1;
+	flex-direction: column;
+	padding-bottom: 1.25rem;
+	padding-left: 1rem;
+	padding-right: 1rem;
+	padding-top: 1rem;
+	text-align: left;
+}
+
+.campaign-card__header {
+	display: flex;
+	flex-direction: column;
+	flex-grow: 1;
+	text-align: left;
+}
+
+/* .ブログ詳細ページ
+-------------------------------------------------------------*/
+
+.campaign-card__tag {
+	border: solid 1px #408F95;
+	color: #408F95;
+	display: inline-block;
+	font-size: 0.75rem;
+	letter-spacing: 0;
+	line-height: 1.8333333333;
+	margin-right: auto;
+	padding: 0.1875rem 0.6875rem;
+}
+
+.campaign-card__head {
+	border-bottom: solid 1px #408F95;
+	flex: 1;
+	font-size: 1rem;
+	line-height: 1.45;
+	margin-top: 0.3125rem;
+	padding-bottom: 0.3125rem;
+}
+
+.campaign-card__head--blog {
+	font-weight: 700;
+	margin-top: 0.0625rem;
+	padding-bottom: 0.4375rem;
+	text-align: center;
+}
+
+.campaign-card__title {
+	font-size: 0.875rem;
+	line-height: 1.7142857143;
+	margin-top: 0.4375rem;
+	text-align: center;
+}
+
+.campaign-card__price {
+	align-items: baseline;
+	display: flex;
+	font-family: "Lato", sans-serif;
+	justify-content: center;
+	margin-top: 0.5rem;
+}
+
+.campaign-card__markdown {
+	-webkit-text-decoration: line-through;
+	font-size: 1.25rem;
+	font-weight: 800;
+	text-decoration: line-through;
+	text-decoration-color: #c94800;
+	text-decoration-style: solid;
+	text-decoration-thickness: 2px;
+}
+
+.campaign-card__reduced-price {
+	color: #408F95;
+	font-size: 2rem;
+	font-weight: 700;
+	line-height: 1;
+	margin-left: 1rem;
+}
+
+.campaign__link {
+	margin-top: 2.1875rem;
+	text-align: center;
+}
+
+/* .blog-campaign
+-------------------------------------------------------------*/
+
+.campaign-card__detail {
+	display: none;
+}
+
+.campaign-section-cards {
+	grid-row-gap: 2.5rem;
+	display: grid;
+	grid-template-columns: repeat(1, 1fr);
+	max-width: 17.5rem;
+	row-gap: 2.5rem;
+}
+
+.campaign-section {
+	position: relative;
+}
+
+.campaign-section::before {
+	background-image: url(/assets/images/common/_キンギョハナダイ-右向き-sp.png);
+	background-size: cover;
+	content: "";
+	display: block;
+	height: 3.4375rem;
+	left: calc(50% - min(45.9%, 38.7em));
+	position: absolute;
+	top: -1.5rem;
+	width: 7.5rem;
+	z-index: -1;
+}
+
+.campaign-section__content {
+	display: flex;
+	justify-content: center;
+	margin-top: 2.5rem;
+}
+
+.campaign-section-card__pagination {
+	margin-top: 4.875rem;
+}
+
+.campaign {
+	overflow: hidden;
+}
+
+.campaign__inner {
+	margin-left: 0.9375rem;
+}
+
+.campaign__title {
+	text-align: center;
+}
+
+/* .swiper
+-------------------------------------------------------------*/
+
+.campaign__button {
+	margin-right: calc(50% - 50vw);
+	margin-top: 1.75rem;
+}
+
+/*-------------------------------------------------------------*/
+
+.campaign__slide {
+	display: flex;
+	height: auto;
+	margin-bottom: 0.25rem;
+	max-width: 17.5rem;
+}
+
+.card {
+	display: inline-block;
+	padding-bottom: 1.5rem;
+	padding-left: 1rem;
+	padding-right: 1rem;
+	padding-top: 1rem;
+}
+
+.card__figure img {
+	-o-object-fit: cover;
+	aspect-ratio: 301/201;
+	object-fit: cover;
+	transition: all 0.3s;
+}
+
+.card__figure--hover {
+	overflow: hidden;
+}
+
+.card__figure--hover:hover img {
+	transform: scale(1.1); /* 拡大 */
+}
+
+.card__header {
+	margin-top: 1.5rem;
+}
+
+.card__header--low {
+	margin-top: 1.4375rem;
+}
+
+.card__date {
+	font-family: "Gotu", sans-serif;
+	font-size: 0.75rem;
+	line-height: 1.5;
+}
+
+.card__heading {
+	border-bottom: solid 1px #408F95;
+	font-weight: 600;
+	line-height: 1.5;
+	padding-bottom: 0.25rem;
+}
+
+.card__body {
+	margin-top: 0.9375rem;
+}
+
+.card__lists {
+	margin-top: 1.5rem;
+}
+
+.card__list a {
+	align-items: center;
+	display: flex;
+	gap: 0.5625rem;
+}
+
+.card__list img {
+	height: 1.125rem;
+	width: 1.125rem;
+}
+
+.card__text {
+	font-weight: 500;
+	margin-top: 1rem;
+}
+
+.cards__item a:hover {
+	opacity: 0.5;
+}
+
+.cards__item--low a:hover {
+	opacity: 1;
+}
+
+.cards__item {
+	background-color: #fff;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+}
+
+.cards__item--top {
+	margin-top: 1.5rem;
+}
+
+.cards__item:not(:first-child) {
+	margin-top: 2.5rem;
+}
+
+.contact-error__inner {
+	background-color: #408F95;
+	background-image: url(/assets/images/common/404-whale.svg);
+}
+
+.contact-section {
+	position: relative;
+}
+
+.contact-section::before {
+	background-image: url(../images/common/_キンギョハナダイ-右向き-sp.png);
+	background-size: cover;
+	content: "";
+	display: block;
+	height: 3.4375rem;
+	left: calc(50% - min(45.9%, 38.7em));
+	position: absolute;
+	top: -1.375rem;
+	width: 7.5rem;
+	z-index: -1;
+}
+
+.contact-section__inner.inner {
+	max-width: 33.125rem;
+}
+
+.contact-section__form-group {
+	align-items: start;
+	border-bottom: dotted 1px #408F95;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	padding-bottom: 1.5rem;
+}
+
+.contact-section__form-group:not(:first-child) {
+	margin-top: 1.5rem;
+}
+
+.contact-section__form-group:nth-of-type(4) {
+	padding-bottom: 1.5625rem;
+}
+
+.contact-section__form-group:nth-of-type(5) {
+	margin-top: 1.6875rem;
+}
+
+.contact-section__form-group label {
+	align-items: center;
+	display: flex;
+	font-weight: 700;
+	gap: 0.5rem;
+	line-height: 1;
+}
+
+.contact-section__form-group span {
+	background-color: #C94800;
+	color: #fff;
+	display: inline-block;
+	font-size: 0.75rem;
+	font-weight: 400;
+	letter-spacing: 0.25em;
+	line-height: 1;
+	padding-bottom: 4px;
+	padding-left: 0.875rem;
+	padding-right: 0.875rem;
+	padding-top: 4px;
+	text-indent: 0.25em;
+}
+
+input[type=text],
+input[type=tel],
+input[type=email] {
+	border: solid 1px #408F95;
+	line-height: 1.35;
+	padding-bottom: 0.5rem;
+	padding-left: 0.875rem;
+	padding-right: 0.875rem;
+	padding-top: 0.5rem;
+	width: 100%;
+}
+
+.contact-section__form-text {
+	border: solid 1px #408F95;
+	display: inline-block;
+	height: 12.5rem;
+	margin-top: 1.25rem;
+	padding-left: 0.875rem;
+	padding-right: 0.875rem;
+	padding-top: 0.5rem;
+	width: 100%;
+}
+
+input[type=text]::-moz-placeholder,
+input[type=tel]::-moz-placeholder,
+input[type=email]::-moz-placeholder,
+textarea::-moz-placeholder {
+	color: #408F95;
+	opacity: 0.2;
+}
+
+input[type=text]::placeholder,
+input[type=tel]::placeholder,
+input[type=email]::placeholder,
+textarea::placeholder {
+	color: #408F95;
+	opacity: 0.2;
+}
+
+input[type=text] {
+	margin-top: 1.0625rem;
+}
+
+input[type=email] {
+	margin-top: 1.125rem;
+}
+
+input[type=tel] {
+	margin-top: 1.1875rem;
+}
+
+.contact-section__form-check {
+	display: flex;
+	flex-direction: column;
+	gap: 0.4375rem;
+	margin-top: 1.25rem;
+}
+
+.contact-section__check-item label {
+	font-weight: normal;
+}
+
+.contact-section__check-item {
+	align-items: center;
+	display: flex;
+	gap: 0.3125rem;
+}
+
+input[type=checkbox] {
+	border: solid 1px #408F95;
+	cursor: pointer;
+	display: inline-block;
+	height: 0.875rem;
+	margin-left: 0;
+	position: relative;
+	width: 0.875rem;
+}
+
+/* チェックされたときの状態を設定 */
+
+input[type=checkbox]:checked {
+	border: solid 1px #408F95;
+}
+
+/* チェックマークの表示をカスタマイズ */
+
+input[type=checkbox]:checked::before {
+	border-bottom: 2px solid #c94800;
+	border-left: 2px solid #c94800;
+	content: "";
+	display: inline-block;
+	font-size: 16px;
+	height: 0.375rem;
+	left: 0.0625rem;
+	position: absolute;
+	top: 0.125rem;
+	transform: rotate(-45deg);
+	width: 0.625rem;
+}
+
+.contact-section__form-pulldown {
+	border: solid 1px #408F95;
+	cursor: pointer;
+	margin-top: 1.25rem;
+	position: relative;
+	width: 100%;
+}
+
+.contact-section__form-pulldown select {
+	background-image: url(../images/common/contact-pulldown.png);
+	background-position: right 0.6875rem center;
+	background-repeat: no-repeat;
+	background-size: 0.75rem;
+	cursor: pointer;
+	font-size: 0.75rem;
+	padding-bottom: 0.5625rem;
+	padding-left: 0.5rem;
+	padding-right: 0.5rem;
+	padding-top: 0.625rem;
+	width: 100%;
+}
+
+.contact-section__accept {
+	display: flex;
+	font-size: 0.875rem;
+	gap: 0.4375rem;
+	justify-content: center;
+	margin-top: 2.5rem;
+	position: relative;
+}
+
+.contact-section__accept input[type=checkbox] {
+	height: 1.34375rem;
+	margin: 0;
+	width: 1.34375rem;
+}
+
+.contact-section__accept input[type=checkbox]:checked::before {
+	height: 0.5rem;
+	left: 0.1875rem;
+	top: 0.25rem;
+	width: 0.875rem;
+}
+
+.contact-section__send {
+	margin-top: 1.4375rem;
+	text-align: center;
+}
+
+.contact-success {
+	position: relative;
+}
+
+.contact-success::before {
+	background-image: url(/assets/images/common/_キンギョハナダイ-右向き-sp.png);
+	background-size: cover;
+	content: "";
+	display: block;
+	height: 3.4375rem;
+	left: calc(50% - min(45.9%, 38.7em));
+	position: absolute;
+	top: -1.375rem;
+	width: 7.5rem;
+	z-index: -1;
+}
+
+.contact-success__inner {
+	text-align: center;
+}
+
+.contact-success__text {
+	line-height: 1.45;
+	margin-top: 2.25rem;
+}
+
+.contact {
+	position: relative;
+}
+
+.contact::after { /* min関数を使用 */
+	background-image: url(/assets/images/common/_contact-sp-キンギョハナダイ.png);
+	background-size: cover;
+	content: "";
+	display: block;
+	height: 3.125rem;
+	position: absolute;
+	right: calc(50% - min(46%, 31rem));
+	top: -1.5625rem;
+	width: 6.8125rem;
+}
+
+.contact__info {
+	filter: drop-shadow(0px 4px 2px rgba(0, 0, 0, 0.25));
+}
+
+.contact__info--lower {
+	filter: none;
+}
+
+.contact__info-box {
+	text-align: center;
+}
+
+.contact__headline {
+	border-bottom: solid 1px #408F95;
+	margin-left: 1.5625rem;
+	margin-right: 1.5625rem;
+	padding-bottom: 0.0625rem;
+}
+
+.contact__logo {
+	margin: 0 auto;
+	padding-bottom: 0.3125rem;
+	width: 10.875rem;
+}
+
+.contact__meta-body {
+	margin-top: 0.9375rem;
+}
+
+.contact__meta {
+	display: flex;
+	flex-direction: column;
+	gap: 0.25rem;
+	line-height: 1.5;
+}
+
+.contact__map {
+	aspect-ratio: 295/160;
+	margin: 1rem auto 0;
+	max-width: 18.4375rem;
+	position: relative;
+	width: 100%;
+}
+
+.contact__map iframe {
+	height: 100%;
+	left: 0;
+	top: 0;
+	width: 100%;
+}
+
+.contact__box {
+	margin-top: 2.25rem;
+	text-align: center;
+}
+
+.contact__title {
+	font-family: "Gotu", sans-serif;
+	font-size: 5rem;
+	font-weight: 400;
+	line-height: 1;
+}
+
+.contact__title::first-letter {
+	color: #408F95;
+}
+
+.contact__sub-text {
+	color: #408F95;
+	font-size: 0.75rem;
+	font-weight: normal;
+	margin-top: -0.375rem;
+}
+
+.contact__text-link {
+	color: #408F95;
+	font-size: 0.875rem;
+	padding-top: 0.5rem;
+}
+
+.contact__link {
+	color: #ffffff;
+	margin-top: 2.3125rem;
+}
+
+.contact__text {
+	padding-left: 0.125rem;
+}
+
+.date-lists {
+	color: #408F95;
+	font-size: 1.5rem;
+	position: relative;
+}
+
+.date-lists__year {
+	color: #408F95;
+	font-size: 1.5rem;
+	padding-left: 1.9375rem;
+	position: relative;
+}
+
+.date-lists__year::before {
+	-webkit-clip-path: polygon(0 0, 0 100%, 100% 50%);
+	background-color: #408F95;
+	clip-path: polygon(0 0, 0 100%, 100% 50%);
+	content: "";
+	display: inline-block;
+	height: 1.25rem;
+	left: 0.3125rem;
+	position: absolute;
+	top: 0.5625rem;
+	transition: all 0.3s;
+	width: 1rem;
+}
+
+.date-lists__year.is-open::before {
+	transform: rotate(90deg);
+}
+
+.date-lists__months {
+	display: flex;
+	flex-direction: column;
+	gap: 0.25rem;
+	margin-left: 1.875rem;
+	margin-top: 0.125rem;
+}
+
+.date-lists__month {
+	padding-left: 1.5rem;
+	position: relative;
+}
+
+.date-lists__month::before {
+	-webkit-clip-path: polygon(0 0, 0 100%, 100% 50%);
+	background-color: #408F95;
+	clip-path: polygon(0 0, 0 100%, 100% 50%);
+	content: "";
+	display: inline-block;
+	height: 1.25rem;
+	left: 0;
+	position: absolute;
+	top: 0.5625rem;
+	transition: all 0.3s;
+	width: 1rem;
+}
+
+.drawer-bar {
+	display: inline-block;
+	height: 5rem;
+	right: 0.9375rem;
+	top: 0;
+	width: 2rem;
+	z-index: 31;
+}
+
+.drawer-bar span {
+	background-color: #ffffff;
+	display: block;
+	height: 0.0625rem;
+	position: absolute;
+	transition: all 0.3s;
+	width: 2rem;
+}
+
+.drawer-bar span:nth-of-type(1) {
+	top: 1.6875rem;
+}
+
+.drawer-bar span:nth-of-type(2) {
+	top: 2.5rem;
+}
+
+.drawer-bar span:nth-of-type(3) {
+	top: 3.1875rem;
+}
+
+.drawer-bar.active span:nth-of-type(1) {
+	transform: translate(-4px, 12px) rotate(37deg);
+	width: 2.5rem;
+}
+
+.drawer-bar.active span:nth-of-type(2) {
+	opacity: 0;
+}
+
+.drawer-bar.active span:nth-of-type(3) {
+	transform: translate(-4px, -12px) rotate(-37deg);
+	width: 2.5rem;
+}
+
+.error {
+	background-color: #408F95;
+	box-shadow: 0px 1px 0px 0px #408F95;
+	position: relative;
+	z-index: 0;
+}
+
+.error::after {
+	background-color: #408F95;
+	bottom: 0;
+	content: "";
+	left: 0;
+	position: absolute;
+	right: 0;
+	top: 0;
+	z-index: 0;
+}
+
+.error__container {
+	color: #fff;
+	margin-top: 3.75rem;
+	position: relative;
+	z-index: 1;
+}
+
+.error__inner {
+	text-align: center;
+}
+
+.error__container::before {
+	background-image: url(/assets/images/common/CodeUps-404-whale.svg);
+	background-position: center;
+	content: "";
+	display: inline-block;
+	height: 21.5625rem;
+	left: 50%;
+	position: absolute;
+	top: 36%;
+	transform: translate(-50%, -50%);
+	width: 21.5625rem;
+	z-index: 0;
+}
+
+.error__title {
+	font-family: "Lato", sans-serif;
+	font-size: 5rem;
+	font-weight: 400;
+	letter-spacing: 0.5em;
+	line-height: 1;
+	text-indent: 0.5em;
+}
+
+.error__text {
+	margin-top: 0.125rem;
+}
+
+.error__link {
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 2.5rem;
+}
+
+.faq-list__question {
+	background-color: #408F95;
+	cursor: pointer;
+	padding: 1rem;
+	position: relative;
+}
+
+.faq-list__question::before,
+.faq-list__question::after {
+	background-color: #fff;
+	content: "";
+	display: inline-block;
+	height: 0.125rem;
+	position: absolute;
+	width: 1.75rem;
+}
+
+.faq-list__question::before {
+	right: 0.9375rem;
+	top: 1.625rem;
+	transform: rotate(0deg);
+	transition: all 0.3s;
+}
+
+.faq-list__question::after {
+	right: 1rem;
+	top: 1.625rem;
+}
+
+.faq-list__question.active::before {
+	transform: rotate(-90deg);
+}
+
+.faq-list__question-text {
+	color: #fff;
+}
+
+.faq-list__answer {
+	display: block;
+}
+
+.faq-list__answer.active {
+	display: none;
+}
+
+.faq-list__answer-text {
+	border-bottom: solid 1px #408F95;
+	border-left: solid 1px #408F95;
+	border-right: solid 1px #408F95;
+	line-height: 1.42;
+	padding: 1.5rem 1rem;
+}
+
+.faq-lists {
+	align-items: center;
+	display: flex;
+	flex-direction: column;
+	gap: 2.5rem;
+}
+
+.faq-lists__item {
+	width: 100%;
+}
+
+.faq-section {
+	position: relative;
+}
+
+.faq-section::before {
+	background-image: url(/assets/images/common/_キンギョハナダイ-右向き-sp.png);
+	background-size: cover;
+	content: "";
+	display: block;
+	height: 3.4375rem;
+	left: calc(50% - min(45.9%, 38.7em));
+	position: absolute;
+	top: -1.375rem;
+	width: 7.5rem;
+	z-index: -1;
+}
+
+.footer {
+	background-color: #408F95;
+	padding-bottom: 3.5rem;
+	padding-top: 3rem;
+}
+
+.footer__logo img {
+	width: 7.5rem;
+}
+
+.footer__sns-icon {
+	display: flex;
+	gap: 1rem;
+	margin-top: 1rem;
+}
+
+.footer__sns-icon img {
+	width: 1.5rem;
+}
+
+.footer__menu {
+	margin-top: 1rem;
+}
+
+.footer__copyright {
+	color: #fff;
+	font-family: "Gotu", sans-serif;
+	font-size: 0.75rem;
+	margin-top: 2.375rem;
+	text-align: center;
+}
+
+.fv__wrapper {
+	height: 100vh;
+	position: relative;
+}
+
+.fv__slide-image img {
+	-o-object-fit: cover;
+	aspect-ratio: 1440/768;
+	height: 100vh;
+	object-fit: cover;
+	width: 100%;
+}
+
+.fv__title {
+	animation: fadeInOut 3s forwards;
+	color: #408f95;
+	left: 50%;
+	position: absolute;
+	text-align: center;
+	top: 50%;
+	transform: translate(-50%, -57%);
+	z-index: 19;
+}
+
+.fv__main-title {
+	font-family: "Lato", sans-serif;
+	font-size: 2.5rem;
+	font-weight: 500;
+	letter-spacing: 0.524em;
+	text-indent: 0.524em;
+}
+
+.fv__sub-title {
+	font-family: "Gotu", sans-serif;
+	font-size: 1.25rem;
+	line-height: 1;
+	margin-top: 0.0625rem;
+}
+
+/* .loading
+-------------------------------------------------------------*/
+
+.fv-loading {
+	animation: out 3s forwards;
+	height: 100vh;
+	overflow: hidden;
+	position: fixed;
+	width: 100%;
+	z-index: 18;
+}
+
+.fv-loading__container {
+	animation: containerFade 3s forwards;
+	background-color: transparent;
+	display: flex;
+	height: 100vh;
+	height: inherit;
+	margin: 0;
+	opacity: 0;
+	overflow: hidden;
+	padding: 0;
+	position: relative;
+	width: 100%; /* 新しいアニメーション */
+}
+
+.fv-loading__split-left,
+.fv-loading__split-right {
+	height: 100%;
+	overflow: hidden;
+	position: relative;
+	width: 50%;
+}
+
+.fv-loading__split-left img {
+	bottom: 0;
+	height: 100%;
+	left: 0;
+	opacity: 0;
+	position: absolute;
+	transform: translateY(100%);
+	width: 100%;
+}
+
+.fv-loading__split-right img {
+	bottom: 0;
+	height: 100%;
+	opacity: 0;
+	position: absolute;
+	right: 0;
+	transform: translateY(100%);
+	width: 100%;
+}
+
+.fv-loading__split-left img.active {
+	animation: slideIn 0.8s ease-in-out forwards;
+	animation-delay: 0.8s;
+}
+
+.fv-loading__split-right img.active {
+	animation: slideIn 0.8s ease-in-out forwards;
+	animation-delay: 0.9s;
+}
+
+.gallery-section-grid {
+	display: flex;
+	flex-direction: column;
+	gap: 0.4375rem;
+}
+
+/* モーダルの背景 */
+
+.gallery-section-modal {
+	background-color: rgba(32, 32, 32, 0.8); /* 薄暗いグレー */
+	display: none;
+	height: 100%;
+	left: 0;
+	position: fixed;
+	top: 0;
+	width: 100%;
+	z-index: 21;
+}
+
+/* モーダル内の画像 */
+
+.gallery-section-modal__content {
+	-o-object-fit: contain;
+	display: block;
+	height: 92%;
+	left: 50%;
+	margin: auto;
+	object-fit: contain;
+	position: absolute;
+	top: 50%;
+	transform: translate(-50%, -50%);
+	width: 92%;
+}
+
+/* 閉じるボタン */
+
+.gallery-section-modal__close {
+	color: white;
+	cursor: pointer;
+	font-size: 35px;
+	font-weight: bold;
+	position: absolute;
+	right: 25px;
+	top: 0;
+}
+
+.gallery-section__title {
+	text-align: center;
+}
+
+.gallery-section__grid {
+	margin-top: 2.5rem;
+}
+
+.header-drawer {
+	background-color: #408F95;
+	height: 100%;
+	opacity: 0;
+	overflow-y: scroll;
+	right: 0;
+	top: 0;
+	transition: all 0.5s;
+	visibility: hidden;
+	width: 100%;
+	z-index: 30;
+}
+
+.header-drawer.open {
+	opacity: 1;
+	transform: translateZ(0);
+	visibility: visible;
+}
+
+.header-drawer__head {
+	background-color: #408F95;
+	height: 5rem;
+	left: 0;
+	position: sticky;
+	top: 0;
+	width: 100%;
+	z-index: 31;
+}
+
+.header-drawer__guide {
+	color: #fff;
+	padding-bottom: 3rem;
+}
+
+.header {
+	background-color: rgba(13, 41, 54, 0.68);
+	height: 5rem;
+	position: fixed;
+	width: 100%;
+	z-index: 20;
+}
+
+.header--top {
+	animation: delayFade 3s forwards;
+}
+
+.header__wrapper {
+	height: inherit;
+}
+
+.header__inner {
+	height: inherit;
+}
+
+.header__nav {
+	align-items: center;
+	display: flex;
+	height: inherit;
+	justify-content: space-between;
+}
+
+.header__logo {
+	padding-left: 0.9375rem;
+	position: relative;
+	width: 7.3125rem;
+	z-index: 31;
+}
+
+.header__items {
+	display: none;
+}
+
+.header__item {
+	font-family: "Gotu", sans-serif;
+	font-size: 1.125rem;
+}
+
+.header__item p {
+	line-height: 1.5;
+}
+
+.header__item p {
+	font-family: "Noto Sans JP", sans-serif;
+	font-size: 0.625rem;
+}
+
+/* .drawer
+-------------------------------------------------------------*/
+
+.header__drawer {
+	position: fixed;
+}
+
+.info-section-article__contents {
+	border: solid 1px #408F95;
+	display: flex;
+	flex-direction: column;
+	padding-bottom: 1.5rem;
+	padding-left: 1.5rem;
+	padding-right: 1.5rem;
+	padding-top: 1rem;
+}
+
+.info-section-article__contents-title {
+	border-bottom: solid 1px #408F95;
+	font-size: 1.5rem;
+	font-weight: 700;
+	padding-bottom: 0.125rem;
+}
+
+.info-section-article__contents-text {
+	line-height: 1.5;
+	margin-top: 0.5rem;
+}
+
+.info-section-article__contents-image {
+	margin-top: 0.5rem;
+}
+
+.info-section-article__contents-image img {
+	-o-object-fit: cover;
+	aspect-ratio: 297/189;
+	object-fit: cover;
+}
+
+.info-section-link {
+	font-feature-settings: "palt";
+	display: inline-block;
+	font-size: 0.875rem;
+	height: inherit;
+	letter-spacing: 0.01em;
+	line-height: 1.45;
+	padding: 0.625rem 1.125rem;
+	transition: all 0.3s;
+	width: 100%;
+}
+
+.info-section-link img {
+	display: none;
+}
+
+.info-section-link.is-active img {
+	filter: brightness(0) invert(100%);
+}
+
+.info-section-link.is-active {
+	background-color: #408F95;
+	color: #fff;
+}
+
+.info-section-tab {
+	display: flex;
+	gap: 1.25rem;
+	justify-content: space-between;
+}
+
+.info-section-tab__list {
+	background-color: #DDF0F1;
+	box-shadow: 6px 6px 4px -5px #787878;
+	color: #408F95;
+	text-align: center;
+	transition: 0.3s;
+	width: 100%;
+}
+
+.info-section {
+	position: relative;
+}
+
+.info-section::before {
+	background-image: url(/assets/images/common/_キンギョハナダイ-右向き-sp.png);
+	background-size: cover;
+	content: "";
+	display: block;
+	height: 3.4375rem;
+	left: calc(50% - min(45.9%, 38.7em));
+	position: absolute;
+	top: -1.375rem;
+	width: 7.5rem;
+	z-index: -1;
+}
+
+.info-section__article {
+	margin-top: 1rem;
+}
+
+.information {
+	background-color: #ddf0f1;
+	padding-bottom: 4.8125rem;
+	padding-top: 4.9375rem;
+}
+
+.information__header {
+	text-align: center;
+}
+
+.information__contents {
+	display: flex;
+	flex-direction: column;
+	gap: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+.information__head {
+	border-bottom: solid 1px #408F95;
+	font-size: 1.25rem;
+	font-weight: 700;
+	padding-bottom: 0.1875rem;
+}
+
+.information__text {
+	margin-top: 0.5rem;
+}
+
+.information__link {
+	margin-top: 2.5rem;
+	text-align: center;
+}
+
+.inner {
+	margin-left: auto;
+	margin-right: auto;
+	padding-left: 15px;
+	padding-right: 15px;
+	width: 100%;
+}
+
+.main-view__contents {
+	position: relative;
+}
+
+.main-view__image img {
+	-o-object-fit: cover;
+	aspect-ratio: 375/460;
+	object-fit: cover;
+	width: 100%;
+}
+
+.main-view__title {
+	color: #fff;
+	display: inline-block;
+	left: 50%;
+	position: absolute;
+	text-align: center;
+	top: 50%;
+	transform: translate(-50%, -50%);
+	width: 100%;
+}
+
+.main-view__main-title {
+	font-family: "Lato", sans-serif;
+	font-size: 2.5rem;
+	font-weight: normal;
+}
+
+.main-view__main-title.main-view__main-title--capitalize {
+	text-transform: capitalize;
+}
+
+.main-view__main-title.main-view__main-title--uppercase {
+	text-transform: uppercase;
+}
+
+.main-view__main-title span {
+	text-transform: lowercase;
+}
+
+.main-view__main-title--capitalize span {
+	text-transform: none;
+}
+
+.main-view__main-title--uppercase span {
+	text-transform: capitalize;
+}
+
+/* ============================================================
+#
+=============================================================*/
+
+.mask-slide {
+	position: relative;
+}
+
+.mask {
+	background-color: #408F95;
+	height: 100%;
+	position: absolute;
+	right: 0;
+	top: 0;
+	width: 100%;
+	z-index: 2;
+}
+
+.mask-slide img {
+	display: block;
+	width: 100%;
+}
+
+.pagination {
+	display: flex;
+	justify-content: center;
+}
+
+.pagination__lists {
+	display: flex;
+	gap: 0.75rem;
+}
+
+.pagination__list {
+	border: solid 1px #408F95;
+	color: #408F95;
+	display: inline-block;
+	height: 2.375rem;
+	line-height: 1;
+	width: 2.375rem;
+}
+
+.pagination__list a {
+	display: block;
+	height: 100%;
+	padding: 0.5625rem 0.875rem;
+	transition: all 0.3s;
+	width: 100%;
+}
+
+.pagination__list:hover a,
+.pagination__list a.is-active {
+	background-color: #408F95;
+	color: #fff;
+}
+
+.pagination__list--pc {
+	display: none;
+}
+
+.pagination__list--left {
+	margin-right: 2.5rem;
+	position: relative;
+}
+
+.pagination__list--left a::before {
+	border-bottom: solid 1px #408F95;
+	border-left: solid 1px #408F95;
+	content: "";
+	height: 0.9375rem;
+	left: 0.875rem;
+	position: absolute;
+	top: 0.6875rem;
+	transform: rotate(45deg);
+	width: 0.9375rem;
+}
+
+.pagination__list--left a:hover::before {
+	border-bottom: solid 1px white;
+	border-left: solid 1px white;
+}
+
+.pagination__list--right {
+	margin-left: 2.5rem;
+	position: relative;
+}
+
+.pagination__list--right a::before {
+	border-right: solid 1px #408F95;
+	border-top: solid 1px #408F95;
+	content: "";
+	height: 0.9375rem;
+	position: absolute;
+	right: 0.9375rem;
+	top: 0.6875rem;
+	transform: rotate(45deg);
+	width: 0.9375rem;
+}
+
+.pagination__list--right a:hover::before {
+	border-right: solid 1px white;
+	border-top: solid 1px white;
+}
+
+.parts-head {
+	position: relative;
+}
+
+.parts-head ::before {
+	background-color: #408F95;
+	content: "";
+	height: 3.125rem;
+	left: 0;
+	position: absolute;
+	top: 0;
+	width: 0.5rem;
+}
+
+.parts-head__title {
+	align-items: center;
+	display: flex;
+	gap: 0.5rem;
+	margin-left: 1.25rem;
+}
+
+.parts-head__title img {
+	height: 3.125rem;
+	width: 3.125rem;
+}
+
+.parts-head__text {
+	font-size: 1.5rem;
+}
+
+.price-list__head {
+	align-items: center;
+	background-color: #408F95;
+	display: flex;
+	gap: 0.4375rem;
+	justify-content: center;
+	padding-bottom: 0.5rem;
+	padding-top: 0.5rem;
+}
+
+.price-list__head-image img {
+	-o-object-fit: cover;
+	aspect-ratio: 22.88/20.42;
+	object-fit: cover;
+	width: 1.43rem;
+}
+
+.price-list__head-title {
+	color: white;
+	font-size: 1rem;
+	font-weight: bold;
+}
+
+.price-list__costs {
+	border-left: solid 1px #408F95;
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.price-list__costs dt,
+.price-list__costs dd {
+	align-items: center;
+	display: flex;
+	flex-direction: row;
+	min-height: 3.75rem;
+	padding-bottom: 0.3125rem;
+	padding-top: 0.3125rem;
+}
+
+.price-list__costs dt {
+	border-bottom: solid 1px #408F95;
+	border-right: solid 1px #408F95;
+	justify-content: center;
+	text-align: center;
+	width: 69.5%;
+}
+
+.price-list__costs dd {
+	border-bottom: solid 1px #408F95;
+	border-right: solid 1px #408F95;
+	justify-content: right;
+	padding-right: 16px;
+	width: 30.5%;
+}
+
+.price-lists {
+	align-items: center;
+	display: flex;
+	flex-direction: column;
+	gap: 2.5rem;
+}
+
+.price-section {
+	position: relative;
+}
+
+.price-section::before {
+	background-image: url(/assets/images/common/_キンギョハナダイ-右向き-sp.png);
+	background-size: cover;
+	content: "";
+	display: block;
+	height: 3.4375rem;
+	left: calc(50% - min(45.9%, 38.7em));
+	position: absolute;
+	top: -1.5rem;
+	width: 7.5rem;
+	z-index: -1;
+}
+
+.price {
+	background-color: #ddf0f1;
+	padding-bottom: 4.8125rem;
+	padding-top: 5rem;
+}
+
+.price::after {
+	display: none;
+}
+
+.price__header {
+	text-align: center;
+}
+
+.price__content {
+	margin-top: 1.75rem;
+}
+
+.price__image img {
+	-o-object-fit: cover;
+	aspect-ratio: 345/227;
+	object-fit: cover;
+}
+
+.price__lists {
+	margin-top: 2.5rem;
+}
+
+.price__list:not(:first-child) {
+	margin-top: 2.4375rem;
+}
+
+.price__list-title {
+	border-bottom: solid 1px #408F95;
+	font-weight: 700;
+	line-height: 1.5;
+	padding-bottom: 0.25rem;
+}
+
+.price__costs {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.price__costs dt {
+	font-size: 0.875rem;
+	line-height: 1.7142857143;
+	margin-top: 0.5rem;
+	width: 73.3333333333%;
+}
+
+.price__costs dd {
+	font-size: 0.875rem;
+	line-height: 1.7142857143;
+	margin-top: 0.5rem;
+	text-align: right;
+	width: 26.6666666667%;
+}
+
+.price__link {
+	margin-top: 2.5rem;
+	text-align: center;
+}
+
+.privacy-policy {
+	position: relative;
+}
+
+.privacy-policy::before {
+	background-image: url(/assets/images/common/_キンギョハナダイ-右向き-sp.png);
+	background-size: cover;
+	content: "";
+	display: block;
+	height: 3.4375rem;
+	left: calc(50% - min(45.9%, 38.7em));
+	position: absolute;
+	top: -1.375rem;
+	width: 7.5rem;
+	z-index: -1;
+}
+
+.privacy-policy__content {
+	line-height: 2;
+}
+
+.privacy-policy__title {
+	font-size: 1.5rem;
+}
+
+.privacy-policy__text {
+	margin-top: 2.0625rem;
+}
+
+.privacy-policy__text ol li {
+	list-style-position: inside;
+	list-style-type: decimal;
+	padding-left: 1.4em;
+	text-indent: -1em;
+}
+
+.scroll-back {
+	background-color: #ffffff;
+	border: solid 1px #408f95;
+	border-radius: 50%;
+	bottom: 0.625rem;
+	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+	height: 3rem;
+	opacity: 1;
+	position: fixed;
+	right: 0.9375rem;
+	width: 3rem;
+	z-index: 19;
+}
+
+.scroll-back a::after {
+	background-color: #408f95;
+	content: "";
+	height: 1.75rem;
+	left: 1.4375rem;
+	position: absolute;
+	top: 0.625rem;
+	width: 0.0625rem;
+}
+
+.scroll-back a::before {
+	background-color: #408f95;
+	content: "";
+	height: 0.5625rem;
+	left: 1.25rem;
+	position: absolute;
+	top: 0.5625rem;
+	transform: rotate(45deg);
+	width: 0.0625rem;
+}
+
+.section-title {
+	text-align: center;
+}
+
+.section-title__main {
+	font-family: "Gotu", sans-serif;
+	font-size: 2rem;
+	font-weight: normal;
+	font-weight: 300;
+	line-height: 1.25;
+}
+
+.section-title__main::first-letter {
+	color: #408F95;
+}
+
+.section-title__sub {
+	color: #408F95;
+	font-size: 0.75rem;
+	line-height: 1.5;
+	margin-top: 0.25rem;
+}
+
+.sidebar-archive__date {
+	margin-top: 1.5rem;
+}
+
+.sidebar-article__cards {
+	margin-top: 1.5rem;
+}
+
+.sidebar-campaign-lists {
+	display: flex;
+	flex-direction: column;
+	gap: 2.5rem;
+}
+
+.sidebar-campaign__cards {
+	margin-top: 1.4375rem;
+}
+
+.sidebar-campaign__link {
+	margin-top: 2.5rem;
+	text-align: center;
+}
+
+.sidebar-head {
+	position: relative;
+}
+
+.sidebar-head ::before {
+	background-color: #408F95;
+	content: "";
+	height: 3.125rem;
+	left: 0;
+	position: absolute;
+	top: 0;
+	width: 0.5rem;
+}
+
+.sidebar-head__title {
+	align-items: center;
+	display: flex;
+	gap: 0.5rem;
+	margin-left: 1.5625rem;
+	padding-top: 0.0625rem;
+}
+
+.sidebar-head__title img {
+	height: 3.0625rem;
+	width: 3.0625rem;
+}
+
+.sidebar-head__text {
+	font-size: 1.5rem;
+	margin-top: 0.25rem;
+}
+
+.sidebar-review__voice {
+	margin-top: 1.5rem;
+}
+
+.sidebar-review__voice img {
+	aspect-ratio: 294/218;
+	max-width: 18.375rem;
+}
+
+.sidebar-review__voice p {
+	font-size: 0.75rem;
+	margin-top: 1rem;
+}
+
+.sidebar-review__title {
+	font-size: 1.5rem;
+	font-weight: 700;
+	margin-top: 0.5rem;
+}
+
+.sidebar-review__link {
+	margin-top: 2.5rem;
+	text-align: center;
+}
+
+.site-guide__wrapper {
+	color: #fff;
+	display: flex;
+	justify-content: center;
+}
+
+.site-guide__group.site-guide__group--right {
+	margin-left: 0.4375rem;
+}
+
+.site-guide__group-box {
+	margin-top: 1.25rem;
+}
+
+.site-guide__group-box.site-guide__group-box--head {
+	margin-top: 2.125rem;
+}
+
+.site-guide__group-list {
+	margin-left: 1.125rem;
+	margin-top: 1.125rem;
+}
+
+.site-guide__list--space a {
+	display: flex;
+	flex-direction: column;
+}
+
+.site-guide__list--top {
+	font-weight: 700;
+	margin-left: 0;
+	margin-top: 0;
+	padding-left: 1.25rem;
+	position: relative;
+}
+
+.site-guide__list--space,
+.site-guide__list--line {
+	font-weight: 700;
+	margin-left: 0;
+	padding-left: 1.25rem;
+	position: relative;
+}
+
+.site-guide__list--space {
+	margin-top: 2.125rem;
+}
+
+.site-guide__list--line {
+	line-height: 1.25;
+	margin-top: 2.25rem;
+}
+
+.site-guide__list--top::before,
+.site-guide__list--space::before,
+.site-guide__list--line::before {
+	background-image: url(../images/common/ヒトデ-sp.png);
+	background-size: cover;
+	content: "";
+	display: inline-block;
+	height: 1.125rem;
+	left: 0;
+	position: absolute;
+	top: 0.1875rem;
+	width: 1.125rem;
+}
+
+.site-guide__group-list:hover a {
+	opacity: 0.5;
+}
+
+.site-guide__list--space:hover a {
+	opacity: 0.5;
+}
+
+/* .sitemap
+-------------------------------------------------------------*/
+
+.site-guide__wrapper.site-guide__wrapper--black {
+	color: black;
+	gap: 1.875rem;
+}
+
+.site-guide__group-list.site-guide__list--topblk {
+	font-weight: 700;
+	margin-left: 0;
+	margin-top: 0;
+	padding-left: 1.25rem;
+	position: relative;
+}
+
+.site-guide__group-list.site-guide__list--spaceblk,
+.site-guide__group-list.site-guide__list--lineblk {
+	font-weight: 700;
+	margin-left: 0;
+	padding-left: 1.25rem;
+	position: relative;
+}
+
+.site-guide__list--spaceblk {
+	margin-top: 2.125rem;
+}
+
+.site-guide__list--lineblk {
+	line-height: 1.25;
+	margin-top: 2.25rem;
+}
+
+.site-guide__list--topblk::before,
+.site-guide__list--spaceblk::before,
+.site-guide__list--lineblk::before {
+	background-image: url(../images/common/ヒトデ-black-sp.png);
+	background-size: cover;
+	content: "";
+	display: inline-block;
+	height: 1.125rem;
+	left: 0;
+	position: absolute;
+	top: 0.1875rem;
+	width: 1.125rem;
+}
+
+.sitemap {
+	color: #0D2936;
+}
+
+.sitemap__inner {
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.tab-links__lists {
+	grid-row-gap: 1rem;
+	grid-column-gap: 1.3125rem;
+	-moz-column-gap: 1.3125rem;
+	column-gap: 1.3125rem;
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	row-gap: 1rem;
+}
+
+.tab-links__list {
+	text-align: center;
+}
+
+.tab-links__list a {
+	background-color: #fff;
+	border: solid 1px #408F95;
+	color: #408F95;
+	display: inline-block;
+	font-size: 0.875rem;
+	padding: 0.3125rem 1.375rem;
+	transition: all 0.3s;
+	width: 10.125rem;
+}
+
+.tab-links__list:hover a {
+	background-color: #408F95;
+	color: #fff;
+}
+
+.tab-links__list--info {
+	padding: 0.625rem 1rem;
+}
+
+.terms {
+	position: relative;
+}
+
+.terms::before {
+	background-image: url(/assets/images/common/_キンギョハナダイ-右向き-sp.png);
+	background-size: cover;
+	content: "";
+	display: block;
+	height: 3.4375rem;
+	left: calc(50% - min(45.9%, 38.7em));
+	position: absolute;
+	top: -1.375rem;
+	width: 7.5rem;
+	z-index: -1;
+}
+
+.terms__content {
+	line-height: 2;
+}
+
+.terms__title {
+	font-size: 1.5rem;
+}
+
+.terms__text {
+	margin-top: 2.0625rem;
+}
+
+.terms__text ol li {
+	list-style-position: inside;
+	list-style-type: decimal;
+	padding-left: 1.4em;
+	text-indent: -1em;
+}
+
+.voice-cards__item {
+	background-color: #fff;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+	padding-bottom: 1.5rem;
+	padding-left: 1rem;
+	padding-right: 1rem;
+	padding-top: 1rem;
+}
+
+.voice-cards__item:not(:first-child) {
+	margin-top: 2.4375rem;
+}
+
+.voice-card__header {
+	display: flex;
+	gap: 0.25rem;
+	justify-content: center;
+}
+
+.voice-card__body {
+	width: 100%;
+}
+
+.voice-card__meta-age {
+	font-size: 0.75rem;
+	line-height: 1.5;
+}
+
+.voice-card__meta-tag {
+	border: solid 1px #408F95;
+	color: #408F95;
+	display: inline-block;
+	font-size: 0.75rem;
+	line-height: 1.8333333333;
+	padding: 0.1875rem 0.6875rem;
+}
+
+.voice-card__title {
+	border-bottom: solid 1px #408F95;
+	font-weight: 500;
+	line-height: 1.45;
+	margin-top: 0.25rem;
+	padding-bottom: 0.125rem;
+}
+
+.voice-card__image {
+	margin-top: 0.5rem;
+	max-width: 9.4375rem;
+}
+
+.voice-card__image img {
+	-o-object-fit: cover;
+	aspect-ratio: 151/117;
+	object-fit: cover;
+}
+
+.voice-card__text {
+	font-weight: 500;
+	line-height: 1.5;
+	margin-top: 1rem;
+}
+
+.voice-section {
+	position: relative;
+}
+
+.voice-section::before {
+	background-image: url(/assets/images/common/_キンギョハナダイ-右向き-sp.png);
+	background-size: cover;
+	content: "";
+	display: block;
+	height: 3.4375rem;
+	left: calc(50% - min(45.9%, 38.7em));
+	position: absolute;
+	top: -1.5rem;
+	width: 7.5rem;
+	z-index: -1;
+}
+
+.voice-section__container {
+	margin-top: 2.5rem;
+}
+
+.voice-section__pagination {
+	margin-top: 5rem;
+}
+
+.voice::before {
+	display: none;
+}
+
+.voice::after {
+	display: none;
+}
+
+.voice__header {
+	text-align: center;
+}
+
+.voice__cards {
+	margin-top: 2.75rem;
+}
+
+.voice__cards--low {
+	margin-top: 2.5rem;
+}
+
+.voice__link {
+	margin-top: 2.5rem;
+	text-align: center;
+}
+
+@media screen and (min-width: 768px) {
+
+.u-desktop {
+	display: block;
+}
+
+.u-mobile {
+	display: none;
+}
+
+html {
+	font-size: 1.4814814815vw;
+}
+
+.page-about {
+	margin-top: 9.25rem;
+}
+
+.page-blog-detail {
+	margin-top: 9.125rem;
+}
+
+.page-blog {
+	margin-top: 9.1875rem;
+}
+
+.page-campaign {
+	margin-top: 9.375rem;
+}
+
+.page-common-contact {
+	margin-top: 8.75rem;
+}
+
+.page-common-contact--low {
+	margin-top: 8.75rem;
+}
+
+.page-common-contact--far {
+	margin-top: 7.3125rem;
+}
+
+.page-common-contact--about {
+	margin-top: 7.9375rem;
+}
+
+.page-common-contact--campaign {
+	margin-top: 8.625rem;
+}
+
+.page-common-contact--info {
+	margin-top: 8.75rem;
+}
+
+.page-common-contact--faq {
+	margin-top: 8.75rem;
+}
+
+.page-common-contact--price,
+.page-common-contact--sitemap {
+	margin-top: 8.5rem;
+}
+
+.page-common-contact--privacy,
+.page-common-contact--terms {
+	margin-top: 8.6875rem;
+}
+
+.page-contact-error {
+	margin-top: 9.375rem;
+}
+
+.page-contact-success {
+	margin-top: 9.1875rem;
+}
+
+.page-contact {
+	margin-top: 6.25rem;
+}
+
+.page-error {
+	padding-bottom: 8.9375rem;
+	padding-top: 5.625rem;
+}
+
+.page-faq {
+	margin-top: 9.3125rem;
+}
+
+.page-footer {
+	margin-top: 7.375rem;
+}
+
+.page-footer.page-footer--error {
+	padding-top: 14.0625rem;
+}
+
+.page-galley {
+	margin-top: 7.375rem;
+}
+
+.page-info {
+	margin-top: 9.375rem;
+}
+
+.page-low-contact {
+	margin-top: 9.1875rem;
+}
+
+.page-low-footer {
+	margin-top: 9.5rem;
+}
+
+.page-low-footer--voice {
+	margin-top: 9.875rem;
+}
+
+.page-low-footer--success {
+	margin-top: 7.5rem;
+}
+
+.page-price {
+	margin-top: 9.625rem;
+}
+
+.page-privacy-policy {
+	margin-top: 8.75rem;
+}
+
+.page-sitemap {
+	margin-top: 9.25rem;
+}
+
+.page-terms {
+	margin-top: 8.875rem;
+}
+
+.page-voice {
+	margin-top: 9.375rem;
+}
+
+.top-about {
+	margin-top: 8.5625rem;
+}
+
+.top-blog {
+	margin-top: 0;
+}
+
+.top-campaign {
+	margin-top: 7.5625rem;
+}
+
+.top-contact {
+	margin-top: 8.75rem;
+}
+
+.top-footer {
+	margin-top: 9.8125rem;
+}
+
+.top-info {
+	margin-top: 10.3125rem;
+}
+
+.top-price {
+	margin-top: 8.625rem;
+}
+
+.top-voice {
+	margin-top: 8.5625rem;
+}
+
+.about-section::before {
+	background-image: url(/assets/images/common/_キンギョハナダイ-右向き-pc.png);
+	background-size: cover;
+	content: "";
+	display: block;
+	height: 8.625rem;
+	left: calc(50% - min(48%, 38.7em));
+	position: absolute;
+	top: -4.4375rem;
+	width: 18.8125rem;
+}
+
+.about-section__main {
+	margin-left: auto;
+	margin-right: -0.1875rem;
+	max-width: 55rem;
+	padding-top: 5rem;
+}
+
+.about-section__sub {
+	display: block;
+	height: auto;
+	left: 0.1875rem;
+	max-width: 25rem;
+	position: absolute;
+	top: 0rem;
+	width: 37.1014492754%;
+}
+
+.about-section__content-title {
+	font-size: 5rem;
+	left: 50%;
+	line-height: 1.25;
+	top: 12.5rem;
+	transform: translateX(-84%);
+}
+
+.about-section__text {
+	color: white;
+	margin-top: 0;
+	max-width: 25rem;
+	position: absolute;
+	right: 2.25rem;
+	top: 14.125rem;
+}
+
+.about {
+	position: relative;
+}
+
+.about::after {
+	background-image: url(/assets/images/common/_サンゴとイソギンチャク.png);
+	background-size: cover;
+	bottom: -5.6875rem;
+	content: "";
+	display: block;
+	height: 11.3125rem;
+	position: absolute;
+	right: calc(50% - min(48.2%, 40rem));
+	width: 12.125rem;
+}
+
+.about__body {
+	margin-top: 2.5rem;
+}
+
+.about__main {
+	max-width: 55rem;
+	padding-top: 5rem;
+}
+
+.about__sub {
+	max-width: 25rem;
+	top: 0rem;
+}
+
+.about__contentsbox {
+	display: flex;
+	gap: 2.625rem;
+	margin-top: 1rem;
+	position: absolute;
+	right: 2.5rem;
+	top: 27.7%;
+}
+
+.about__content-title {
+	color: white;
+	font-size: 5rem;
+	line-height: 1.25;
+}
+
+.about__textbox {
+	margin-top: 0.125rem;
+}
+
+.about__text {
+	color: white;
+	max-width: 25rem;
+	padding-right: 0rem;
+}
+
+.about__link {
+	margin-top: 2.5rem;
+}
+
+.about__decoration {
+	bottom: -5.6875rem;
+	display: block;
+	max-width: 12.125rem;
+	position: absolute;
+	right: calc(50% - min(48.2%, 40rem));
+}
+
+.article-card__meta time {
+	font-size: 0.875rem;
+}
+
+.blog-detail::before {
+	background-image: url(/assets/images/common/_キンギョハナダイ-右向き-pc.png);
+	background-size: cover;
+	content: "";
+	display: block;
+	height: 8.625rem;
+	left: calc(50% - min(48%, 38.7em));
+	position: absolute;
+	top: -4.5rem;
+	width: 18.8125rem;
+}
+
+.blog-detail__head-title {
+	font-size: 2rem;
+	line-height: 1.45;
+	padding-bottom: 0;
+}
+
+.blog-detail__image {
+	margin-top: 2.5rem;
+}
+
+.blog-detail__contents {
+	margin-top: 2.4375rem;
+}
+
+.blog-detail__contents > * {
+	margin-top: 2.5rem;
+}
+
+.blog-detail__pagination {
+	margin-top: 5rem;
+}
+
+.blog-section::before {
+	background-image: url(/assets/images/common/_キンギョハナダイ-右向き-pc.png);
+	background-size: cover;
+	content: "";
+	display: block;
+	height: 8.625rem;
+	left: calc(50% - min(48%, 38.7em));
+	position: absolute;
+	top: -4.4375rem;
+	width: 18.8125rem;
+}
+
+.blog-section__wrapper {
+	flex-direction: row;
+}
+
+.blog-section__main {
+	width: 70%;
+}
+
+.blog-section__container {
+	padding-left: 0;
+	padding-right: 0;
+}
+
+.blog-section__pagination--pc {
+	margin-top: 4.8125rem;
+}
+
+.blog-section__sidebar {
+	width: 29%;
+}
+
+.blog-sidebar__inner {
+	padding-left: 0;
+	padding-right: 0;
+}
+
+.blog {
+	padding-top: 6.25rem;
+	position: relative;
+}
+
+.blog::after {
+	-o-object-fit: cover;
+	aspect-ratio: 1440/500;
+	background-image: url(/assets/images/common/blog-pc-back.jpg);
+	background-size: cover;
+	content: "";
+	display: block;
+	height: 31.25rem;
+	object-fit: cover;
+	position: absolute;
+	top: 0;
+	width: 100%;
+	z-index: -1;
+}
+
+.blog__inner::before {
+	background-image: url(/assets/images/common/_blog-キンギョハナダイ.png);
+	background-size: cover;
+	content: "";
+	display: inline-block;
+	height: 12.5625rem;
+	left: calc(50% - min(48%, 38.7rem));
+	position: absolute;
+	top: 1.5625rem;
+	width: 27.3125rem;
+}
+
+.blog__cards {
+	margin-top: 5rem;
+	padding-left: 0;
+	padding-right: 0;
+}
+
+.blog__title {
+	color: #ffffff;
+	font-size: 2.5rem;
+	line-height: 1;
+}
+
+.blog__title::first-letter {
+	color: #ffffff;
+}
+
+.blog__subtitle {
+	color: #ffffff;
+}
+
+.blog__link {
+	margin-top: 5rem;
+}
+
+.blog__link--sidebar {
+	margin-top: 2.5625rem;
+}
+
+.campaign-card {
+	margin-bottom: 0.3125rem;
+}
+
+.campaign-card__image img {
+	aspect-ratio: 334/223;
+}
+
+.campaign-card__image--blog img {
+	aspect-ratio: 294/188;
+}
+
+.campaign-card__textbox {
+	padding-bottom: 2.25rem;
+	padding-left: 1.5rem;
+	padding-right: 1.5rem;
+	padding-top: 1.5625rem;
+}
+
+.campaign-card__textbox--blog {
+	padding-bottom: 1.1875rem;
+	padding-top: 0.625rem;
+}
+
+.campaign-card__tag {
+	line-height: 1;
+	padding: 0.625rem 0.9375rem;
+	text-align: center;
+}
+
+.campaign-card__head {
+	font-size: 1.5rem;
+	font-weight: 500;
+	line-height: 1.25;
+	margin-top: 0.4375rem;
+	padding-bottom: 0.0625rem;
+}
+
+.campaign-card__head--blog {
+	font-size: 1rem;
+	padding-bottom: 0.6875rem;
+}
+
+.campaign-card__title {
+	font-size: 1rem;
+	margin-top: 1.375rem;
+}
+
+.campaign-card__title--blog {
+	font-size: 0.875rem;
+	margin-top: 0.5rem;
+}
+
+.campaign-card__price {
+	gap: 2.5rem;
+	margin-top: 0.3125rem;
+}
+
+.campaign-card__price--blog {
+	gap: 1.125rem;
+	margin-top: 0.5rem;
+}
+
+.campaign-card__markdown {
+	font-size: 1.5rem;
+}
+
+.campaign-card__markdown--blog {
+	font-size: 1.25rem;
+}
+
+.campaign-card__reduced-price {
+	font-size: 2.5rem;
+	margin-left: 0;
+}
+
+.campaign-card__reduced-price--blog {
+	font-size: 2rem;
+}
+
+.campaign__link {
+	margin-top: 4.875rem;
+}
+
+.campaign__link.campaign__link--top {
+	margin-top: 4.5625rem;
+	padding-bottom: 0.3125rem;
+}
+
+.campaign-card__detail {
+	display: block;
+}
+
+.campaign-card__text {
+	margin-top: 1.25rem;
+}
+
+.campaign-card__visit {
+	color: #408F95;
+	margin-top: 1.75rem;
+	text-align: center;
+}
+
+.campaign-card__period p {
+	font-size: 0.875rem;
+	margin-top: 0.25rem;
+}
+
+.campaign-card__period span {
+	font-family: "Lato", sans-serif;
+	font-weight: 700;
+}
+
+.campaign__link--blog {
+	margin-top: 0.875rem;
+}
+
+.campaign-section-cards {
+	-moz-column-gap: 2.5rem;
+	column-gap: 2.5rem;
+	grid-template-columns: repeat(2, 1fr);
+	max-width: 67.5rem;
+	row-gap: 5rem;
+}
+
+.campaign-section::before {
+	background-image: url(/assets/images/common/_キンギョハナダイ-右向き-pc.png);
+	background-size: cover;
+	content: "";
+	display: block;
+	height: 8.625rem;
+	left: calc(50% - min(48%, 38.7em));
+	position: absolute;
+	top: -4.4375rem;
+	width: 18.8125rem;
+}
+
+.campaign-section__content {
+	display: block;
+}
+
+.campaign-section-card__pagination {
+	margin-top: 5.1875rem;
+}
+
+.campaign__inner {
+	position: relative;
+}
+
+.campaign__title {
+	padding-right: 0;
+}
+
+.campaign__subtitle {
+	font-size: 0.75rem;
+}
+
+.campaign-button__slide {
+	display: flex;
+	gap: 5rem;
+	position: absolute;
+	right: 1.625rem;
+	top: 0.0625rem;
+}
+
+.campaign__button-next,
+.campaign__button-prev {
+	background-color: #ffffff;
+	border: solid 1px #408f95;
+	border-radius: 50%;
+	bottom: 0.6875rem;
+	content: "";
+	height: 5rem;
+	right: 1.25rem;
+	width: 5rem;
+}
+
+.campaign__button-next {
+	transform: rotate(90deg);
+}
+
+.campaign__button-prev {
+	transform: rotate(-90deg);
+}
+
+.campaign__button-prev::after {
+	background-color: #408f95;
+	content: "";
+	height: 2.5rem;
+	left: 2.1875rem;
+	position: absolute;
+	top: 1.3125rem;
+	width: 0.0625rem;
+}
+
+.campaign__button-prev::before {
+	background-color: #408f95;
+	content: "";
+	height: 0.5625rem;
+	left: 2.375rem;
+	position: absolute;
+	top: 1.1875rem;
+	transform: rotate(-45deg);
+	width: 0.0625rem;
+}
+
+.campaign__button-next::after {
+	background-color: #408f95;
+	content: "";
+	height: 2.5rem;
+	left: 2.5rem;
+	position: absolute;
+	top: 1.3125rem;
+	width: 0.0625rem;
+}
+
+.campaign__button-next::before {
+	background-color: #408f95;
+	content: "";
+	height: 0.5625rem;
+	left: 2.3125rem;
+	position: absolute;
+	top: 1.1875rem;
+	transform: rotate(45deg);
+	width: 0.0625rem;
+}
+
+.campaign__button {
+	margin-top: 2.5625rem;
+}
+
+.campaign__slide {
+	display: flex;
+	max-width: 20.8125rem;
+}
+
+.card__header--low {
+	margin-top: 1.5rem;
+}
+
+.card__lists {
+	margin-top: 2.5rem;
+}
+
+.cards {
+	grid-row-gap: 2.5rem;
+	grid-column-gap: 2.5rem;
+	-moz-column-gap: 2.5rem;
+	column-gap: 2.5rem;
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	justify-content: center;
+	row-gap: 2.5rem;
+}
+
+.cards--blog {
+	grid-row-gap: 5rem;
+	grid-column-gap: 2.5rem;
+	-moz-column-gap: 2.5rem;
+	column-gap: 2.5rem;
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	row-gap: 5rem;
+}
+
+.cards__item--top {
+	margin-top: 2.5rem;
+}
+
+.cards__item--low {
+	padding-right: 1.0625rem;
+}
+
+.cards__item:not(:first-child) {
+	margin-top: 0;
+}
+
+.contact-section::before {
+	background-image: url(../images/common/_キンギョハナダイ-右向き-pc.png);
+	background-size: cover;
+	content: "";
+	display: block;
+	height: 8.625rem;
+	left: calc(50% - min(48%, 38.7em));
+	position: absolute;
+	top: -4.5rem;
+	width: 18.8125rem;
+}
+
+.contact-section__inner.inner {
+	max-width: 46.875rem;
+}
+
+.contact-section__form-group {
+	align-items: flex-start;
+	flex-direction: row;
+	justify-content: space-between;
+	padding-bottom: 2.5rem;
+}
+
+.contact-section__form-group:not(:first-child) {
+	margin-top: 2.4375rem;
+}
+
+.contact-section__form-group:nth-of-type(4) {
+	margin-top: 2.5rem;
+	padding-bottom: 2.625rem;
+}
+
+.contact-section__form-group:nth-of-type(5) {
+	align-items: center;
+	margin-top: 2.1875rem;
+}
+
+.contact-section__form-group.contact-section__form-group--left {
+	gap: 1.4375rem;
+	justify-content: left;
+}
+
+.contact-section__form-group input,
+.contact-section__form-pulldown,
+.contact-section__form-text {
+	width: 68.57%;
+}
+
+.contact-section__form-text {
+	margin-top: 0;
+}
+
+input[type=text] {
+	margin-top: 0;
+}
+
+input[type=email] {
+	margin-top: 0;
+}
+
+input[type=tel] {
+	margin-top: 0;
+}
+
+.contact-section__form-check {
+	margin-top: 0.1875rem;
+	width: 68.57%;
+}
+
+.contact-section__check-item input {
+	width: 0.875rem;
+}
+
+.contact-section__check-item label {
+	width: 90%;
+}
+
+.contact-section__form-pulldown {
+	margin-top: 0;
+}
+
+.contact-section__form-pulldown select {
+	padding-bottom: 0.25rem;
+	padding-left: 0.5rem;
+	padding-top: 0.4375rem;
+}
+
+.contact-section__accept {
+	gap: 0;
+	margin-top: 5rem;
+}
+
+.contact-section__accept input[type=checkbox] {
+	right: 1rem;
+}
+
+.contact-section__send {
+	margin-top: 2.5rem;
+}
+
+.contact-success::before {
+	background-image: url(/assets/images/common/_キンギョハナダイ-右向き-pc.png);
+	background-size: cover;
+	content: "";
+	display: block;
+	height: 8.625rem;
+	left: calc(50% - min(48%, 38.7em));
+	position: absolute;
+	top: -4.5rem;
+	width: 18.8125rem;
+}
+
+.contact::after { /* min関数を使用 */
+	background-image: url(/assets/images/common/_contact-pc-キンギョハナダイ.png);
+	background-size: cover;
+	height: 8.625rem;
+	right: calc(50% - min(48.5%, 42rem));
+	top: -2.4375rem;
+	width: 19.125rem;
+}
+
+.contact__decoration img {
+	height: auto;
+	width: 100%;
+}
+
+.contact__info {
+	box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.25);
+	display: flex;
+	gap: 5.125rem;
+	padding-bottom: 4.625rem;
+	padding-left: 3.125rem;
+	padding-right: 3.125rem;
+	padding-top: 3.375rem;
+}
+
+.contact__info-box {
+	filter: none;
+	margin-top: 1.6875rem;
+	max-width: 27.5rem;
+}
+
+.contact__headline {
+	margin: 0;
+}
+
+.contact__logo {
+	padding-bottom: 0.4375rem;
+	width: 12.5rem;
+}
+
+.contact__meta-body {
+	display: flex;
+	gap: 1.3125rem;
+	justify-content: space-between;
+	margin-top: 1.625rem;
+}
+
+.contact__meta {
+	gap: 0.34375rem;
+	line-height: 1.4;
+	text-align: left;
+}
+
+.contact__map {
+	aspect-ratio: 273/148;
+	margin: 0;
+	max-width: 17.0625rem;
+}
+
+.contact__box {
+	border-left: solid 1px #408F95;
+	margin-top: 2.875rem;
+	padding-left: 5rem;
+}
+
+.contact__box-wrap {
+	filter: none;
+}
+
+.contact__text-link {
+	padding-top: 0.4375rem;
+}
+
+.contact__link {
+	margin-top: 2.5rem;
+}
+
+.contact__text {
+	padding-left: 0;
+}
+
+.drawer-bar {
+	display: none;
+}
+
+.error__container {
+	margin-top: 8.3125rem;
+}
+
+.error__container::before {
+	background-size: contain;
+	height: 43.625rem;
+	left: calc(50% - min(48%, 11.7em));
+	top: 48%;
+	width: 43.625rem;
+}
+
+.error__title {
+	font-size: 10rem;
+}
+
+.error__text {
+	margin-top: 2.5625rem;
+}
+
+.error__link {
+	margin-top: 5rem;
+}
+
+.faq-list__question {
+	padding-bottom: 1.5rem;
+	padding-left: 2.5rem;
+	padding-top: 1.625rem;
+}
+
+.faq-list__question::before {
+	right: 2.625rem;
+	top: 2.4375rem;
+}
+
+.faq-list__question::after {
+	right: 2.625rem;
+	top: 2.4375rem;
+}
+
+.faq-list__question-text {
+	font-size: 1.25rem;
+}
+
+.faq-list__answer {
+	margin-top: 1rem;
+}
+
+.faq-list__answer-text {
+	border-top: solid 1px #408F95;
+	padding-bottom: 2.5rem;
+	padding-left: 2.4375rem;
+	padding-right: 2.4375rem;
+	padding-top: 2.4375rem;
+}
+
+.faq-section::before {
+	background-image: url(/assets/images/common/_キンギョハナダイ-右向き-pc.png);
+	background-size: cover;
+	content: "";
+	display: block;
+	height: 8.625rem;
+	left: calc(50% - min(48%, 38.7em));
+	position: absolute;
+	top: -4.5rem;
+	width: 18.8125rem;
+}
+
+.faq-section__inner.inner {
+	max-width: 46.875rem;
+}
+
+.footer {
+	padding-bottom: 5rem;
+	padding-top: 5rem;
+}
+
+.footer__headline {
+	display: flex;
+	gap: 2.5rem;
+}
+
+.footer__logo img {
+	width: 12.5rem;
+}
+
+.footer__sns-icon {
+	margin-top: 2.375rem;
+}
+
+.footer__sns-icon img {
+	width: 2rem;
+}
+
+.footer__menu {
+	margin-top: 1.375rem;
+}
+
+.footer__copyright {
+	font-size: 0.875rem;
+	margin-top: 4.6875rem;
+}
+
+.fv__title {
+	left: 50%;
+	opacity: 0;
+	top: 50%;
+	transform: translate(-50%, -54%);
+}
+
+.fv__main-title {
+	font-size: 5rem;
+	line-height: 1.4;
+}
+
+.fv__sub-title {
+	margin-top: 0;
+}
+
+.gallery-section-grid {
+	grid-gap: 0.5rem;
+	display: grid;
+	gap: 0.5rem;
+	grid-auto-flow: dense;
+	grid-auto-rows: 1fr;
+	grid-template-columns: repeat(11, 1fr);
+}
+
+.gallery-section-grid__image:nth-of-type(6n+1),
+.gallery-section-grid__image:nth-of-type(6n+6) {
+	grid-column: span 5;
+	grid-row: span 2;
+}
+
+.gallery-section-grid__image {
+	grid-column: span 6;
+	grid-row: span 1;
+}
+
+.gallery-section-grid__image:nth-of-type(6n+1) img,
+.gallery-section-grid__image:nth-of-type(6n+6) img {
+	-o-object-fit: cover;
+	aspect-ratio: 492/746;
+	object-fit: cover;
+}
+
+.gallery-section-grid__image img {
+	-o-object-fit: cover;
+	aspect-ratio: 580/369;
+	height: 100%;
+	object-fit: cover;
+	width: 100%;
+}
+
+.gallery-section-modal__content {
+	height: 80%;
+	width: 80%;
+}
+
+.gallery-section-modal__close {
+	right: 11.25rem;
+	top: 1.5625rem;
+}
+
+.gallery-section {
+	position: relative;
+}
+
+.gallery-section::before { /* min関数を使用 */
+	background-image: url(/assets/images/common/_contact-pc-キンギョハナダイ.png);
+	background-size: cover;
+	content: "";
+	display: block;
+	height: 8.625rem;
+	position: absolute;
+	right: calc(50% - min(44.6%, 42rem));
+	top: -4.8125rem;
+	width: 19.125rem;
+}
+
+.gallery-section__grid {
+	margin-top: 5rem;
+}
+
+.header {
+	height: 5.625rem;
+}
+
+.header__inner {
+	padding-left: 2.5rem;
+	padding-right: 2.5625rem;
+}
+
+.header__logo {
+	padding-left: 0;
+	padding-top: 0rem;
+	width: 8.1875rem;
+}
+
+.header__items {
+	align-items: center;
+	color: #ffffff;
+	display: flex;
+	font-size: 1.125rem;
+	gap: 2.5rem;
+	height: inherit;
+	text-align: center;
+}
+
+.header__item {
+	height: inherit;
+	position: relative;
+}
+
+.header__item a {
+	align-items: center;
+	display: flex;
+	flex-direction: column;
+	gap: 0.125rem;
+	height: inherit;
+	justify-content: center;
+	line-height: 1.2;
+	position: relative;
+}
+
+.header__item::after {
+	background: #ffffff;
+	bottom: 0.9375rem;
+	content: "";
+	height: 0.0625rem;
+	left: 0; /*絶対配置で線の位置を決める*/
+	position: absolute;
+	transform: scale(0, 1); /*X方向0、Y方向1*/
+	transform-origin: center top; /*アニメーションの指定*/
+	transition: all 0.2s; /*線の形状*/
+	width: 100%; /*上部中央基点*/
+}
+
+.header__item:hover::after {
+	transform: scale(1, 1); /*X方向にスケール拡大*/
+}
+
+.info-section-article__contents {
+	align-items: center;
+	flex-direction: row;
+	gap: 3rem;
+	padding-bottom: 1.375rem;
+}
+
+.info-section-article__contents-box {
+	max-width: 30.75rem;
+}
+
+.info-section-article__contents-image img {
+	aspect-ratio: 492/313;
+}
+
+.info-section-link {
+	align-items: center;
+	display: flex;
+	gap: 0.5rem;
+	padding-bottom: 0.875rem;
+	padding-left: 1.875rem;
+	padding-right: 1.125rem;
+	padding-top: 0.8125rem;
+}
+
+.info-section-link p {
+	font-size: 1.5rem;
+	letter-spacing: 0.055em;
+}
+
+.info-section-link img {
+	display: inline-block;
+	height: 4rem;
+	transition: 0.3s;
+	width: 4rem;
+}
+
+.info-section-tab__list {
+	height: 5.625rem;
+	width: 18.75rem;
+}
+
+.info-section::before {
+	background-image: url(/assets/images/common/_キンギョハナダイ-右向き-pc.png);
+	background-size: cover;
+	content: "";
+	display: block;
+	height: 8.625rem;
+	left: calc(50% - min(48%, 38.7em));
+	position: absolute;
+	top: -4.5rem;
+	width: 18.8125rem;
+}
+
+.info-section__article {
+	margin-top: 1.5rem;
+}
+
+.information {
+	padding-bottom: 4.6875rem;
+	padding-top: 6.25rem;
+}
+
+.information__contents {
+	align-items: center;
+	flex-direction: row;
+	gap: 3rem;
+}
+
+.information__head {
+	font-size: 1.5rem;
+}
+
+.inner {
+	max-width: 1130px;
+	padding-left: 25px;
+	padding-right: 25px;
+}
+
+.main-view__image img {
+	aspect-ratio: 1440/548;
+}
+
+.main-view__title {
+	left: 50%;
+	top: 59%;
+	transform: translate(-50%, -50%);
+}
+
+.main-view__main-title {
+	font-size: 5rem;
+}
+
+.pagination__list--pc {
+	display: block;
+}
+
+.price-list {
+	display: flex;
+}
+
+.price-list__head {
+	flex-direction: column-reverse;
+	gap: 0.8125rem;
+	padding-bottom: 2.5rem;
+	padding-top: 2.5rem;
+	width: 28.601%;
+}
+
+.price-list__head-image img {
+	aspect-ratio: 64/54.5;
+	width: 4rem;
+}
+
+.price-list__menu {
+	width: 71.399%;
+}
+
+.price-list__costs {
+	border-top: solid 1px #408F95;
+}
+
+.price-list__costs dt {
+	justify-content: left;
+	padding-left: 1rem;
+	padding-right: 1rem;
+	text-align: left;
+	width: 68%;
+}
+
+.price-list__costs dd {
+	width: 32%;
+}
+
+.price-section::before {
+	background-image: url(/assets/images/common/_キンギョハナダイ-右向き-pc.png);
+	background-size: cover;
+	content: "";
+	display: block;
+	height: 8.625rem;
+	left: calc(50% - min(48%, 38.7em));
+	position: absolute;
+	top: -4.4375rem;
+	width: 18.8125rem;
+}
+
+.price-section__inner.inner {
+	max-width: 46.875rem;
+}
+
+.price {
+	padding-bottom: 6.125rem;
+	padding-top: 6.25rem;
+	position: relative;
+}
+
+.price::after {
+	background-image: url(/assets/images/common/_price-キンギョハナダイ.png);
+	background-size: cover;
+	bottom: 3.75rem;
+	content: "";
+	display: block;
+	height: 12.5625rem;
+	left: calc(50% - min(48%, 38.8rem));
+	position: absolute;
+	width: 27.3125rem;
+}
+
+.price__content {
+	display: flex;
+	flex-direction: row-reverse;
+	justify-content: space-between;
+	margin-top: 2.5rem;
+}
+
+.price__image {
+	max-width: 30.75rem;
+}
+
+.price__image img {
+	aspect-ratio: 492/746;
+}
+
+.price__lists {
+	margin-top: 0;
+	max-width: 30.75rem;
+}
+
+.price__costs {
+	justify-content: space-between;
+}
+
+.price__costs dt {
+	font-size: 1rem;
+	line-height: 1.5;
+	margin-top: 0.375rem;
+	width: 60.9756097561%;
+}
+
+.price__costs dd {
+	font-size: 1rem;
+	line-height: 1.5;
+	width: 20.325203252%;
+}
+
+.price__list:nth-of-type(1) dt {
+	margin-top: 0.5rem;
+}
+
+.price__list:nth-of-type(2) dt {
+	margin-top: 0.4375rem;
+}
+
+.price__list:nth-of-type(3) dt {
+	margin-top: 0.53125rem;
+}
+
+.price__list:nth-of-type(4) dt {
+	margin-top: 0.5rem;
+}
+
+.price__list:nth-of-type(4) .price__list-title {
+	margin-top: 0.125rem;
+}
+
+.price__link {
+	margin-top: 5rem;
+}
+
+.privacy-policy::before {
+	background-image: url(/assets/images/common/_キンギョハナダイ-右向き-pc.png);
+	background-size: cover;
+	content: "";
+	display: block;
+	height: 8.625rem;
+	left: calc(50% - min(48%, 38.7em));
+	position: absolute;
+	top: -4.5rem;
+	width: 18.8125rem;
+}
+
+.privacy-policy__inner {
+	max-width: 53.125rem;
+}
+
+.privacy-policy__content {
+	margin-left: auto;
+	margin-right: auto;
+	max-width: 50rem;
+	width: 100%;
+}
+
+.privacy-policy__title {
+	font-size: 2rem;
+}
+
+.privacy-policy__text {
+	margin-top: 1.9375rem;
+}
+
+.scroll-back {
+	height: 5rem;
+	right: 1.25rem;
+	width: 5rem;
+}
+
+.scroll-back a::after {
+	height: 2.5rem;
+	left: 2.5rem;
+	top: 1.3125rem;
+	width: 0.0625rem;
+}
+
+.scroll-back a::before {
+	left: 2.3125rem;
+	top: 1.1875rem;
+}
+
+.section-title__main {
+	font-size: 2.5rem;
+	line-height: 1;
+}
+
+.section-title__main--white {
+	color: #fff;
+}
+
+.section-title__main--white::first-letter {
+	color: #fff;
+}
+
+.section-title__sub {
+	margin-top: 0.5rem;
+}
+
+.section-title__sub--white {
+	color: #fff;
+}
+
+.sidebar-head__title {
+	margin-left: 1.5rem;
+}
+
+.sidebar-head__title img {
+	height: 3.125rem;
+	width: 3.125rem;
+}
+
+.sidebar-head__text {
+	margin-top: 0.1875rem;
+}
+
+.site-guide__wrapper {
+	flex-wrap: nowrap;
+	gap: 7.8125rem;
+	justify-content: left;
+}
+
+.site-guide__group {
+	display: flex;
+	gap: 7.8125rem;
+}
+
+.site-guide__group.site-guide__group--right {
+	margin-left: 0;
+}
+
+.site-guide__group-box {
+	margin-top: 0;
+}
+
+.site-guide__group-box.site-guide__group-box--head {
+	margin-top: 0;
+}
+
+.site-guide__list--space a {
+	flex-direction: row;
+}
+
+.site-guide__wrapper.site-guide__wrapper--black {
+	gap: 8.875rem;
+}
+
+.site-guide__group.site-guide__group--map {
+	margin-left: 0.4375rem;
+}
+
+.sitemap__inner {
+	max-width: 68.125rem;
+	padding-left: 0.625rem;
+	padding-right: 0.625rem;
+}
+
+.tab-links__lists {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 2rem;
+}
+
+.terms::before {
+	background-image: url(/assets/images/common/_キンギョハナダイ-右向き-pc.png);
+	background-size: cover;
+	content: "";
+	display: block;
+	height: 8.625rem;
+	left: calc(50% - min(48%, 38.7em));
+	position: absolute;
+	top: -4.5rem;
+	width: 18.8125rem;
+}
+
+.terms__content {
+	margin-left: auto;
+	margin-right: auto;
+	max-width: 50rem;
+	width: 100%;
+}
+
+.terms__title {
+	font-size: 2rem;
+}
+
+.terms__text {
+	margin-top: 1.9375rem;
+}
+
+.voice-cards {
+	grid-row-gap: 5rem;
+	grid-column-gap: 2.5rem;
+	-moz-column-gap: 2.5rem;
+	column-gap: 2.5rem;
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	row-gap: 5rem;
+}
+
+.voice-cards__item {
+	padding: 1.5rem;
+}
+
+.voice-cards__item:not(:first-child) {
+	margin-top: 0;
+}
+
+.voice-card__header {
+	gap: 1rem;
+	justify-content: space-between;
+}
+
+.voice-card__body {
+	margin-top: 1.5rem;
+}
+
+.voice-card__meta {
+	display: flex;
+	justify-content: space-between;
+}
+
+.voice-card__meta-age {
+	padding-top: 1rem;
+}
+
+.voice-card__meta-tag {
+	padding: 0.3125rem 0.9375rem;
+}
+
+.voice-card__title {
+	font-size: 1.5rem;
+	margin-top: 0.5625rem;
+}
+
+.voice-card__image {
+	margin: 0;
+	max-width: 11.25rem;
+}
+
+.voice-card__image img {
+	aspect-ratio: 180/140;
+}
+
+.voice-card__text {
+	margin-top: 2.5rem;
+}
+
+.voice-section::before {
+	background-image: url(/assets/images/common/_キンギョハナダイ-右向き-pc.png);
+	background-size: cover;
+	content: "";
+	display: block;
+	height: 8.625rem;
+	left: calc(50% - min(48%, 38.7em));
+	position: absolute;
+	top: -4.5rem;
+	width: 18.8125rem;
+}
+
+.voice-section__pagination {
+	margin-top: 4.5rem;
+}
+
+.voice {
+	position: relative;
+}
+
+.voice::before {
+	background-image: url(/assets/images/common/_voice-キンギョハナダイ.png);
+	background-size: cover;
+	content: "";
+	display: block;
+	height: 8.625rem;
+	left: calc(50% - min(48%, 38.9rem));
+	position: absolute;
+	top: -7.5rem;
+	width: 18.8125rem;
+}
+
+.voice::after {
+	background-image: url(/assets/images/common/_voice-イバラタツ.png);
+	background-size: cover;
+	bottom: -4.0625rem;
+	content: "";
+	display: block;
+	height: 10.125rem;
+	position: absolute;
+	right: calc(50% - min(48.5%, 33.7rem));
+	width: 4.4375rem;
+}
+
+.voice__cards {
+	margin-top: 1.875rem;
+}
+
+.voice__link {
+	margin-top: 5rem;
+}
+
+}
+
+@media (min-width: 1080px) {
+
+html {
+	font-size: 16px;
+}
+
+}
+
+@media (max-width: 375px) {
+
+html {
+	font-size: 4.2666666667vw;
+}
+
+}
+
+@keyframes fadeInOut {
+
+0%,20% {
+	opacity: 0;
+}
+
+20%,60% {
+	opacity: 1;
+}
+
+60%,80% {
+	opacity: 0;
+}
+
+80%,100% { /* テキストを表示したままにする */
+	color: #ffffff;
+	opacity: 1;
+}
+
+}
+
+@keyframes out {
+
+0%,80% {
+	background-color: #fff;
+	opacity: 1;
+	visibility: visible;
+}
+
+90%,100% {
+	background-color: transparent;
+	display: none;
+	opacity: 0;
+	visibility: hidden;
+}
+
+}
+
+@keyframes containerFade {
+
+0%,30% {
+	opacity: 0;
+}
+
+40%,100% {
+	opacity: 1;
+}
+
+}
+
+@keyframes slideIn {
+
+0% {
+	opacity: 0;
+	transform: translateY(100%);
+}
+
+100% {
+	opacity: 1;
+	transform: translateY(0);
+}
+
+}
+
+@keyframes delayFade {
+
+0%,80% {
+	opacity: 0;
+}
+
+100% {
+	opacity: 1;
+}
+
+}
+
+
+/*# sourceMappingURL=style.css.map */
