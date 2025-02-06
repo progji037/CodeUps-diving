@@ -19,7 +19,7 @@
     aspect-ratio: 1440/500;
     object-fit: cover;
     height: rem(500);
-    background-image: url(/assets/images/common/blog-pc-back.jpg);
+    background-image: url(../../../WordPressTheme/assets/images/common/blog-pc-back.jpg);
     background-size: cover;
     top: 0;
     z-index: -1;
@@ -32,7 +32,7 @@
 
   @include mq("md") {
     content: "";
-    background-image: url(/assets/images/common/_blog-キンギョハナダイ.png);
+    background-image: url(../../../WordPressTheme/assets/images/common/_blog-キンギョハナダイ.webp);
     background-size: cover;
     display: inline-block;
     position: absolute;

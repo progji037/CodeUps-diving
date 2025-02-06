@@ -1321,7 +1321,7 @@ input[type=checkbox]:checked::before {
 }
 
 .contact::after { /* min関数を使用 */
-	background-image: url(/assets/images/common/_contact-sp-キンギョハナダイ.png);
+	background-image: url(../../../WordPressTheme/assets/images/common/_contact-sp-キンギョハナダイ.webp);
 	background-size: cover;
 	content: "";
 	display: block;
@@ -1553,7 +1553,7 @@ input[type=checkbox]:checked::before {
 }
 
 .error__container::before {
-	background-image: url(/assets/images/common/CodeUps-404-whale.svg);
+	background-image: url(../../../WordPressTheme//assets/images/common/CodeUps-404-whale.svg);
 	background-position: center;
 	content: "";
 	display: inline-block;
@@ -2412,7 +2412,7 @@ input[type=checkbox]:checked::before {
 }
 
 .privacy-policy::before {
-	background-image: url(/assets/images/common/_キンギョハナダイ-右向き-sp.png);
+	background-image: url(../../../WordPressTheme/assets/images/common/_キンギョハナダイ-右向き-sp.png);
 	background-size: cover;
 	content: "";
 	display: block;
@@ -2751,7 +2751,7 @@ input[type=checkbox]:checked::before {
 }
 
 .terms::before {
-	background-image: url(/assets/images/common/_キンギョハナダイ-右向き-sp.png);
+	background-image: url(../../../WordPressTheme/assets/images/common/_キンギョハナダイ-右向き-sp.webp);
 	background-size: cover;
 	content: "";
 	display: block;
@@ -3118,7 +3118,7 @@ html {
 }
 
 .about::after {
-	background-image: url(/assets/images/common/_サンゴとイソギンチャク.png);
+	background-image: url(../../../WordPressTheme/assets/images/common/_サンゴとイソギンチャク.webp);
 	background-size: cover;
 	bottom: -5.6875rem;
 	content: "";
@@ -3264,7 +3264,7 @@ html {
 .blog::after {
 	-o-object-fit: cover;
 	aspect-ratio: 1440/500;
-	background-image: url(/assets/images/common/blog-pc-back.jpg);
+	background-image: url(../../../WordPressTheme/assets/images/common/blog-pc-back.jpg);
 	background-size: cover;
 	content: "";
 	display: block;
@@ -3277,7 +3277,7 @@ html {
 }
 
 .blog__inner::before {
-	background-image: url(/assets/images/common/_blog-キンギョハナダイ.png);
+	background-image: url(../../../WordPressTheme/assets/images/common/_blog-キンギョハナダイ.webp);
 	background-size: cover;
 	content: "";
 	display: inline-block;
@@ -3706,7 +3706,7 @@ input[type=tel] {
 }
 
 .contact::after { /* min関数を使用 */
-	background-image: url(/assets/images/common/_contact-pc-キンギョハナダイ.png);
+	background-image: url(../../../WordPressTheme/assets/images/common/_contact-pc-キンギョハナダイ.webp);
 	background-size: cover;
 	height: 8.625rem;
 	right: calc(50% - min(48.5%, 42rem));
@@ -4188,7 +4188,7 @@ input[type=tel] {
 }
 
 .price::after {
-	background-image: url(/assets/images/common/_price-キンギョハナダイ.png);
+	background-image: url(../../../WordPressTheme/assets/images/common/_price-キンギョハナダイ.webp);
 	background-size: cover;
 	bottom: 3.75rem;
 	content: "";
@@ -4261,7 +4261,7 @@ input[type=tel] {
 }
 
 .privacy-policy::before {
-	background-image: url(/assets/images/common/_キンギョハナダイ-右向き-pc.png);
+	background-image: url(../../../WordPressTheme/assets/images/common/_キンギョハナダイ-右向き-pc.png);
 	background-size: cover;
 	content: "";
 	display: block;
@@ -4391,7 +4391,7 @@ input[type=tel] {
 }
 
 .terms::before {
-	background-image: url(/assets/images/common/_キンギョハナダイ-右向き-pc.png);
+	background-image: url(../../../WordPressTheme/assets/images/common/_キンギョハナダイ-右向き-pc.webp);
 	background-size: cover;
 	content: "";
 	display: block;
@@ -4496,7 +4496,7 @@ input[type=tel] {
 }
 
 .voice::before {
-	background-image: url(/assets/images/common/_voice-キンギョハナダイ.png);
+	background-image: url(../../../WordPressTheme/assets/images/common/_voice-キンギョハナダイ.webp);
 	background-size: cover;
 	content: "";
 	display: block;
@@ -4508,7 +4508,7 @@ input[type=tel] {
 }
 
 .voice::after {
-	background-image: url(/assets/images/common/_voice-イバラタツ.png);
+	background-image: url(../../../WordPressTheme/assets/images/common/_voice-イバラタツ.webp);
 	background-size: cover;
 	bottom: -4.0625rem;
 	content: "";

@@ -17,7 +17,7 @@
     height: rem(181);
     bottom: rem(-91);
     right: calc(50% - min(48.2%, 40rem));
-    background-image: url(/assets/images/common/_サンゴとイソギンチャク.png);
+    background-image: url(../../../WordPressTheme/assets/images/common/_サンゴとイソギンチャク.webp);
     background-size: cover;
   }
 }
@@ -97,6 +97,7 @@
 .about__textbox {
   margin-top: rem(16);
   line-height: calc(24 / 16);
+
   @include mq('md') {
     margin-top: rem(2);
 
