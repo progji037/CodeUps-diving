@@ -1,6 +1,7 @@
 <?php get_header(); ?>
 
 <main>
+
   <section class="fv">
     <div class="fv__wrapper">
       <!-- <div class="fv__inner"> -->
@@ -32,53 +33,12 @@
         </div>
       </div>
 
-      <!--  -->
-      <div class="swiper fv__swiper js-fv-swiper">
-        <div class="swiper-wrapper fv__slide-wrapper js-fv__slide-wrapper">
-          <!-- 1 -->
-          <div class="swiper-slide fv__slide-image">
-            <picture>
-              <source srcset="<?php echo get_theme_file_uri(); ?>/assets/images/common/mv-pc.jpg" media="(min-width: 768px)" />
-              <!-- 幅768px以上なら表示 -->
-              <source srcset="<?php echo get_theme_file_uri(); ?>/assets/images/common/mv-sp.jpg" media="(max-width: 767px)" />
-              <!-- 幅767px以下なら表示 -->
-              <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/mv-sp.jpg" alt="" />
-            </picture>
-          </div>
-          <!-- 2 -->
-          <div class="swiper-slide fv__slide-image">
-            <picture>
-              <source srcset="<?php echo get_theme_file_uri(); ?>/assets/images/common/fv-pc1.jpg" media="(min-width: 768px)" />
-              <!-- 幅768px以上なら表示 -->
-              <source srcset="<?php echo get_theme_file_uri(); ?>/assets/images/common/fv-sp1.jpg" media="(max-width: 767px)" />
-              <!-- 幅767px以下なら表示 -->
-              <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/mv-sp.jpg" alt="" />
-            </picture>
-          </div>
-          <!-- 3 -->
-          <div class="swiper-slide fv__slide-image">
-            <picture>
-              <source srcset="<?php echo get_theme_file_uri(); ?>/assets/images/common/fv-pc2.jpg" media="(min-width: 768px)" />
-              <!-- 幅768px以上なら表示 -->
-              <source srcset="<?php echo get_theme_file_uri(); ?>/assets/images/common/fv-sp2.jpg" media="(max-width: 767px)" />
-              <!-- 幅767px以下なら表示 -->
-              <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/mv-sp.jpg" alt="" />
-            </picture>
-          </div>
-          <!-- 4 -->
-          <div class="swiper-slide fv__slide-image">
-            <picture>
-              <source srcset="<?php echo get_theme_file_uri(); ?>/assets/images/common/fv-pc3.jpg" media="(min-width: 768px)" />
-              <!-- 幅768px以上なら表示 -->
-              <source srcset="<?php echo get_theme_file_uri(); ?>/assets/images/common/fv-sp3.jpg" media="(max-width: 767px)" />
-              <!-- 幅767px以下なら表示 -->
-              <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/mv-sp.jpg" alt="" />
-            </picture>
-          </div>
-        </div>
-      </div>
+      <?php get_template_part('parts/mv_swiper'); ?>
     </div>
   </section>
+  <!-- fv -->
+
+
   <!-- fv -->
 
   <section class="campaign top-campaign">
@@ -577,6 +537,86 @@
     </div>
   </section>
   <!-- voice -->
+
+  <section class="price top-price">
+    <div class="price__inner inner">
+      <div class="price__header section-title">
+        <div class="section-title__main">Price</div>
+        <h2 class="section-title__sub">料金一覧</h2>
+      </div>
+      <div class="price__content">
+        <div class="price__image">
+          <div class="mask-slide">
+            <picture>
+              <source srcset="<?php echo get_theme_file_uri(); ?>/assets/images/common/price-pc.jpg" media="(min-width: 768px)" />
+              <!-- 幅768px以上なら表示 -->
+              <source srcset="<?php echo get_theme_file_uri(); ?>/assets/images/common/price-ocean3-sp.jpg" media="(max-width: 767px)" />
+              <!-- 幅767px以下なら表示 -->
+              <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/price-ocean3-sp.jpg" alt="" />
+            </picture>
+          </div>
+        </div>
+        <!-- pictureタグ必要？ -->
+        <div class="price__lists">
+          <!-- flexとflex wrapをつかう　w%85・15指定 -->
+          <div class="price__list">
+            <div class="price__list-title">ライセンス講習</div>
+            <dl class="price__costs">
+              <dt>オープンウォーターダイバーコース</dt>
+              <dd>¥50,000</dd>
+              <dt>アドバンスドオープンウォーターコース</dt>
+              <dd>¥60,000</dd>
+              <dt>レスキュー＋EFRコース</dt>
+              <dd>¥70,000</dd>
+            </dl>
+          </div>
+          <div class="price__list">
+            <div class="price__list-title">体験ダイビング</div>
+            <dl class="price__costs">
+              <dt>ビーチ体験ダイビング(半日)</dt>
+              <dd>¥7,000</dd>
+              <dt>ビーチ体験ダイビング(1日)</dt>
+              <dd>¥14,000</dd>
+              <dt>ボート体験ダイビング(半日)</dt>
+              <dd>¥10,000</dd>
+              <dt>ボート体験ダイビング(1日)</dt>
+              <dd>¥18,000</dd>
+            </dl>
+          </div>
+          <div class="price__list">
+            <div class="price__list-title">ファンダイビング</div>
+            <dl class="price__costs">
+              <dt>ビーチダイビング(2ダイブ)</dt>
+              <dd>¥14,000</dd>
+              <dt>ボートダイビング(2ダイブ)</dt>
+              <dd>¥18,000</dd>
+              <dt>スペシャルダイビング(2ダイブ)</dt>
+              <dd>¥24,000</dd>
+              <dt>ナイトダイビング(1ダイブ)</dt>
+              <dd>¥10,000</dd>
+            </dl>
+          </div>
+          <div class="price__list">
+            <div class="price__list-title">スペシャルダイビング</div>
+            <dl class="price__costs">
+              <dt>貸切ダイビング(2ダイブ)</dt>
+              <dd>¥24,000</dd>
+              <dt>1日ダイビング(3ダイブ)</dt>
+              <dd>¥32,000</dd>
+            </dl>
+          </div>
+        </div>
+      </div>
+      <div class="price__link">
+        <a class="button" href="">
+          View more
+          <span class="arrow"></span>
+        </a>
+      </div>
+    </div>
+  </section>
+  <!-- /.price -->
+
 
   <section class="price top-price">
     <div class="price__inner inner">

@@ -38,7 +38,7 @@
 .main-view__main-title {
     font-family: $third-font-family;
     font-size: rem(40);
-    font-weight: normal;
+    font-weight: $normal;
 
     @include mq('md') {
         font-size: rem(80);

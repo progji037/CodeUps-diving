@@ -96,3 +96,82 @@
     border-top: solid 1px white;
     border-right: solid 1px white;
 }
+
+//pagenation_wp
+
+
+.pagination {
+    display: flex;
+    justify-content: center;
+
+    @include mq('md') {}
+}
+
+// WP-PageNavi のスタイルを適用
+.wp-pagenavi {
+    display: flex;
+    gap: rem(12);
+}
+
+// ページ番号ボタン
+.wp-pagenavi a,
+.wp-pagenavi span {
+    display: inline-block;
+    width: rem(38);
+    height: rem(38);
+    border: solid 1px $green-blue;
+    color: $green-blue;
+    line-height: 1;
+    text-align: center;
+}
+
+.wp-pagenavi a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s;
+}
+
+.wp-pagenavi a:hover,
+.wp-pagenavi span.current {
+    color: #fff;
+    background-color: $green-blue;
+}
+
+// 「前へ」「次へ」ボタン
+.wp-pagenavi .previouspostslink,
+.wp-pagenavi .nextpostslink {
+    position: relative;
+    width: rem(38);
+    height: rem(38);
+}
+
+.wp-pagenavi .previouspostslink::before,
+.wp-pagenavi .nextpostslink::before {
+    content: "";
+    position: absolute;
+    width: rem(15);
+    height: rem(15);
+    border: solid 1px $green-blue;
+}
+
+.wp-pagenavi .previouspostslink::before {
+    border-bottom: solid 1px $green-blue;
+    border-left: solid 1px $green-blue;
+    transform: rotate(45deg);
+    top: rem(11);
+    left: rem(10);
+}
+
+.wp-pagenavi .nextpostslink::before {
+    border-top: solid 1px $green-blue;
+    border-right: solid 1px $green-blue;
+    transform: rotate(45deg);
+    top: rem(11);
+    right: rem(10);
+}
+
+.wp-pagenavi .previouspostslink:hover::before,
+.wp-pagenavi .nextpostslink:hover::before {
+    border-color: white;
+}

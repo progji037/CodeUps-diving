@@ -13,7 +13,11 @@
         </picture>
       </div>
       <div class="main-view__title ">
-        <h1 class="main-view__main-title main-view__main-title--capitalize">information</h1>
+        <h1 class="main-view__main-title main-view__main-title--capitalize">
+          <?php
+          the_title()
+            ?>
+        </h1>
       </div>
     </div>
   </section>

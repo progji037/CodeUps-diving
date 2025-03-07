@@ -1,4 +1,5 @@
 <?php get_header(); ?>
+
 <main>
   <!-- 下層ページのメインビュー -->
   <section class="main-view">
@@ -13,13 +14,34 @@
         </picture>
       </div>
       <div class="main-view__title">
-        <h1 class="main-view__main-title"><?php the_title();?></h1>
+        <h1 class="main-view__main-title">
+          <?php the_title();?>
+        </h1>
       </div>
     </div>
   </section>
 
   <!-- パンくずリスト -->
-  <?php get_template_part('parts/breadcrumb')?>
+  <div class="breadcrumb page-breadcrumb">
+    <div class="breadcrumb__inner inner">
+      <?php
+    $breadcrumb_title = get_field('breadcrumb_title'); // ACFのフィールドを取得
+
+    if (!empty($breadcrumb_title)) {
+      echo esc_html($breadcrumb_title); // ACFの値があれば表示
+    } else {
+      // Breadcrumb NavXTが有効な場合のみ表示
+      if (function_exists('bcn_display')) {
+        bcn_display();
+      } else {
+        echo '<p class="breadcrumb-default">TOP > About</p>'; // 代替テキストを表示
+      }
+    }
+    ?>
+    </div>
+  </div>
+
+
 
   <section class="about-section page-about">
     <div class="about-section__inner inner">
@@ -58,12 +80,37 @@
       </div>
       <div class="gallery-section__grid">
         <div class="gallery-section-grid">
-          <div class="gallery-section-grid__image js-gallery-section-grid__image"><img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/gallery1.jpg" alt="#"></div>
-          <div class="gallery-section-grid__image js-gallery-section-grid__image"><img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/gallery2.jpg" alt="#"></div>
-          <div class="gallery-section-grid__image js-gallery-section-grid__image"><img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/gallery3.jpg" alt="#"></div>
-          <div class="gallery-section-grid__image js-gallery-section-grid__image"><img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/gallery4.jpg" alt="#"></div>
-          <div class="gallery-section-grid__image js-gallery-section-grid__image"><img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/gallery5.jpg" alt="#"></div>
-          <div class="gallery-section-grid__image js-gallery-section-grid__image"><img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/gallery6.jpg" alt="#"></div>
+                <?php
+                    // SCFのリピーターグループのデータを取得（グループ名: gallery）
+                    $fields = SCF::get('gallery');
+                    if (!empty($fields)) : // フィールドが空でない場合
+                        $count = 0;
+                    foreach ($fields as $val) :
+
+                    // 画像のIDを取得（フィールド名: galleryImage1）
+                    $image_id = $val['galleryImage'];
+
+                    // 画像が設定されている場合
+                    if (!empty($image_id)) {
+                        // 画像のURLを取得（'full' にするとオリジナルサイズを取得）
+                        $image = wp_get_attachment_image_src($image_id, 'full');
+
+                    // 画像が取得できた場合
+                    if ($image) {
+                        $count++;
+                        $is_large = ($count % 6 == 1 || $count % 6 == 0);
+                  ?>
+                    <div class="gallery-section-grid__image js-gallery-section-grid__image <?php echo $is_large ? 'large-image' : ''; ?>">
+                        <img src="<?php echo esc_url($image[0]); ?>" alt="">
+                    </div>
+                  <?php
+                        }
+                    }
+                    endforeach;
+                  endif;
+                ?>
+              </div>
+          </div>
         </div>
       </div>
     </div>
@@ -73,7 +120,6 @@
       <img class="gallery-section-modal__content js-gallery-section-modal__content" src="dammy.jpg" alt="dammy">
     </div>
   </section>
-
 </main>
 
 

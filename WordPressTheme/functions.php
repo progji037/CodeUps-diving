@@ -123,20 +123,57 @@ function change_posts_per_page($query)
 {
     if (is_admin() || ! $query->is_main_query())
         return;
-    if ($query->is_archive(array('works', 'recruit'))) { //カスタム投稿タイプを指定('〇〇')←適用させたいスラッグ
+    if ($query->is_archive(array('works', 'recruit', 'campaign'))) { //カスタム投稿タイプを指定('〇〇')←適用させたいスラッグ
         $query->set('posts_per_page', '9'); //表示件数を指定
     }
 }
 add_action('pre_get_posts', 'change_posts_per_page');
 
-/*breadcrumb settings
------------------------*/
-add_filter('bcn_after_fill', function($breadcrumb_trail) {
-    foreach ($breadcrumb_trail->breadcrumbs as $breadcrumb) {
-        // `get_type()` でタイプを取得し、最初の要素が 'page' か確認
-        if (in_array('page', $breadcrumb->get_types(), true) && $breadcrumb->get_id() == 76) {
-            $breadcrumb->set_title('私たちについて');
-        }
-    }
-    return $breadcrumb_trail;
+
+/*カスタム投稿 */
+// カスタム投稿タイプの登録
+function create_custom_post_type() {
+    // カスタム投稿タイプのラベル
+    $labels = array(
+        'name'               => __( 'swiper' ),
+        'singular_name'      => __( 'swipe' ),
+        'add_new'            => __( '新しいスライドを追加' ),
+        'add_new_item'       => __( '新しいスライドを追加' ),
+        'edit_item'          => __( 'スライドを編集' ),
+        'new_item'           => __( '新しいスライド' ),
+        'view_item'          => __( 'スライドを見る' ),
+        'search_items'       => __( 'スライドを検索' ),
+        'not_found'          => __( 'スライドが見つかりません' ),
+        'not_found_in_trash' => __( 'ゴミ箱にスライドがありません' ),
+        'menu_name'          => __( 'swiper' ),
+    );
+
+
+    // カスタム投稿タイプの設定
+    $args = array(
+        'labels'             => $labels,
+        'description'        => 'Description of Custom Post Type',
+        'public'             => true,
+        'publicly_queryable' => true,
+        'show_ui'            => true,
+        'show_in_menu'       => true,
+        'query_var'          => true,
+        'rewrite'            => array( 'slug' => 'mv_swiper' ), // パーマリンクのスラッグ
+        'capability_type'    => 'post',
+        'has_archive'        => false, // アーカイブページは不要
+        'hierarchical'       => false,
+        'menu_position'      => null,
+        'supports'           => array( 'title', 'editor','thumbnail'),
+    );
+
+    // カスタム投稿タイプの登録
+    register_post_type( 'mv_swiper', $args );
+}
+
+// initフックでカスタム投稿タイプの登録関数を呼び出す
+add_action( 'init', 'create_custom_post_type' );
+
+// 翻訳を強制的にロードする
+add_action('after_setup_theme', function() {
+    load_theme_textdomain('smart-custom-fields', get_template_directory() . '/languages');
 });
