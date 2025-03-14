@@ -202,14 +202,7 @@
           </div>
         </div>
         <div class="campaign-section-card__pagination">
-          <div class="pagination">
-            <ul class="pagination__lists">
-             <li><a href="#">
-             <?php wp_pagenavi(); ?>
-             </a></li>
-            </ul>
-          </div>
-        </div>
+          <?php wp_pagenavi(); ?>
       </div>
     </section>
 

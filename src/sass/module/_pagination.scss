@@ -100,16 +100,11 @@
 //pagenation_wp
 
 
-.pagination {
-    display: flex;
-    justify-content: center;
-
-    @include mq('md') {}
-}
-
 // WP-PageNavi のスタイルを適用
 .wp-pagenavi {
     display: flex;
+    align-items: center;
+    justify-content: center;
     gap: rem(12);
 }
 
@@ -130,6 +125,12 @@
     align-items: center;
     justify-content: center;
     transition: all 0.3s;
+}
+
+.wp-pagenavi span.current {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .wp-pagenavi a:hover,
