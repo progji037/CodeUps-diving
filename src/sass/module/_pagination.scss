@@ -153,20 +153,15 @@
     position: absolute;
     width: rem(15);
     height: rem(15);
-    border: solid 1px $green-blue;
 }
 
 .wp-pagenavi .previouspostslink::before {
-    border-bottom: solid 1px $green-blue;
-    border-left: solid 1px $green-blue;
     transform: rotate(45deg);
     top: rem(11);
     left: rem(10);
 }
 
 .wp-pagenavi .nextpostslink::before {
-    border-top: solid 1px $green-blue;
-    border-right: solid 1px $green-blue;
     transform: rotate(45deg);
     top: rem(11);
     right: rem(10);

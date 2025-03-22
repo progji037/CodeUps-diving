@@ -5,39 +5,10 @@
 }
 
 .breadcrumb::before {
-    // content: "";
-    // display: block;
-    // width: rem(120);
-    // height: rem(55);
-    // position: absolute;
-    // left: calc(50% - min(45.9%, 38.7em));
-    // top: rem(48);
-    // background-image: url(/assets/images/common/_キンギョハナダイ-右向き-sp.png);
-    // background-size: cover;
-    // z-index: -1;
-
-    // @include mq('md') {
-    //     content: "";
-    //     display: block;
-    //     width: rem(301);
-    //     height: rem(138);
-    //     position: absolute;
-    //     top: rem(100);
-    //     left: calc(50% - min(48%, 38.7em));
-    //     background-image: url(/assets/images/common/_キンギョハナダイ-右向き-pc.png);
-    //     background-size: cover;
-    // }
 }
 
 .breadcrumb__inner {}
 
-// .breadcrumb__page {
-//     display: flex;
-//     align-items: center;
-//     padding-top: rem(8);
-//     gap: rem(8);
-//     font-size: rem(14);
-// }
 
 .breadcrumb__page-detail {
     display: flex;

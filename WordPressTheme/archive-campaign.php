@@ -26,57 +26,39 @@
   </section>
 
   <!-- パンくずリスト -->
-  <div class="breadcrumb page-breadcrumb">
-    <div class="breadcrumb__inner inner">
-      <?php
-    $breadcrumb_title = get_field('breadcrumb_title'); // ACFのフィールドを取得
-
-    if (!empty($breadcrumb_title)) {
-      echo esc_html($breadcrumb_title); // ACFの値があれば表示
-    } else {
-      // Breadcrumb NavXTが有効な場合のみ表示
-      if (function_exists('bcn_display')) {
-        bcn_display();
-      } else {
-        echo '<p class="breadcrumb-default">TOP > キャンペーン</p>'; // 代替テキストを表示
-      }
-    }
-    ?>
-    </div>
-  </div>
+  <?php get_template_part('parts/breadcrumb')?>
 
 
     <!-- キャンペーン -->
     <section class="campaign-section page-campaign">
       <div class="campaign-section__inner inner">
         <!-- tab -->
-        <!-- 85行目～100行目を以下に置き換える -->
         <div class="campaign-section__tab">
           <div class="tab-links">
-              <ul class="tab-links__lists">
-                  <!-- ALL タブ（すべて表示用） -->
-                  <li class="tab-links__list">
-                      <a href="<?php echo get_post_type_archive_link('campaign'); ?>"
-                          class="tab-link <?php echo empty($_GET['tab']) ? 'active' : ''; ?>">
-                          ALL
-                      </a>
-                  </li>
+            <ul class="tab-links__lists">
+              <!-- ALL タブ（すべて表示用） -->
+              <li class="tab-links__list">
+                <a href="<?php echo get_post_type_archive_link('campaign'); ?>"
+                  class="tab-link <?php echo empty($_GET['tab']) ? 'active' : ''; ?>">
+                    ALL
+                </a>
+              </li>
 
-                  <?php
-                  $terms = get_terms(array(
-                      'taxonomy'   => 'campaign_tab',
-                      'hide_empty' => true,
-                  ));
+              <?php
+                $terms = get_terms(array(
+                    'taxonomy'   => 'campaign_tab',
+                    'hide_empty' => true,
+                ));
 
-                  foreach ($terms as $term):
-                      $tab_url = add_query_arg('tab', $term->slug, get_post_type_archive_link('campaign'));
-                      $active_class = (isset($_GET['tab']) && $_GET['tab'] === $term->slug) ? 'active' : '';
-                  ?>
-                      <li class="tab-links__list">
-                          <a href="<?php echo esc_url($tab_url); ?>" class="tab-link <?php echo esc_attr($active_class); ?>">
-                              <?php echo esc_html($term->name); ?>
-                          </a>
-                      </li>
+                foreach ($terms as $term):
+                $tab_url = add_query_arg('tab', $term->slug, get_post_type_archive_link('campaign'));
+                $active_class = (isset($_GET['tab']) && $_GET['tab'] === $term->slug) ? 'active' : '';
+              ?>
+              <li class="tab-links__list">
+                <a href="<?php echo esc_url($tab_url); ?>" class="tab-link <?php echo esc_attr($active_class); ?>">
+                  <?php echo esc_html($term->name); ?>
+                </a>
+              </li>
                   <?php endforeach; ?>
               </ul>
           </div>

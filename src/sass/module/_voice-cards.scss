@@ -109,6 +109,8 @@
 
 .voice-card__image img {
   aspect-ratio: 151/117;
+  width: 100%;
+  height: auto;
   object-fit: cover;
 
   @include mq("md") {

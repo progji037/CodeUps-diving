@@ -6,30 +6,6 @@
     position: relative;
 }
 
-.blog-detail::before {
-    content: "";
-    display: block;
-    width: rem(120);
-    height: rem(55);
-    position: absolute;
-    left: calc(50% - min(45.9%, 38.7em));
-    top: rem(-22);
-    background-image: url(/assets/images/common/_キンギョハナダイ-右向き-sp.png);
-    background-size: cover;
-    z-index: -1;
-
-    @include mq('md') {
-        content: "";
-        display: block;
-        width: rem(301);
-        height: rem(138);
-        position: absolute;
-        top: rem(-72);
-        left: calc(50% - min(48%, 38.7em));
-        background-image: url(/assets/images/common/_キンギョハナダイ-右向き-pc.png);
-        background-size: cover;
-    }
-}
 
 
 
@@ -55,6 +31,15 @@
 
     @include mq('md') {
         margin-top: rem(40);
+    }
+}
+
+.blog-detail__image img {
+     aspect-ratio: 345 / 231 ;
+    object-fit: cover;
+    @include mq('md') {
+        aspect-ratio: 700 / 468 ;
+
     }
 }
 
@@ -99,10 +84,11 @@
     left: 0;
     width: rem(18);
     height: rem(18);
-    background-image: url(/assets/images/common/_ヒトデ-blogdetail-sp.png);
+    background-image: url(../../../WordPressTheme/assets/images/common/_ヒトデ-blogdetail-sp.png);
     background-position: center;
     background-size: cover;
 }
+
 
 .blog-detail__pagination {
     margin-top: rem(40);
