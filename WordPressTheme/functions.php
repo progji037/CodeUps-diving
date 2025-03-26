@@ -204,3 +204,48 @@ function Change_menulabel() {
         }
         add_action( 'init', 'Change_objectlabel' );
         add_action( 'admin_menu', 'Change_menulabel' );
+
+
+// Contact Form 7 の自動pタグを無効化
+    add_filter('wpcf7_autop_or_not', '__return_false');
+
+
+
+//cf7 campaign タクソノミーの取得設定
+add_filter('wpcf7_form_tag', 'add_campaign_taxonomy_terms_to_select', 10, 2);
+
+function add_campaign_taxonomy_terms_to_select($tag, $unused) {
+  // 指定した select 名以外はスルー
+  if ($tag['name'] !== 'campaign-category') {
+    return $tag;
+  }
+
+  // タクソノミー campaign_tab の全タームを取得
+  $terms = get_terms([
+    'taxonomy' => 'campaign_tab',
+    'hide_empty' => true,
+  ]);
+
+  if (is_wp_error($terms) || empty($terms)) {
+    return $tag;
+  }
+
+  $options = [];
+
+  foreach ($terms as $term) {
+    $options[] = esc_html($term->name);
+  }
+
+  // CF7用に各値をセット
+  $tag['raw_values'] = $options;
+  $tag['values'] = $options;
+  $tag['labels'] = $options;
+
+  return $tag;
+}
+
+// [br_sp] でスマホのみ改行
+function shortcode_br_sp() {
+    return '<br class="u-mobile">';
+  }
+  add_shortcode('br_sp', 'shortcode_br_sp');

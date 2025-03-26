@@ -1,9 +1,9 @@
 @use "global" as *;
 
 .article-card {
-    display: flex; //add
-    flex-direction: column; //add
-    gap: rem(24); //add
+    display: flex;
+    flex-direction: column;
+    gap: rem(24);
 }
 
 .article-card__item {
@@ -22,6 +22,7 @@
 
 .article-card__meta {}
 
+
 .article-card__meta time {
     font-size: rem(12);
     font-family: $second-font-family;
@@ -29,4 +30,8 @@
     @include mq('md') {
         font-size: rem(14);
     }
+}
+
+.article-card__meta p {
+    font-weight: 600;
 }

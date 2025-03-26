@@ -4,29 +4,29 @@
     position: relative;
 }
 
-.contact-section::before{
+.contact-section::before {
     content: "";
-	display: block;
-	width: rem(120);
-	height: rem(55);
-	position: absolute;
-	left: calc(50% - min(45.9%, 38.7em));
-	top: rem(-22);
-	background-image: url(../images/common/_キンギョハナダイ-右向き-sp.png);
-	background-size: cover;
-	z-index: -1;
+    display: block;
+    width: rem(120);
+    height: rem(55);
+    position: absolute;
+    left: calc(50% - min(45.9%, 38.7em));
+    top: rem(-22);
+    background-image: url(../images/common/_キンギョハナダイ-右向き-sp.png);
+    background-size: cover;
+    z-index: -1;
 
-	@include mq('md') {
-		content: "";
-		display: block;
-		width: rem(301);
-		height: rem(138);
-		position: absolute;
-		top: rem(-72);
-		left: calc(50% - min(48%, 38.7em));
-		background-image: url(../images/common/_キンギョハナダイ-右向き-pc.png);
-		background-size: cover;
-	}
+    @include mq('md') {
+        content: "";
+        display: block;
+        width: rem(301);
+        height: rem(138);
+        position: absolute;
+        top: rem(-72);
+        left: calc(50% - min(48%, 38.7em));
+        background-image: url(../images/common/_キンギョハナダイ-右向き-pc.png);
+        background-size: cover;
+    }
 }
 
 .contact-section__inner.inner {
@@ -57,7 +57,8 @@
     }
 }
 
-.contact-section__form-group:not(:first-child) {
+
+.contact-section__form-group:not(:first-of-type) {
     margin-top: rem(24);
 
     @include mq('md') {
@@ -68,6 +69,7 @@
 
 .contact-section__form-group:nth-of-type(4) {
     padding-bottom: rem(25);
+
     @include mq('md') {
         margin-top: rem(40);
         padding-bottom: rem(42);
@@ -77,9 +79,17 @@
 
 .contact-section__form-group:nth-of-type(5) {
     margin-top: rem(27);
+
     @include mq('md') {
         margin-top: rem(35);
-        align-items: center;
+        align-items: flex-start;
+
+    }
+}
+
+.contact-section__form-group:nth-of-type(5)>label {
+    @include mq('md') {
+        margin-top: rem(5);
 
     }
 }
@@ -104,7 +114,7 @@
 }
 
 
-.contact-section__form-group span {
+.contact-section__form-group label>span {
     display: inline-block;
     color: $white;
     background-color: #C94800;
@@ -118,16 +128,13 @@
     // margin-top: 3px;
 }
 
-.contact-section__form-group input,
+.contact-section__form-group>input,
 .contact-section__form-pulldown,
 .contact-section__form-text {
     @include mq('md') {
         width: 68.57%;
     }
 }
-
-
-
 
 
 input[type="text"],
@@ -137,12 +144,12 @@ input[type="email"] {
     padding-top: rem(8);
     padding-bottom: rem(8);
     padding-inline: rem(14);
-
     width: 100%;
     line-height: 1.35;
 }
 
-.contact-section__form-text{
+
+.contact-section__form-text {
     padding-inline: rem(14);
     padding-top: rem(8);
     display: inline-block;
@@ -208,23 +215,15 @@ input[type="tel"] {
     @include mq('md') {
         margin-top: rem(3);
         width: 68.57%;
-
     }
 }
 
-.contact-section__check-item input{
+.contact-section__check-item input {
     @include mq('md') {
         width: rem(14);
-
     }
 }
 
-.contact-section__check-item label {
-    font-weight: normal;
-    @include mq('md') {
-        width: 90%;
-    }
-}
 
 .contact-section__check-item {
     display: flex;
@@ -301,9 +300,8 @@ input[type="checkbox"]:checked::before {
     margin-top: rem(40);
     font-size: rem(14);
     display: flex;
-    position: relative;
     justify-content: center;
-    gap: rem(7);
+    // gap: rem(7);
 
     @include mq('md') {
         margin-top: rem(80);
@@ -313,10 +311,9 @@ input[type="checkbox"]:checked::before {
 }
 
 .contact-section__accept label {
-    // pointer-events: none;
-    @include mq('md') {
 
-    }
+    // pointer-events: none;
+    @include mq('md') {}
 
 }
 
@@ -324,6 +321,7 @@ input[type="checkbox"]:checked::before {
     width: rem(21.5);
     height: rem(21.5);
     margin: 0;
+
     @include mq('md') {
         right: rem(16);
     }
@@ -340,8 +338,94 @@ input[type="checkbox"]:checked::before {
 .contact-section__send {
     text-align: center;
     margin-top: rem(23);
+
     @include mq('md') {
         margin-top: rem(40);
 
     }
+}
+
+
+//cf7関連
+.contact-section__form-group .wpcf7-form-control-wrap {
+    @include mq('md') {
+        width: 68.57%;
+    }
+}
+
+// CF7が挿入するspanはリセット
+.wpcf7-list-item-label {
+    background-color: transparent;
+}
+
+.contact-section__check-item label>span {
+    background-color: transparent;
+    color: $black;
+    padding-left: 0;
+    font-size: rem(16);
+    letter-spacing: 0.06em;
+    text-indent: 0.06em;
+
+    @include mq('md') {
+        display: block;
+
+    }
+
+}
+
+.wpcf7-list-item {
+    margin: 0;
+
+    @include mq('md') {}
+}
+
+.contact-section__accept input[type=checkbox] {
+    display: block;
+
+    @include mq('md') {
+        right: 0;
+    }
+
+
+}
+
+.contact-section__accept .wpcf7-list-item>label {
+    display: flex;
+    align-items: center; // ← チェックボックスとテキストの縦揃え
+    gap: 0.5em; // ← 横の間隔
+    font-size: rem(14);
+    line-height: 1.6;
+}
+
+.contact-section__accept input[type="checkbox"] {
+    width: rem(20);
+    height: rem(20);
+    margin: 0;
+    vertical-align: middle;
+}
+
+.wpcf7 form .wpcf7-response-output {
+    border: none;
+    color: #C94800;
+    display: flex;
+    justify-content: center;
+    font-size: rem(14);
+    margin: 0;
+}
+
+/* 入力エラーのハイライト（スクショのように背景と枠線） */
+.wpcf7-not-valid {
+    background-color: #fde4db;
+    border: 1px solid #e60000;
+}
+
+/* メッセージ（例：※必須項目が～）の色変更（任意） */
+.wpcf7 form.invalid .wpcf7-response-output {
+    color: #e60000;
+    font-weight: bold;
+}
+
+.contact-section__form-check.wpcf7-not-valid {
+    background-color: #fde4db;
+    border: 1px solid #e60000;
 }

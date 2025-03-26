@@ -1,21 +1,21 @@
 <?php get_header(); ?>
 
 <section class="main-view">
-      <div class="main-view__contents">
-        <div class="main-view__image">
-          <picture>
-            <source srcset="<?php echo get_theme_file_uri(); ?>/assets/images/common/page-blog-img-pc.jpg" media="(min-width: 768px)" />
-            <!-- 幅768px以上なら表示 -->
-            <source srcset="<?php echo get_theme_file_uri(); ?>/assets/images/common/page-blog-img-sp.jpg" media="(max-width: 767px)" />
-            <!-- 幅767px以下なら表示 -->
-            <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/page-blog-img-sp.jpg" alt="" />
-          </picture>
-        </div>
-        <div class="main-view__title ">
-          <h1 class="main-view__main-title main-view__main-title--capitalize">blog</h1>
-        </div>
+    <div class="main-view__contents">
+      <div class="main-view__image">
+        <picture>
+          <source srcset="<?php echo get_theme_file_uri(); ?>/assets/images/common/page-blog-img-pc.jpg" media="(min-width: 768px)" />
+          <!-- 幅768px以上なら表示 -->
+          <source srcset="<?php echo get_theme_file_uri(); ?>/assets/images/common/page-blog-img-sp.jpg" media="(max-width: 767px)" />
+          <!-- 幅767px以下なら表示 -->
+          <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/page-blog-img-sp.jpg" alt="" />
+        </picture>
       </div>
-    </section>
+      <div class="main-view__title ">
+        <h1 class="main-view__main-title main-view__main-title--capitalize">blog</h1>
+      </div>
+    </div>
+</section>
 
     <!-- パンくずリスト -->
     <?php get_template_part('parts/breadcrumb')?>
@@ -100,7 +100,7 @@
                 </div>
               </div>
             </div>
-            <!-- sidebar -->
+            <?php get_sidebar(); ?>
           </div>
       </div>
     </section>

@@ -434,6 +434,10 @@ a {
 	font-size: 0.75rem;
 }
 
+.article-card__meta p {
+	font-weight: 600;
+}
+
 .article-cards__item {
 	margin-top: 1.5rem;
 }
@@ -1105,7 +1109,7 @@ a {
 	padding-bottom: 1.5rem;
 }
 
-.contact-section__form-group:not(:first-child) {
+.contact-section__form-group:not(:first-of-type) {
 	margin-top: 1.5rem;
 }
 
@@ -1125,7 +1129,7 @@ a {
 	line-height: 1;
 }
 
-.contact-section__form-group span {
+.contact-section__form-group label > span {
 	background-color: #C94800;
 	color: #fff;
 	display: inline-block;
@@ -1198,10 +1202,6 @@ input[type=tel] {
 	margin-top: 1.25rem;
 }
 
-.contact-section__check-item label {
-	font-weight: normal;
-}
-
 .contact-section__check-item {
 	align-items: center;
 	display: flex;
@@ -1265,10 +1265,8 @@ input[type=checkbox]:checked::before {
 .contact-section__accept {
 	display: flex;
 	font-size: 0.875rem;
-	gap: 0.4375rem;
 	justify-content: center;
 	margin-top: 2.5rem;
-	position: relative;
 }
 
 .contact-section__accept input[type=checkbox] {
@@ -1287,6 +1285,70 @@ input[type=checkbox]:checked::before {
 .contact-section__send {
 	margin-top: 1.4375rem;
 	text-align: center;
+}
+
+.wpcf7-list-item-label {
+	background-color: transparent;
+}
+
+.contact-section__check-item label > span {
+	background-color: transparent;
+	color: #0D2936;
+	font-size: 1rem;
+	letter-spacing: 0.06em;
+	padding-left: 0;
+	text-indent: 0.06em;
+}
+
+.wpcf7-list-item {
+	margin: 0;
+}
+
+.contact-section__accept input[type=checkbox] {
+	display: block;
+}
+
+.contact-section__accept .wpcf7-list-item > label {
+	align-items: center;
+	display: flex;
+	font-size: 0.875rem;
+	gap: 0.5em;
+	line-height: 1.6;
+}
+
+.contact-section__accept input[type=checkbox] {
+	height: 1.25rem;
+	margin: 0;
+	vertical-align: middle;
+	width: 1.25rem;
+}
+
+.wpcf7 form .wpcf7-response-output {
+	border: none;
+	color: #C94800;
+	display: flex;
+	font-size: 0.875rem;
+	justify-content: center;
+	margin: 0;
+}
+
+/* 入力エラーのハイライト（スクショのように背景と枠線） */
+
+.wpcf7-not-valid {
+	background-color: #fde4db;
+	border: 1px solid #e60000;
+}
+
+/* メッセージ（例：※必須項目が～）の色変更（任意） */
+
+.wpcf7 form.invalid .wpcf7-response-output {
+	color: #e60000;
+	font-weight: bold;
+}
+
+.contact-section__form-check.wpcf7-not-valid {
+	background-color: #fde4db;
+	border: 1px solid #e60000;
 }
 
 .contact-success {
@@ -3683,7 +3745,7 @@ html {
 	padding-bottom: 2.5rem;
 }
 
-.contact-section__form-group:not(:first-child) {
+.contact-section__form-group:not(:first-of-type) {
 	margin-top: 2.4375rem;
 }
 
@@ -3693,8 +3755,12 @@ html {
 }
 
 .contact-section__form-group:nth-of-type(5) {
-	align-items: center;
+	align-items: flex-start;
 	margin-top: 2.1875rem;
+}
+
+.contact-section__form-group:nth-of-type(5) > label {
+	margin-top: 0.3125rem;
 }
 
 .contact-section__form-group.contact-section__form-group--left {
@@ -3702,7 +3768,7 @@ html {
 	justify-content: left;
 }
 
-.contact-section__form-group input,
+.contact-section__form-group > input,
 .contact-section__form-pulldown,
 .contact-section__form-text {
 	width: 68.57%;
@@ -3733,10 +3799,6 @@ input[type=tel] {
 	width: 0.875rem;
 }
 
-.contact-section__check-item label {
-	width: 90%;
-}
-
 .contact-section__form-pulldown {
 	margin-top: 0;
 }
@@ -3758,6 +3820,18 @@ input[type=tel] {
 
 .contact-section__send {
 	margin-top: 2.5rem;
+}
+
+.contact-section__form-group .wpcf7-form-control-wrap {
+	width: 68.57%;
+}
+
+.contact-section__check-item label > span {
+	display: block;
+}
+
+.contact-section__accept input[type=checkbox] {
+	right: 0;
 }
 
 .contact-success::before {

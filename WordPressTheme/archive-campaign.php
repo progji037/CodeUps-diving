@@ -134,8 +134,12 @@
                         <p>全部コミコミ(お一人様)</p>
                       </div>
                       <div class="campaign-card__price">
-                        <div class="campaign-card__markdown">¥<?php echo number_format(intval(str_replace(',', '', $markdown))); ?></div>
-                        <div class="campaign-card__reduced-price"><?php echo number_format(intval(str_replace(',', '', $reduceprice))); ?></div>
+                        <div class="campaign-card__markdown">
+                          ¥<?php echo number_format(intval(str_replace(',', '', $markdown))); ?>
+                        </div>
+                        <div class="campaign-card__reduced-price">
+                          ¥<?php echo number_format(intval(str_replace(',', '', $reduceprice))); ?>
+                        </div>
                       </div>
                       <div class="campaign-card__detail">
                         <div class="campaign-card__text">
