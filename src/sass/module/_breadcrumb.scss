@@ -4,10 +4,10 @@
     position: relative;
 }
 
-.breadcrumb::before {
-}
 
-.breadcrumb__inner {}
+.breadcrumb__inner {
+    font-size: rem(14);
+}
 
 
 .breadcrumb__page-detail {
@@ -33,6 +33,5 @@
     align-items: center;
     // padding-top: rem(8);
     gap: rem(8);
-    font-size: rem(14);
     list-style: none;
 }

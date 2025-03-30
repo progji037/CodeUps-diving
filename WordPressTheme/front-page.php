@@ -49,7 +49,6 @@
       </div>
       <!-- swiper -->
       <div class="campaign-card__wrap">
-
         <div class="campaign__button campaign-button">
           <div class="campaign-button__slide">
             <div class="campaign__button-prev"></div>
@@ -59,7 +58,76 @@
           </div>
           <div class="swiper campaign__swiper js-top-swiper">
             <div class="swiper-wrapper">
-              <!-- slide1 -->
+              <?php
+              // キャンペーン投稿を取得するクエリ
+              $args = array(
+                'post_type'      => 'campaign',
+                'posts_per_page' => 8, // スライダーに表示する最大数
+                'post_status'    => 'publish',
+                'orderby'        => 'date',
+                'order'          => 'DESC',
+              );
+
+              $campaign_query = new WP_Query($args);
+
+              // 投稿がある場合
+              if ($campaign_query->have_posts()) :
+                while ($campaign_query->have_posts()) : $campaign_query->the_post();
+
+                  // カスタムフィールドの取得
+                  $card__image     = SCF::get('campaign-card__image');
+                  $card__tag       = SCF::get('campaign-card__tag');
+                  $card__head      = SCF::get('campaign-card__head');
+                  $markdown        = SCF::get('campaign-card__markdown');
+                  $reduceprice     = SCF::get('campaign-card__reduced-price');
+              ?>
+              <!-- 動的に生成されるスライド -->
+              <div class="swiper-slide campaign__slide">
+                <div class="campaign__card">
+                  <div class="campaign-card">
+                    <div class="campaign-card__image">
+                      <?php
+                      if (!empty($card__image)) {
+                        echo wp_get_attachment_image($card__image, 'full');
+                      } else {
+                        // デフォルト画像
+                        echo '<img src="' . get_theme_file_uri() . '/assets/images/common/campaign1-sp.jpg" alt="" />';
+                      }
+                      ?>
+                    </div>
+                    <div class="campaign-card__textbox">
+                      <div class="campaign-card__header">
+                        <div class="campaign-card__tag">
+                          <?php echo !empty($card__tag) ? esc_html($card__tag) : 'キャンペーン'; ?>
+                        </div>
+                        <div class="campaign-card__head">
+                          <?php echo !empty($card__head) ? esc_html($card__head) : get_the_title(); ?>
+                        </div>
+                      </div>
+                      <div class="campaign-card__body">
+                        <div class="campaign-card__title">
+                          <p>全部コミコミ(お一人様)</p>
+                        </div>
+                        <div class="campaign-card__price">
+                          <div class="campaign-card__markdown">
+                            ¥<?php echo !empty($markdown) ? number_format(intval(str_replace(',', '', $markdown))) : '0'; ?>
+                          </div>
+                          <div class="campaign-card__reduced-price">
+                            ¥<?php echo !empty($reduceprice) ? number_format(intval(str_replace(',', '', $reduceprice))) : '0'; ?>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <?php
+                endwhile;
+                wp_reset_postdata(); // クエリのリセット
+              else :
+                // 投稿がない場合、デフォルトのスライドを表示
+              ?>
+              <!-- デフォルトスライド1 -->
               <div class="swiper-slide campaign__slide">
                 <div class="campaign__card">
                   <div class="campaign-card">
@@ -86,7 +154,7 @@
                   </div>
                 </div>
               </div>
-              <!-- slide2 -->
+              <!-- デフォルトスライド2 -->
               <div class="swiper-slide campaign__slide">
                 <div class="campaign__card">
                   <div class="campaign-card">
@@ -115,190 +183,20 @@
                   </div>
                 </div>
               </div>
-
-              <!-- slide3-->
-              <div class="swiper-slide campaign__slide">
-                <div class="campaign__card">
-                  <div class="campaign-card">
-                    <div class="campaign-card__image">
-                      <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/campaign3-sp.jpg" alt="" />
-                    </div>
-                    <div class="campaign-card__textbox">
-                      <div class="campaign-card__header">
-                        <div class="campaign-card__tag">体験ダイビング</div>
-                        <div class="campaign-card__head">ナイトダイビング</div>
-                      </div>
-                      <div class="campaign-card__body">
-                        <div class="campaign-card__title">
-                          <p>全部コミコミ(お一人様)</p>
-                        </div>
-                        <div class="campaign-card__price">
-                          <div class="campaign-card__markdown">¥10,000</div>
-                          <div class="campaign-card__reduced-price">¥8,000</div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-
-              <!-- slide4-->
-              <div class="swiper-slide campaign__slide">
-                <div class="campaign__card">
-                  <div class="campaign-card">
-                    <div class="campaign-card__image">
-                      <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/campaign4-sp.jpg" alt="" />
-                    </div>
-                    <div class="campaign-card__textbox">
-                      <div class="campaign-card__header">
-                        <div class="campaign-card__tag">ファンダイビング</div>
-                        <div class="campaign-card__head">
-                          貸切ファンダイビング
-                        </div>
-                      </div>
-                      <div class="campaign-card__body">
-                        <div class="campaign-card__title">
-                          <p>全部コミコミ(お一人様)</p>
-                        </div>
-                        <div class="campaign-card__price">
-                          <div class="campaign-card__markdown">¥20,000</div>
-                          <div class="campaign-card__reduced-price">
-                            ¥16,000
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <!-- slide5 -->
-              <div class="swiper-slide campaign__slide">
-                <div class="campaign__card">
-                  <div class="campaign-card">
-                    <div class="campaign-card__image">
-                      <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/campaign1-sp.jpg" alt="" />
-                    </div>
-                    <div class="campaign-card__textbox">
-                      <div class="campaign-card__header">
-                        <div class="campaign-card__tag">ライセンス講習</div>
-                        <div class="campaign-card__head">ライセンス取得</div>
-                      </div>
-                      <div class="campaign-card__body">
-                        <div class="campaign-card__title">
-                          <p>全部コミコミ(お一人様)</p>
-                        </div>
-                        <div class="campaign-card__price">
-                          <div class="campaign-card__markdown">¥56,000</div>
-                          <div class="campaign-card__reduced-price">
-                            ¥46,000
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <!-- slide6 -->
-              <div class="swiper-slide campaign__slide">
-                <div class="campaign__card">
-                  <div class="campaign-card">
-                    <div class="campaign-card__image">
-                      <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/campaign2-sp.jpg" alt="" />
-                    </div>
-                    <div class="campaign-card__textbox">
-                      <div class="campaign-card__header">
-                        <div class="campaign-card__tag">体験ダイビング</div>
-                        <div class="campaign-card__head">
-                          貸切体験ダイビング
-                        </div>
-                      </div>
-                      <div class="campaign-card__body">
-                        <div class="campaign-card__title">
-                          <p>全部コミコミ(お一人様)</p>
-                        </div>
-                        <div class="campaign-card__price">
-                          <div class="campaign-card__markdown">¥24,000</div>
-                          <div class="campaign-card__reduced-price">
-                            ¥18,000
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <!-- slide7-->
-              <div class="swiper-slide campaign__slide">
-                <div class="campaign__card">
-                  <div class="campaign-card">
-                    <div class="campaign-card__image">
-                      <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/campaign3-sp.jpg" alt="" />
-                    </div>
-                    <div class="campaign-card__textbox">
-                      <div class="campaign-card__header">
-                        <div class="campaign-card__tag">体験ダイビング</div>
-                        <div class="campaign-card__head">ナイトダイビング</div>
-                      </div>
-                      <div class="campaign-card__body">
-                        <div class="campaign-card__title">
-                          <p>全部コミコミ(お一人様)</p>
-                        </div>
-                        <div class="campaign-card__price">
-                          <div class="campaign-card__markdown">¥10,000</div>
-                          <div class="campaign-card__reduced-price">¥8,000</div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <!-- slide8-->
-              <div class="swiper-slide campaign__slide">
-                <div class="campaign__card">
-                  <div class="campaign-card">
-                    <div class="campaign-card__image">
-                      <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/campaign4-sp.jpg" alt="" />
-                    </div>
-                    <div class="campaign-card__textbox">
-                      <div class="campaign-card__header">
-                        <div class="campaign-card__tag">ファンダイビング</div>
-                        <div class="campaign-card__head">
-                          貸切ファンダイビング
-                        </div>
-                      </div>
-                      <div class="campaign-card__body">
-                        <div class="campaign-card__title">
-                          <p>全部コミコミ(お一人様)</p>
-                        </div>
-                        <div class="campaign-card__price">
-                          <div class="campaign-card__markdown">¥20,000</div>
-                          <div class="campaign-card__reduced-price">
-                            ¥16,000
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
+              <?php endif; ?>
             </div>
-
           </div>
         </div>
       </div>
-      <!--  -->
     </div>
     <div class="campaign__link campaign__link--top">
-      <a class="button" href="#">
+      <a class="button" href="<?php echo get_campaign_url(); ?>">
         View more
         <span class="arrow"></span>
       </a>
     </div>
   </section>
+
   <!--campaign-card  -->
 
   <section class="about top-about">
@@ -338,7 +236,7 @@
               </p>
             </div>
             <div class="about__link">
-              <a class="button" href="">
+              <a class="button" href="<?php echo get_about_url(); ?>">
                 View more
                 <span class="arrow"></span>
               </a>
@@ -359,7 +257,6 @@
       <div class="information__contents">
         <div class="information__image mask-slide">
           <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/info-ocean3-sp.jpg" alt="" />
-          <div class="mask"></div>
         </div>
         <div class="information__textbox">
           <div class="information__head">ライセンス講習</div>
@@ -372,7 +269,7 @@
             </p>
           </div>
           <div class="information__link">
-            <a class="button" href="">
+            <a class="button" href="<?php echo get_information_url(); ?>">
               View more
               <span class="arrow"></span>
             </a>
@@ -390,7 +287,76 @@
         <h2 class="section-title__sub section-title__sub--white">ブログ</h2>
       </div>
       <div class="blog__cards cards">
-        <!-- 1 -->
+        <?php
+        // ブログ記事を取得するクエリ
+        $args = array(
+            'post_type'      => 'post', // 標準の投稿タイプ
+            'posts_per_page' => 3,      // 表示する記事数（3つのカードを表示）
+            'post_status'    => 'publish', // 公開済みの投稿のみ
+            'orderby'        => 'date',
+            'order'          => 'DESC'  // 最新の記事から表示
+        );
+
+        $blog_query = new WP_Query($args);
+
+        // 投稿がある場合
+        if ($blog_query->have_posts()) :
+            while ($blog_query->have_posts()) : $blog_query->the_post();
+
+                // カスタムフィールドから日付を取得（ない場合は投稿日を使用）
+                $blog_date = get_post_meta(get_the_ID(), 'blog_date', true);
+                if ($blog_date) {
+                    // カスタムフィールドの日付を整形
+                    $formatted_date = date('Y.m/d', strtotime($blog_date));
+                    $datetime_attr = date('c', strtotime($blog_date));
+                } else {
+                    // 投稿日を使用
+                    $formatted_date = get_the_date('Y.m/d');
+                    $datetime_attr = get_the_date('c');
+                }
+        ?>
+        <div class="cards__item">
+          <a class="card" href="<?php the_permalink(); ?>">
+            <div class="card__figure">
+              <?php if (has_post_thumbnail()) : ?>
+                <?php the_post_thumbnail('full'); ?>
+              <?php else: ?>
+                <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/noimage__comp.png" alt="no image" />
+              <?php endif; ?>
+            </div>
+            <div class="card__header">
+              <div class="card__date">
+                <time datetime="<?php echo esc_attr($datetime_attr); ?>">
+                  <?php echo esc_html($formatted_date); ?>
+                </time>
+              </div>
+              <div class="card__heading"><?php the_title(); ?></div>
+            </div>
+            <div class="card__body">
+              <div class="card__text">
+                <?php
+                  // 投稿の本文を取得して文字数制限
+                  $content = get_the_content();
+                  $max_length = 90; // 文字数制限
+
+                  // 文字数が制限を超えていたら、制限内の部分だけ表示
+                  if (mb_strlen(strip_tags($content), 'UTF-8') > $max_length) {
+                      $content = mb_substr(strip_tags($content), 0, $max_length, 'UTF-8') . '...';
+                  }
+
+                  echo wpautop($content); // 改行を反映して表示
+                ?>
+              </div>
+            </div>
+          </a>
+        </div>
+        <?php
+            endwhile;
+            wp_reset_postdata(); // クエリのリセット
+        else :
+            // 投稿がない場合、デフォルトのカードを表示
+        ?>
+        <!-- デフォルトカード1 -->
         <div class="cards__item">
           <a class="card" href="">
             <div class="card__figure">
@@ -412,8 +378,7 @@
             </div>
           </a>
         </div>
-        <!--  -->
-        <!-- 2 -->
+        <!-- デフォルトカード2 -->
         <div class="cards__item">
           <a class="card" href="">
             <div class="card__figure">
@@ -435,6 +400,7 @@
             </div>
           </a>
         </div>
+        <!-- デフォルトカード3 -->
         <div class="cards__item">
           <a class="card" href="">
             <div class="card__figure">
@@ -456,18 +422,17 @@
             </div>
           </a>
         </div>
+        <?php endif; ?>
       </div>
-      <!-- 3 -->
-      <!--  -->
       <div class="blog__link">
-        <a class="button" href="">
+        <a class="button" href="<?php echo get_blog_url(); ?>">
           View more
           <span class="arrow"></span>
         </a>
       </div>
     </div>
-    <!-- </div> -->
   </section>
+
   <!-- blog -->
 
   <section class="voice top-voice">
@@ -501,7 +466,6 @@
             </p>
           </div>
         </div>
-        <!-- 1 -->
         <!-- 2 -->
         <div class="voice-cards__item voice-card">
           <div class="voice-card__header">
@@ -526,10 +490,9 @@
             </p>
           </div>
         </div>
-        <!-- 2 -->
       </div>
       <div class="voice__link">
-        <a class="button" href="">
+        <a class="button" href="<?php echo get_voice_url(); ?>">
           View more
           <span class="arrow"></span>
         </a>
@@ -545,157 +508,81 @@
         <h2 class="section-title__sub">料金一覧</h2>
       </div>
       <div class="price__content">
-        <div class="price__image">
-          <div class="mask-slide">
-            <picture>
-              <source srcset="<?php echo get_theme_file_uri(); ?>/assets/images/common/price-pc.jpg" media="(min-width: 768px)" />
-              <!-- 幅768px以上なら表示 -->
-              <source srcset="<?php echo get_theme_file_uri(); ?>/assets/images/common/price-ocean3-sp.jpg" media="(max-width: 767px)" />
-              <!-- 幅767px以下なら表示 -->
-              <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/price-ocean3-sp.jpg" alt="" />
-            </picture>
-          </div>
-        </div>
-        <!-- pictureタグ必要？ -->
+      <div class="price__image">
+        <picture class="mask-slide">
+          <source srcset="<?php echo get_theme_file_uri(); ?>/assets/images/common/price-pc.jpg" media="(min-width: 768px)" />
+          <source srcset="<?php echo get_theme_file_uri(); ?>/assets/images/common/price-ocean3-sp.jpg" media="(max-width: 767px)" />
+          <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/price-ocean3-sp.jpg" alt="" />
+        </picture>
+      </div>
+
         <div class="price__lists">
-          <!-- flexとflex wrapをつかう　w%85・15指定 -->
-          <div class="price__list">
-            <div class="price__list-title">ライセンス講習</div>
-            <dl class="price__costs">
-              <dt>オープンウォーターダイバーコース</dt>
-              <dd>¥50,000</dd>
-              <dt>アドバンスドオープンウォーターコース</dt>
-              <dd>¥60,000</dd>
-              <dt>レスキュー＋EFRコース</dt>
-              <dd>¥70,000</dd>
-            </dl>
-          </div>
-          <div class="price__list">
-            <div class="price__list-title">体験ダイビング</div>
-            <dl class="price__costs">
-              <dt>ビーチ体験ダイビング(半日)</dt>
-              <dd>¥7,000</dd>
-              <dt>ビーチ体験ダイビング(1日)</dt>
-              <dd>¥14,000</dd>
-              <dt>ボート体験ダイビング(半日)</dt>
-              <dd>¥10,000</dd>
-              <dt>ボート体験ダイビング(1日)</dt>
-              <dd>¥18,000</dd>
-            </dl>
-          </div>
-          <div class="price__list">
-            <div class="price__list-title">ファンダイビング</div>
-            <dl class="price__costs">
-              <dt>ビーチダイビング(2ダイブ)</dt>
-              <dd>¥14,000</dd>
-              <dt>ボートダイビング(2ダイブ)</dt>
-              <dd>¥18,000</dd>
-              <dt>スペシャルダイビング(2ダイブ)</dt>
-              <dd>¥24,000</dd>
-              <dt>ナイトダイビング(1ダイブ)</dt>
-              <dd>¥10,000</dd>
-            </dl>
-          </div>
-          <div class="price__list">
-            <div class="price__list-title">スペシャルダイビング</div>
-            <dl class="price__costs">
-              <dt>貸切ダイビング(2ダイブ)</dt>
-              <dd>¥24,000</dd>
-              <dt>1日ダイビング(3ダイブ)</dt>
-              <dd>¥32,000</dd>
-            </dl>
-          </div>
+          <?php
+          // front-page.php用のカスタム関数 - SP表示でも改行しない
+          function convert_br_for_frontpage($string) {
+            $string = esc_html($string); // XSS対策のためエスケープ
+            // front-pageでは常に [br] を削除（SP表示でも改行しない）
+            return str_replace('[br]', '', $string);
+          }
+
+          // 料金ページのIDを取得
+          $price_page = get_page_by_path('price');
+          $price_page_id = $price_page ? $price_page->ID : null;
+
+          if ($price_page_id) {
+            // 料金カテゴリーの配列
+            $price_categories = [
+              ['title' => 'ライセンス講習', 'field' => 'price_items1', 'menu' => 'price_menu1', 'cost' => 'price_cost1'],
+              ['title' => '体験ダイビング', 'field' => 'price_items2', 'menu' => 'price_menu2', 'cost' => 'price_cost2'],
+              ['title' => 'ファンダイビング', 'field' => 'price_items3', 'menu' => 'price_menu3', 'cost' => 'price_cost3'],
+              ['title' => 'スペシャルダイビング', 'field' => 'price_items4', 'menu' => 'price_menu4', 'cost' => 'price_cost4']
+            ];
+
+            // 各カテゴリーの料金データを出力
+            foreach ($price_categories as $category) {
+              // SCFから料金データを取得
+              $price_items = SCF::get($category['field'], $price_page_id);
+
+              if (!empty($price_items)) {
+                echo '<div class="price__list">';
+                echo '<div class="price__list-title">' . esc_html($category['title']) . '</div>';
+                echo '<dl class="price__costs">';
+
+                foreach ($price_items as $item) {
+                  $menu = isset($item[$category['menu']]) ? $item[$category['menu']] : '';
+                  $cost = isset($item[$category['cost']]) ? $item[$category['cost']] : '';
+
+                  if (!empty($menu) && !empty($cost)) {
+                    // front-page専用の処理を使用（常に改行なし）
+                    $menu = convert_br_for_frontpage($menu);
+
+                    echo '<dt>' . $menu . '</dt>';
+                    echo '<dd>¥' . number_format($cost) . '</dd>';
+                  }
+                }
+
+                echo '</dl>';
+                echo '</div>';
+              }
+            }
+          }
+          ?>
         </div>
       </div>
       <div class="price__link">
-        <a class="button" href="">
+        <a class="button" href="<?php echo get_price_url(); ?>">
           View more
           <span class="arrow"></span>
         </a>
       </div>
     </div>
   </section>
+
+
+
   <!-- /.price -->
 
 
-  <section class="price top-price">
-    <div class="price__inner inner">
-      <div class="price__header section-title">
-        <div class="section-title__main">Price</div>
-        <h2 class="section-title__sub">料金一覧</h2>
-      </div>
-      <div class="price__content">
-        <div class="price__image">
-          <div class="mask-slide">
-            <picture>
-              <source srcset="<?php echo get_theme_file_uri(); ?>/assets/images/common/price-pc.jpg" media="(min-width: 768px)" />
-              <!-- 幅768px以上なら表示 -->
-              <source srcset="<?php echo get_theme_file_uri(); ?>/assets/images/common/price-ocean3-sp.jpg" media="(max-width: 767px)" />
-              <!-- 幅767px以下なら表示 -->
-              <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/price-ocean3-sp.jpg" alt="" />
-            </picture>
-          </div>
-        </div>
-        <!-- pictureタグ必要？ -->
-        <div class="price__lists">
-          <!-- flexとflex wrapをつかう　w%85・15指定 -->
-          <div class="price__list">
-            <div class="price__list-title">ライセンス講習</div>
-            <dl class="price__costs">
-              <dt>オープンウォーターダイバーコース</dt>
-              <dd>¥50,000</dd>
-              <dt>アドバンスドオープンウォーターコース</dt>
-              <dd>¥60,000</dd>
-              <dt>レスキュー＋EFRコース</dt>
-              <dd>¥70,000</dd>
-            </dl>
-          </div>
-          <div class="price__list">
-            <div class="price__list-title">体験ダイビング</div>
-            <dl class="price__costs">
-              <dt>ビーチ体験ダイビング(半日)</dt>
-              <dd>¥7,000</dd>
-              <dt>ビーチ体験ダイビング(1日)</dt>
-              <dd>¥14,000</dd>
-              <dt>ボート体験ダイビング(半日)</dt>
-              <dd>¥10,000</dd>
-              <dt>ボート体験ダイビング(1日)</dt>
-              <dd>¥18,000</dd>
-            </dl>
-          </div>
-          <div class="price__list">
-            <div class="price__list-title">ファンダイビング</div>
-            <dl class="price__costs">
-              <dt>ビーチダイビング(2ダイブ)</dt>
-              <dd>¥14,000</dd>
-              <dt>ボートダイビング(2ダイブ)</dt>
-              <dd>¥18,000</dd>
-              <dt>スペシャルダイビング(2ダイブ)</dt>
-              <dd>¥24,000</dd>
-              <dt>ナイトダイビング(1ダイブ)</dt>
-              <dd>¥10,000</dd>
-            </dl>
-          </div>
-          <div class="price__list">
-            <div class="price__list-title">スペシャルダイビング</div>
-            <dl class="price__costs">
-              <dt>貸切ダイビング(2ダイブ)</dt>
-              <dd>¥24,000</dd>
-              <dt>1日ダイビング(3ダイブ)</dt>
-              <dd>¥32,000</dd>
-            </dl>
-          </div>
-        </div>
-      </div>
-      <div class="price__link">
-        <a class="button" href="">
-          View more
-          <span class="arrow"></span>
-        </a>
-      </div>
-    </div>
-  </section>
-  <!-- /.price -->
 
 </main>
 

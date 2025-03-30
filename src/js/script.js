@@ -73,28 +73,6 @@ const campaign__swiper = new Swiper(".js-top-swiper", {
 });
 
 
-/* .tab-list
--------------------------------------------------------------*/
-// $(document).ready(function () {
-//   $('.tab-links__list a').click(function (e) {
-//     e.preventDefault();
-//     $('.tab-links__list a').removeClass('is-active');
-//     $(this).addClass('is-active');
-//   });
-// });
-
-/* .pagenation
--------------------------------------------------------------*/
-$(document).ready(function () {
-  $('.pagination__list a').click(function (e) {
-    e.preventDefault();
-    $('.pagination__list a').removeClass('is-active');
-    $(this).addClass('is-active');
-  });
-});
-// wordpress化の時に見直す。
-// jsでなくwordpress化できりかえできるようにするってこと？
-
 /* .top-scroll
 -------------------------------------------------------------*/
 $(function () {
@@ -291,3 +269,8 @@ $('.js-gallery-section-modal__close, .js-gallery-section-modal').click(function 
   $('.js-gallery-section-modal').fadeOut();  // モーダルを非表示
   $('body').css('overflow-y', 'visible');  // 本文の縦スクロールを有効
 });
+
+
+document.addEventListener('wpcf7mailsent', function(event) {
+  location.href = '/thanks/'; // ← 完了ページのURLに変更してください
+}, false);

@@ -94,8 +94,24 @@
 
                 <div class="blog-detail__pagination">
                   <div class="pagination">
-                    <div class="pagination__list pagination__list--left"><a href="#"></a></div>
-                    <div class="pagination__list pagination__list--right"><a href="#"></a></div>
+                    <div class="pagination__list pagination__list--left">
+                      <?php
+                      $prev_post = get_previous_post(false); // 同一カテゴリを無視
+                      if ($prev_post):
+                          $prev_url = get_permalink($prev_post->ID);
+                          echo '<a href="' . esc_url($prev_url) . '"></a>';
+                      endif;
+                      ?>
+                    </div>
+                    <div class="pagination__list pagination__list--right">
+                      <?php
+                      $next_post = get_next_post(false); // 同一カテゴリを無視
+                      if ($next_post):
+                          $next_url = get_permalink($next_post->ID);
+                          echo '<a href="' . esc_url($next_url) . '"></a>';
+                      endif;
+                      ?>
+                    </div>
                   </div>
                 </div>
               </div>

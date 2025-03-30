@@ -32,6 +32,11 @@
     background-color: $white;
 }
 
+.tab-link.active {
+    color: #fff;
+    background-color: $green-blue;
+}
+
 
 .tab-links__list:hover a {
     color: #fff;

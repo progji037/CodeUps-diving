@@ -67,12 +67,17 @@
             <?php
             // タブで選択されたタームスラッグを取得
               $selected_tab = isset($_GET['tab']) ? sanitize_text_field($_GET['tab']) : '';
+
+              // 現在のページ番号を取得
+              $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
+
                 $args = array(
                   'post_type'      => 'voice',   // カスタム投稿タイプのスラッグ
                   'posts_per_page' => '6',        // 表示件数（-1 = 全件表示）
                   'post_status'    => 'publish', // 公開済みの投稿のみ取得
                   'orderby'        => 'date',    // 並び替えの基準（投稿日）
                   'order'          => 'DESC',    // 並び順（DESC = 新しい順 / ASC = 古い順）
+                  'paged'          => $paged,    // 現在のページ番号を指定
                 );
 
                 // タブ（タクソノミー）による絞り込みがある場合
@@ -129,7 +134,14 @@
 
         <div class="voice-section__pagination">
           <div class="pagination">
-            <?php wp_pagenavi(array('always_show' => true)); ?>
+            <?php
+            if (function_exists('wp_pagenavi')) {
+              // WP-PageNaviのクエリを設定
+              wp_pagenavi(array(
+                'query' => $query
+              ));
+            }
+            ?>
           </div>
         </div>
       </div>

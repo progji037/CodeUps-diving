@@ -2,6 +2,7 @@
 
 .mask-slide {
     position: relative;
+    overflow: hidden; // 追加: マスクのアニメーションを枠内に収める
     // width: 80%;
     // margin: 30px auto 30px;
 }
@@ -9,8 +10,9 @@
 .mask {
     position: absolute;
     top: 0;
-    right: 0;
-    width: 100%;
+    right: 0; // 初期位置は右から
+    left: auto; // 左は自動
+    width: 0%; // 初期幅は0%（JavaScriptで制御）
     height: 100%;
     z-index: 2;
     background-color: #408F95;
@@ -19,4 +21,6 @@
 .mask-slide img {
     display: block;
     width: 100%;
+    position: relative; // 追加: z-indexを有効にするため
+    z-index: 1; // 追加: マスクより下に配置
 }

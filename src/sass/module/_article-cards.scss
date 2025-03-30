@@ -5,5 +5,8 @@
 
 .article-cards__item {
     margin-top: rem(24);
+    display: flex;
+    flex-direction: column;
+    gap: rem(24);
 
 }

@@ -12,8 +12,7 @@
     position: absolute;
     left: calc(50% - min(45.9%, 38.7em));
     top: rem(-24);
-    background-image: url(/assets/images/common/_キンギョハナダイ-右向き-sp.png);
-    background-size: cover;
+    background-image: url(../../../WordPressTheme/assets/images/common/_キンギョハナダイ-右向き-sp.png);    background-size: cover;
     z-index: -1;
 
     @include mq('md') {
@@ -24,8 +23,7 @@
         position: absolute;
         top: rem(-71);
         left: calc(50% - min(48%, 38.7em));
-        background-image: url(/assets/images/common/_キンギョハナダイ-右向き-pc.png);
-        background-size: cover;
+        background-image: url(../../../WordPressTheme/assets/images/common/_キンギョハナダイ-右向き-pc.png);        background-size: cover;
     }
 }
 

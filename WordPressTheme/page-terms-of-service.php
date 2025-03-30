@@ -14,7 +14,9 @@
       </picture>
     </div>
     <div class="main-view__title ">
-      <h1 class="main-view__main-title main-view__main-title--capitalize">terms <span> of</span> service</h1>
+      <h1 class="main-view__main-title">
+      <?php the_field('mv_title'); ?>
+      </h1>
     </div>
   </div>
 </section>
@@ -30,7 +32,7 @@
         <?php
         // ACFカスタムフィールドの内容を出力
         if (function_exists('get_field')) {
-          echo get_field('term_1');
+          echo get_field('contents_text');
         }
         ?>
       </div>

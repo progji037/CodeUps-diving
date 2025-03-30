@@ -21,24 +21,8 @@
     </section>
 
     <!-- パンくずリスト -->
-    <div class="breadcrumb page-breadcrumb">
-        <div class="breadcrumb__inner inner">
-            <?php
-              $breadcrumb_title = get_field('breadcrumb_title'); // ACFのフィールドを取得
+    <?php get_template_part('parts/breadcrumb')?>
 
-              if (!empty($breadcrumb_title)) {
-                echo esc_html($breadcrumb_title); // ACFの値があれば表示
-              } else {
-                // Breadcrumb NavXTが有効な場合のみ表示
-                if (function_exists('bcn_display')) {
-                  bcn_display();
-                } else {
-                  echo '<p class="breadcrumb-default">TOP > 料金一覧</p>'; // 代替テキストを表示
-                }
-              }
-            ?>
-        </div>
-      </div>
   <!-- 料金表 -->
       <section class="page-price price-section">
         <div class="price-section__inner inner">

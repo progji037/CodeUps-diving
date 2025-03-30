@@ -9,53 +9,54 @@
   <?php wp_head(); ?>
 </head>
 
+
 <body>
   <header class="header header--top">
     <div class="header__inner">
       <nav class="header__nav">
         <div class="header__logo">
-          <a href="index.html">
+          <a href="<?php echo esc_url(home_url('/')); ?>">
             <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/CodeUps-sp.svg" alt="" />
           </a>
         </div>
         <ul class="header__items">
           <li class="header__item">
-            <a href="campaign.html">Campaign
+            <a href="<?php echo get_campaign_url(); ?>">Campaign
               <p>キャンペーン</p>
             </a>
           </li>
           <li class="header__item">
-            <a href="about.html">About us
+            <a href="<?php echo get_about_url(); ?>">About us
               <p>私たちについて</p>
             </a>
           </li>
           <li class="header__item">
-            <a href="information.html">Information
+            <a href="<?php echo get_information_url(); ?>">Information
               <p>ダイビング情報</p>
             </a>
           </li>
           <li class="header__item">
-            <a href="blog.html">Blog
+            <a href="<?php echo get_blog_url(); ?>">Blog
               <p>ブログ</p>
             </a>
           </li>
           <li class="header__item">
-            <a href="voice.html">Voice
+            <a href="<?php echo get_voice_url(); ?>">Voice
               <p>お客様の声</p>
             </a>
           </li>
           <li class="header__item">
-            <a href="price.html">Price
+            <a href="<?php echo get_price_url(); ?>">Price
               <p>料金一覧</p>
             </a>
           </li>
           <li class="header__item">
-            <a href="faq.html">FAQ
+            <a href="<?php echo get_faq_url(); ?>">FAQ
               <p>よくある質問</p>
             </a>
           </li>
           <li class="header__item">
-            <a href="contact.html">Contact
+            <a href="<?php echo get_contact_url(); ?>">Contact
               <p>お問い合わせ</p>
             </a>
           </li>
@@ -79,19 +80,19 @@
               <div class="site-guide__group-box">
                 <ul class="site-guide__group-lists">
                   <li class="site-guide__group-list site-guide__list--top">
-                    <a href="campaign.html">キャンペーン</a>
+                    <a href="<?php echo get_campaign_url(); ?>">キャンペーン</a>
                   </li>
                   <li class="site-guide__group-list">
-                    <a href="information.html?data-tab=license">ライセンス取得</a>
+                    <a href="<?php echo get_information_license_url(); ?>">ライセンス取得</a>
                   </li>
                   <li class="site-guide__group-list">
-                    <a href="information.html?data-tab=trial">貸切体験ダイビング</a>
+                    <a href="<?php echo get_information_trial_url(); ?>">貸切体験ダイビング</a>
                   </li>
                   <li class="site-guide__group-list">
-                    <a href="information.html?data-tab=fun">ナイトダイビング</a>
+                    <a href="<?php echo get_information_fun_url(); ?>">ナイトダイビング</a>
                   </li>
                   <li class="site-guide__group-list site-guide__list--space">
-                    <a href="about.html">私たちについて</a>
+                    <a href="<?php echo get_about_url(); ?>">私たちについて</a>
                   </li>
                 </ul>
               </div>
@@ -99,19 +100,19 @@
               <div class="site-guide__group-box site-guide__group-box--head">
                 <ul class="site-guide__group-lists">
                   <li class="site-guide__group-list site-guide__list--top">
-                    <a href="information.html">ダイビング情報</a>
+                    <a href="<?php echo get_information_url(); ?>">ダイビング情報</a>
                   </li>
                   <li class="site-guide__group-list">
-                    <a href="information.html?data-tab=license">ライセンス講習</a>
+                    <a href="<?php echo get_information_license_url(); ?>">ライセンス講習</a>
                   </li>
                   <li class="site-guide__group-list">
-                    <a href="information.html?data-tab=trial">体験ダイビング</a>
+                    <a href="<?php echo get_information_trial_url(); ?>">体験ダイビング</a>
                   </li>
                   <li class="site-guide__group-list">
-                    <a href="information.html?data-tab=fun">ファンダイビング</a>
+                    <a href="<?php echo get_information_fun_url(); ?>">ファンダイビング</a>
                   </li>
                   <li class="site-guide__group-list site-guide__list--space">
-                    <a href="blog.html">ブログ</a>
+                    <a href="<?php echo get_blog_url(); ?>">ブログ</a>
                   </li>
                 </ul>
               </div>
@@ -121,19 +122,19 @@
               <div class="site-guide__group-box">
                 <ul class="site-guide__group-lists">
                   <li class="site-guide__group-list site-guide__list--top">
-                    <a href="voice.html">お客様の声</a>
+                    <a href="<?php echo get_voice_url(); ?>">お客様の声</a>
                   </li>
                   <li class="site-guide__group-list site-guide__list--space">
-                    <a href="price.html">料金一覧</a>
+                    <a href="<?php echo get_price_url(); ?>">料金一覧</a>
                   </li>
                   <li class="site-guide__group-list">
-                    <a href="information.html?data-tab=license">ライセンス講習</a>
+                    <a href="<?php echo get_information_license_url(); ?>">ライセンス講習</a>
                   </li>
                   <li class="site-guide__group-list">
-                    <a href="information.html?data-tab=trial">体験ダイビング</a>
+                    <a href="<?php echo get_information_trial_url(); ?>">体験ダイビング</a>
                   </li>
                   <li class="site-guide__group-list">
-                    <a href="information.html?data-tab=fun">ファンダイビング</a>
+                    <a href="<?php echo get_information_fun_url(); ?>">ファンダイビング</a>
                   </li>
                 </ul>
               </div>
@@ -141,18 +142,18 @@
               <div class="site-guide__group-box site-guide__group-box--head">
                 <ul class="site-guide__group-lists">
                   <li class="site-guide__group-list site-guide__list--top">
-                    <a href="faq.html">よくある質問</a>
+                    <a href="<?php echo get_faq_url(); ?>">よくある質問</a>
                   </li>
                   <li class="site-guide__group-list site-guide__list--line">
-                    <a href="privacy-policy.html">
+                    <a href="<?php echo get_custom_privacy_policy_url(); ?>">
                       <span>プライバシー<br class="u-mobile" />ポリシー</span>
                     </a>
                   </li>
                   <li class="site-guide__group-list site-guide__list--space">
-                    <a href="terms.html">利用規約</a>
+                    <a href="<?php echo get_terms_url(); ?>">利用規約</a>
                   </li>
                   <li class="site-guide__group-list site-guide__list--space">
-                    <a href="contact.html">お問い合わせ</a>
+                    <a href="<?php echo get_contact_url(); ?>">お問い合わせ</a>
                   </li>
                 </ul>
               </div>

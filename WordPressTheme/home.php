@@ -43,11 +43,14 @@
 							<div class="blog-section__cards">
 									<div class="cards cards--blog">
 											<?php
+													// 現在のページ番号を取得
+													$paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
 													// 標準の投稿（Post）の記事を取得
 													$args = array(
 															'post_type'      => 'post', // 標準の投稿タイプ
 															'posts_per_page' => 10, // 表示する記事数
-															'post_status'    => 'publish' // 公開済みの投稿のみ
+															'post_status'    => 'publish', // 公開済みの投稿のみ
+															'paged'          => $paged // 現在のページ番号を指定
 													);
 													$blog_query = new WP_Query($args);
 
@@ -60,7 +63,7 @@
 																	<?php if (has_post_thumbnail()) : ?>
 																			<?php the_post_thumbnail('full'); ?>
 																	<?php else: ?>
-																			<img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/noimage__comp.png" alt="">
+																			<img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/noimage__comp.png" alt="no image" />
 																	<?php endif; ?>
 															</div>
 															<div class="card__header card__header--low">
@@ -112,7 +115,13 @@
 						</div>
 						<div class="blog-section__pagination blog-section__pagination--pc">
 							<div class="pagination">
-								<?php wp_pagenavi(array('always_show' => true)); ?>
+								<?php
+								if (function_exists('wp_pagenavi')) {
+									wp_pagenavi(array(
+										'query' => $blog_query
+									));
+								}
+								?>
 							</div>
 						</div>
 					</div>

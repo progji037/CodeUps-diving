@@ -28,13 +28,13 @@
 									$query = new WP_Query($args);
 									if ($query->have_posts()) : ?>
 									<?php while ($query->have_posts()) : $query->the_post(); ?>
-								<a class="article-card" href="blog.html">
+								<a class="article-card" href="<?php echo esc_url(get_permalink()); ?>">
 									<div class="article-card__item">
-										<?php if (has_post_thumbnail()) {
-													the_post_thumbnail(array(121, 90));
-												} else { // 「アイキャッチ画像があれば」以外なら
-													echo '<img src="' . get_template_directory_uri() . '/images/common/noimage__comp.png" alt="">';
-											} ?>
+										<?php if (has_post_thumbnail()) : ?>
+												<?php the_post_thumbnail(array(121, 90)); ?>
+										<?php else: ?>
+												<img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/noimage__comp.png" alt="no image" />
+										<?php endif; ?>
 										<div class="article-card__meta">
 											<?php
 													$blog_date = get_post_meta(get_the_ID(), 'blog_date', true);
@@ -52,7 +52,7 @@
 													<?php echo esc_html($formatted_date); ?>
 											</time>
 												<p>
-													<?php the_title(); ?>
+													<?php echo mb_strimwidth(strip_tags(get_the_title()), 0, 14, '', 'UTF-8'); ?>
 												</p>
 										</div>
 									</div>
@@ -115,7 +115,7 @@
 						endif;
 					?>
 					<div class="sidebar-review__link">
-						<a class="button" href="voice.html">
+						<a class="button" href="<?php echo esc_url( get_post_type_archive_link( 'voice' ) ); ?>">
 							View more
 							<span class="arrow"></span>
 						</a>
@@ -207,7 +207,7 @@
 					</div>
 				</div>
 				<div class="sidebar-campaign__link ">
-					<a class="button" href="voice.html">
+					<a class="button" href="<?php echo esc_url( get_post_type_archive_link( 'campaign' ) ); ?>">
 						View more
 						<span class="arrow"></span>
 					</a>
