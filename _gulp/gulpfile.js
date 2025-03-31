@@ -60,7 +60,7 @@ const cssSass = () => {
   return (
     src(srcPath.css)
       // ソースマップを初期化
-      .pipe(sourcemaps.init())
+      // .pipe(sourcemaps.init())
       // エラーハンドリングを設定
       .pipe(
         plumber({
@@ -96,7 +96,7 @@ const cssSass = () => {
       // メディアクエリを統合
       .pipe(mmq())
       // ソースマップを書き出し
-      .pipe(sourcemaps.write("./"))
+      // .pipe(sourcemaps.write("./"))
       // コンパイル済みのCSSファイルを出力先に保存
       .pipe(dest(destPath.css))
       .pipe(dest(destWpPath.css))
