@@ -13,7 +13,7 @@
     </div>
     <div class="main-view__title ">
       <h1 class="main-view__main-title main-view__main-title--capitalize">
-        <?php the_title(); ?>
+        <?php the_field('mv_title'); ?>
       </h1>
     </div>
   </div>

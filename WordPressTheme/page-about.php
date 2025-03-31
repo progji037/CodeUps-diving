@@ -15,7 +15,7 @@
       </div>
       <div class="main-view__title">
         <h1 class="main-view__main-title">
-          <?php the_title();?>
+          <?php the_field('mv_title'); ?>
         </h1>
       </div>
     </div>

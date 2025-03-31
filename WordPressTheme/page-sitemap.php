@@ -13,9 +13,8 @@
       </picture>
         </div>
         <div class="main-view__title ">
-          <h1 class="main-view__main-title main-view__main-title--uppercase">
-            <span>site</span>
-            map
+          <h1 class="main-view__main-title">
+            <?php the_field('mv_title'); ?>
           </h1>
         </div>
       </div>
