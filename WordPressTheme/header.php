@@ -8,12 +8,6 @@
   <meta name="robots" content="noindex" />
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-VFHY9VKWNW"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-VFHY9VKWNW');
-  </script>
   <?php wp_head(); ?>
 </head>
 
