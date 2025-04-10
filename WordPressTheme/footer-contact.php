@@ -1,19 +1,25 @@
-<div class="scroll-back" id="js-pageTop"><a href=""></a></div>
+<div class="scroll-back" id="js-pageTop"><a href="#"></a></div>
 
 <footer class="footer top-footer">
   <div class="footer__wrapper">
     <div class="footer__inner inner">
       <div class="footer__headline">
         <h2 class="footer__logo">
-          <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/CodeUps-sp.svg" alt="CodeUps" />
+          <a href="">
+            <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/CodeUps-sp.svg" alt="CodeUps" />
+        </a>
         </h2>
         <!--   -->
         <div class="footer__sns-icon">
           <div class="footer__sns-facebook">
-            <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/FacebookLogo-sp.png" alt="" />
+            <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer">
+                <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/FacebookLogo-sp.png" alt="" />
+            </a>
           </div>
           <div class="footer__sns-instagram">
-            <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/InstagramLogo-sp.png" alt="" />
+            <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer">
+                <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/InstagramLogo-sp.png" alt="" />
+            </a>
           </div>
         </div>
       </div>

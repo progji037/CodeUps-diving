@@ -29,11 +29,15 @@
     <div class="terms__content">
       <h2 class="terms__title"><?php the_title();?></h2>
       <div class="terms__text">
-        <?php
-        // ACFカスタムフィールドの内容を出力
-        if (function_exists('get_field')) {
-          echo get_field('contents_text');
-        }
+      <?php
+        if (have_posts()) :
+          while (have_posts()) : the_post();
+            if (empty(get_the_content())) {
+              echo '<!-- コンテンツが空です -->';
+            }
+            the_content();
+        endwhile;
+        endif;
         ?>
       </div>
     </div>

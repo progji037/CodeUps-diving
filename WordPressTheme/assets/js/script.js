@@ -19,7 +19,6 @@ jQuery(function ($) {
     });
   });
 
-
   /* .ドロワーの後ろがスクロールされない
   -------------------------------------------------------------*/
   $(function () {
@@ -105,40 +104,45 @@ jQuery(function ($) {
   // マスクスライドアニメーション
   var box = $(".mask-slide");
   var speed = 700;
-
   box.each(function () {
     $(this).append('<div class="mask"></div>');
     var mask = $(this).find($(".mask"));
     var image = $(this).find("img");
     var counter = 0;
-
     image.css("opacity", "0");
     mask.css("width", "0%");
 
     // アニメーション関数
     function runAnimation() {
       if (counter === 0) {
-        mask.delay(200)
-          .animate({ width: "100%" }, speed, function () {
-            image.css("opacity", "1");
-            $(this).css({ left: "0", right: "auto" });
-            $(this).animate({ width: "0%" }, speed);
+        mask.delay(200).animate({
+          width: "100%"
+        }, speed, function () {
+          image.css("opacity", "1");
+          $(this).css({
+            left: "0",
+            right: "auto"
           });
+          $(this).animate({
+            width: "0%"
+          }, speed);
+        });
         counter = 1;
       }
     }
 
     // Intersection Observer を使用
     if ('IntersectionObserver' in window) {
-      var observer = new IntersectionObserver(function(entries) {
-        entries.forEach(function(entry) {
+      var observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
           if (entry.isIntersecting) {
             runAnimation();
             observer.disconnect();
           }
         });
-      }, { threshold: 0.1 });
-
+      }, {
+        threshold: 0.1
+      });
       observer.observe(mask[0]);
     } else {
       // フォールバック: 手動でアニメーションを実行
@@ -162,23 +166,40 @@ jQuery(function ($) {
 
   /* .loading scroll lock
   -------------------------------------------------------------*/
-  if (window.location.pathname === '/index.html') {
-    $(document).ready(function () {
-      // bodyとhtmlのスクロール制御
-      $("html, body").css({
-        height: "100%",
-        overflow: "hidden"
-      });
-
-      // ローディングアニメーションの完了後にスクロール解除
-      setTimeout(function () {
+  $(document).ready(function () {
+    // WordPressのトップページかどうかを確認
+    if ($('body').hasClass('home') || window.location.pathname === '/' || window.location.pathname === '/index.html') {
+      // ローカルストレージをチェックして初回訪問かどうかを確認
+      var hasVisited = localStorage.getItem('hasVisitedBefore');
+      if (!hasVisited) {
+        // 初回訪問の場合、ローディングアニメーションを表示
         $("html, body").css({
-          height: "",
-          overflow: ""
+          height: "100%",
+          overflow: "hidden"
         });
-      }, 3000); // 適切なタイミングに合わせて調整
-    });
-  }
+
+        // ローディング要素を表示（クラス名は実際のHTMLに合わせて調整）
+        $(".fv-loading").show();
+
+        // ローディングアニメーションの完了後にスクロール解除
+        setTimeout(function () {
+          $("html, body").css({
+            height: "",
+            overflow: ""
+          });
+
+          // オプション: フェードアウトアニメーションを追加
+          $(".fv-loading").fadeOut(500);
+
+          // 訪問履歴をローカルストレージに保存
+          localStorage.setItem('hasVisitedBefore', 'true');
+        }, 3000); // 3秒後に解除
+      } else {
+        // 2回目以降の訪問ではローディング要素を非表示
+        $(".fv-loading").hide();
+      }
+    }
+  });
 
   /* .archive-pulldown
   -------------------------------------------------------------*/
@@ -286,5 +307,4 @@ jQuery(function ($) {
   document.addEventListener('wpcf7mailsent', function (event) {
     location.href = '/thanks/'; // ← 完了ページのURLに変更してください
   }, false);
-
 });

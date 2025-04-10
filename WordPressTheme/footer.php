@@ -45,7 +45,7 @@
   </div>
 </section>
 <!-- /.contact -->
-<div class="scroll-back" id="js-pageTop"><a href=""></a></div>
+<div class="scroll-back" id="js-pageTop"><a href="#"></a></div>
 
 <footer class="footer top-footer">
   <div class="footer__wrapper">
@@ -55,14 +55,16 @@
           <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/CodeUps-sp.svg" alt="CodeUps" />
         </h2>
         <!--   -->
-        <div class="footer__sns-icon">
-          <div class="footer__sns-facebook">
-            <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/FacebookLogo-sp.png" alt="" />
+        <div class="footer__sns-facebook">
+            <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer">
+                <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/FacebookLogo-sp.png" alt="" />
+            </a>
           </div>
           <div class="footer__sns-instagram">
-            <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/InstagramLogo-sp.png" alt="" />
+            <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer">
+                <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/InstagramLogo-sp.png" alt="" />
+            </a>
           </div>
-        </div>
       </div>
       <nav class="footer__menu site-guide">
         <div class="site-guide__wrapper">
