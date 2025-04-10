@@ -28,7 +28,6 @@
   <!-- パンくずリスト -->
   <?php get_template_part('parts/breadcrumb')?>
 
-
     <!-- キャンペーン -->
     <section class="campaign-section page-campaign">
       <div class="campaign-section__inner inner">
@@ -36,6 +35,7 @@
         // タブHTMLより前で $current_tab を定義
         $current_tab = isset($_GET['tab']) ? sanitize_text_field($_GET['tab']) : 'all';
         ?>
+
         <!-- tab -->
         <div class="campaign-section__tab">
           <div class="tab-links">
@@ -73,60 +73,38 @@
         <div class="campaign-section__content">
           <div class="campaign-section-cards ">
             <?php
-              // 現在のページ番号を取得（1ページ目は 1）
-              $paged = max(1, get_query_var('paged'), get_query_var('page'));
+            if (have_posts()) :
+                while (have_posts()) : the_post();
 
-              // GETパラメータからタブ情報を取得（初期値 'all'）
-              $current_tab = isset($_GET['tab']) ? sanitize_text_field($_GET['tab']) : 'all';
+                    // 記事が所属するタクソノミーのスラッグを取得し、class に追加
+                    $terms = get_the_terms(get_the_ID(), 'campaign_tab');
+                    $term_classes = '';
+                    if ($terms) {
+                        foreach ($terms as $term) {
+                            $term_classes .= ' tab-' . esc_attr($term->slug);
+                        }
+                    }
 
-              // WP_Query の設定
-              $args = array(
-                  'post_type'      => 'campaign',
-                  'posts_per_page' => 4,
-                  'paged'          => $paged,
-                  'order'          => 'DESC',
-                  'tax_query'      => array(),
-              );
-
-              // タブでのフィルタリング（'all' のときは絞らない）
-              if ( $current_tab !== 'all' ) {
-                  $args['tax_query'][] = array(
-                      'taxonomy' => 'campaign_tab',
-                      'field'    => 'slug',
-                      'terms'    => $current_tab,
-                  );
-              }
-
-              // クエリ実行
-              $query = new WP_Query($args);
-
-              if ( $query->have_posts() ) :
-                  while ( $query->have_posts() ) : $query->the_post();
-
-                      // 記事が所属するタクソノミーのスラッグを取得し、class に追加
-                      $terms = get_the_terms(get_the_ID(), 'campaign_tab');
-                      $term_classes = '';
-                      if ($terms) {
-                          foreach ($terms as $term) {
-                              $term_classes .= ' tab-' . esc_attr($term->slug);
-                          }
-                      }
-
-                      // カスタムフィールドの取得
-                      $card__image     = SCF::get('campaign-card__image');
-                      $card__tag       = SCF::get('campaign-card__tag');
-                      $card__head      = SCF::get('campaign-card__head');
-                      $markdown        = SCF::get('campaign-card__markdown');
-                      $reduceprice     = SCF::get('campaign-card__reduced-price');
-                      $card__text      = SCF::get('campaign-card__text');
-                      $card__period    = SCF::get('campaign-card__period');
+                    // ACFを使用してカスタムフィールドの取得
+                    $card__image     = get_field('campaign-card__image');
+                    $card__tag       = get_field('campaign-card__tag');
+                    $card__head      = get_field('campaign-card__head');
+                    $markdown        = get_field('campaign-card__markdown');
+                    $reduceprice     = get_field('campaign-card__reduced-price');
+                    $card__text      = get_field('campaign-card__text');
+                    $card__period    = get_field('campaign-card__period');
             ?>
               <div class="campaign-section-cards__card">
                 <div class="campaign-card">
                   <div class="campaign-card__image">
                   <?php
                     if (!empty($card__image)) {
-                        echo wp_get_attachment_image($card__image, 'full'); // 画像を出力（サイズは 'full'）
+                        // ACFの画像フィールドは配列または画像IDを返す
+                        if (is_array($card__image)) {
+                            echo wp_get_attachment_image($card__image['ID'], 'full');
+                        } else {
+                            echo wp_get_attachment_image($card__image, 'full');
+                        }
                     }
                     ?>
                   </div>
@@ -160,7 +138,7 @@
                         <div class="campaign-card__visit">
                           <div class="campaign-card__period">
                             <span>
-                              <?php  echo esc_html($card__period)?>
+                              <?php echo esc_html($card__period)?>
                             </span>
                             <p>ご予約・お問い合わせはコチラ</p>
                           </div>
@@ -176,19 +154,21 @@
                   </div>
                 </div>
               </div>
-                 <?php
-                    endwhile;
-                    wp_reset_postdata(); // ループ後は必ずリセット
-                  endif;
-                  ?>
+            <?php
+                endwhile;
+            endif;
+            ?>
           </div>
         </div>
         <div class="campaign-section-card__pagination">
           <div class="pagination">
             <?php
               if (function_exists('wp_pagenavi')) {
-                wp_pagenavi(array(
-                  'query' => $query
+                wp_pagenavi();
+              } else {
+                the_posts_pagination(array(
+                  'prev_text' => '前へ',
+                  'next_text' => '次へ'
                 ));
               }
             ?>

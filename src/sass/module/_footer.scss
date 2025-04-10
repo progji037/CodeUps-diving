@@ -20,9 +20,8 @@
 
   @include mq('md') {
     display: flex;
-    // gap: rem(43);
-    gap: rem(40);     //2024/10/23 修正
-    // align-items: end;
+    gap: rem(40);
+    align-items: end;
 
   }
 }
@@ -50,24 +49,24 @@
   }
 }
 
-.footer__sns-icon img {
+.footer__sns-facebook,
+.footer__sns-instagram {
   width: rem(24);
+  display: inline-block;
 
   @include mq('md') {
     width: rem(32);
   }
 }
 
-.footer__sns-facebook {}
 
-.footer__sns-instagram {}
-
-.footer__menu{
+.footer__menu {
   margin-top: rem(16);
+
   // margin-top: rem(40);
   @include mq('md') {
     // margin-top: rem(29);
-    margin-top: rem(22);      //2024/10/23 修正
+    margin-top: rem(22); //2024/10/23 修正
 
 
   }

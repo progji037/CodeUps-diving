@@ -94,8 +94,14 @@ add_action( 'after_setup_theme', 'my_setup' );
 
 function change_posts_per_page($query) {
     if (is_admin() || ! $query->is_main_query()) return;
-    if ($query->is_archive(['works', 'recruit', 'campaign'])) {
-        $query->set('posts_per_page', '9');
+
+    if ($query->is_archive(['campaign'])) {
+        $query->set('posts_per_page', '10');
+    }
+
+    // ブログアーカイブページの表示件数を設定
+    if ($query->is_home()) {
+        $query->set('posts_per_page', '10'); // 元のカスタムクエリと同じ10件に設定
     }
 }
 add_action('pre_get_posts', 'change_posts_per_page');
@@ -108,9 +114,10 @@ function register_campaign_post_type() {
         'rewrite' => ['slug' => 'campaign'],
         'supports' => ['title', 'editor', 'thumbnail'],
         'show_in_rest' => true,
+        'menu_position' => 5,
+        'menu_icon' => 'dashicons-megaphone'
     ]);
 }
-add_action('init', 'register_campaign_post_type');
 
 function create_custom_post_type() {
     $labels = [
@@ -139,7 +146,9 @@ function create_custom_post_type() {
         'has_archive' => false,
         'hierarchical' => false,
         'menu_position' => null,
+        'menu_position' => 6,
         'supports' => ['title', 'editor','thumbnail'],
+        'menu_icon' => 'dashicons-images-alt2'
     ];
     register_post_type( 'mv_swiper', $args );
 }
@@ -209,14 +218,26 @@ function custom_campaign_tab_rewrite_rules() {
 }
 add_action('init', 'custom_campaign_tab_rewrite_rules');
 
-function custom_campaign_pagination_fix( $query ) {
-    if ( !is_admin() && $query->is_main_query() ) {
-        if ( $query->is_post_type_archive('campaign') ) {
-            $query->set('posts_per_page', 4);
+// キャンペーンアーカイブページのタブフィルタリング
+function campaign_tab_filtering($query) {
+    if (!is_admin() && $query->is_main_query() && $query->is_post_type_archive('campaign')) {
+        // デフォルトの表示件数を設定
+        $query->set('posts_per_page', 4);
+
+        // タブでのフィルタリング（'all' のときは絞らない）
+        if (isset($_GET['tab']) && $_GET['tab'] !== 'all') {
+            $current_tab = sanitize_text_field($_GET['tab']);
+            $query->set('tax_query', array(
+                array(
+                    'taxonomy' => 'campaign_tab',
+                    'field'    => 'slug',
+                    'terms'    => $current_tab,
+                )
+            ));
         }
     }
 }
-add_action('pre_get_posts', 'custom_campaign_pagination_fix');
+add_action('pre_get_posts', 'campaign_tab_filtering');
 
 // 共通ナビゲーション用リンク関数
 function get_campaign_url() { return esc_url( home_url( '/campaign/' ) ); }

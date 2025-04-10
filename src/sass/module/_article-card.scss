@@ -6,6 +6,13 @@
     gap: rem(24);
 }
 
+@media (any-hover: hover) {
+    .article-card:hover {
+        opacity: 0.8;
+    }
+}
+
+
 .article-card__item {
     display: flex;
     gap: rem(16);

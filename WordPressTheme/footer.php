@@ -54,8 +54,8 @@
         <h2 class="footer__logo">
           <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/CodeUps-sp.svg" alt="CodeUps" />
         </h2>
-        <!--   -->
-        <div class="footer__sns-facebook">
+        <div class="footer__sns-icon">
+          <div class="footer__sns-facebook">
             <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer">
                 <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/FacebookLogo-sp.png" alt="" />
             </a>
@@ -65,6 +65,7 @@
                 <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/InstagramLogo-sp.png" alt="" />
             </a>
           </div>
+        </div>
       </div>
       <nav class="footer__menu site-guide">
         <div class="site-guide__wrapper">

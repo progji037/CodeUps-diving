@@ -1789,7 +1789,9 @@ textarea.wpcf7-not-valid {
 	margin-top: 1rem;
 }
 
-.footer__sns-icon img {
+.footer__sns-facebook,
+.footer__sns-instagram {
+	display: inline-block;
 	width: 1.5rem;
 }
 
@@ -3081,6 +3083,14 @@ textarea.wpcf7-not-valid {
 	text-align: center;
 }
 
+@media (any-hover: hover) {
+
+.article-card:hover {
+	opacity: 0.8;
+}
+
+}
+
 @media screen and (min-width: 768px) {
 
 .u-desktop {
@@ -4066,6 +4076,7 @@ input[type=tel] {
 }
 
 .footer__headline {
+	align-items: end;
 	display: flex;
 	gap: 2.5rem;
 }
@@ -4078,7 +4089,8 @@ input[type=tel] {
 	margin-top: 2.375rem;
 }
 
-.footer__sns-icon img {
+.footer__sns-facebook,
+.footer__sns-instagram {
 	width: 2rem;
 }
 

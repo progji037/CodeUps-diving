@@ -43,9 +43,19 @@
 							<div class="blog-section__cards">
 									<div class="cards cards--blog">
 											<?php
-													// メインループを使用
-													if (have_posts()) :
-															while (have_posts()) : the_post();
+													// 現在のページ番号を取得
+													$paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
+													// 標準の投稿（Post）の記事を取得
+													$args = array(
+															'post_type'      => 'post', // 標準の投稿タイプ
+															'posts_per_page' => 10, // 表示する記事数
+															'post_status'    => 'publish', // 公開済みの投稿のみ
+															'paged'          => $paged // 現在のページ番号を指定
+													);
+													$blog_query = new WP_Query($args);
+
+													if ($blog_query->have_posts()) :
+															while ($blog_query->have_posts()) : $blog_query->the_post();
 											?>
 											<div class="cards__item">
 													<a class="card" href="<?php the_permalink(); ?>">
@@ -95,6 +105,7 @@
 											</div>
 											<?php
 														endwhile;
+														wp_reset_postdata();
 												else :
 														echo '<p>記事がありません。</p>';
 												endif;
@@ -106,7 +117,9 @@
 							<div class="pagination">
 								<?php
 								if (function_exists('wp_pagenavi')) {
-									wp_pagenavi(); // カスタムクエリを指定しない（メインクエリを使用）
+									wp_pagenavi(array(
+										'query' => $blog_query
+									));
 								}
 								?>
 							</div>
