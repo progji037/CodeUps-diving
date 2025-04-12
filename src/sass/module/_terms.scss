@@ -1,74 +1,87 @@
 @use "global" as *;
 
 .terms {
-    position: relative;
+	position: relative;
 
 }
 
 .terms::before {
-    content: "";
-    display: block;
-    width: rem(120);
-    height: rem(55);
-    position: absolute;
-    left: calc(50% - min(45.9%, 38.7em));
-    top: rem(-22);
-    background-image: url(../../../WordPressTheme/assets/images/common/_キンギョハナダイ-右向き-sp.webp);
-    background-size: cover;
-    z-index: -1;
+	content: "";
+	display: block;
+	width: rem(120);
+	height: rem(55);
+	position: absolute;
+	left: calc(50% - min(45.9%, 38.7em));
+	top: rem(-22);
+	background-image: url(../../../WordPressTheme/assets/images/common/_キンギョハナダイ-右向き-sp.webp);
+	background-size: cover;
+	z-index: -1;
 
-    @include mq('md') {
-        content: "";
-        display: block;
-        width: rem(301);
-        height: rem(138);
-        position: absolute;
-        top: rem(-72);
-        left: calc(50% - min(48%, 38.7em));
-        background-image: url(../../../WordPressTheme/assets/images/common/_キンギョハナダイ-右向き-pc.webp);
-        background-size: cover;
-    }
+	@include mq('md') {
+		content: "";
+		display: block;
+		width: rem(301);
+		height: rem(138);
+		position: absolute;
+		top: rem(-72);
+		left: calc(50% - min(48%, 38.7em));
+		background-image: url(../../../WordPressTheme/assets/images/common/_キンギョハナダイ-右向き-pc.webp);
+		background-size: cover;
+	}
 }
 
 .terms__inner {}
 
 .terms__content {
-    line-height: 2;
+	line-height: 2;
 
-    @include mq('md') {
-        max-width: rem(800);
-        width: 100%;
-        margin-right: auto;
-        margin-left: auto;
-    }
+	@include mq('md') {
+		max-width: rem(800);
+		width: 100%;
+		margin-right: auto;
+		margin-left: auto;
+	}
 
 }
 
 .terms__title {
-    font-size: rem(24);
+	font-size: rem(24);
 
-    @include mq('md') {
-        font-size: rem(32);
+	@include mq('md') {
+		font-size: rem(32);
 
-    }
+	}
 
 }
 
 .terms__text {
-    margin-top: rem(33);
-    // letter-spacing: 0.025em;
+	margin-top: rem(33);
 
-    @include mq('md') {
-        margin-top: rem(31);
-        // letter-spacing: 0.01em;
+	@include mq('md') {
+		margin-top: rem(31);
+	}
+}
 
-    }
+.terms__text p:nth-of-type(3) {
+	margin-top: rem(24);
+
+	@include mq('md') {
+		margin-top: rem(32);
+	}
+}
+
+.terms__text ol {
+	margin-top: rem(24);
+
+	@include mq('md') {
+		margin-top: rem(32);
+	}
 }
 
 .terms__text ol li {
-    list-style-type: decimal;
-    list-style-position: inside;
-    padding-left: 1.4em;
-    text-indent: -1em;
+	list-style-type: decimal;
+	list-style-position: inside;
+	padding-left: 1.4em;
+	text-indent: -1em;
 
 }

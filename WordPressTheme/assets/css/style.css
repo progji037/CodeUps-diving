@@ -2991,6 +2991,14 @@ textarea.wpcf7-not-valid {
 	margin-top: 2.0625rem;
 }
 
+.terms__text p:nth-of-type(3) {
+	margin-top: 1.5rem;
+}
+
+.terms__text ol {
+	margin-top: 1.5rem;
+}
+
 .terms__text ol li {
 	list-style-position: inside;
 	list-style-type: decimal;
@@ -4675,6 +4683,14 @@ input[type=tel] {
 
 .terms__text {
 	margin-top: 1.9375rem;
+}
+
+.terms__text p:nth-of-type(3) {
+	margin-top: 2rem;
+}
+
+.terms__text ol {
+	margin-top: 2rem;
 }
 
 .voice-cards {

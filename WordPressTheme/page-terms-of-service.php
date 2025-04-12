@@ -15,7 +15,7 @@
     </div>
     <div class="main-view__title ">
       <h1 class="main-view__main-title">
-      <?php the_field('mv_title'); ?>
+        <?php the_field('mv_title'); ?>
       </h1>
     </div>
   </div>
@@ -29,16 +29,7 @@
     <div class="terms__content">
       <h2 class="terms__title"><?php the_title();?></h2>
       <div class="terms__text">
-      <?php
-        if (have_posts()) :
-          while (have_posts()) : the_post();
-            if (empty(get_the_content())) {
-              echo '<!-- コンテンツが空です -->';
-            }
-            the_content();
-        endwhile;
-        endif;
-        ?>
+        <?php the_content(); ?>
       </div>
     </div>
   </div>
