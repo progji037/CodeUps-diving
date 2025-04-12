@@ -2629,6 +2629,10 @@ textarea.wpcf7-not-valid {
 	margin-top: 1rem;
 }
 
+.privacy-policy__text ol:not(:first-of-type) {
+	margin-top: 0;
+}
+
 .privacy-policy__text ol li {
 	list-style-position: inside;
 	list-style-type: decimal;
@@ -2642,11 +2646,11 @@ textarea.wpcf7-not-valid {
 	text-indent: 0;
 }
 
-.privacy-policy__text ul > li {
+.privacy-policy__text p:not(:first-child) {
 	margin-top: 1rem;
 }
 
-.privacy-policy__text > p + ol + p {
+.privacy-policy__text ul > li {
 	margin-top: 1rem;
 }
 
@@ -4536,7 +4540,15 @@ input[type=tel] {
 }
 
 .privacy-policy__text ol {
-	margin-top: 1.5rem;
+	margin-top: 2rem;
+}
+
+.privacy-policy__text p:not(:first-child) {
+	margin-top: 2rem;
+}
+
+.privacy-policy__text ul > li {
+	margin-top: 2rem;
 }
 
 .scroll-back {
