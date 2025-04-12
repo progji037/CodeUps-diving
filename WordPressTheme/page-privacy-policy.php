@@ -12,9 +12,9 @@
         <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/page-price-mv-sp.jpg" alt="" />
       </picture>
     </div>
-     <div class="main-view__title ">
+    <div class="main-view__title ">
       <h1 class="main-view__main-title">
-      <?php the_field('mv_title'); ?>
+        <?php the_field('mv_title'); ?>
       </h1>
     </div>
   </div>
@@ -28,12 +28,7 @@
     <div class="privacy-policy__content">
       <h2 class="privacy-policy__title"><?php the_title();?></h2>
       <div class="privacy-policy__text">
-        <?php
-        // ACFカスタムフィールドの内容を出力
-        if (function_exists('get_field')) {
-          echo get_field('contents_text');
-        }
-        ?>
+        <?php the_content(); ?>
       </div>
     </div>
   </div>

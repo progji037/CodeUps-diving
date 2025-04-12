@@ -61,11 +61,19 @@
 
 .privacy-policy__text {
     margin-top: rem(33);
-    // letter-spacing: 0.025em;
 
     @include mq('md') {
         margin-top: rem(31);
-        // letter-spacing: 0.01em;
+
+    }
+}
+
+
+.privacy-policy__text ol {
+    margin-top: rem(16);
+
+    @include mq('md') {
+        margin-top: rem(24);
 
     }
 }
@@ -75,5 +83,24 @@
     list-style-position: inside;
     padding-left: 1.4em;
     text-indent: -1em;
+    // margin-top: rem(16);
 
+    @include mq('md') {
+        // margin-top: rem(24);
+
+    }
+}
+
+.privacy-policy__text ol li p {
+    margin-top: rem(16);
+    text-indent: 0;
+    margin-left: -1.2em;
+}
+
+.privacy-policy__text ul>li {
+    margin-top: rem(16);
+}
+
+.privacy-policy__text>p+ol+p {
+    margin-top: rem(16);
 }

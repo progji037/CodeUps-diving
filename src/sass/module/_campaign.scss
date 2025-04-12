@@ -155,3 +155,10 @@
     // width: 100%;
   }
 }
+
+.campaign__card {
+  @include mq('md') {
+    margin-left: rem(5);
+
+  }
+}

@@ -74,12 +74,11 @@
               if ($campaign_query->have_posts()) :
                 while ($campaign_query->have_posts()) : $campaign_query->the_post();
 
-                  // カスタムフィールドの取得
-                  $card__image     = SCF::get('campaign-card__image');
-                  $card__tag       = SCF::get('campaign-card__tag');
-                  $card__head      = SCF::get('campaign-card__head');
-                  $markdown        = SCF::get('campaign-card__markdown');
-                  $reduceprice     = SCF::get('campaign-card__reduced-price');
+                  // ACFからカスタムフィールドの取得
+                  $card_tag = get_field('campaign-card__tag');
+                  $card_head = get_field('campaign-card__head');
+                  $markdown = get_field('campaign-card__markdown');
+                  $reduceprice = get_field('campaign-card__reduced-price');
               ?>
               <!-- 動的に生成されるスライド -->
               <div class="swiper-slide campaign__slide">
@@ -87,21 +86,32 @@
                   <div class="campaign-card">
                     <div class="campaign-card__image">
                       <?php
-                      if (!empty($card__image)) {
-                        echo wp_get_attachment_image($card__image, 'full');
+                      $post_id = get_the_ID();
+
+                      if (has_post_thumbnail($post_id)) {
+                        // 投稿IDを明示的に指定してアイキャッチ画像を取得
+                        echo get_the_post_thumbnail($post_id, 'full');
                       } else {
-                        // デフォルト画像
-                        echo '<img src="' . get_theme_file_uri() . '/assets/images/common/campaign1-sp.jpg" alt="" />';
+                        // ACFから画像フィールドを取得（投稿IDを明示的に指定）
+                        $image = get_field('campaign_image', $post_id);
+
+                        if ($image) {
+                          // ACFの画像フィールドから画像を表示
+                          echo '<img src="' . esc_url($image['url']) . '" alt="' . esc_attr($image['alt']) . '" />';
+                        } else {
+                          // デフォルト画像
+                          echo '<img src="' . get_theme_file_uri() . '/assets/images/common/noimage.png" alt="no image" />';
+                        }
                       }
                       ?>
                     </div>
                     <div class="campaign-card__textbox">
                       <div class="campaign-card__header">
                         <div class="campaign-card__tag">
-                          <?php echo !empty($card__tag) ? esc_html($card__tag) : 'キャンペーン'; ?>
+                          <?php echo !empty($card_tag) ? esc_html($card_tag) : 'キャンペーン'; ?>
                         </div>
                         <div class="campaign-card__head">
-                          <?php echo !empty($card__head) ? esc_html($card__head) : get_the_title(); ?>
+                          <?php echo !empty($card_head) ? esc_html($card_head) : get_the_title(); ?>
                         </div>
                       </div>
                       <div class="campaign-card__body">
@@ -442,6 +452,57 @@
         <h2 class="section-title__sub">お客様の声</h2>
       </div>
       <div class="voice__cards voice-cards">
+        <?php
+        // お客様の声を取得するクエリ
+        $args = array(
+          'post_type'      => 'voice',  // voiceカスタム投稿タイプ
+          'posts_per_page' => 2,        // 表示する投稿数（2つのカードを表示）
+          'post_status'    => 'publish',
+          'orderby'        => 'date',
+          'order'          => 'DESC'    // 最新の投稿から表示
+        );
+
+        $voice_query = new WP_Query($args);
+
+        // 投稿がある場合
+        if ($voice_query->have_posts()) :
+          while ($voice_query->have_posts()) : $voice_query->the_post();
+
+            // カスタムフィールドから情報を取得
+            $age_gender = get_field('voice_age_gender');
+            $tag = get_field('voice_tag');
+            $title = get_field('voice_title') ? get_field('voice_title') : get_the_title();
+            $content = get_field('voice_content') ? get_field('voice_content') : get_the_content();
+        ?>
+        <div class="voice-cards__item voice-card">
+          <div class="voice-card__header">
+            <div class="voice-card__body">
+              <div class="voice-card__meta">
+                <div class="voice-card__meta-age"><?php echo esc_html($age_gender); ?></div>
+                <div class="voice-card__meta-tag"><?php echo esc_html($tag); ?></div>
+              </div>
+              <div class="voice-card__title">
+                <?php echo esc_html($title); ?>
+              </div>
+            </div>
+            <div class="voice-card__image mask-slide">
+              <?php if (has_post_thumbnail()) : ?>
+                <?php the_post_thumbnail('full'); ?>
+              <?php else : ?>
+                <img src="<?php echo get_theme_file_uri(); ?>/assets/images/voice-card/voice1.jpg" alt="" />
+              <?php endif; ?>
+            </div>
+          </div>
+          <div class="voice-card__text">
+            <?php the_content(); ?>
+          </div>
+        </div>
+        <?php
+          endwhile;
+          wp_reset_postdata(); // クエリのリセット
+        else :
+          // 投稿がない場合、デフォルトのカードを表示（既存のコードをそのまま使用）
+        ?>
         <!-- 1 -->
         <div class="voice-cards__item voice-card">
           <div class="voice-card__header">
@@ -490,6 +551,7 @@
             </p>
           </div>
         </div>
+        <?php endif; ?>
       </div>
       <div class="voice__link">
         <a class="button" href="<?php echo get_voice_url(); ?>">

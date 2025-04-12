@@ -10,7 +10,7 @@
       <h2 class="error__title">404</h2>
       <div class="error__text">申し訳ありません。<br />お探しのページが見つかりません。</div>
       <div class="error__link">
-        <a class="button button--white" href="index.html">
+        <a class="button button--white" href="<?php echo esc_url(home_url('/')); ?>">
           Page TOP
           <span class="arrow arrow--white"></span>
         </a>
