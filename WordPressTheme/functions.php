@@ -239,6 +239,27 @@ function campaign_tab_filtering($query) {
 }
 add_action('pre_get_posts', 'campaign_tab_filtering');
 
+// Voiceアーカイブページのタブフィルタリング
+function voice_tab_filtering($query) {
+    if (!is_admin() && $query->is_main_query() && $query->is_post_type_archive('voice')) {
+        // デフォルトの表示件数を設定
+        $query->set('posts_per_page', 6); // archive-voice.phpと同じ表示件数に設定
+
+        // タブでのフィルタリング
+        if (isset($_GET['tab']) && !empty($_GET['tab'])) {
+            $current_tab = sanitize_text_field($_GET['tab']);
+            $query->set('tax_query', array(
+                array(
+									'taxonomy' => 'voice_tab',
+									'field'    => 'slug',
+									'terms'    => $current_tab,
+                )
+            ));
+        }
+    }
+}
+add_action('pre_get_posts', 'voice_tab_filtering');
+
 // 共通ナビゲーション用リンク関数
 function get_campaign_url() { return esc_url( home_url( '/campaign/' ) ); }
 function get_about_url() { return esc_url( home_url( '/about/' ) ); }

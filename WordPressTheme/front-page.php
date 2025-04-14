@@ -38,9 +38,6 @@
   </section>
   <!-- fv -->
 
-
-  <!-- fv -->
-
   <section class="campaign top-campaign">
     <div class="campaign__inner inner">
       <div class="campaign__title section-title">
@@ -329,9 +326,9 @@
           <a class="card" href="<?php the_permalink(); ?>">
             <div class="card__figure">
               <?php if (has_post_thumbnail()) : ?>
-                <?php the_post_thumbnail('full'); ?>
+              <?php the_post_thumbnail('full'); ?>
               <?php else: ?>
-                <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/noimage.png" alt="no image" />
+              <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/noimage.png" alt="no image" />
               <?php endif; ?>
             </div>
             <div class="card__header">
@@ -368,7 +365,7 @@
         ?>
         <!-- デフォルトカード1 -->
         <div class="cards__item">
-          <a class="card" href="">
+          <a class="card" href="<?php the_permalink(); ?>">
             <div class="card__figure">
               <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/blog-ocean4-sp.jpg" alt="" />
             </div>
@@ -390,7 +387,7 @@
         </div>
         <!-- デフォルトカード2 -->
         <div class="cards__item">
-          <a class="card" href="">
+          <a class="card" href="<?php the_permalink(); ?>">
             <div class="card__figure">
               <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/blog-ocean5-sp.jpg" alt="" />
             </div>
@@ -412,7 +409,7 @@
         </div>
         <!-- デフォルトカード3 -->
         <div class="cards__item">
-          <a class="card" href="">
+          <a class="card" href="<?php the_permalink(); ?>">
             <div class="card__figure">
               <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/blog-ocean6-sp.jpg" alt="" />
             </div>
@@ -487,14 +484,23 @@
             </div>
             <div class="voice-card__image mask-slide">
               <?php if (has_post_thumbnail()) : ?>
-                <?php the_post_thumbnail('full'); ?>
+              <?php the_post_thumbnail('full'); ?>
               <?php else : ?>
-                <img src="<?php echo get_theme_file_uri(); ?>/assets/images/voice-card/voice1.jpg" alt="" />
+              <img src="<?php echo get_theme_file_uri(); ?>/assets/images/voice-card/voice1.jpg" alt="" />
               <?php endif; ?>
             </div>
           </div>
           <div class="voice-card__text">
-            <?php the_content(); ?>
+            <?php
+              // 投稿の本文を取得して文字数制限
+              $content = get_the_content();
+              $max_length = 170; // 文字数制限を170字に設定
+              // 文字数が制限を超えていたら、制限内の部分だけ表示
+              if (mb_strlen(strip_tags($content), 'UTF-8') > $max_length) {
+              $content = mb_substr(strip_tags($content), 0, $max_length, 'UTF-8') . '...';
+              }
+              echo wpautop($content); // 改行を反映して表示
+              ?>
           </div>
         </div>
         <?php
@@ -570,13 +576,13 @@
         <h2 class="section-title__sub">料金一覧</h2>
       </div>
       <div class="price__content">
-      <div class="price__image">
-        <picture class="mask-slide">
-          <source srcset="<?php echo get_theme_file_uri(); ?>/assets/images/common/price-pc.jpg" media="(min-width: 768px)" />
-          <source srcset="<?php echo get_theme_file_uri(); ?>/assets/images/common/price-ocean3-sp.jpg" media="(max-width: 767px)" />
-          <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/price-ocean3-sp.jpg" alt="" />
-        </picture>
-      </div>
+        <div class="price__image">
+          <picture class="mask-slide">
+            <source srcset="<?php echo get_theme_file_uri(); ?>/assets/images/common/price-pc.jpg" media="(min-width: 768px)" />
+            <source srcset="<?php echo get_theme_file_uri(); ?>/assets/images/common/price-ocean3-sp.jpg" media="(max-width: 767px)" />
+            <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/price-ocean3-sp.jpg" alt="" />
+          </picture>
+        </div>
 
         <div class="price__lists">
           <?php
@@ -617,12 +623,10 @@
                   if (!empty($menu) && !empty($cost)) {
                     // front-page専用の処理を使用（常に改行なし）
                     $menu = convert_br_for_frontpage($menu);
-
                     echo '<dt>' . $menu . '</dt>';
                     echo '<dd>¥' . number_format($cost) . '</dd>';
                   }
                 }
-
                 echo '</dl>';
                 echo '</div>';
               }
