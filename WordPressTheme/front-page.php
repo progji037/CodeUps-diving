@@ -97,7 +97,7 @@
                           echo '<img src="' . esc_url($image['url']) . '" alt="' . esc_attr($image['alt']) . '" />';
                         } else {
                           // デフォルト画像
-                          echo '<img src="' . get_theme_file_uri() . '/assets/images/common/noimage.png" alt="no image" />';
+                          echo '<img src="' . get_theme_file_uri() . '/assets/images/common/noimage__comp.png" alt="no image" />';
                         }
                       }
                       ?>
@@ -328,7 +328,7 @@
               <?php if (has_post_thumbnail()) : ?>
               <?php the_post_thumbnail('full'); ?>
               <?php else: ?>
-              <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/noimage.png" alt="no image" />
+              <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/noimage__comp.png" alt="no image" />
               <?php endif; ?>
             </div>
             <div class="card__header">

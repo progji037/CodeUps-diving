@@ -102,7 +102,7 @@
                       the_post_thumbnail('full');
                     } else {
                       // アイキャッチ画像がない場合はデフォルト画像を表示
-                      echo '<img src="' . get_theme_file_uri() . '/assets/images/common/noimage.png" alt="no image" />';
+                      echo '<img src="' . get_theme_file_uri() . '/assets/images/common/noimage__comp.png" alt="no image" />';
                     }
                     ?>
               </div>

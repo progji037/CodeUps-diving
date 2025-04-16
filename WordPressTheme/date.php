@@ -41,7 +41,7 @@
                     <?php if (has_post_thumbnail()) : ?>
                     <?php the_post_thumbnail('full'); ?>
                     <?php else: ?>
-                    <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/noimage.png" alt="no image" />
+                    <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/noimage__comp.png" alt="no image" />
                     <?php endif; ?>
                   </div>
                   <div class="card__header card__header--low">

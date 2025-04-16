@@ -34,7 +34,7 @@
                       <?php if (has_post_thumbnail()) : ?>
                       <?php the_post_thumbnail(array(121, 90)); ?>
                       <?php else: ?>
-                      <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/noimage.png" alt="no image" />
+                      <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/noimage__comp.png" alt="no image" />
                       <?php endif; ?>
                     </div>
                     <div class="article-card__meta">
@@ -100,7 +100,7 @@
             <?php if (has_post_thumbnail()) {
 								the_post_thumbnail(array(294, 218));
 							} else { // 「アイキャッチ画像があれば」以外なら
-								echo '<img src="' . get_template_directory_uri() . '/images/common/noimage.png" alt="no image" />">';
+								echo '<img src="' . get_template_directory_uri() . '/images/common/noimage__comp.png" alt="no image" />">';
 						} ?>
             <p>
               <?php the_field('voice_age'); ?>
@@ -159,7 +159,7 @@
 										if (has_post_thumbnail()) {
 											the_post_thumbnail('full');
 										} else {
-											echo '<img src="' . get_theme_file_uri() . '/assets/images/common/noimage.png" alt="no image" />';
+											echo '<img src="' . get_theme_file_uri() . '/assets/images/common/noimage__comp.png" alt="no image" />';
 										}
 									?>
                 </div>
