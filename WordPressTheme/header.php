@@ -5,12 +5,21 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
   <meta name="format-detection" content="telephone=no" />
-  <meta name="robots" content="noindex" />
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-VFHY9VKWNW"></script>
+  <!-- <meta name="robots" content="noindex" /> -->
   <?php wp_head(); ?>
-</head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-4TJHF50E4V"></script>
+  <script>
+  window.dataLayer = window.dataLayer || [];
 
+  function gtag() {
+    dataLayer.push(arguments);
+  }
+  gtag('js', new Date());
+
+  gtag('config', 'G-4TJHF50E4V');
+  </script>
+</head>
 
 <body>
   <header class="header header--top">
