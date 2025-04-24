@@ -163,119 +163,119 @@ jQuery(function ($) {
       setTimeout(runAnimation, 1000);
     }
   });
-    /* トップページローディングアニメーション制御
-    -------------------------------------------------------------*/
-    $(document).ready(function() {
-      // トップページかどうかを確認する関数
-      function isTopPage() {
-        return $('body').hasClass('home') ||
-               window.location.pathname === '/' ||
-               window.location.pathname === '/index.html' ||
-               window.location.pathname.endsWith('index.php');
+  /* トップページローディングアニメーション制御
+  -------------------------------------------------------------*/
+  $(document).ready(function () {
+    // トップページかどうかを確認する関数
+    function isTopPage() {
+      return $('body').hasClass('home') ||
+        window.location.pathname === '/' ||
+        window.location.pathname === '/index.html' ||
+        window.location.pathname.endsWith('index.php');
+    }
+
+    // トップページでない場合は即座にローディング要素を非表示にする
+    if (!isTopPage()) {
+      $(".fv-loading").css({
+        'display': 'none',
+        'visibility': 'hidden',
+        'opacity': '0',
+        'animation': 'none'
+      });
+      return;
+    }
+
+    // トップページの場合、ローカルストレージをチェック
+    const hasVisited = localStorage.getItem('hasVisitedBefore');
+
+    if (!hasVisited) {
+      // 初回訪問の場合、ローディングアニメーションを表示
+      $("html, body").css({ height: "100%", overflow: "hidden" });
+
+      // ローディング要素を表示（CSSアニメーションが適用される）
+      $(".fv-loading").css({
+        'display': 'block',
+        'visibility': 'visible',
+        'opacity': '1',
+        'animation': 'out 3s forwards'
+      });
+
+      // FVテキストにアニメーションクラスを追加
+      $(".fv__title").css({
+        'animation': 'fadeInOut 3s forwards'
+      });
+
+      // ヘッダーにアニメーションクラスを追加（トップページ用）
+      $('header').addClass('header--top');
+
+      // ローディングアニメーションの初期化
+      var leftSlides = $(".fv-loading__split-left .slide");
+      var rightSlides = $(".fv-loading__split-right .slide");
+
+      if (leftSlides.length && rightSlides.length) {
+        $(leftSlides[0]).addClass("active");
+        $(rightSlides[0]).addClass("active");
       }
 
-      // トップページでない場合は即座にローディング要素を非表示にする
-      if (!isTopPage()) {
-        $(".fv-loading").css({
-          'display': 'none',
-          'visibility': 'hidden',
-          'opacity': '0',
-          'animation': 'none'
-        });
-        return;
-      }
+      // CSSアニメーションの完了後にスクロール解除（3秒後）
+      setTimeout(function () {
+        $("html, body").css({ height: "", overflow: "" });
 
-      // トップページの場合、ローカルストレージをチェック
+        // 訪問履歴をローカルストレージに保存
+        localStorage.setItem('hasVisitedBefore', 'true');
+      }, 3000);
+    } else {
+      // 2回目以降の訪問ではローディング要素を非表示
+      $(".fv-loading").css({
+        'display': 'none',
+        'visibility': 'hidden',
+        'opacity': '0',
+        'animation': 'none'
+      });
+
+      // FVテキストのアニメーションを無効化し、最終状態を適用
+      $(".fv__title").css({
+        'animation': 'none',
+        'opacity': '1',
+        'color': '#ffffff'
+      });
+
+      // ヘッダーのアニメーションも無効化（必要に応じて）
+      $('header').removeClass('header--top');
+      $('header').css({
+        'opacity': '1',
+        'animation': 'none'
+      });
+    }
+  });
+
+  /* ヘッダーアニメーション制御
+  -------------------------------------------------------------*/
+  $(document).ready(function () {
+    // トップページかどうかを確認する関数
+    function isTopPage() {
+      return $('body').hasClass('home') ||
+        window.location.pathname === '/' ||
+        window.location.pathname === '/index.html' ||
+        window.location.pathname.endsWith('index.php');
+    }
+
+    // 下層ページの場合はヘッダーからアニメーションクラスを削除
+    if (!isTopPage()) {
+      $('header').removeClass('header--top');
+    }
+    // トップページの場合は、ローカルストレージをチェックして2回目以降の訪問ではアニメーションを無効化
+    else {
       const hasVisited = localStorage.getItem('hasVisitedBefore');
-
-      if (!hasVisited) {
-        // 初回訪問の場合、ローディングアニメーションを表示
-        $("html, body").css({ height: "100%", overflow: "hidden" });
-
-        // ローディング要素を表示（CSSアニメーションが適用される）
-        $(".fv-loading").css({
-          'display': 'block',
-          'visibility': 'visible',
-          'opacity': '1',
-          'animation': 'out 3s forwards'
-        });
-
-        // FVテキストにアニメーションクラスを追加
-        $(".fv__title").css({
-          'animation': 'fadeInOut 3s forwards'
-        });
-
-        // ヘッダーにアニメーションクラスを追加（トップページ用）
-        $('header').addClass('header--top');
-
-        // ローディングアニメーションの初期化
-        var leftSlides = $(".fv-loading__split-left .slide");
-        var rightSlides = $(".fv-loading__split-right .slide");
-
-        if (leftSlides.length && rightSlides.length) {
-          $(leftSlides[0]).addClass("active");
-          $(rightSlides[0]).addClass("active");
-        }
-
-        // CSSアニメーションの完了後にスクロール解除（3秒後）
-        setTimeout(function () {
-          $("html, body").css({ height: "", overflow: "" });
-
-          // 訪問履歴をローカルストレージに保存
-          localStorage.setItem('hasVisitedBefore', 'true');
-        }, 3000);
-      } else {
-        // 2回目以降の訪問ではローディング要素を非表示
-        $(".fv-loading").css({
-          'display': 'none',
-          'visibility': 'hidden',
-          'opacity': '0',
-          'animation': 'none'
-        });
-
-        // FVテキストのアニメーションを無効化し、最終状態を適用
-        $(".fv__title").css({
-          'animation': 'none',
-          'opacity': '1',
-          'color': '#ffffff'
-        });
-
-        // ヘッダーのアニメーションも無効化（必要に応じて）
+      if (hasVisited) {
         $('header').removeClass('header--top');
         $('header').css({
           'opacity': '1',
           'animation': 'none'
         });
       }
-    });
-
-    /* ヘッダーアニメーション制御
-    -------------------------------------------------------------*/
-    $(document).ready(function () {
-      // トップページかどうかを確認する関数
-      function isTopPage() {
-        return $('body').hasClass('home') ||
-          window.location.pathname === '/' ||
-          window.location.pathname === '/index.html' ||
-          window.location.pathname.endsWith('index.php');
-      }
-
-      // 下層ページの場合はヘッダーからアニメーションクラスを削除
-      if (!isTopPage()) {
-        $('header').removeClass('header--top');
-      }
-      // トップページの場合は、ローカルストレージをチェックして2回目以降の訪問ではアニメーションを無効化
-      else {
-        const hasVisited = localStorage.getItem('hasVisitedBefore');
-        if (hasVisited) {
-          $('header').removeClass('header--top');
-          $('header').css({
-            'opacity': '1',
-            'animation': 'none'
-          });
-        }
-      }
-    });  /* .archive-pulldown  -------------------------------------------------------------*/
+    }
+  });  /* .archive-pulldown  -------------------------------------------------------------*/
 
   $(document).ready(function () {
     $(".js-date-lists__months").hide();
