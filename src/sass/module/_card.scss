@@ -19,16 +19,9 @@
 }
 
 .card__figure{
-}
-
-.card__figure--hover{
   overflow: hidden;
-
 }
 
-.card__figure--hover:hover img{
-  transform: scale(1.1);/* 拡大 */
-}
 
 .card__header {
   margin-top: rem(24);

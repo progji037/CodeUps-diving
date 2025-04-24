@@ -1013,12 +1013,8 @@ a {
 	width: 100%;
 }
 
-.card__figure--hover {
+.card__figure {
 	overflow: hidden;
-}
-
-.card__figure--hover:hover img {
-	transform: scale(1.1); /* 拡大 */
 }
 
 .card__header {
@@ -1064,10 +1060,6 @@ a {
 .card__text {
 	font-weight: 500;
 	margin-top: 1rem;
-}
-
-.cards__item a:hover {
-	opacity: 0.8;
 }
 
 .cards__item--low a:hover {
@@ -3126,8 +3118,16 @@ textarea.wpcf7-not-valid {
 	opacity: 0.8;
 }
 
-.article-card__item img:hover {
-	transform: scale(1.05);
+.article-card__item:hover img {
+	transform: scale(1.1);
+}
+
+.cards__item a:hover {
+	opacity: 0.8;
+}
+
+.cards__item:hover img {
+	transform: scale(1.1);
 }
 
 }

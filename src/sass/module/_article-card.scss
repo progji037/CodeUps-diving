@@ -11,8 +11,8 @@
         opacity: 0.8;
     }
 
-    .article-card__item img:hover {
-        transform: scale(1.05);
+    .article-card__item:hover img {
+        transform: scale(1.1);
     }
 }
 
