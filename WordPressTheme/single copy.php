@@ -30,17 +30,62 @@
           <div class="blog-detail">
             <div class="blog-detail__head">
               <div class="blog-detail__head-date">
-                <?php echo get_the_date('Y.m.d'); ?>
+                <?php the_field('blog_date'); ?>
               </div>
               <h1 class="blog-detail__head-title"><?php the_title(); ?></h1>
             </div>
             <div class="blog-detail__image">
-              <?php if (has_post_thumbnail()) : ?>
               <img src="<?php the_post_thumbnail_url('full'); ?>" alt="<?php the_title(); ?>のアイキャッチ画像">
-              <?php endif; ?>
             </div>
             <div class="blog-detail__contents">
-              <?php the_content(); ?>
+              <p>
+                <?php the_content(); ?>
+              </p>
+              <?php if( get_field('blog_image2') ): ?>
+              <img src="<?php the_field('blog_image2'); ?>" />
+              <?php endif; ?>
+              <p>
+                <?php
+                      $text2 = get_field('blog_text2');
+                      if( $text2 ):
+                          echo nl2br($text2);
+                      endif;
+                    ?>
+              </p>
+              <ul>
+                <li>
+                  <?php
+                        $list1 = get_field('blog_list-title1');
+                        if( $list1 ):
+                            echo nl2br($list1);
+                        endif;
+                      ?>
+                </li>
+                <li>
+                  <?php
+                        $list2 = get_field('blog_list-title2');
+                        if( $list2 ):
+                            echo nl2br($list2);
+                        endif;
+                      ?>
+                </li>
+                <li>
+                  <?php
+                        $list3 = get_field('blog_list-title3');
+                        if( $list3 ):
+                            echo nl2br($list3);
+                        endif;
+                      ?>
+                </li>
+              </ul>
+              <p>
+                <?php
+                      $text3 = get_field('blog_text3');
+                      if( $text3 ):
+                          echo nl2br($text3);
+                      endif;
+                    ?>
+              </p>
             </div>
           </div>
 
