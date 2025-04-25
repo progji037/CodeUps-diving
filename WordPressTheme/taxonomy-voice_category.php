@@ -34,9 +34,8 @@
       <div class="tab-links">
         <ul class="tab-links__lists">
           <!-- ALL タブ（アーカイブページへのリンク） -->
-          <!-- ALL タブ（アーカイブページへのリンク） -->
           <li class="tab-links__list">
-            <a href="<?php echo get_post_type_archive_link('voice'); ?>" class="tab-link <?php echo is_post_type_archive('voice') ? 'active' : ''; ?>">
+            <a href="<?php echo get_post_type_archive_link('voice'); ?>" class="tab-link">
               ALL
             </a>
           </li>
@@ -49,14 +48,20 @@
               'hide_empty' => true,
           ));
 
+          // 現在表示中のタームを取得
+          $current_term = get_queried_object();
+
           foreach ($terms as $term):
+              // 現在のタームと一致する場合はactiveクラスを追加
+              $active_class = ($current_term->term_id == $term->term_id) ? 'active' : '';
           ?>
           <li class="tab-links__list">
-            <a href="<?php echo get_term_link($term, 'voice_category'); ?>" class="tab-link">
+            <a href="<?php echo get_term_link($term); ?>" class="tab-link <?php echo esc_attr($active_class); ?>">
               <?php echo esc_html($term->name); ?>
             </a>
           </li>
           <?php endforeach; ?>
+
         </ul>
       </div>
     </div>

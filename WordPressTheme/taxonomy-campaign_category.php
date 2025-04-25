@@ -7,20 +7,12 @@
       <div class="main-view__image">
         <picture>
           <source srcset="<?php echo get_theme_file_uri(); ?>/assets/images/common/campaign-mv-pc.jpg" media="(min-width: 768px)" />
-          <!-- 幅768px以上なら表示 -->
           <source srcset="<?php echo get_theme_file_uri(); ?>/assets/images/common/campaign-mv-sp.jpg" media="(max-width: 767px)" />
-          <!-- 幅767px以下なら表示 -->
           <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/campaign-mv-sp.jpg" alt="" />
         </picture>
       </div>
       <div class="main-view__title">
-        <?php
-            $post_type = get_post_type(); // 現在の投稿タイプを取得
-            $post_type_obj = get_post_type_object($post_type);
-            ?>
-        <h1 class="main-view__main-title">
-          <?php echo esc_html($post_type_obj->label);?>
-        </h1>
+        <h1 class="main-view__main-title">Campaign</h1>
       </div>
     </div>
   </section>
@@ -35,29 +27,35 @@
       <div class="campaign-section__tab">
         <div class="tab-links">
           <ul class="tab-links__lists">
-            <!-- ALL タブ（すべて表示用） -->
+            <!-- ALL タブ（キャンペーンアーカイブページへのリンク） -->
             <li class="tab-links__list">
-              <a href="<?php echo get_post_type_archive_link('campaign'); ?>" class="tab-link <?php echo is_post_type_archive('campaign') ? 'active' : ''; ?>">
+              <a href="<?php echo get_post_type_archive_link('campaign'); ?>" class="tab-link">
                 ALL
               </a>
             </li>
 
-            <?php
-                $terms = get_terms(array(
-                    'taxonomy'   => 'campaign_category',
-                    'hide_empty' => true,
-                ));
 
-                foreach ($terms as $term):
-                // タクソノミーページへの直接リンクを生成
-                $term_link = get_term_link($term);
+            <?php
+            // タクソノミー「campaign_category」の一覧を取得
+            $terms = get_terms(array(
+                'taxonomy'   => 'campaign_category',
+                'hide_empty' => true,
+            ));
+
+           // 現在表示中のタームを取得
+            $current_term = get_queried_object();
+
+            foreach ($terms as $term):
+                // 現在のタームと一致する場合はactiveクラスを追加
+                $active_class = ($current_term->term_id == $term->term_id) ? 'active' : '';
             ?>
             <li class="tab-links__list">
-              <a href="<?php echo esc_url($term_link); ?>" class="tab-link">
+              <a href="<?php echo get_term_link($term); ?>" class="tab-link <?php echo esc_attr($active_class); ?>">
                 <?php echo esc_html($term->name); ?>
               </a>
             </li>
             <?php endforeach; ?>
+
           </ul>
         </div>
       </div>
@@ -66,29 +64,27 @@
       <div class="campaign-section__content">
         <div class="campaign-section-cards">
           <?php
-            if (have_posts()) :
-                while (have_posts()) : the_post();
-
-                    // ACFを使用してカスタムフィールドの取得
-                    $card__image     = get_field('campaign-card__image');
-                    $card__tag       = get_field('campaign-card__tag');
-                    $markdown        = get_field('campaign-card__markdown');
-                    $reduceprice     = get_field('campaign-card__reduced-price');
-                    $card__text      = get_field('campaign-card__text');
-                    $card__period    = get_field('campaign-card__period');
-            ?>
+          if (have_posts()) :
+              while (have_posts()) : the_post();
+                  // ACFを使用してカスタムフィールドの取得
+                  $card__tag       = get_field('campaign-card__tag');
+                  $markdown        = get_field('campaign-card__markdown');
+                  $reduceprice     = get_field('campaign-card__reduced-price');
+                  $card__text      = get_field('campaign-card__text');
+                  $card__period    = get_field('campaign-card__period');
+          ?>
           <div class="campaign-section-cards__card">
             <div class="campaign-card">
               <div class="campaign-card__image">
                 <?php
-                    if (has_post_thumbnail()) {
-                      // アイキャッチ画像を表示
-                      the_post_thumbnail('full');
-                    } else {
-                      // アイキャッチ画像がない場合はデフォルト画像を表示
-                      echo '<img src="' . get_theme_file_uri() . '/assets/images/common/noimage__comp.png" alt="no image" />';
-                    }
-                    ?>
+                if (has_post_thumbnail()) {
+                  // アイキャッチ画像を表示
+                  the_post_thumbnail('full');
+                } else {
+                  // アイキャッチ画像がない場合はデフォルト画像を表示
+                  echo '<img src="' . get_theme_file_uri() . '/assets/images/common/noimage__comp.png" alt="no image" />';
+                }
+                ?>
               </div>
               <div class="campaign-card__textbox">
                 <div class="campaign-card__header">
@@ -137,27 +133,27 @@
             </div>
           </div>
           <?php
-                endwhile;
-            else:
-            ?>
-          <p>キャンペーンはありません。</p>
+              endwhile;
+          else:
+          ?>
+          <p>該当するキャンペーンはありません。</p>
           <?php
-            endif;
-            ?>
+          endif;
+          ?>
         </div>
       </div>
       <div class="campaign-section-card__pagination">
         <div class="pagination">
           <?php
-              if (function_exists('wp_pagenavi')) {
-                wp_pagenavi();
-              } else {
-                the_posts_pagination(array(
-                  'prev_text' => '前へ',
-                  'next_text' => '次へ'
-                ));
-              }
-            ?>
+          if (function_exists('wp_pagenavi')) {
+            wp_pagenavi();
+          } else {
+            the_posts_pagination(array(
+              'prev_text' => '前へ',
+              'next_text' => '次へ'
+            ));
+          }
+          ?>
         </div>
       </div>
     </div>

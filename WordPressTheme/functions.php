@@ -95,13 +95,24 @@ add_action( 'after_setup_theme', 'my_setup' );
 function change_posts_per_page($query) {
     if (is_admin() || ! $query->is_main_query()) return;
 
-    if ($query->is_archive(['campaign'])) {
-        $query->set('posts_per_page', '10');
+   // キャンペーンアーカイブページの表示件数を設定
+    if ($query->is_post_type_archive('campaign')) {
+        $query->set('posts_per_page', 4);
+    }
+
+		  // キャンペーンカテゴリーのタクソノミーページの表示件数も同じに設定
+    if ($query->is_tax('campaign_category')) {
+        $query->set('posts_per_page', 4);
+    }
+
+    // ボイスアーカイブページの表示件数を設定
+    if ($query->is_post_type_archive('voice')) {
+        $query->set('posts_per_page', 6);
     }
 
     // ブログアーカイブページの表示件数を設定
     if ($query->is_home()) {
-        $query->set('posts_per_page', '10'); // 元のカスタムクエリと同じ10件に設定
+        $query->set('posts_per_page', 10);
     }
 }
 add_action('pre_get_posts', 'change_posts_per_page');
@@ -119,44 +130,6 @@ function register_campaign_post_type() {
     ]);
 }
 
-function create_custom_post_type() {
-    $labels = [
-        'name' => __( 'swiper' ),
-        'singular_name' => __( 'swipe' ),
-        'add_new' => __( '新しいスライドを追加' ),
-        'add_new_item' => __( '新しいスライドを追加' ),
-        'edit_item' => __( 'スライドを編集' ),
-        'new_item' => __( '新しいスライド' ),
-        'view_item' => __( 'スライドを見る' ),
-        'search_items' => __( 'スライドを検索' ),
-        'not_found' => __( 'スライドが見つかりません' ),
-        'not_found_in_trash' => __( 'ゴミ箱にスライドがありません' ),
-        'menu_name' => __( 'swiper' ),
-    ];
-    $args = [
-        'labels' => $labels,
-        'description' => 'Description of Custom Post Type',
-        'public' => true,
-        'publicly_queryable' => true,
-        'show_ui' => true,
-        'show_in_menu' => true,
-        'query_var' => true,
-        'rewrite' => ['slug' => 'mv_swiper'],
-        'capability_type' => 'post',
-        'has_archive' => false,
-        'hierarchical' => false,
-        'menu_position' => null,
-        'menu_position' => 6,
-        'supports' => ['title', 'editor','thumbnail'],
-        'menu_icon' => 'dashicons-images-alt2'
-    ];
-    register_post_type( 'mv_swiper', $args );
-}
-add_action( 'init', 'create_custom_post_type' );
-
-add_action('after_setup_theme', function() {
-    load_theme_textdomain('smart-custom-fields', get_template_directory() . '/languages');
-});
 
 function Change_menulabel() {
     global $menu, $submenu;
@@ -213,31 +186,7 @@ function custom_campaign_rewrite_rules() {
 }
 add_action('init', 'custom_campaign_rewrite_rules');
 
-function custom_campaign_tab_rewrite_rules() {
-    add_rewrite_rule('campaign/tab/([^/]+)/page/([0-9]+)/?$', 'index.php?post_type=campaign&campaign_tab=$matches[1]&paged=$matches[2]', 'top');
-}
-add_action('init', 'custom_campaign_tab_rewrite_rules');
 
-// キャンペーンアーカイブページのタブフィルタリング
-function campaign_tab_filtering($query) {
-    if (!is_admin() && $query->is_main_query() && $query->is_post_type_archive('campaign')) {
-        // デフォルトの表示件数を設定
-        $query->set('posts_per_page', 4);
-
-        // タブでのフィルタリング（'all' のときは絞らない）
-        if (isset($_GET['tab']) && $_GET['tab'] !== 'all') {
-            $current_tab = sanitize_text_field($_GET['tab']);
-            $query->set('tax_query', array(
-                array(
-                    'taxonomy' => 'campaign_tab',
-                    'field'    => 'slug',
-                    'terms'    => $current_tab,
-                )
-            ));
-        }
-    }
-}
-add_action('pre_get_posts', 'campaign_tab_filtering');
 
 // Voiceアーカイブページのタブフィルタリング
 function voice_tab_filtering($query) {

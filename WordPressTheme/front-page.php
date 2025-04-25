@@ -33,7 +33,72 @@
         </div>
       </div>
 
-      <?php get_template_part('parts/mv_swiper'); ?>
+      <div class="swiper fv__swiper js-fv-swiper">
+        <div class="swiper-wrapper fv__slide-wrapper js-fv__slide-wrapper">
+          <?php
+          $i = 1;
+          $has_slides = false;
+
+          // 画像が存在する限りループを続ける
+          while ($i <= 4) { // 最大4枚まで対応（必要に応じて調整）
+            $image_pc = get_field('swiper_' . $i . 'pc');
+            $image_sp = get_field('swiper_' . $i . 'sp');
+
+            // どちらの画像も存在しない場合はループを終了
+            if (!$image_pc && !$image_sp) {
+              // 最初のスライドでなければループを終了
+              if ($i > 1) {
+                break;
+              }
+            } else {
+              $has_slides = true;
+
+              // 片方の画像が未登録の場合、もう一方を代用
+              if (!$image_sp && $image_pc) {
+                $image_sp = $image_pc; // SP画像がなければPC画像を使用
+              } elseif (!$image_pc && $image_sp) {
+                $image_pc = $image_sp; // PC画像がなければSP画像を使用
+              }
+
+              // 画像URLを取得
+              $pc_url = is_array($image_pc) ? $image_pc['url'] : $image_pc;
+              $sp_url = is_array($image_sp) ? $image_sp['url'] : $image_sp;
+              $alt_text = is_array($image_pc) && isset($image_pc['alt']) ? $image_pc['alt'] :
+                         (is_array($image_sp) && isset($image_sp['alt']) ? $image_sp['alt'] : '');
+              ?>
+          <!-- <?php echo $i; ?> -->
+          <div class="swiper-slide fv__slide-image">
+            <picture>
+              <source srcset="<?php echo esc_url($pc_url); ?>" media="(min-width: 768px)" />
+              <!-- 幅768px以上なら表示 -->
+              <source srcset="<?php echo esc_url($sp_url); ?>" media="(max-width: 767px)" />
+              <!-- 幅767px以下なら表示 -->
+              <img src="<?php echo esc_url($sp_url); ?>" alt="<?php echo esc_attr($alt_text); ?>" />
+            </picture>
+          </div>
+          <?php
+            }
+            $i++;
+          }
+
+          // スライドが1つもない場合はデフォルト画像を表示
+          if (!$has_slides) {
+          ?>
+          <!-- 1 -->
+          <div class="swiper-slide fv__slide-image">
+            <picture>
+              <source srcset="<?php echo get_theme_file_uri(); ?>/assets/images/common/mv-pc.jpg" media="(min-width: 768px)" />
+              <!-- 幅768px以上なら表示 -->
+              <source srcset="<?php echo get_theme_file_uri(); ?>/assets/images/common/mv-sp.jpg" media="(max-width: 767px)" />
+              <!-- 幅767px以下なら表示 -->
+              <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/mv-sp.jpg" alt="" />
+            </picture>
+          </div>
+          <?php
+          }
+          ?>
+        </div>
+      </div>
     </div>
   </section>
   <!-- fv -->

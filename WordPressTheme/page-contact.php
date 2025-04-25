@@ -24,10 +24,9 @@
 
 <!-- contact -->
 <section class="contact-section page-low-contact">
-      <div class="contact-section__inner inner">
-        <?php echo do_shortcode('[contact-form-7 id="dbe1134" title="お問い合わせ"]'); ?>
-      </div>
-    </section>
+  <div class="contact-section__inner inner">
+    <?php echo do_shortcode('[contact-form-7 id="dbe1134" title="お問い合わせ"]'); ?>
+  </div>
+</section>
 
-
-<?php get_footer('contact'); ?>
+<?php get_footer(); ?>

@@ -1,3 +1,4 @@
+<?php  if ( !is_page('contact') ) :?>
 <section class="contact page-common-contact page-common-contact--privacy">
   <div class="contact__wrapper">
     <div class="contact__inner inner">
@@ -44,6 +45,8 @@
     </div>
   </div>
 </section>
+<?php endif; ?>
+
 <!-- /.contact -->
 <div class="scroll-back" id="js-pageTop"><a href="#"></a></div>
 
@@ -57,12 +60,12 @@
         <div class="footer__sns-icon">
           <div class="footer__sns-facebook">
             <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer">
-                <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/FacebookLogo-sp.png" alt="" />
+              <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/FacebookLogo-sp.png" alt="" />
             </a>
           </div>
           <div class="footer__sns-instagram">
             <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer">
-                <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/InstagramLogo-sp.png" alt="" />
+              <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/InstagramLogo-sp.png" alt="" />
             </a>
           </div>
         </div>
