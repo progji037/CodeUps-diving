@@ -117,19 +117,6 @@ function change_posts_per_page($query) {
 }
 add_action('pre_get_posts', 'change_posts_per_page');
 
-function register_campaign_post_type() {
-    register_post_type('campaign', [
-        'label' => 'Campaign',
-        'public' => true,
-        'has_archive' => true,
-        'rewrite' => ['slug' => 'campaign'],
-        'supports' => ['title', 'editor', 'thumbnail'],
-        'show_in_rest' => true,
-        'menu_position' => 5,
-        'menu_icon' => 'dashicons-megaphone'
-    ]);
-}
-
 
 function Change_menulabel() {
     global $menu, $submenu;
@@ -157,57 +144,6 @@ add_action( 'init', 'Change_objectlabel' );
 add_action( 'admin_menu', 'Change_menulabel' );
 
 add_filter('wpcf7_autop_or_not', '__return_false');
-
-add_filter('wpcf7_form_tag', 'add_campaign_taxonomy_terms_to_select', 10, 2);
-function add_campaign_taxonomy_terms_to_select($tag, $unused) {
-    if ($tag['name'] !== 'campaign-category') return $tag;
-    $terms = get_terms([
-        'taxonomy' => 'campaign_tab',
-        'hide_empty' => true,
-    ]);
-    if (is_wp_error($terms) || empty($terms)) return $tag;
-    $options = [];
-    foreach ($terms as $term) {
-        $options[] = esc_html($term->name);
-    }
-    $tag['raw_values'] = $options;
-    $tag['values'] = $options;
-    $tag['labels'] = $options;
-    return $tag;
-}
-
-function shortcode_br_sp() {
-    return '<br class="u-mobile">';
-}
-add_shortcode('br_sp', 'shortcode_br_sp');
-
-function custom_campaign_rewrite_rules() {
-    add_rewrite_rule('campaign/page/([0-9]+)/?$', 'index.php?post_type=campaign&paged=$matches[1]', 'top');
-}
-add_action('init', 'custom_campaign_rewrite_rules');
-
-
-
-// Voiceアーカイブページのタブフィルタリング
-function voice_tab_filtering($query) {
-    if (!is_admin() && $query->is_main_query() && $query->is_post_type_archive('voice')) {
-        // デフォルトの表示件数を設定
-        $query->set('posts_per_page', 6); // archive-voice.phpと同じ表示件数に設定
-
-        // タブでのフィルタリング
-        if (isset($_GET['tab']) && !empty($_GET['tab'])) {
-            $current_tab = sanitize_text_field($_GET['tab']);
-            $query->set('tax_query', array(
-                array(
-									'taxonomy' => 'voice_tab',
-									'field'    => 'slug',
-									'terms'    => $current_tab,
-                )
-            ));
-        }
-    }
-}
-add_action('pre_get_posts', 'voice_tab_filtering');
 
 // 共通ナビゲーション用リンク関数
 function get_campaign_url() { return esc_url( home_url( '/campaign/' ) ); }

@@ -15,7 +15,7 @@
       </div>
       <div class="main-view__title">
         <h1 class="main-view__main-title">
-          <?php the_field('mv_title'); ?>
+          About Us
         </h1>
       </div>
     </div>
@@ -80,7 +80,7 @@
       </div>
       <div class="gallery-section__grid">
         <div class="gallery-section-grid">
-                <?php
+          <?php
                     // SCFのリピーターグループのデータを取得（グループ名: gallery）
                     $fields = SCF::get('gallery');
                     if (!empty($fields)) : // フィールドが空でない場合
@@ -100,19 +100,19 @@
                         $count++;
                         $is_large = ($count % 6 == 1 || $count % 6 == 0);
                   ?>
-                    <div class="gallery-section-grid__image js-gallery-section-grid__image <?php echo $is_large ? 'large-image' : ''; ?>">
-                        <img src="<?php echo esc_url($image[0]); ?>" alt="">
-                    </div>
-                  <?php
+          <div class="gallery-section-grid__image js-gallery-section-grid__image <?php echo $is_large ? 'large-image' : ''; ?>">
+            <img src="<?php echo esc_url($image[0]); ?>" alt="">
+          </div>
+          <?php
                         }
                     }
                     endforeach;
                   endif;
                 ?>
-              </div>
-          </div>
         </div>
       </div>
+    </div>
+    </div>
     </div>
     <!-- modal -->
     <div class="gallery-section-modal js-gallery-section-modal">

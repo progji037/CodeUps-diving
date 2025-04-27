@@ -14,7 +14,7 @@
     </div>
     <div class="main-view__title ">
       <h1 class="main-view__main-title">
-        <?php the_field('mv_title'); ?>
+        Privacy Policy
       </h1>
     </div>
   </div>
