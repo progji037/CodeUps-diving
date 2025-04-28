@@ -79,7 +79,16 @@
                     <?php the_field('voice_age'); ?>
                   </div>
                   <div class="voice-card__meta-tag">
-                    <?php the_field('voice_tag'); ?>
+                    <?php
+                        // 投稿IDから、その投稿に紐づくキャンペーンカテゴリーを取得
+                        $terms = get_the_terms(get_the_ID(), 'voice_category');
+
+                        if (!empty($terms) && !is_wp_error($terms)) {
+                          // 複数ある場合は最初の一つだけ出す
+                          $term = array_shift($terms);
+                          echo esc_html($term->name);
+                      }
+                    ?>
                   </div>
                 </div>
                 <div class="voice-card__title">

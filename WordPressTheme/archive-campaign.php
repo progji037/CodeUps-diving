@@ -70,11 +70,8 @@
                 while (have_posts()) : the_post();
 
                     // ACFを使用してカスタムフィールドの取得
-                    $card__image     = get_field('campaign-card__image');
-                    $card__tag       = get_field('campaign-card__tag');
                     $markdown        = get_field('campaign-card__markdown');
                     $reduceprice     = get_field('campaign-card__reduced-price');
-                    $card__text      = get_field('campaign-card__text');
                     $card__period    = get_field('campaign-card__period');
             ?>
           <div class="campaign-section-cards__card">
@@ -93,7 +90,16 @@
               <div class="campaign-card__textbox">
                 <div class="campaign-card__header">
                   <div class="campaign-card__tag">
-                    <?php echo esc_html($card__tag); ?>
+                    <?php
+                        // 投稿IDから、その投稿に紐づくキャンペーンカテゴリーを取得
+                        $terms = get_the_terms(get_the_ID(), 'campaign_category');
+
+                        if (!empty($terms) && !is_wp_error($terms)) {
+                            // 複数ある場合は最初の一つだけ出す
+                            $term = array_shift($terms);
+                            echo esc_html($term->name);
+                        }
+                        ?>
                   </div>
                   <div class="campaign-card__head">
                     <?php echo get_the_title(); ?>
@@ -114,7 +120,7 @@
                   <div class="campaign-card__detail">
                     <div class="campaign-card__text">
                       <p>
-                        <?php echo nl2br(esc_html($card__text)); ?>
+                        <?php the_content(); ?>
                       </p>
                     </div>
                     <div class="campaign-card__visit">

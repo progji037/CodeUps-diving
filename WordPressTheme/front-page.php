@@ -170,7 +170,16 @@
                     <div class="campaign-card__textbox">
                       <div class="campaign-card__header">
                         <div class="campaign-card__tag">
-                          <?php echo !empty($card_tag) ? esc_html($card_tag) : 'キャンペーン'; ?>
+                          <?php
+                        // 投稿IDから、その投稿に紐づくキャンペーンカテゴリーを取得
+                        $terms = get_the_terms(get_the_ID(), 'campaign_category');
+
+                        if (!empty($terms) && !is_wp_error($terms)) {
+                            // 複数ある場合は最初の一つだけ出す
+                            $term = array_shift($terms);
+                            echo esc_html($term->name);
+                        }
+                        ?>
                         </div>
                         <div class="campaign-card__head">
                           <?php echo !empty($card_head) ? esc_html($card_head) : get_the_title(); ?>
@@ -531,7 +540,7 @@
           while ($voice_query->have_posts()) : $voice_query->the_post();
 
             // カスタムフィールドから情報を取得
-            $age_gender = get_field('voice_age_gender');
+            $age_gender = get_field('voice_age');
             $tag = get_field('voice_tag');
             $title = get_field('voice_title') ? get_field('voice_title') : get_the_title();
             $content = get_field('voice_content') ? get_field('voice_content') : get_the_content();
@@ -541,7 +550,17 @@
             <div class="voice-card__body">
               <div class="voice-card__meta">
                 <div class="voice-card__meta-age"><?php echo esc_html($age_gender); ?></div>
-                <div class="voice-card__meta-tag"><?php echo esc_html($tag); ?></div>
+                <div class="voice-card__meta-tag">
+                  <?php
+                    // 投稿IDから、その投稿に紐づくキャンペーンカテゴリーを取得
+                    $terms = get_the_terms(get_the_ID(), 'voice_category');
+                    if (!empty($terms) && !is_wp_error($terms)) {
+                        // 複数ある場合は最初の一つだけ出す
+                        $term = array_shift($terms);
+                        echo esc_html($term->name);
+                    }
+                    ?>
+                </div>
               </div>
               <div class="voice-card__title">
                 <?php echo esc_html($title); ?>
