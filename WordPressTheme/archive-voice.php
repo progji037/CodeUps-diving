@@ -73,7 +73,7 @@
                   </div>
                   <div class="voice-card__meta-tag">
                     <?php
-                        // 投稿IDから、その投稿に紐づくキャンペーンカテゴリーを取得
+                        // 投稿IDから、その投稿に紐づくカテゴリーを取得
                         $terms = get_the_terms(get_the_ID(), 'voice_category');
 
                         if (!empty($terms) && !is_wp_error($terms)) {
