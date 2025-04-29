@@ -159,3 +159,32 @@ function get_faq_url() { return esc_url( home_url( '/faq/' ) ); }
 function get_contact_url() { return esc_url( home_url( '/contact/' ) ); }
 function get_custom_privacy_policy_url() { return esc_url( home_url( '/privacy-policy/' ) ); }
 function get_terms_url() { return esc_url( home_url( '/terms/' ) ); }
+
+
+// ログイン画面の背景カスタマイズ
+function custom_login_background() { ?>
+<style>
+body.login {
+  background: url(<?php echo get_stylesheet_directory_uri();
+  ?>/assets/images/common/login-back.webp) no-repeat center center;
+  background-size: cover;
+}
+</style>
+<?php }
+add_action('login_enqueue_scripts', 'custom_login_background');
+
+// ログインロゴのカスタマイズ
+function custom_login_logo() { ?>
+<style>
+body.login div#login h1 a {
+  background-image: url(<?php echo get_stylesheet_directory_uri();
+  ?>/assets/images/common/login-logo.webp);
+  width: 300px;
+  height: 270px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+</style>
+<?php }
+add_action('login_enqueue_scripts', 'custom_login_logo');
