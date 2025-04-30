@@ -42,19 +42,15 @@
           <div class="faq-list__answer js-faq-list__answer">
             <div class="faq-list__answer-text">
               <?php
-                        // テキストエリアの値を取得
-                        $answer = esc_html($faq['faq_answer']);
-
-                        // 改行を <br> に変換（基本処理）
-                        $answer = nl2br($answer);
-
-                        // 【✅ 見出し】 を <h3> に変換
-                        $answer = preg_replace('/【(.*?)】/', '<h3>✅ $1</h3>', $answer);
-
+                // テキストエリアの値を取得
+                $answer = esc_html($faq['faq_answer']);
+                // 改行を <br> に変換（基本処理）
+                $answer = nl2br($answer);
+                // 【✅ 見出し】 を <h3> に変換
+                $answer = preg_replace('/【(.*?)】/', '<h3>✅ $1</h3>', $answer);
                         // 「・」を <li> に変換し、<ul> で囲む
                         $answer = preg_replace('/・(.*?)<br\s*\/?>/', '<li>$1</li>', $answer);
               $answer = preg_replace('/(<li>.*<\ /li>)+/', '<ul>$0</ul>', $answer);
-
                   echo $answer;
                   ?>
             </div>

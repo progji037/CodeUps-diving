@@ -179,11 +179,23 @@ function custom_login_logo() { ?>
 body.login div#login h1 a {
   background-image: url(<?php echo get_stylesheet_directory_uri();
   ?>/assets/images/common/login-logo.webp);
-  width: 300px;
-  height: 270px;
+  width: 200px;
+  height: 200px;
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
+}
+
+/* ログインフォーム全体の位置を上げる */
+body.login div#login {
+  padding-top: 1%;
+  /* デフォルトは8%程度なので、これを小さくすることで上に移動 */
+}
+
+/* 必要に応じてロゴの高さも調整 */
+body.login div#login h1 {
+  margin-bottom: 10px;
+  /* ロゴとフォームの間隔も調整可能 */
 }
 </style>
 <?php }

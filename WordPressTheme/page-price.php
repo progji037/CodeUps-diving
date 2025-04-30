@@ -46,18 +46,17 @@
           </div>
           <div class="price-list__menu">
             <?php
-                              function convert_br_for_device($string, $is_sp = true) {
-                                $string = esc_html($string); // XSS対策のためエスケープ
-
-                                if ($is_sp) {
-                                    // スマホなら `[br]` を <br class="u-mobile"> に変換
-                                    return str_replace('[br]', '<br class="u-mobile">', $string);
-                                } else {
-                                    // PCなら `[br]` を削除
-                                    return str_replace('[br]', '', $string);
-                                }
-                            }
-                          ?>
+                function convert_br_for_device($string, $is_sp = true) {
+                  $string = esc_html($string); // XSS対策のためエスケープ
+                  if ($is_sp) {
+                      // スマホなら `[br]` を <br class="u-mobile"> に変換
+                      return str_replace('[br]', '<br class="u-mobile">', $string);
+                  } else {
+                      // PCなら `[br]` を削除
+                      return str_replace('[br]', '', $string);
+                  }
+              }
+            ?>
             <dl class="price-list__costs">
               <?php
                             foreach ($price_items as $item) :

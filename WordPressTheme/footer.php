@@ -1,4 +1,10 @@
-<?php  if ( !is_page('contact') ) :?>
+</main>
+
+<?php if
+(!is_page('contact') &&
+ !is_page('thanks') &&
+!is_404())
+:?>
 <section class="contact page-common-contact page-common-contact--privacy">
   <div class="contact__wrapper">
     <div class="contact__inner inner">
@@ -50,7 +56,7 @@
 <!-- /.contact -->
 <div class="scroll-back" id="js-pageTop"><a href="#"></a></div>
 
-<footer class="footer top-footer">
+<footer class="footer <?php echo is_404() ? 'page-low-footer page-low-footer--error' : 'top-footer'; ?>">
   <div class="footer__wrapper">
     <div class="footer__inner inner">
       <div class="footer__headline">
