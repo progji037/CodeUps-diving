@@ -9,6 +9,17 @@
     font-size: rem(14);
 }
 
+.breadcrumb-wrapper{
+    position: absolute;
+    z-index: 1;
+    // color: $white;
+    display: flex;
+    gap: rem(8);
+}
+
+.breadcrumb-wrapper--white{
+    color: $white;
+}
 
 .breadcrumb__page-detail {
     display: flex;

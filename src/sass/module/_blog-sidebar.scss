@@ -1,19 +1,19 @@
 @use "global" as *;
 
 
-.blog-sidebar {
-    display: flex;
-    flex-direction: column;
-    gap: rem(80);
-}
+.blog-sidebar {}
 
 .blog-sidebar__inner {
     padding-inline: rem(25);
-
     @include mq('md') {
-        padding-inline: 0;
-
+    padding-inline: 0;
     }
+}
+
+.blog-sidebar__container {
+    display: flex;
+    flex-direction: column;
+    gap: rem(80);
 }
 
 .blog-sidebar__article {}

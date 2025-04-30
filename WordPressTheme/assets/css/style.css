@@ -550,15 +550,15 @@ a {
 	padding-right: 0;
 }
 
-.blog-sidebar {
-	display: flex;
-	flex-direction: column;
-	gap: 5rem;
-}
-
 .blog-sidebar__inner {
 	padding-left: 1.5625rem;
 	padding-right: 1.5625rem;
+}
+
+.blog-sidebar__container {
+	display: flex;
+	flex-direction: column;
+	gap: 5rem;
 }
 
 .blog::after {
@@ -606,6 +606,17 @@ a {
 
 .breadcrumb__inner {
 	font-size: 0.875rem;
+}
+
+.breadcrumb-wrapper {
+	display: flex;
+	gap: 0.5rem;
+	position: absolute;
+	z-index: 1;
+}
+
+.breadcrumb-wrapper--white {
+	color: #fff;
 }
 
 .breadcrumb__page-detail {

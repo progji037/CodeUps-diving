@@ -48,23 +48,23 @@
             <div class="pagination">
               <div class="pagination__list pagination__list--left">
                 <?php
-                      $prev_post = get_previous_post(false); // 同一カテゴリを無視
-                      if ($prev_post):
-                          $prev_url = get_permalink($prev_post->ID);
-                          // 前の記事へのリンク - アイコンのみ表示だがaria-labelでアクセシビリティ対応
-                          echo '<a href="' . esc_url($prev_url) . '" aria-label="前の記事: ' . esc_attr($prev_post->post_title) . '"></a>';
-                      endif;
-                    ?>
+                  $prev_post = get_previous_post(false); // 同一カテゴリを無視
+                  if ($prev_post):
+                      $prev_url = get_permalink($prev_post->ID);
+                      // 前の記事へのリンク - アイコンのみ表示だがaria-labelでアクセシビリティ対応
+                      echo '<a href="' . esc_url($prev_url) . '" aria-label="前の記事: ' . esc_attr($prev_post->post_title) . '"></a>';
+                  endif;
+                ?>
               </div>
               <div class="pagination__list pagination__list--right">
                 <?php
-                      $next_post = get_next_post(false); // 同一カテゴリを無視
-                      if ($next_post):
-                          $next_url = get_permalink($next_post->ID);
-                          // 次の記事へのリンク - アイコンのみ表示だがaria-labelでアクセシビリティ対応
-                          echo '<a href="' . esc_url($next_url) . '" aria-label="次の記事: ' . esc_attr($next_post->post_title) . '"></a>';
-                      endif;
-                    ?>
+                  $next_post = get_next_post(false); // 同一カテゴリを無視
+                  if ($next_post):
+                      $next_url = get_permalink($next_post->ID);
+                      // 次の記事へのリンク - アイコンのみ表示だがaria-labelでアクセシビリティ対応
+                      echo '<a href="' . esc_url($next_url) . '" aria-label="次の記事: ' . esc_attr($next_post->post_title) . '"></a>';
+                  endif;
+                ?>
               </div>
             </div>
           </div>
@@ -72,7 +72,11 @@
         <?php endwhile; ?>
         <?php endif; ?>
       </div>
-      <?php get_sidebar(); ?>
+      <aside class="blog-section__sidebar">
+        <div class="blog-sidebar__inner">
+          <?php get_sidebar(); ?>
+        </div>
+      </aside>
     </div>
   </div>
 </section>

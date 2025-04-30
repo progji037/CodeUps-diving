@@ -1,6 +1,6 @@
-<aside class="blog-section__sidebar">
+<div class="blog-sidebar">
   <div class="blog-sidebar__inner">
-    <div class="blog-sidebar">
+    <div class="blog-sidebar__container">
       <div class="blog-sidebar__article">
         <div class="sidebar-article">
           <div class="sidebar-article__head">
@@ -17,16 +17,16 @@
             <div class="article-cards">
               <div class="article-cards__item">
                 <?php
-								  // 投稿の条件を設定
-									$args = array(
-										'post_type'      => 'post',
-										'posts_per_page' => 3,
-										'post_status'    => 'publish',
-										'orderby'        => 'date',
-										'order'          => 'DESC',
-									);
-									$query = new WP_Query($args);
-									if ($query->have_posts()) : ?>
+                  // 投稿の条件を設定
+                  $args = array(
+                  'post_type'      => 'post',
+                  'posts_per_page' => 3,
+                  'post_status'    => 'publish',
+                  'orderby'        => 'date',
+                  'order'          => 'DESC',
+                  );
+                  $query = new WP_Query($args);
+                  if ($query->have_posts()) : ?>
                 <?php while ($query->have_posts()) : $query->the_post(); ?>
                 <a class="article-card" href="<?php echo esc_url(get_permalink()); ?>">
                   <div class="article-card__item">
@@ -39,17 +39,17 @@
                     </div>
                     <div class="article-card__meta">
                       <?php
-													$blog_date = get_post_meta(get_the_ID(), 'blog_date', true);
-													if ($blog_date) {
-															// `blog_date` が "20231117" のような形式の場合、正しい日付フォーマットに変換
-															$formatted_date = date('Y.m.d', strtotime($blog_date));
-															$datetime_attr = date('c', strtotime($blog_date));
-													} else {
-															// カスタムフィールドが空なら投稿の公開日を使う
-															$formatted_date = get_the_date('Y.m.d');
-															$datetime_attr = get_the_date('c');
-													}
-													?>
+                        $blog_date = get_post_meta(get_the_ID(), 'blog_date', true);
+                        if ($blog_date) {
+                          // `blog_date` が "20231117" のような形式の場合、正しい日付フォーマットに変換
+                          $formatted_date = date('Y.m.d', strtotime($blog_date));
+                          $datetime_attr = date('c', strtotime($blog_date));
+                        } else {
+                          // カスタムフィールドが空なら投稿の公開日を使う
+                          $formatted_date = get_the_date('Y.m.d');
+                          $datetime_attr = get_the_date('c');
+                        }
+                      ?>
                       <time datetime="<?php echo esc_attr($datetime_attr); ?>">
                         <?php echo esc_html($formatted_date); ?>
                       </time>
@@ -60,12 +60,12 @@
                   </div>
                 </a>
                 <?php
-										endwhile;
-										wp_reset_postdata();
-								else :
-									echo '<p>記事がありません。</p>';
-										endif;
-									?>
+                  endwhile;
+                  wp_reset_postdata();
+                  else :
+                  echo '<p>記事がありません。</p>';
+                  endif;
+                  ?>
               </div>
             </div>
           </div>
@@ -84,24 +84,27 @@
             </div>
           </div>
           <?php
-					  // 投稿の条件を設定
-						$args = array(
-						'post_type'      => 'voice',
-						'posts_per_page' => 1,
-						'post_status'    => 'publish',
-						'orderby'        => 'date',
-						'order'          => 'DESC',
-						);
-						 // 投稿を実際に取り出す
-						$query = new WP_Query($args);
-						if ($query->have_posts()) :
-					  while ($query->have_posts()) : $query->the_post(); ?>
+              // 投稿の条件を設定
+              $args = array(
+              'post_type'      => 'voice',
+              'posts_per_page' => 1,
+              'post_status'    => 'publish',
+              'orderby'        => 'date',
+              'order'          => 'DESC',
+              );
+              // 投稿を実際に取り出す
+              $query = new WP_Query($args);
+              if ($query->have_posts()) :
+              while ($query->have_posts()) : $query->the_post();
+              ?>
           <div class="sidebar-review__voice">
-            <?php if (has_post_thumbnail()) {
-								the_post_thumbnail(array(294, 218));
-							} else { // 「アイキャッチ画像があれば」以外なら
-								echo '<img src="' . get_template_directory_uri() . '/images/common/noimage__comp.png" alt="no image" />">';
-						} ?>
+            <?php if
+              (has_post_thumbnail()) {
+              the_post_thumbnail(array(294, 218));
+              } else { // 「アイキャッチ画像があれば」以外なら
+              echo '<img src="' . get_template_directory_uri() . '/images/common/noimage__comp.png" alt="no image" />';
+              }
+              ?>
             <p>
               <?php the_field('voice_age'); ?>
             </p>
@@ -110,12 +113,12 @@
             </div>
           </div>
           <?php
-						endwhile;
-							wp_reset_postdata();
-						else :
-							echo '<p>記事がありません。</p>';
-						endif;
-					?>
+            endwhile;
+            wp_reset_postdata();
+            else :
+            echo '<p>記事がありません。</p>';
+            endif;
+            ?>
           <div class="sidebar-review__link">
             <a class="button" href="<?php echo esc_url( get_post_type_archive_link( 'voice' ) ); ?>">
               View more
@@ -138,30 +141,30 @@
           </div>
           <div class="sidebar-campaign__cards">
             <?php
-							// 投稿の条件を設定
-							$args = array(
-							'post_type'      => 'campaign',
-							'posts_per_page' => 2,
-							'post_status'    => 'publish',
-							'orderby'        => 'date',
-							'order'          => 'DESC',
-							);
+              // 投稿の条件を設定
+              $args = array(
+              'post_type'      => 'campaign',
+              'posts_per_page' => 2,
+              'post_status'    => 'publish',
+              'orderby'        => 'date',
+              'order'          => 'DESC',
+              );
 
-							// 投稿を実際に取り出す
-							$query = new WP_Query($args);
-							if ($query->have_posts()) :
-						?>
+              // 投稿を実際に取り出す
+              $query = new WP_Query($args);
+              if ($query->have_posts()) :
+              ?>
             <?php while ($query->have_posts()) : $query->the_post(); ?>
             <div class="sidebar-campaign-lists">
               <div class="sidebar-campaign-list__card campaign-card">
                 <div class="campaign-card__image campaign-card__image--blog">
                   <?php
-										if (has_post_thumbnail()) {
-											the_post_thumbnail('full');
-										} else {
-											echo '<img src="' . get_theme_file_uri() . '/assets/images/common/noimage__comp.png" alt="no image" />';
-										}
-									?>
+                    if (has_post_thumbnail()) {
+                    the_post_thumbnail('full');
+                    } else {
+                    echo '<img src="' . get_theme_file_uri() . '/assets/images/common/noimage__comp.png" alt="no image" />';
+                    }
+                    ?>
                 </div>
                 <div class="campaign-card__textbox campaign-card__textbox--blog">
                   <div class="campaign-card__header">
@@ -176,31 +179,31 @@
                     <div class="campaign-card__price campaign-card__price--blog">
                       <div class="campaign-card__markdown campaign-card__markdown--blog">
                         <?php
-													$markdown = get_field('campaign-card__markdown');
-													if (!empty($markdown)) {
-														echo '¥' . number_format(intval(str_replace(',', '', $markdown)));
-													}
-												?>
+                          $markdown = get_field('campaign-card__markdown');
+                          if (!empty($markdown)) {
+                            echo '¥' . number_format(intval(str_replace(',', '', $markdown)));
+                          }
+                        ?>
                       </div>
                       <div class="campaign-card__reduced-price campaign-card__reduced-price--blog">
                         <?php
-														$reduceprice = get_field('campaign-card__reduced-price');
-														if (!empty($reduceprice)) {
-															echo '¥' . number_format(intval(str_replace(',', '', $reduceprice)));
-														}
-													?>
+                          $reduceprice = get_field('campaign-card__reduced-price');
+                          if (!empty($reduceprice)) {
+                            echo '¥' . number_format(intval(str_replace(',', '', $reduceprice)));
+                          }
+                        ?>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
               <?php
-								endwhile;
-									wp_reset_postdata();
-								else :
-									echo '<p>記事がありません。</p>';
-								endif;
-							?>
+                endwhile;
+                wp_reset_postdata();
+                else :
+                echo '<p>記事がありません。</p>';
+                endif;
+                ?>
             </div>
           </div>
           <div class="sidebar-campaign__link ">
@@ -211,68 +214,63 @@
           </div>
         </div>
       </div>
-    </div>
-    <div class="blog-sidebar__archive">
-      <div class="sidebar-archive">
-        <div class="sidebar-archive__head">
-          <div class="sidebar-head">
-            <div class="sidebar-head__title">
-              <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/blog-low-icon-sp.png" alt="">
-              <h2 class="sidebar-head__text">
-                アーカイブ
-              </h2>
-            </div>
-          </div>
-        </div>
-        <div class="sidebar-archive__date">
-          <div class="archive-date">
-            <?php
-                global $wpdb;
-
-                // 公開された投稿がある年を取得
-                $years = $wpdb->get_col("
-                    SELECT DISTINCT YEAR(post_date)
-                    FROM $wpdb->posts
-                    WHERE post_status = 'publish'
-                    AND post_type = 'post'
-                    ORDER BY post_date DESC
-                ");
-
-                // 各年のアーカイブを表示
-                foreach ($years as $year) :
-                ?>
-            <div class="archive-date__lists">
-              <div class="date-lists">
-                <a class="date-lists__year js-date-lists__year" href="<?php echo get_year_link($year); ?>"><?php echo $year; ?></a>
-                <ul class="date-lists__months js-date-lists__months">
-                  <?php
-                                // その年の月を取得
-                                $months = $wpdb->get_results("
-                                    SELECT DISTINCT MONTH(post_date) as month
-                                    FROM $wpdb->posts
-                                    WHERE post_status = 'publish'
-                                    AND post_type = 'post'
-                                    AND YEAR(post_date) = '$year'
-                                    ORDER BY month DESC
-                                ");
-
-                                // 各月のアーカイブを表示
-                                foreach ($months as $month) :
-                                    $month_num = $month->month;
-                                    // 月の名前（例：1月、2月）を取得
-                                    $month_name = date_i18n('n月', mktime(0, 0, 0, $month_num, 1, $year));
-                                ?>
-                  <li><a class="date-lists__month" href="<?php echo get_month_link($year, $month_num); ?>"><?php echo $month_name; ?></a></li>
-                  <?php endforeach; ?>
-                </ul>
+      <div class="blog-sidebar__archive">
+        <div class="sidebar-archive">
+          <div class="sidebar-archive__head">
+            <div class="sidebar-head">
+              <div class="sidebar-head__title">
+                <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/blog-low-icon-sp.png" alt="">
+                <h2 class="sidebar-head__text">
+                  アーカイブ
+                </h2>
               </div>
             </div>
-            <?php endforeach; ?>
+          </div>
+          <div class="sidebar-archive__date">
+            <div class="archive-date">
+              <?php
+                  global $wpdb;
+                  // 公開された投稿がある年を取得
+                  $years = $wpdb->get_col("
+                  SELECT DISTINCT YEAR(post_date)
+                  FROM $wpdb->posts
+                  WHERE post_status = 'publish'
+                  AND post_type = 'post'
+                  ORDER BY post_date DESC
+                  ");
+                  // 各年のアーカイブを表示
+                  foreach ($years as $year) :
+                  ?>
+              <div class="archive-date__lists">
+                <div class="date-lists">
+                  <a class="date-lists__year js-date-lists__year" href="<?php echo get_year_link($year); ?>"><?php echo $year; ?></a>
+                  <ul class="date-lists__months js-date-lists__months">
+                    <?php
+                      // その年の月を取得
+                      $months = $wpdb->get_results("
+                      SELECT DISTINCT MONTH(post_date) as month
+                      FROM $wpdb->posts
+                      WHERE post_status = 'publish'
+                      AND post_type = 'post'
+                      AND YEAR(post_date) = '$year'
+                      ORDER BY month DESC
+                      ");
+                      // 各月のアーカイブを表示
+                      foreach ($months as $month) :
+                      $month_num = $month->month;
+                      // 月の名前（例：1月、2月）を取得
+                      $month_name = date_i18n('n月', mktime(0, 0, 0, $month_num, 1, $year));
+                      ?>
+                    <li><a class="date-lists__month" href="<?php echo get_month_link($year, $month_num); ?>"><?php echo $month_name; ?></a></li>
+                    <?php endforeach; ?>
+                  </ul>
+                </div>
+              </div>
+              <?php endforeach; ?>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </div>
-  </div>
-  </div>
-</aside>
+</div>

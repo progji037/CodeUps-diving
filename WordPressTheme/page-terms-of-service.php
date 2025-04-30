@@ -26,12 +26,16 @@
 
 <div class="terms page-terms">
   <div class="terms__inner inner">
+    <?php if (have_posts()) : ?>
+    <?php while (have_posts()) : the_post(); ?>
     <div class="terms__content">
       <h2 class="terms__title"><?php the_title();?></h2>
       <div class="terms__text">
         <?php the_content(); ?>
       </div>
     </div>
+    <?php endwhile; ?>
+    <?php endif; ?>
   </div>
 </div>
 

@@ -25,12 +25,16 @@
 
 <div class="privacy-policy page-privacy-policy">
   <div class="privacy-policy__inner inner">
+    <?php if (have_posts()) : ?>
+    <?php while (have_posts()) : the_post(); ?>
     <div class="privacy-policy__content">
       <h2 class="privacy-policy__title"><?php the_title();?></h2>
       <div class="privacy-policy__text">
         <?php the_content(); ?>
       </div>
     </div>
+    <?php endwhile; ?>
+    <?php endif; ?>
   </div>
 </div>
 

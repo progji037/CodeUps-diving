@@ -27,7 +27,6 @@
 <!-- パンくずリスト -->
 <?php get_template_part('parts/breadcrumb')?>
 
-<!-- voice -->
 <section class="voice-section page-voice">
   <div class="voice-section__inner inner">
     <div class="voice-section__tab">
@@ -39,29 +38,24 @@
               ALL
             </a>
           </li>
-
-
           <?php
-          // voice_category タクソノミーの一覧を取得（CPT UIで作成したタクソノミー）
-          $terms = get_terms(array(
-              'taxonomy'   => 'voice_category',
-              'hide_empty' => true,
-          ));
-
-          // 現在表示中のタームを取得
-          $current_term = get_queried_object();
-
-          foreach ($terms as $term):
+              // voice_category タクソノミーの一覧を取得（CPT UIで作成したタクソノミー）
+              $terms = get_terms(array(
+                  'taxonomy'   => 'voice_category',
+                  'hide_empty' => true,
+              ));
+              // 現在表示中のタームを取得
+              $current_term = get_queried_object();
+              foreach ($terms as $term):
               // 現在のタームと一致する場合はactiveクラスを追加
               $active_class = ($current_term->term_id == $term->term_id) ? 'active' : '';
-          ?>
+            ?>
           <li class="tab-links__list">
             <a href="<?php echo get_term_link($term); ?>" class="tab-link <?php echo esc_attr($active_class); ?>">
               <?php echo esc_html($term->name); ?>
             </a>
           </li>
           <?php endforeach; ?>
-
         </ul>
       </div>
     </div>
@@ -80,13 +74,12 @@
                   </div>
                   <div class="voice-card__meta-tag">
                     <?php
-                        // 投稿IDから、その投稿に紐づくカテゴリーを取得
-                        $terms = get_the_terms(get_the_ID(), 'voice_category');
-
-                        if (!empty($terms) && !is_wp_error($terms)) {
-                          // 複数ある場合は最初の一つだけ出す
-                          $term = array_shift($terms);
-                          echo esc_html($term->name);
+                      // 投稿IDから、その投稿に紐づくカテゴリーを取得
+                      $terms = get_the_terms(get_the_ID(), 'voice_category');
+                      if (!empty($terms) && !is_wp_error($terms)) {
+                        // 複数ある場合は最初の一つだけ出す
+                        $term = array_shift($terms);
+                        echo esc_html($term->name);
                       }
                     ?>
                   </div>
@@ -114,7 +107,6 @@
         <?php endif; ?>
       </div>
     </div>
-
     <div class="voice-section__pagination">
       <div class="pagination">
         <?php
