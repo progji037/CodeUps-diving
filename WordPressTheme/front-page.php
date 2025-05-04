@@ -134,12 +134,12 @@
               if ($campaign_query->have_posts()) :
                 while ($campaign_query->have_posts()) : $campaign_query->the_post();
 
-                  // ACFからカスタムフィールドの取得
-                  $card_tag = get_field('campaign-card__tag');
-                  $card_head = get_field('campaign-card__head');
-                  $markdown = get_field('campaign-card__markdown');
-                  $reduceprice = get_field('campaign-card__reduced-price');
-              ?>
+                // ACFからカスタムフィールドの取得
+                $card_tag = get_field('campaign-card__tag');
+                $card_head = get_field('campaign-card__head');
+                $markdown = get_field('campaign-card__markdown');
+                $reduceprice = get_field('campaign-card__reduced-price');
+            ?>
             <!-- 動的に生成されるスライド -->
             <div class="swiper-slide campaign__slide">
               <div class="campaign__card">
@@ -173,9 +173,9 @@
                         $terms = get_the_terms(get_the_ID(), 'campaign_category');
 
                         if (!empty($terms) && !is_wp_error($terms)) {
-                            // 複数ある場合は最初の一つだけ出す
-                            $term = array_shift($terms);
-                            echo esc_html($term->name);
+                          // 複数ある場合は最初の一つだけ出す
+                          $term = array_shift($terms);
+                          echo esc_html($term->name);
                         }
                         ?>
                       </div>
@@ -380,19 +380,19 @@
 
         // 投稿がある場合
         if ($blog_query->have_posts()) :
-            while ($blog_query->have_posts()) : $blog_query->the_post();
+          while ($blog_query->have_posts()) : $blog_query->the_post();
 
-                // カスタムフィールドから日付を取得（ない場合は投稿日を使用）
-                $blog_date = get_post_meta(get_the_ID(), 'blog_date', true);
-                if ($blog_date) {
-                    // カスタムフィールドの日付を整形
-                    $formatted_date = date('Y.m/d', strtotime($blog_date));
-                    $datetime_attr = date('c', strtotime($blog_date));
-                } else {
-                    // 投稿日を使用
-                    $formatted_date = get_the_date('Y.m/d');
-                    $datetime_attr = get_the_date('c');
-                }
+          // カスタムフィールドから日付を取得（ない場合は投稿日を使用）
+          $blog_date = get_post_meta(get_the_ID(), 'blog_date', true);
+          if ($blog_date) {
+              // カスタムフィールドの日付を整形
+              $formatted_date = date('Y.m/d', strtotime($blog_date));
+              $datetime_attr = date('c', strtotime($blog_date));
+          } else {
+              // 投稿日を使用
+              $formatted_date = get_the_date('Y.m/d');
+              $datetime_attr = get_the_date('c');
+          }
         ?>
       <div class="cards__item">
         <a class="card" href="<?php the_permalink(); ?>">
@@ -550,14 +550,14 @@
               <div class="voice-card__meta-age"><?php echo esc_html($age_gender); ?></div>
               <div class="voice-card__meta-tag">
                 <?php
-                    // 投稿IDから、その投稿に紐づくカテゴリーを取得
-                    $terms = get_the_terms(get_the_ID(), 'voice_category');
-                    if (!empty($terms) && !is_wp_error($terms)) {
-                        // 複数ある場合は最初の一つだけ出す
-                        $term = array_shift($terms);
-                        echo esc_html($term->name);
-                    }
-                    ?>
+                  // 投稿IDから、その投稿に紐づくカテゴリーを取得
+                  $terms = get_the_terms(get_the_ID(), 'voice_category');
+                  if (!empty($terms) && !is_wp_error($terms)) {
+                    // 複数ある場合は最初の一つだけ出す
+                    $term = array_shift($terms);
+                    echo esc_html($term->name);
+                  }
+                  ?>
               </div>
             </div>
             <div class="voice-card__title">
@@ -582,7 +582,7 @@
               $content = mb_substr(strip_tags($content), 0, $max_length, 'UTF-8') . '...';
               }
               echo wpautop($content); // 改行を反映して表示
-              ?>
+            ?>
         </div>
       </div>
       <?php

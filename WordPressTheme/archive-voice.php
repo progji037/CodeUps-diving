@@ -43,8 +43,8 @@
           <?php
           // voice_category タクソノミーの一覧を取得（CPT UIで作成したタクソノミー）
           $terms = get_terms(array(
-              'taxonomy'   => 'voice_category',
-              'hide_empty' => true,
+            'taxonomy'   => 'voice_category',
+            'hide_empty' => true,
           ));
 
           foreach ($terms as $term):
@@ -73,15 +73,15 @@
                   </div>
                   <div class="voice-card__meta-tag">
                     <?php
-                        // 投稿IDから、その投稿に紐づくカテゴリーを取得
-                        $terms = get_the_terms(get_the_ID(), 'voice_category');
+                      // 投稿IDから、その投稿に紐づくカテゴリーを取得
+                      $terms = get_the_terms(get_the_ID(), 'voice_category');
 
-                        if (!empty($terms) && !is_wp_error($terms)) {
-                            // 複数ある場合は最初の一つだけ出す
-                            $term = array_shift($terms);
-                            echo esc_html($term->name);
-                        }
-                        ?>
+                      if (!empty($terms) && !is_wp_error($terms)) {
+                        // 複数ある場合は最初の一つだけ出す
+                        $term = array_shift($terms);
+                        echo esc_html($term->name);
+                      }
+                      ?>
                   </div>
                 </div>
                 <div class="voice-card__title">

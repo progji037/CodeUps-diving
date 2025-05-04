@@ -42,14 +42,14 @@
           </li>
 
           <?php
-                $terms = get_terms(array(
-                    'taxonomy'   => 'campaign_category',
-                    'hide_empty' => true,
-                ));
+            $terms = get_terms(array(
+                'taxonomy'   => 'campaign_category',
+                'hide_empty' => true,
+            ));
 
-                foreach ($terms as $term):
-                // タクソノミーページへの直接リンクを生成
-                $term_link = get_term_link($term);
+            foreach ($terms as $term):
+            // タクソノミーページへの直接リンクを生成
+            $term_link = get_term_link($term);
             ?>
           <li class="tab-links__list">
             <a href="<?php echo esc_url($term_link); ?>" class="tab-link">
@@ -65,40 +65,40 @@
     <div class="campaign-section__content">
       <div class="campaign-section-cards">
         <?php
-            if (have_posts()) :
-                while (have_posts()) : the_post();
+          if (have_posts()) :
+          while (have_posts()) : the_post();
 
-                    // ACFを使用してカスタムフィールドの取得
-                    $markdown        = get_field('campaign-card__markdown');
-                    $reduceprice     = get_field('campaign-card__reduced-price');
-                    $card__period    = get_field('campaign-card__period');
-            ?>
+          // ACFを使用してカスタムフィールドの取得
+          $markdown        = get_field('campaign-card__markdown');
+          $reduceprice     = get_field('campaign-card__reduced-price');
+          $card__period    = get_field('campaign-card__period');
+          ?>
         <div class="campaign-section-cards__card">
           <div class="campaign-card">
             <div class="campaign-card__image">
               <?php
-                    if (has_post_thumbnail()) {
-                      // アイキャッチ画像を表示
-                      the_post_thumbnail('full');
-                    } else {
-                      // アイキャッチ画像がない場合はデフォルト画像を表示
-                      echo '<img src="' . get_theme_file_uri() . '/assets/images/common/noimage__comp.png" alt="no image" />';
-                    }
-                    ?>
+                if (has_post_thumbnail()) {
+                  // アイキャッチ画像を表示
+                  the_post_thumbnail('full');
+                } else {
+                  // アイキャッチ画像がない場合はデフォルト画像を表示
+                  echo '<img src="' . get_theme_file_uri() . '/assets/images/common/noimage__comp.png" alt="no image" />';
+                }
+                ?>
             </div>
             <div class="campaign-card__textbox">
               <div class="campaign-card__header">
                 <div class="campaign-card__tag">
                   <?php
-                        // 投稿IDから、その投稿に紐づくキャンペーンカテゴリーを取得
-                        $terms = get_the_terms(get_the_ID(), 'campaign_category');
+                  // 投稿IDから、その投稿に紐づくキャンペーンカテゴリーを取得
+                  $terms = get_the_terms(get_the_ID(), 'campaign_category');
 
-                        if (!empty($terms) && !is_wp_error($terms)) {
-                            // 複数ある場合は最初の一つだけ出す
-                            $term = array_shift($terms);
-                            echo esc_html($term->name);
-                        }
-                        ?>
+                  if (!empty($terms) && !is_wp_error($terms)) {
+                    // 複数ある場合は最初の一つだけ出す
+                    $term = array_shift($terms);
+                    echo esc_html($term->name);
+                }
+                  ?>
                 </div>
                 <div class="campaign-card__head">
                   <?php echo get_the_title(); ?>
@@ -154,15 +154,15 @@
     <div class="campaign-section-card__pagination">
       <div class="pagination">
         <?php
-              if (function_exists('wp_pagenavi')) {
-                wp_pagenavi();
-              } else {
-                the_posts_pagination(array(
-                  'prev_text' => '前へ',
-                  'next_text' => '次へ'
-                ));
-              }
-            ?>
+          if (function_exists('wp_pagenavi')) {
+            wp_pagenavi();
+          } else {
+            the_posts_pagination(array(
+              'prev_text' => '前へ',
+              'next_text' => '次へ'
+            ));
+          }
+        ?>
       </div>
     </div>
   </div>

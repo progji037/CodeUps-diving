@@ -139,8 +139,7 @@
               </div>
             </div>
           </div>
-          <div class="sidebar-campaign__cards">
-            <?php
+          <?php
               // 投稿の条件を設定
               $args = array(
               'post_type'      => 'campaign',
@@ -154,7 +153,8 @@
               $query = new WP_Query($args);
               if ($query->have_posts()) :
               ?>
-            <?php while ($query->have_posts()) : $query->the_post(); ?>
+          <?php while ($query->have_posts()) : $query->the_post(); ?>
+          <div class="sidebar-campaign__cards">
             <div class="sidebar-campaign-lists">
               <div class="sidebar-campaign-list__card campaign-card">
                 <div class="campaign-card__image campaign-card__image--blog">
@@ -197,15 +197,15 @@
                   </div>
                 </div>
               </div>
-              <?php
+            </div>
+          </div>
+          <?php
                 endwhile;
                 wp_reset_postdata();
                 else :
                 echo '<p>記事がありません。</p>';
                 endif;
                 ?>
-            </div>
-          </div>
           <div class="sidebar-campaign__link ">
             <a class="button" href="<?php echo esc_url( get_post_type_archive_link( 'campaign' ) ); ?>">
               View more

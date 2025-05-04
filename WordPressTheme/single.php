@@ -73,9 +73,7 @@
         <?php endif; ?>
       </div>
       <aside class="blog-section__sidebar">
-        <div class="blog-sidebar__inner">
-          <?php get_sidebar(); ?>
-        </div>
+        <?php get_sidebar(); ?>
       </aside>
     </div>
   </div>

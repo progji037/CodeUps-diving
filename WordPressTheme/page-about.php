@@ -80,34 +80,34 @@
     <div class="gallery-section__grid">
       <div class="gallery-section-grid">
         <?php
-                    // SCFのリピーターグループのデータを取得（グループ名: gallery）
-                    $fields = SCF::get('gallery');
-                    if (!empty($fields)) : // フィールドが空でない場合
-                        $count = 0;
-                    foreach ($fields as $val) :
+            // SCFのリピーターグループのデータを取得（グループ名: gallery）
+            $fields = SCF::get('gallery');
+            if (!empty($fields)) : // フィールドが空でない場合
+              $count = 0;
+            foreach ($fields as $val) :
 
-                    // 画像のIDを取得（フィールド名: galleryImage1）
-                    $image_id = $val['galleryImage'];
+            // 画像のIDを取得（フィールド名: galleryImage1）
+            $image_id = $val['galleryImage'];
 
-                    // 画像が設定されている場合
-                    if (!empty($image_id)) {
-                        // 画像のURLを取得（'full' にするとオリジナルサイズを取得）
-                        $image = wp_get_attachment_image_src($image_id, 'full');
+            // 画像が設定されている場合
+            if (!empty($image_id)) {
+              // 画像のURLを取得（'full' にするとオリジナルサイズを取得）
+              $image = wp_get_attachment_image_src($image_id, 'full');
 
-                    // 画像が取得できた場合
-                    if ($image) {
-                        $count++;
-                        $is_large = ($count % 6 == 1 || $count % 6 == 0);
-                  ?>
+            // 画像が取得できた場合
+            if ($image) {
+              $count++;
+              $is_large = ($count % 6 == 1 || $count % 6 == 0);
+          ?>
         <div class="gallery-section-grid__image js-gallery-section-grid__image <?php echo $is_large ? 'large-image' : ''; ?>">
           <img src="<?php echo esc_url($image[0]); ?>" alt="">
         </div>
         <?php
-                        }
-                    }
-                    endforeach;
-                  endif;
-                ?>
+              }
+            }
+            endforeach;
+          endif;
+        ?>
       </div>
     </div>
   </div>

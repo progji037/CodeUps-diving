@@ -13,8 +13,8 @@
       </picture>
     </div>
     <div class="main-view__title">
-      <h1 class="main-view__main-title main-view__main-title--capitalize">
-        Blog
+      <h1 class="main-view__main-title">
+        <?php the_archive_title(); ?>
       </h1>
     </div>
   </div>
@@ -100,7 +100,9 @@
           </div>
         </div>
       </div>
-      <?php get_sidebar(); ?>
+      <aside class="blog-section__sidebar">
+        <?php get_sidebar(); ?>
+      </aside>
     </div>
   </div>
 </section>

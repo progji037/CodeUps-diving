@@ -200,3 +200,29 @@ body.login div#login h1 {
 </style>
 <?php }
 add_action('login_enqueue_scripts', 'custom_login_logo');
+
+/**
+ * アーカイブタイトルからプレフィックス（「年:」「月:」など）を削除
+ */
+function remove_archive_title_prefix( $title ) {
+    // タイトルからプレフィックスを削除
+    if ( is_date() ) {
+			// 日付アーカイブの場合
+			if ( is_year() ) {
+				// 年別アーカイブの場合
+				$title = get_the_date( 'Y年' );
+			} elseif ( is_month() ) {
+				// 月別アーカイブの場合
+				$title = get_the_date( 'Y年n月' );
+			} elseif ( is_day() ) {
+				// 日別アーカイブの場合
+				$title = get_the_date( 'Y年n月j日' );
+			}
+    } else {
+			// 日付アーカイブ以外の場合（カテゴリー、タグなど）
+			// プレフィックスを削除（「カテゴリー:」「タグ:」など）
+			$title = preg_replace( '/.+?: /i', '', $title );
+    }
+    return $title;
+}
+add_filter( 'get_the_archive_title', 'remove_archive_title_prefix' );
