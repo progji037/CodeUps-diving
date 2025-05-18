@@ -532,17 +532,22 @@
         );
 
         $voice_query = new WP_Query($args);
+        $has_valid_posts = false; // 有効な投稿があるかどうかを追跡
 
         // 投稿がある場合
-        if ($voice_query->have_posts()) :
-          while ($voice_query->have_posts()) : $voice_query->the_post();
+        if ($voice_query->have_posts()) {
+          while ($voice_query->have_posts()) {
+            $voice_query->the_post();
 
             // カスタムフィールドから情報を取得
             $age_gender = get_field('voice_age');
-            $tag = get_field('voice_tag');
-            $title = get_field('voice_title') ? get_field('voice_title') : get_the_title();
-            $content = get_field('voice_content') ? get_field('voice_content') : get_the_content();
-        ?>
+            $content = get_the_content();
+            $title = get_the_title();
+
+            // 必要なデータが揃っているかチェック
+            if (!empty($age_gender) && !empty($content) && !empty($title)) {
+              $has_valid_posts = true; // 有効な投稿があることを記録
+?>
       <div class="voice-cards__item voice-card">
         <div class="voice-card__header">
           <div class="voice-card__body">
@@ -586,60 +591,16 @@
         </div>
       </div>
       <?php
-          endwhile;
+            }
+          }
           wp_reset_postdata(); // クエリのリセット
-        else :
-          // 投稿がない場合、デフォルトのカードを表示（既存のコードをそのまま使用）
-        ?>
-      <!-- 1 -->
-      <div class="voice-cards__item voice-card">
-        <div class="voice-card__header">
-          <div class="voice-card__body">
-            <div class="voice-card__meta">
-              <div class="voice-card__meta-age">20代(女性)</div>
-              <div class="voice-card__meta-tag">ライセンス講習</div>
-            </div>
-            <div class="voice-card__title">
-              ここにタイトルが入ります。ここにタイトル
-            </div>
-          </div>
-          <div class="voice-card__image mask-slide">
-            <img src="<?php echo get_theme_file_uri(); ?>/assets/images/voice-card/voice1.jpg" alt="" />
-          </div>
-        </div>
-        <div class="voice-card__text">
-          <p>
-            ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。<br />
-            ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。<br />
-            ここにテキストが入ります。ここにテキストが入ります。
-          </p>
-        </div>
-      </div>
-      <!-- 2 -->
-      <div class="voice-cards__item voice-card">
-        <div class="voice-card__header">
-          <div class="voice-card__body">
-            <div class="voice-card__meta">
-              <div class="voice-card__meta-age">30代(男性)</div>
-              <div class="voice-card__meta-tag">ファンダイビング</div>
-            </div>
-            <div class="voice-card__title">
-              ここにタイトルが入ります。ここにタイトル
-            </div>
-          </div>
-          <div class="voice-card__image mask-slide">
-            <img src="<?php echo get_theme_file_uri(); ?>/assets/images/voice-card/voice2.jpg" alt="" />
-          </div>
-        </div>
-        <div class="voice-card__text">
-          <p>
-            ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。<br />
-            ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。<br />
-            ここにテキストが入ります。ここにテキストが入ります。
-          </p>
-        </div>
-      </div>
-      <?php endif; ?>
+        }
+
+        // 有効な投稿がない場合
+        if (!$has_valid_posts) {
+          echo '<p>投稿がありません。</p>';
+        }
+?>
     </div>
     <div class="voice__link">
       <a class="button" href="<?php echo get_voice_url(); ?>">
@@ -691,27 +652,23 @@
             // 各カテゴリーの料金データを出力
             foreach ($price_categories as $category) {
               // SCFから料金データを取得
-              $price_items = SCF::get($category['field'], $price_page_id);
+              $price_items = SCF::get($category['field'], $price_page_id);              if (!empty($price_items)) : ?>
+        <div class="price__list">
+          <div class="price__list-title"><?php echo esc_html($category['title']); ?></div>
+          <dl class="price__costs">
+            <?php foreach ($price_items as $item) :
+                $menu = isset($item[$category['menu']]) ? $item[$category['menu']] : '';
+                $cost = isset($item[$category['cost']]) ? $item[$category['cost']] : '';
 
-              if (!empty($price_items)) {
-                echo '<div class="price__list">';
-                echo '<div class="price__list-title">' . esc_html($category['title']) . '</div>';
-                echo '<dl class="price__costs">';
-
-                foreach ($price_items as $item) {
-                  $menu = isset($item[$category['menu']]) ? $item[$category['menu']] : '';
-                  $cost = isset($item[$category['cost']]) ? $item[$category['cost']] : '';
-
-                  if (!empty($menu) && !empty($cost)) {
-                    // front-page専用の処理を使用（常に改行なし）
-                    $menu = convert_br_for_frontpage($menu);
-                    echo '<dt>' . $menu . '</dt>';
-                    echo '<dd>¥' . number_format($cost) . '</dd>';
-                  }
-                }
-                echo '</dl>';
-                echo '</div>';
-              }
+                if (!empty($menu) && !empty($cost)) :
+                  $menu = convert_br_for_frontpage($menu); ?>
+            <dt><?php echo $menu; ?></dt>
+            <dd>¥<?php echo number_format($cost); ?></dd>
+            <?php endif;
+                    endforeach; ?>
+          </dl>
+        </div>
+        <?php endif;
             }
           }
           ?>

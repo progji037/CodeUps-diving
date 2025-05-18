@@ -43,9 +43,22 @@
           <div class="blog-section__cards">
             <div class="cards cards--blog">
               <?php
-                  // メインループを使用
-                  if (have_posts()) :
-                  while (have_posts()) : the_post();
+                // 有効な投稿があるかどうかを追跡する変数
+                $has_valid_posts = false;
+
+                // 投稿があるかチェック
+                if (have_posts()) {
+                  // 投稿をループ処理
+                  while (have_posts()) {
+                    the_post();
+
+                    // 必要なデータが揃っているかチェック
+                    $content = get_the_content();
+                    $title = get_the_title();
+
+                    // 必要なデータがすべて揃っている場合のみ表示
+                    if (!empty($content) && !empty($title)) {
+                      $has_valid_posts = true; // 有効な投稿があることを記録
               ?>
               <div class="cards__item">
                 <a class="card" href="<?php the_permalink(); ?>">
@@ -79,14 +92,10 @@
                   <div class="card__body">
                     <div class="card__text">
                       <?php
-                        $content = get_the_content(); // 投稿の本文を取得
                         $max_length = 90; // 文字数制限
-
-                        // 文字数が制限を超えていたら、制限内の部分だけ表示
                         if (mb_strlen(strip_tags($content), 'UTF-8') > $max_length) {
                             $content = mb_substr(strip_tags($content), 0, $max_length, 'UTF-8'); // 超えた分を削除
                         }
-
                         echo wpautop($content); // 改行を反映して表示
                       ?>
                     </div>
@@ -94,10 +103,17 @@
                 </a>
               </div>
               <?php
-                endwhile;
-                else :
+                    }
+                  } // while ループの終了
+
+                  // いずれの場合も有効な投稿がなければメッセージを表示
+                  if (!$has_valid_posts) {
                     echo '<p>記事がありません。</p>';
-                endif;
+                  }
+                } else {
+                  // 投稿がない場合
+                  echo '<p>記事がありません。</p>';
+                }
               ?>
             </div>
           </div>

@@ -1,10 +1,6 @@
 </main>
 
-<?php if
-(!is_page('contact') &&
- !is_page('thanks') &&
-!is_404())
-:?>
+<?php if(!is_page('contact') && !is_page('thanks') && !is_404()): ?>
 <section class="contact page-common-contact page-common-contact--privacy">
   <div class="contact__wrapper">
     <div class="contact__inner inner">

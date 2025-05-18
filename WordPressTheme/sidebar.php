@@ -17,17 +17,27 @@
             <div class="article-cards">
               <div class="article-cards__item">
                 <?php
-                  // 投稿の条件を設定
+                  // 投稿の条件を設定（初期値と同じなので変更なし）
                   $args = array(
-                  'post_type'      => 'post',
-                  'posts_per_page' => 3,
-                  'post_status'    => 'publish',
-                  'orderby'        => 'date',
-                  'order'          => 'DESC',
+                    'post_type'      => 'post',
+                    'posts_per_page' => 3,
+                    'post_status'    => 'publish',
+                    'orderby'        => 'date',
+                    'order'          => 'DESC',
                   );
                   $query = new WP_Query($args);
-                  if ($query->have_posts()) : ?>
-                <?php while ($query->have_posts()) : $query->the_post(); ?>
+                  $has_valid_posts = false; // 有効な投稿があるかどうかを追跡
+
+                  if ($query->have_posts()) {
+                    while ($query->have_posts()) {
+                      $query->the_post();
+                      // 必要なデータが揃っているかチェック
+                      $content = get_the_content();
+                      $title = get_the_title();
+
+                      if (!empty($content) && !empty($title)) {
+                        $has_valid_posts = true; // 有効な投稿があることを記録
+                ?>
                 <a class="article-card" href="<?php echo esc_url(get_permalink()); ?>">
                   <div class="article-card__item">
                     <div class="article-card__image">
@@ -41,11 +51,9 @@
                       <?php
                         $blog_date = get_post_meta(get_the_ID(), 'blog_date', true);
                         if ($blog_date) {
-                          // `blog_date` が "20231117" のような形式の場合、正しい日付フォーマットに変換
                           $formatted_date = date('Y.m.d', strtotime($blog_date));
                           $datetime_attr = date('c', strtotime($blog_date));
                         } else {
-                          // カスタムフィールドが空なら投稿の公開日を使う
                           $formatted_date = get_the_date('Y.m.d');
                           $datetime_attr = get_the_date('c');
                         }
@@ -60,12 +68,18 @@
                   </div>
                 </a>
                 <?php
-                  endwhile;
-                  wp_reset_postdata();
-                  else :
-                  echo '<p>記事がありません。</p>';
-                  endif;
-                  ?>
+                      }
+                    }
+                    wp_reset_postdata();
+
+                    // 有効な投稿がない場合
+                    if (!$has_valid_posts) {
+                      echo '<p>記事がありません。</p>';
+                    }
+                  } else {
+                    echo '<p>記事がありません。</p>';
+                  }
+                ?>
               </div>
             </div>
           </div>
@@ -84,7 +98,7 @@
             </div>
           </div>
           <?php
-              // 投稿の条件を設定
+              // 投稿の条件を設定（初期値と同じなので変更なし）
               $args = array(
               'post_type'      => 'voice',
               'posts_per_page' => 1,
@@ -94,17 +108,25 @@
               );
               // 投稿を実際に取り出す
               $query = new WP_Query($args);
-              if ($query->have_posts()) :
-              while ($query->have_posts()) : $query->the_post();
-              ?>
+              $has_valid_posts = false; // 有効な投稿があるかどうかを追跡
+
+              if ($query->have_posts()) {
+                while ($query->have_posts()) {
+                  $query->the_post();
+                  // 必要なデータが揃っているかチェック
+                  $voice_age = get_field('voice_age');
+                  $content = get_the_content();
+                  $title = get_the_title();
+
+                  if (!empty($voice_age) && !empty($content) && !empty($title)) {
+                    $has_valid_posts = true; // 有効な投稿があることを記録
+          ?>
           <div class="sidebar-review__voice">
-            <?php if
-              (has_post_thumbnail()) {
-              the_post_thumbnail(array(294, 218));
-              } else { // 「アイキャッチ画像があれば」以外なら
-              echo '<img src="' . get_template_directory_uri() . '/images/common/noimage__comp.png" alt="no image" />';
-              }
-              ?>
+            <?php if (has_post_thumbnail()) : ?>
+            <?php the_post_thumbnail(array(294, 218)); ?>
+            <?php else: ?>
+            <img src="<?php echo esc_url(get_template_directory_uri()); ?>/images/common/noimage__comp.png" alt="no image" />
+            <?php endif; ?>
             <p>
               <?php the_field('voice_age'); ?>
             </p>
@@ -113,12 +135,18 @@
             </div>
           </div>
           <?php
-            endwhile;
-            wp_reset_postdata();
-            else :
-            echo '<p>記事がありません。</p>';
-            endif;
-            ?>
+                  }
+                }
+                wp_reset_postdata();
+
+                // 有効な投稿がない場合
+                if (!$has_valid_posts) {
+                  echo '<p>記事がありません。</p>';
+                }
+              } else {
+                echo '<p>記事がありません。</p>';
+              }
+          ?>
           <div class="sidebar-review__link">
             <a class="button" href="<?php echo esc_url( get_post_type_archive_link( 'voice' ) ); ?>">
               View more
@@ -140,7 +168,7 @@
             </div>
           </div>
           <?php
-              // 投稿の条件を設定
+              // 投稿の条件を設定（初期値と同じなので変更なし）
               $args = array(
               'post_type'      => 'campaign',
               'posts_per_page' => 2,
@@ -151,9 +179,20 @@
 
               // 投稿を実際に取り出す
               $query = new WP_Query($args);
-              if ($query->have_posts()) :
+              $has_valid_posts = false; // 有効な投稿があるかどうかを追跡
+
+              if ($query->have_posts()) {
+                while ($query->have_posts()) {
+                  $query->the_post();
+                  // 必要なデータが揃っているかチェック
+                  $markdown = get_field('campaign-card__markdown');
+                  $reduceprice = get_field('campaign-card__reduced-price');
+                  $content = get_the_content();
+                  $title = get_the_title();
+
+                  if (!empty($markdown) && !empty($reduceprice) && !empty($content) && !empty($title)) {
+                    $has_valid_posts = true; // 有効な投稿があることを記録
               ?>
-          <?php while ($query->have_posts()) : $query->the_post(); ?>
           <div class="sidebar-campaign__cards">
             <div class="sidebar-campaign-lists">
               <div class="sidebar-campaign-list__card campaign-card">
@@ -179,7 +218,6 @@
                     <div class="campaign-card__price campaign-card__price--blog">
                       <div class="campaign-card__markdown campaign-card__markdown--blog">
                         <?php
-                          $markdown = get_field('campaign-card__markdown');
                           if (!empty($markdown)) {
                             echo '¥' . number_format(intval(str_replace(',', '', $markdown)));
                           }
@@ -187,7 +225,6 @@
                       </div>
                       <div class="campaign-card__reduced-price campaign-card__reduced-price--blog">
                         <?php
-                          $reduceprice = get_field('campaign-card__reduced-price');
                           if (!empty($reduceprice)) {
                             echo '¥' . number_format(intval(str_replace(',', '', $reduceprice)));
                           }
@@ -200,12 +237,18 @@
             </div>
           </div>
           <?php
-                endwhile;
+                  }
+                }
                 wp_reset_postdata();
-                else :
+
+                // 有効な投稿がない場合
+                if (!$has_valid_posts) {
+                  echo '<p>記事がありません。</p>';
+                }
+              } else {
                 echo '<p>記事がありません。</p>';
-                endif;
-                ?>
+              }
+              ?>
           <div class="sidebar-campaign__link ">
             <a class="button" href="<?php echo esc_url( get_post_type_archive_link( 'campaign' ) ); ?>">
               View more

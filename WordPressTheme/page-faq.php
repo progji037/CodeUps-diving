@@ -30,8 +30,14 @@
     <div class="faq-lists">
       <?php
         $faq_lists = SCF::get('faq_list');
-        if (!empty($faq_lists)) : ?>
-      <?php foreach ($faq_lists as $faq) : ?>
+        $has_valid_faqs = false; // 有効なFAQがあるかどうかを追跡
+
+        if (!empty($faq_lists)) {
+          foreach ($faq_lists as $faq) {
+            // 質問と回答の両方が入力されているかチェック
+            if (!empty($faq['faq_question']) && !empty($faq['faq_answer'])) {
+              $has_valid_faqs = true; // 有効なFAQがあることを記録
+      ?>
       <div class="faq-lists__item">
         <div class="faq-list">
           <div class="faq-list__question js-faq-list__question">
@@ -46,8 +52,16 @@
           </div>
         </div>
       </div>
-      <?php endforeach; ?>
-      <?php endif; ?>
+      <?php
+            }
+          }
+        }
+
+        // 有効なFAQがない場合
+        if (!$has_valid_faqs) {
+          echo '<p>投稿がありません。</p>';
+        }
+      ?>
     </div>
   </div>
 </section>

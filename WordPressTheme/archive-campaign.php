@@ -40,13 +40,11 @@
               ALL
             </a>
           </li>
-
           <?php
             $terms = get_terms(array(
                 'taxonomy'   => 'campaign_category',
                 'hide_empty' => true,
             ));
-
             foreach ($terms as $term):
             // タクソノミーページへの直接リンクを生成
             $term_link = get_term_link($term);
@@ -66,13 +64,17 @@
       <div class="campaign-section-cards">
         <?php
           if (have_posts()) :
-          while (have_posts()) : the_post();
+            while (have_posts()) : the_post();
 
-          // ACFを使用してカスタムフィールドの取得
-          $markdown        = get_field('campaign-card__markdown');
-          $reduceprice     = get_field('campaign-card__reduced-price');
-          $card__period    = get_field('campaign-card__period');
-          ?>
+            // ACFを使用してカスタムフィールドの取得
+            $markdown = get_field('campaign-card__markdown');
+            $reduceprice = get_field('campaign-card__reduced-price');
+            $card__period = get_field('campaign-card__period');
+
+            // すべてのカスタムフィールドが入力されているかチェック
+            if (!empty($markdown) && !empty($reduceprice) && !empty($card__period)) {
+              // すべてのフィールドが入力されている場合のみ表示
+              ?>
         <div class="campaign-section-cards__card">
           <div class="campaign-card">
             <div class="campaign-card__image">
@@ -84,21 +86,21 @@
                   // アイキャッチ画像がない場合はデフォルト画像を表示
                   echo '<img src="' . get_theme_file_uri() . '/assets/images/common/noimage__comp.png" alt="no image" />';
                 }
-                ?>
+              ?>
             </div>
             <div class="campaign-card__textbox">
               <div class="campaign-card__header">
                 <div class="campaign-card__tag">
                   <?php
-                  // 投稿IDから、その投稿に紐づくキャンペーンカテゴリーを取得
-                  $terms = get_the_terms(get_the_ID(), 'campaign_category');
+                        // 投稿IDから、その投稿に紐づくキャンペーンカテゴリーを取得
+                        $terms = get_the_terms(get_the_ID(), 'campaign_category');
 
-                  if (!empty($terms) && !is_wp_error($terms)) {
-                    // 複数ある場合は最初の一つだけ出す
-                    $term = array_shift($terms);
-                    echo esc_html($term->name);
-                }
-                  ?>
+                        if (!empty($terms) && !is_wp_error($terms)) {
+                          // 複数ある場合は最初の一つだけ出す
+                          $term = array_shift($terms);
+                          echo esc_html($term->name);
+                      }
+                        ?>
                 </div>
                 <div class="campaign-card__head">
                   <?php echo get_the_title(); ?>
@@ -142,13 +144,22 @@
           </div>
         </div>
         <?php
-                endwhile;
-            else:
+            } else {
+              // 1つでもフィールドが入力されていない場合は何も表示しない
+              // ここでは何も出力しないことで、後で「投稿がありません」を表示するための準備をします
+              $has_valid_posts = false;
+            }
+            endwhile;
+            // 有効な投稿があるかどうかをチェック
+            if (isset($has_valid_posts) && $has_valid_posts === false) {
+              echo '<p>キャンペーンはありません。</p>';
+            }
+          else;
             ?>
         <p>キャンペーンはありません。</p>
         <?php
-            endif;
-            ?>
+          endif;
+        ?>
       </div>
     </div>
     <div class="campaign-section-card__pagination">

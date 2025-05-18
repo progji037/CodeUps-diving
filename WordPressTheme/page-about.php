@@ -82,32 +82,39 @@
         <?php
             // SCFのリピーターグループのデータを取得（グループ名: gallery）
             $fields = SCF::get('gallery');
-            if (!empty($fields)) : // フィールドが空でない場合
+            $has_valid_images = false; // 有効な画像があるかどうかを追跡
+
+            if (!empty($fields)) {
               $count = 0;
-            foreach ($fields as $val) :
+              foreach ($fields as $val) {
+                // 画像のIDを取得（フィールド名: galleryImage）
+                $image_id = $val['galleryImage'];
 
-            // 画像のIDを取得（フィールド名: galleryImage1）
-            $image_id = $val['galleryImage'];
+                // 画像が設定されている場合
+                if (!empty($image_id)) {
+                  // 画像のURLを取得（'full' にするとオリジナルサイズを取得）
+                  $image = wp_get_attachment_image_src($image_id, 'full');
 
-            // 画像が設定されている場合
-            if (!empty($image_id)) {
-              // 画像のURLを取得（'full' にするとオリジナルサイズを取得）
-              $image = wp_get_attachment_image_src($image_id, 'full');
-
-            // 画像が取得できた場合
-            if ($image) {
-              $count++;
-              $is_large = ($count % 6 == 1 || $count % 6 == 0);
-          ?>
+                  // 画像が取得できた場合
+                  if ($image) {
+                    $has_valid_images = true; // 有効な画像があることを記録
+                    $count++;
+                    $is_large = ($count % 6 == 1 || $count % 6 == 0);
+            ?>
         <div class="gallery-section-grid__image js-gallery-section-grid__image <?php echo $is_large ? 'large-image' : ''; ?>">
           <img src="<?php echo esc_url($image[0]); ?>" alt="">
         </div>
         <?php
+                  }
+                }
               }
             }
-            endforeach;
-          endif;
-        ?>
+
+            // 有効な画像がない場合
+            if (!$has_valid_images) {
+              echo '<p>投稿がありません。</p>';
+            }
+            ?>
       </div>
     </div>
   </div>

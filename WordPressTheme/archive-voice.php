@@ -61,8 +61,22 @@
 
     <div class="voice-section__container">
       <div class="voice-cards">
-        <?php if (have_posts()) : ?>
-        <?php while (have_posts()) : the_post(); ?>
+        <?php
+        // 有効な投稿があるかどうかを追跡する変数
+        $has_valid_posts = false;
+
+        if (have_posts()) :
+          while (have_posts()) : the_post();
+
+            // 必要なデータが揃っているかチェック
+            $voice_age = get_field('voice_age');
+            $content = get_the_content();
+            $has_terms = get_the_terms(get_the_ID(), 'voice_category');
+
+            // 必要なデータがすべて揃っている場合のみ表示
+            if (!empty($voice_age) && !empty($content) && !empty($has_terms) && !is_wp_error($has_terms)) {
+              $has_valid_posts = true; // 有効な投稿があることを記録
+        ?>
         <div class="voice-cards__item">
           <div class="voice-card">
             <div class="voice-card__header">
@@ -101,10 +115,19 @@
             </div>
           </div>
         </div>
-        <?php endwhile; ?>
-        <?php else : ?>
+        <?php
+            }
+          endwhile;
+
+          // 有効な投稿がない場合
+          if (!$has_valid_posts) {
+            echo '<p>お客様の声はまだ投稿されていません。</p>';
+          }
+        else;
+          ?>
         <p>お客様の声はまだ投稿されていません。</p>
-        <?php endif; ?>
+        <?php
+        endif; ?>
       </div>
     </div>
 
