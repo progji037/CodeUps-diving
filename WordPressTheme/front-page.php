@@ -107,80 +107,57 @@
       <div class="section-title__main">Campaign</div>
       <h2 class="section-title__sub">キャンペーン</h2>
     </div>
-    <!-- swiper -->
     <div class="campaign-card__wrap">
       <div class="campaign__button campaign-button">
         <div class="campaign-button__slide">
           <div class="campaign__button-prev"></div>
-          <!-- swiper-button-prev  -->
           <div class="campaign__button-next"></div>
-          <!-- swiper-button-next  -->
         </div>
         <div class="swiper campaign__swiper js-top-swiper">
           <div class="swiper-wrapper">
             <?php
-              // キャンペーン投稿を取得するクエリ
-              $args = array(
-                'post_type'      => 'campaign',
-                'posts_per_page' => 8, // スライダーに表示する最大数
-                'post_status'    => 'publish',
-                'orderby'        => 'date',
-                'order'          => 'DESC',
-              );
+            $args = array(
+              'post_type'      => 'campaign',
+              'posts_per_page' => 8,
+              'post_status'    => 'publish',
+              'orderby'        => 'date',
+              'order'          => 'DESC',
+            );
 
-              $campaign_query = new WP_Query($args);
+            $campaign_query = new WP_Query($args);
+            $has_valid_posts = false;
 
-              // 投稿がある場合
-              if ($campaign_query->have_posts()) :
-                while ($campaign_query->have_posts()) : $campaign_query->the_post();
+            if ($campaign_query->have_posts()) {
+              while ($campaign_query->have_posts()) {
+                $campaign_query->the_post();
 
-                // ACFからカスタムフィールドの取得
-                $card_tag = get_field('campaign-card__tag');
-                $card_head = get_field('campaign-card__head');
+                // 必要なデータが揃っているかチェック
                 $markdown = get_field('campaign-card__markdown');
                 $reduceprice = get_field('campaign-card__reduced-price');
-            ?>
-            <!-- 動的に生成されるスライド -->
+                $content = get_the_content();
+                $title = get_the_title();
+                $terms = get_the_terms(get_the_ID(), 'campaign_category');
+
+                if (!empty($markdown) && !empty($reduceprice) && !empty($content) && !empty($title) && !empty($terms)) {
+                  $has_valid_posts = true;
+                  ?>
             <div class="swiper-slide campaign__slide">
               <div class="campaign__card">
                 <div class="campaign-card">
                   <div class="campaign-card__image">
-                    <?php
-                      $post_id = get_the_ID();
-
-                      if (has_post_thumbnail($post_id)) {
-                        // 投稿IDを明示的に指定してアイキャッチ画像を取得
-                        echo get_the_post_thumbnail($post_id, 'full');
-                      } else {
-                        // ACFから画像フィールドを取得（投稿IDを明示的に指定）
-                        $image = get_field('campaign_image', $post_id);
-
-                        if ($image) {
-                          // ACFの画像フィールドから画像を表示
-                          echo '<img src="' . esc_url($image['url']) . '" alt="' . esc_attr($image['alt']) . '" />';
-                        } else {
-                          // デフォルト画像
-                          echo '<img src="' . get_theme_file_uri() . '/assets/images/common/noimage__comp.png" alt="no image" />';
-                        }
-                      }
-                      ?>
+                    <?php if (has_post_thumbnail()) : ?>
+                    <?php the_post_thumbnail('full'); ?>
+                    <?php else : ?>
+                    <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/noimage__comp.png" alt="no image" />
+                    <?php endif; ?>
                   </div>
                   <div class="campaign-card__textbox">
                     <div class="campaign-card__header">
                       <div class="campaign-card__tag">
-                        <?php
-                        // 投稿IDから、その投稿に紐づくキャンペーンカテゴリーを取得
-                        $terms = get_the_terms(get_the_ID(), 'campaign_category');
-
-                        if (!empty($terms) && !is_wp_error($terms)) {
-                          // 複数ある場合は最初の一つだけ出す
-                          $term = array_shift($terms);
-                          echo esc_html($term->name);
-                        }
-                        ?>
+                        <?php echo esc_html($terms[0]->name); ?>
                       </div>
                       <div class="campaign-card__head">
-                        <?php echo !empty($card_head) ? esc_html($card_head) : get_the_title(); ?>
+                        <?php the_title(); ?>
                       </div>
                     </div>
                     <div class="campaign-card__body">
@@ -189,10 +166,10 @@
                       </div>
                       <div class="campaign-card__price">
                         <div class="campaign-card__markdown">
-                          ¥<?php echo !empty($markdown) ? number_format(intval(str_replace(',', '', $markdown))) : '0'; ?>
+                          ¥<?php echo number_format(intval(str_replace(',', '', $markdown))); ?>
                         </div>
                         <div class="campaign-card__reduced-price">
-                          ¥<?php echo !empty($reduceprice) ? number_format(intval(str_replace(',', '', $reduceprice))) : '0'; ?>
+                          ¥<?php echo number_format(intval(str_replace(',', '', $reduceprice))); ?>
                         </div>
                       </div>
                     </div>
@@ -201,68 +178,15 @@
               </div>
             </div>
             <?php
-                endwhile;
-                wp_reset_postdata(); // クエリのリセット
-              else :
-                // 投稿がない場合、デフォルトのスライドを表示
-              ?>
-            <!-- デフォルトスライド1 -->
-            <div class="swiper-slide campaign__slide">
-              <div class="campaign__card">
-                <div class="campaign-card">
-                  <div class="campaign-card__image">
-                    <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/campaign1-sp.jpg" alt="" />
-                  </div>
-                  <div class="campaign-card__textbox">
-                    <div class="campaign-card__header">
-                      <div class="campaign-card__tag">ライセンス講習</div>
-                      <div class="campaign-card__head">ライセンス取得</div>
-                    </div>
-                    <div class="campaign-card__body">
-                      <div class="campaign-card__title">
-                        <p>全部コミコミ(お一人様)</p>
-                      </div>
-                      <div class="campaign-card__price">
-                        <div class="campaign-card__markdown">¥56,000</div>
-                        <div class="campaign-card__reduced-price">
-                          ¥46,000
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <!-- デフォルトスライド2 -->
-            <div class="swiper-slide campaign__slide">
-              <div class="campaign__card">
-                <div class="campaign-card">
-                  <div class="campaign-card__image">
-                    <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/campaign2-sp.jpg" alt="" />
-                  </div>
-                  <div class="campaign-card__textbox">
-                    <div class="campaign-card__header">
-                      <div class="campaign-card__tag">体験ダイビング</div>
-                      <div class="campaign-card__head">
-                        貸切体験ダイビング
-                      </div>
-                    </div>
-                    <div class="campaign-card__body">
-                      <div class="campaign-card__title">
-                        <p>全部コミコミ(お一人様)</p>
-                      </div>
-                      <div class="campaign-card__price">
-                        <div class="campaign-card__markdown">¥24,000</div>
-                        <div class="campaign-card__reduced-price">
-                          ¥18,000
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <?php endif; ?>
+                }
+              }
+              wp_reset_postdata();
+            }
+
+            if (!$has_valid_posts) {
+              echo '<p>記事がありません</p>';
+            }
+            ?>
           </div>
         </div>
       </div>
@@ -369,30 +293,26 @@
       <?php
         // ブログ記事を取得するクエリ
         $args = array(
-            'post_type'      => 'post', // 標準の投稿タイプ
-            'posts_per_page' => 3,      // 表示する記事数（3つのカードを表示）
-            'post_status'    => 'publish', // 公開済みの投稿のみ
+            'post_type'      => 'post',
+            'posts_per_page' => 3,
+            'post_status'    => 'publish',
             'orderby'        => 'date',
-            'order'          => 'DESC'  // 最新の記事から表示
+            'order'          => 'DESC'
         );
 
         $blog_query = new WP_Query($args);
 
-        // 投稿がある場合
         if ($blog_query->have_posts()) :
           while ($blog_query->have_posts()) : $blog_query->the_post();
-
-          // カスタムフィールドから日付を取得（ない場合は投稿日を使用）
-          $blog_date = get_post_meta(get_the_ID(), 'blog_date', true);
-          if ($blog_date) {
-              // カスタムフィールドの日付を整形
-              $formatted_date = date('Y.m/d', strtotime($blog_date));
-              $datetime_attr = date('c', strtotime($blog_date));
-          } else {
-              // 投稿日を使用
-              $formatted_date = get_the_date('Y.m/d');
-              $datetime_attr = get_the_date('c');
-          }
+              // カスタムフィールドから日付を取得
+              $blog_date = get_post_meta(get_the_ID(), 'blog_date', true);
+              if ($blog_date) {
+                  $formatted_date = date('Y.m/d', strtotime($blog_date));
+                  $datetime_attr = date('c', strtotime($blog_date));
+              } else {
+                  $formatted_date = get_the_date('Y.m/d');
+                  $datetime_attr = get_the_date('c');
+              }
         ?>
       <div class="cards__item">
         <a class="card" href="<?php the_permalink(); ?>">
@@ -414,16 +334,12 @@
           <div class="card__body">
             <div class="card__text">
               <?php
-                  // 投稿の本文を取得して文字数制限
-                  $content = get_the_content();
-                  $max_length = 90; // 文字数制限
-
-                  // 文字数が制限を超えていたら、制限内の部分だけ表示
-                  if (mb_strlen(strip_tags($content), 'UTF-8') > $max_length) {
-                      $content = mb_substr(strip_tags($content), 0, $max_length, 'UTF-8') . '...';
-                  }
-
-                  echo wpautop($content); // 改行を反映して表示
+                    $content = get_the_content();
+                    $max_length = 90;
+                    if (mb_strlen(strip_tags($content), 'UTF-8') > $max_length) {
+                        $content = mb_substr(strip_tags($content), 0, $max_length, 'UTF-8') . '...';
+                    }
+                    echo wpautop($content);
                 ?>
             </div>
           </div>
@@ -431,76 +347,10 @@
       </div>
       <?php
             endwhile;
-            wp_reset_postdata(); // クエリのリセット
-        else :
-            // 投稿がない場合、デフォルトのカードを表示
+            wp_reset_postdata();
+        else:
         ?>
-      <!-- デフォルトカード1 -->
-      <div class="cards__item">
-        <a class="card" href="<?php the_permalink(); ?>">
-          <div class="card__figure">
-            <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/blog-ocean4-sp.jpg" alt="" />
-          </div>
-          <div class="card__header">
-            <div class="card__date">
-              <time datetime="2023-11-17">2023.11/17</time>
-            </div>
-            <div class="card__heading">ライセンス取得</div>
-          </div>
-          <div class="card__body">
-            <div class="card__text">
-              <p>
-                ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。<br />
-                ここにテキストが入ります。ここにテキストが入ります。ここにテキスト
-              </p>
-            </div>
-          </div>
-        </a>
-      </div>
-      <!-- デフォルトカード2 -->
-      <div class="cards__item">
-        <a class="card" href="<?php the_permalink(); ?>">
-          <div class="card__figure">
-            <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/blog-ocean5-sp.jpg" alt="" />
-          </div>
-          <div class="card__header">
-            <div class="card__date">
-              <time datetime="2023-11-17">2023.11/17</time>
-            </div>
-            <div class="card__heading">ウミガメと泳ぐ</div>
-          </div>
-          <div class="card__body">
-            <div class="card__text">
-              <p>
-                ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。<br />
-                ここにテキストが入ります。ここにテキストが入ります。ここにテキスト
-              </p>
-            </div>
-          </div>
-        </a>
-      </div>
-      <!-- デフォルトカード3 -->
-      <div class="cards__item">
-        <a class="card" href="<?php the_permalink(); ?>">
-          <div class="card__figure">
-            <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/blog-ocean6-sp.jpg" alt="" />
-          </div>
-          <div class="card__header">
-            <div class="card__date">
-              <time datetime="2023-11-17">2023.11/17</time>
-            </div>
-            <div class="card__heading">カクレクマノミ</div>
-          </div>
-          <div class="card__body">
-            <div class="card__text">
-              <p>
-                ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。<br />
-                ここにテキストが入ります。ここにテキストが入ります。ここにテキスト
-              </p>
-            </div>
-          </div>
-        </a>
-      </div>
+      <p class="blog__no-posts">記事がありません</p>
       <?php endif; ?>
     </div>
     <div class="blog__link">
