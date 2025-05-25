@@ -226,3 +226,41 @@ function remove_archive_title_prefix( $title ) {
     return $title;
 }
 add_filter( 'get_the_archive_title', 'remove_archive_title_prefix' );
+
+// ダッシュボードにアイコン付きショートカットを追加
+function add_custom_dashboard_links_with_icons() {
+	wp_add_dashboard_widget(
+			'custom_dashboard_links_widget',
+			'ショートカットメニュー',
+			'custom_dashboard_links_widget_content_with_icons'
+	);
+}
+add_action('wp_dashboard_setup', 'add_custom_dashboard_links_with_icons');
+
+// アイコン付きウィジェット中身
+function custom_dashboard_links_widget_content_with_icons() {
+	?>
+<style>
+.custom-shortcut-list li {
+  margin-bottom: 8px;
+}
+
+.custom-shortcut-list li a {
+  text-decoration: none;
+  font-size: 15px;
+}
+
+.custom-shortcut-list li .dashicons {
+  margin-right: 6px;
+  vertical-align: middle;
+}
+</style>
+<ul class="custom-shortcut-list">
+  <li><a href="<?php echo admin_url('edit.php'); ?>"><span class="dashicons dashicons-admin-post"></span>ブログ（投稿）一覧</a></li>
+  <li><a href="<?php echo admin_url('edit.php?post_type=campaign'); ?>"><span class="dashicons dashicons-megaphone"></span>キャンペーン一覧</a></li>
+  <li><a href="<?php echo admin_url('edit.php?post_type=voice'); ?>"><span class="dashicons dashicons-format-chat"></span>お客様の声一覧</a></li>
+  <li><a href="<?php echo admin_url('upload.php'); ?>"><span class="dashicons dashicons-format-image"></span>メディア一覧</a></li>
+  <li><a href="<?php echo admin_url('edit.php?post_type=page'); ?>"><span class="dashicons dashicons-admin-page"></span>固定ページ一覧</a></li>
+</ul>
+<?php
+}

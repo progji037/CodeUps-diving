@@ -18,7 +18,7 @@
         $post_type_obj = get_post_type_object($post_type);
       ?>
       <h1 class="main-view__main-title">
-        <?php echo esc_html($post_type_obj->label);?>
+        Voice
       </h1>
     </div>
   </div>
@@ -62,15 +62,32 @@
 
     <div class="voice-section__container">
       <div class="voice-cards">
-        <?php if (have_posts()) : ?>
-        <?php while (have_posts()) : the_post(); ?>
+        <?php
+        // 有効な投稿があるかどうかを追跡する変数
+        $has_valid_posts = false;
+
+        if (have_posts()) :
+          while (have_posts()) : the_post();
+
+            // 必要なデータが揃っているかチェック
+            $user_info = get_field('ユーザー区分');
+            $voice_gender = $user_info ? $user_info['voice_gender'] : '';
+            $voice_age = $user_info ? $user_info['voice_age'] : '';
+            $content = get_the_content();
+            $has_terms = get_the_terms(get_the_ID(), 'voice_category');
+
+            // 基本的なデータがある場合は表示（非公開でもOK）
+            if (!empty($voice_gender) && !empty($voice_age) &&
+                !empty($content) && !empty($has_terms) && !is_wp_error($has_terms)) {
+              $has_valid_posts = true; // 有効な投稿があることを記録
+        ?>
         <div class="voice-cards__item">
           <div class="voice-card">
             <div class="voice-card__header">
               <div class="voice-card__body">
                 <div class="voice-card__meta">
                   <div class="voice-card__meta-age">
-                    <?php the_field('voice_age'); ?>
+                    <?php echo esc_html($voice_age) . '(' . esc_html($voice_gender) . ')'; ?>
                   </div>
                   <div class="voice-card__meta-tag">
                     <?php
@@ -101,10 +118,16 @@
             </div>
           </div>
         </div>
-        <?php endwhile; ?>
-        <?php else : ?>
-        <p>お客様の声はまだ投稿されていません。</p>
-        <?php endif; ?>
+        <?php
+            }
+          endwhile;
+        endif;
+
+        // 投稿がない、または有効な投稿がない場合
+        if (!have_posts() || !$has_valid_posts) {
+          echo '<p>お客様の声はまだ投稿されていません。</p>';
+        }
+        ?>
       </div>
     </div>
     <div class="voice-section__pagination">

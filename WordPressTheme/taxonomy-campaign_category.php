@@ -56,13 +56,21 @@
     <div class="campaign-section__content">
       <div class="campaign-section-cards">
         <?php
+          // 有効な投稿があるかどうかを追跡する変数
+          $has_valid_posts = false;
+
           if (have_posts()) :
             while (have_posts()) : the_post();
             // ACFを使用してカスタムフィールドの取得
             $markdown        = get_field('campaign-card__markdown');
             $reduceprice     = get_field('campaign-card__reduced-price');
             $card__period    = get_field('campaign-card__period');
-          ?>
+
+            // すべてのカスタムフィールドが入力されているかチェック
+            if (!empty($markdown) && !empty($reduceprice) && !empty($card__period)) {
+              // すべてのフィールドが入力されている場合のみ表示
+              $has_valid_posts = true;
+              ?>
         <div class="campaign-section-cards__card">
           <div class="campaign-card">
             <div class="campaign-card__image">
@@ -131,12 +139,14 @@
           </div>
         </div>
         <?php
+            }
           endwhile;
-          else:
-        ?>
-        <p>該当するキャンペーンはありません。</p>
-        <?php
-          endif;
+        endif;
+
+        // 投稿がない、または有効な投稿がない場合
+        if (!have_posts() || !$has_valid_posts) {
+          echo '<p>該当するキャンペーンはありません。</p>';
+        }
         ?>
       </div>
     </div>

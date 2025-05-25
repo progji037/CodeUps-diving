@@ -18,7 +18,7 @@
             $post_type_obj = get_post_type_object($post_type);
             ?>
       <h1 class="main-view__main-title">
-        <?php echo esc_html($post_type_obj->label);?>
+        Campaign
       </h1>
     </div>
   </div>
@@ -150,15 +150,12 @@
               $has_valid_posts = false;
             }
             endwhile;
-            // 有効な投稿があるかどうかをチェック
-            if (isset($has_valid_posts) && $has_valid_posts === false) {
-              echo '<p>キャンペーンはありません。</p>';
-            }
-          else;
-            ?>
-        <p>キャンペーンはありません。</p>
-        <?php
           endif;
+
+          // 投稿がない、または有効な投稿がない場合
+          if (!have_posts() || (isset($has_valid_posts) && $has_valid_posts === false)) {
+            echo '<p>キャンペーンはありません。</p>';
+          }
         ?>
       </div>
     </div>
